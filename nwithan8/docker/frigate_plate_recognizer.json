@@ -1,0 +1,52 @@
+{
+  "name": "Frigate Plate Recognizer",
+  "repo": "lmerza/frigate_plate_recognizer:latest",
+  "category": [
+    "AI",
+    "Media",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/lmerza/frigate_plate_recognizer",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/blakeblackshear/frigate/refs/heads/dev/docs/static/img/logo.svg",
+  "project": "https://github.com/ljmerza/frigate_plate_recognizer",
+  "support": "https://github.com/ljmerza/frigate_plate_recognizer/issues",
+  "description": "Identify license plates via Plate Recognizer or CodeProject.AI and add them as sublabels to Frigate.",
+  "requires": "Requires separate Frigate and CodeProject.AI instances. \r\n        [br]\n        Expects a `config.yml` file in the App Data folder. See documentation: https://github.com/ljmerza/frigate_plate_recognizer#setup",
+  "paths": [
+    {
+      "name": "Plate Image Storage",
+      "host": null,
+      "container": "/plates",
+      "mode": "rw",
+      "description": "Path to store plate images",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "App Data",
+      "host": "/mnt/user/appdata/frigate_plate_recognizer/config",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Path to app data",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

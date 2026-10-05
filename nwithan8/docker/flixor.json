@@ -1,0 +1,73 @@
+{
+  "name": "Flixor",
+  "repo": "ghcr.io/flixorui/flixor:latest",
+  "category": [
+    "Media",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "ghcr.io/flixorui/flixor",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/flixor-icon.png",
+  "project": "https://github.com/Flixorui/flixor",
+  "support": "https://github.com/Flixorui/flixor/issues",
+  "description": "A fast, Netflix‑style web app, Android, iOS, and MacOS for your Plex library. Browse beautiful rows, see rich details (IMDb/Rotten Tomatoes), and play instantly in your browser with built‑in DASH/HLS playback. Works on any modern desktop or mobile browser.",
+  "paths": [
+    {
+      "name": "Config Path",
+      "host": "/mnt/user/appdata/flixor/config",
+      "container": "/app/config",
+      "mode": "rw",
+      "description": "Path to the config files",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Cache Path",
+      "host": "/mnt/user/appdata/flixor/cache",
+      "container": "/app/cache",
+      "mode": "rw",
+      "description": "Path to the cache files",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "8080",
+      "container": "80",
+      "protocol": "tcp",
+      "description": "Container Port: 80",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Session Secret",
+      "key": "SESSION_SECRET",
+      "value": null,
+      "description": "A long, random string used to sign session cookies.",
+      "required": false,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

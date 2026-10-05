@@ -1,0 +1,95 @@
+{
+  "name": "Livrarr",
+  "repo": "ghcr.io/kkodecs/livrarr:0.1.0-alpha6",
+  "category": [
+    "Downloader",
+    "Media",
+    "Misc",
+    "Productivity",
+    "Utilities"
+  ],
+  "registry": "ghcr.io/kkodecs/livrarr",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8789]/",
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/livrarr-icon.png",
+  "project": "https://github.com/kkodecs/livrarr",
+  "support": "https://github.com/kkodecs/livrarr/issues",
+  "description": "Self-hosted ebook and audiobook library manager. Built for the *arr ecosystem — finds, grabs, and organizes your books",
+  "requires": "Note this app does not currently publish a `:latest` tag. To update, manually change the Docker image tag.",
+  "paths": [
+    {
+      "name": "Books Storage",
+      "host": null,
+      "container": "/books",
+      "mode": "rw",
+      "description": "Path to books storage",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Downloads Storage",
+      "host": null,
+      "container": "/downloads",
+      "mode": "rw",
+      "description": "Path to downloads storage",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Config Data",
+      "host": "/mnt/user/appdata/livrarr/config",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Path to the config data",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "8789",
+      "container": "8789",
+      "protocol": "tcp",
+      "description": "Container Port: 8789",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "99",
+      "description": "Container User ID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "100",
+      "description": "Container Group ID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

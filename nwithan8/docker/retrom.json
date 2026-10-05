@@ -1,0 +1,74 @@
+{
+  "name": "Retrom",
+  "repo": "ghcr.io/jmberesford/retrom-service:latest",
+  "category": [
+    "Media",
+    "Misc",
+    "Productivity",
+    "Utilities"
+  ],
+  "registry": "ghcr.io/jmberesford/retrom-service",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:3000]",
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/retrom-icon.png",
+  "project": "https://github.com/JMBeresford/retrom",
+  "support": "https://github.com/JMBeresford/retrom/issues",
+  "description": "Retrom is a centralized game library management service that allows you to host your games on a single device, and connect clients on any amount of other devices to (un)install/download and subsequently launch said games locally.",
+  "requires": "This application expects a `config.json` file to be present in the \"Config Data\" directory. See documentation: https://github.com/JMBeresford/retrom/blob/main/README.md#docker-recommended \r\n        [br]\n        This application requires a separate Postgres database. Configuration data for the Postgres container (host, username, password, database name) should be updated in the `config.json` file.",
+  "paths": [
+    {
+      "name": "Library",
+      "host": null,
+      "container": "/library",
+      "mode": "rw",
+      "description": "Library of games",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Config data",
+      "host": "/mnt/user/appdata/retrom/config",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Config data for application",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "3000",
+      "container": "3000",
+      "protocol": "tcp",
+      "description": "Access web interface",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Service Port",
+      "host": "5101",
+      "container": "5101",
+      "protocol": "tcp",
+      "description": "Allow external clients to connect to server",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

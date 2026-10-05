@@ -1,0 +1,71 @@
+{
+  "name": "deepstack",
+  "repo": "deepquestai/deepstack",
+  "category": [
+    "Home Automation",
+    "Utilities"
+  ],
+  "registry": "https://hub.docker.com/r/deepquestai/deepstack/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:5000]",
+  "icon": "https://raw.githubusercontent.com/digiblur/unraid-docker-templates/master/images/deepstacklogo.png",
+  "project": "https://hub.docker.com/r/deepquestai/deepstack/",
+  "support": "https://forums.unraid.net/topic/72033-support-digiblurs-docker-template-repository/",
+  "description": "The AI Server empowering every developer to easily integrate AI features Into their applications.",
+  "paths": [
+    {
+      "name": "datastore",
+      "host": "/mnt/user/appdata/deepstack",
+      "container": "/datastore",
+      "mode": "rw",
+      "description": "datastore container path",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "UI/API Port",
+      "host": "5000",
+      "container": "5000",
+      "protocol": "tcp",
+      "description": "UI/API Port",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Mode",
+      "key": "MODE",
+      "value": "Medium",
+      "description": "CPU Mode",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Object Detection",
+      "key": "VISION-DETECTION",
+      "value": "True",
+      "description": "Object Detection",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

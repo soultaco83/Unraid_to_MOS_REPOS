@@ -1,0 +1,144 @@
+{
+  "name": "Juicepass2mqtt",
+  "repo": "ghcr.io/snicker/juicepassproxy:latest",
+  "category": [
+    "Home Automation",
+    "Utilities",
+    "Network",
+    "Misc"
+  ],
+  "registry": "https://github.com/snicker/juicepassproxy/pkgs/container/juicepassproxy",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/devzwf/unraid-docker-templates/main/images/juicenet.png",
+  "project": "https://github.com/snicker/juicepassproxy",
+  "support": "https://forums.unraid.net/topic/147636-support-devzwf-juicepass2mqtt-juicepassproxy",
+  "description": "This tool will publish Juicebox data from a UDP proxy to MQTT discoverable by HomeAssistant.\r\nHopefully we won't need this if EnelX fixes their API!\r\nIt is required that both your JuiceBox and the machine you are running juicepassproxy on have internal static IPs on your intranet.",
+  "donate": "https://ko-fi.com/devzwf",
+  "paths": [
+    {
+      "name": "Config Dir",
+      "host": "/mnt/user/appdata/Juicepass2mqtt/config",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Config Directory",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Localtime",
+      "host": "/etc/localtime",
+      "container": "/etc/localtime",
+      "mode": "ro",
+      "description": "",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP Port",
+      "host": "8047",
+      "container": "8047",
+      "protocol": "udp",
+      "description": "",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "JUICEBOX IP",
+      "key": "JUICEBOX_LOCAL_IP",
+      "value": null,
+      "description": "[Recommended]If defined, it will attempt to get the EnelX Server and Port using Telnet. If unsuccessful, it will default to the EnelX Server and Port below.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Update UDPC",
+      "key": "UPDATE_UDPC",
+      "value": "false",
+      "description": "Default: false. If true, will continually update the JuiceBox via telnet to point to JuicePass Proxy.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "JPP Host",
+      "key": "JPP_HOST",
+      "value": null,
+      "description": "Required if Update UDPC is True. This is the IP or Hostname of the machine where JuicePass Proxy is running (not the IP of the Docker Container)",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "MQTT Server",
+      "key": "MQTT_HOST",
+      "value": "127.0.0.1",
+      "description": "",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "MQTT Port",
+      "key": "MQTT_PORT",
+      "value": "1883",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "MQTT User",
+      "key": "MQTT_USER",
+      "value": null,
+      "description": "",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "MQTT Password",
+      "key": "MQTT_PASS",
+      "value": null,
+      "description": "",
+      "required": true,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Debug Mode",
+      "key": "DEBUG",
+      "value": "False",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

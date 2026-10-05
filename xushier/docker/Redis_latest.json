@@ -1,0 +1,51 @@
+{
+  "name": "Redis",
+  "repo": "redis:alpine",
+  "category": [
+    "Network",
+    "Utilities",
+    "Productivity"
+  ],
+  "registry": "https://registry.hub.docker.com/_/redis/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--hostname=redis --restart=unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons@master/border-radius/Redis_A.png",
+  "project": "https://redis.io/",
+  "support": "https://lime-technology.com/forums/topic/69490-support-jj9987-redis/",
+  "description": "Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. Based on official Redis Docker image.\r\n\r\nYouTube: https://www.youtube.com/@xiaoditx\r\nTemplates: https://github.com/xushier/Unraid-Docker-Templates\r\nIcons: https://github.com/xushier/HD-Icons\r\nBiliBili: https://space.bilibili.com/32313260\r\nBlog: https://www.xdtx.cc\r\nQQ Group: 647605169\r\nWeChat: 小迪同学",
+  "paths": [
+    {
+      "name": "Data Path",
+      "host": "/mnt/user/appdata/Redis",
+      "container": "/data",
+      "mode": "rw",
+      "description": "Data Path",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Port",
+      "host": "1211",
+      "container": "6379",
+      "protocol": "tcp",
+      "description": "This is Redis default connection port.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

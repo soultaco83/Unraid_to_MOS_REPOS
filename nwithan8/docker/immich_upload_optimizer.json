@@ -1,0 +1,84 @@
+{
+  "name": "Immich Upload Optimizer",
+  "repo": "ghcr.io/miguelangel-nubla/immich-upload-optimizer:latest",
+  "category": [
+    "Media",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "ghcr.io/miguelangel-nubla/immich-upload-optimizer",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo-stacked-light.svg",
+  "project": "https://github.com/miguelangel-nubla/immich-upload-optimizer",
+  "support": "https://github.com/miguelangel-nubla/immich-upload-optimizer/issues",
+  "description": "Immich Upload Optimizer is a proxy designed to be placed in front of the Immich server. It intercepts file uploads and uses an external CLI program (by default JPEG-XL, Caesium and HandBrake) to optimize, resize, or compress images and videos before they are stored on the Immich server. This helps save storage space on the Immich server by reducing the size of uploaded files.",
+  "requires": "Expects a `tasks.yaml` file in the Tasks Config Path folder. See documentation: https://github.com/miguelangel-nubla/immich-upload-optimizer/blob/main/TASKS.md",
+  "paths": [
+    {
+      "name": "Tasks Config Path",
+      "host": "/mnt/user/appdata/immich-upload-optimizer/config",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Path to a folder containing the tasks config file",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Proxy Port",
+      "host": "2283",
+      "container": "2283",
+      "protocol": "tcp",
+      "description": "Container Port: 2283",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Immich Server URL",
+      "key": "IUO_UPSTREAM",
+      "value": "http://IMMICH_SERVER_IP:2283",
+      "description": "URL of the Immich server",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Internal Task File Path",
+      "key": "IUO_TASKS_FILE",
+      "value": "/config/tasks.yaml",
+      "description": "Path to the tasks config file inside the container. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Internal Listen Address",
+      "key": "IUO_LISTEN",
+      "value": ":2283",
+      "description": "Address to listen on inside the container. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

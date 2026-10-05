@@ -1,0 +1,228 @@
+{
+  "name": "binhex-official-windows",
+  "repo": "dockurr/windows",
+  "category": [
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/dockurr/windows",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--stop-timeout 120 --device-cgroup-rule='c *:* rwm' --cap-add NET_ADMIN",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8006]",
+  "icon": "https://raw.githubusercontent.com/binhex/docker-templates/master/binhex/images/windows-icon.png",
+  "project": "https://github.com/dockur/windows",
+  "support": "https://github.com/dockur/windows/issues",
+  "description": "Windows inside a Docker container.",
+  "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
+  "paths": [
+    {
+      "name": "Path: /storage",
+      "host": "/mnt/user/appdata/official-windows/storage",
+      "container": "/storage",
+      "mode": "rw",
+      "description": "This is the container path to store the VM's vdisk etc.",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Path: /data",
+      "host": "/mnt/user/appdata/official-windows/shared",
+      "container": "/data",
+      "mode": "rw",
+      "description": "This is the container path to store shared files accessible from the VM.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Path: /custom.iso",
+      "host": null,
+      "container": "/custom.iso",
+      "mode": "rw",
+      "description": "This is the container path to a custom iso file, please note if this is specified then it will override the version of Windows specified via the variable 'VERSION'.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Path: /oem",
+      "host": null,
+      "container": "/oem",
+      "mode": "rw",
+      "description": "This is the container path to a folder containing custom scripts to run post install.",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Port: Web Interface",
+      "host": "8006",
+      "container": "8006",
+      "protocol": "tcp",
+      "description": "This is the Web UI port for the application.",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Port: RDP Interface TCP",
+      "host": "3389",
+      "container": "3389",
+      "protocol": "tcp",
+      "description": "This is the RDP port for the application.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Port: RDP Interface UDP",
+      "host": "3389",
+      "container": "3389",
+      "protocol": "udp",
+      "description": "This is the RDP UDP port for the application.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Variable: VERSION",
+      "key": "VERSION",
+      "value": "11|11l|11e|10|10l|10e|8|8e|7e|ve|xp|2025|2022|2019|2016|2012|2008|2003",
+      "description": "Specify the version of Windows to install (see https://github.com/dockur/windows#how-do-i-select-the-windows-version for full version description), please note these are all evaluation versions of Windows downloaded from Microsoft.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Variable: DHCP",
+      "key": "DHCP",
+      "value": "N",
+      "description": "Specify Y to enable DHCP (required for custom br0 network)",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Variable: DISK_SIZE",
+      "key": "DISK_SIZE",
+      "value": "64G",
+      "description": "Specify the virtual disk size in GB.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Variable: RAM_SIZE",
+      "key": "RAM_SIZE",
+      "value": "4G",
+      "description": "Specify the amount of RAM allocated in GB.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Variable: CPU_CORES",
+      "key": "CPU_CORES",
+      "value": "2",
+      "description": "Specify the number of cores.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Variable: USERNAME",
+      "key": "USERNAME",
+      "value": null,
+      "description": "Specify the username for Windows.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Variable: PASSWORD",
+      "key": "PASSWORD",
+      "value": null,
+      "description": "Specify the password for Windows.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Variable: LANGUAGE",
+      "key": "LANGUAGE",
+      "value": "en-US",
+      "description": "Specify the language for Windows.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Variable: REGION",
+      "key": "REGION",
+      "value": "en-US",
+      "description": "Specify the region for Windows.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Variable: KEYBOARD",
+      "key": "KEYBOARD",
+      "value": "en-US",
+      "description": "Specify the keyboard layout for Windows.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "devices": [
+    {
+      "name": "KVM",
+      "host": "/dev/kvm",
+      "container": "/dev/kvm",
+      "description": "",
+      "required": false,
+      "display": "advanced"
+    },
+    {
+      "name": "TUN",
+      "host": "/dev/net/tun",
+      "container": "/dev/net/tun",
+      "description": "",
+      "required": false,
+      "display": "advanced"
+    },
+    {
+      "name": "VHost",
+      "host": "/dev/vhost-net",
+      "container": "/dev/vhost-net",
+      "description": "",
+      "required": false,
+      "display": "advanced"
+    }
+  ],
+  "labels": [],
+  "gpus": []
+}

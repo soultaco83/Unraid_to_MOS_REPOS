@@ -1,0 +1,82 @@
+{
+  "name": "Threadfin",
+  "repo": "fyb3roptik/threadfin",
+  "category": [
+    "Media",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/fyb3roptik/threadfin",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:34400]/web/",
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/threadfin-icon.png",
+  "project": "https://github.com/Threadfin/Threadfin",
+  "support": "https://forums.unraid.net/topic/133764-support-grtgbln-docker-templates",
+  "description": "An M3U proxy for Kernel/Plex/Jellyfin/Emby based on xTeVe",
+  "paths": [
+    {
+      "name": "Configuration data",
+      "host": "/mnt/user/appdata/threadfin/config",
+      "container": "/home/threadfin/conf",
+      "mode": "rw",
+      "description": "Path to configuration data",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Temporary data",
+      "host": "/mnt/user/appdata/threadfin/temp",
+      "container": "/tmp/threadfin",
+      "mode": "rw",
+      "description": "Path to temporary data",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "34400",
+      "container": "34400",
+      "protocol": "tcp",
+      "description": "Container Port: 34400",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "1001",
+      "description": "",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "1001",
+      "description": "",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

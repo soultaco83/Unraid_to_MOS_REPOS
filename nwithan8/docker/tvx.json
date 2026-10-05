@@ -1,0 +1,74 @@
+{
+  "name": "TVx",
+  "repo": "ghcr.io/dopeytree/tvx:latest",
+  "category": [
+    "Media",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "ghcr.io/dopeytree/tvx",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:80]/",
+  "icon": "https://raw.githubusercontent.com/dopeytree/TVx/main/public/logo.png",
+  "project": "https://github.com/dopeytree/TVx",
+  "support": "https://github.com/dopeytree/TVx/issues",
+  "description": "A vintage TV experience for M3U playlists",
+  "requires": "Requires an M3U playlist and optional XMLTV (EPG) guide file. Tunarr or Dizquetv paired with Plex, Emby or Jellyfin recommended.",
+  "paths": [
+    {
+      "name": "App Data",
+      "host": "/mnt/user/appdata/tvx/config",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Path for persistent storage of settings, configuration files",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "8777",
+      "container": "80",
+      "protocol": "tcp",
+      "description": "Container Port: 80",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "M3U URL",
+      "key": "VITE_M3U_URL",
+      "value": "http://your-tunarr-ip-address:8000/api/channels.m3u",
+      "description": "M3U URL for IPTV stream",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "XMLTV URL",
+      "key": "VITE_XMLTV_URL",
+      "value": "http://your-tunarr-ip-address:8000/api/xmltv.xml",
+      "description": "EPG URL for IPTV stream",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

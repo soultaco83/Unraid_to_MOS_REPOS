@@ -1,0 +1,185 @@
+{
+  "name": "Plex",
+  "repo": "linuxserver/plex:latest",
+  "category": [
+    "Media"
+  ],
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/plex",
+  "network": "host",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:32400]/web/index.html",
+  "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons@master/border-radius/Plex_A.png",
+  "project": "https://plex.tv",
+  "support": "https://github.com/linuxserver/docker-plex/issues/new/choose",
+  "description": "Plex(https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. has always been a top priority. Straightforward design and bulk actions mean getting things done faster.\r\n\r\nYouTube: https://www.youtube.com/@xiaoditx\r\nTemplates: https://github.com/xushier/Unraid-Docker-Templates\r\nIcons: https://github.com/xushier/HD-Icons\r\nBiliBili: https://space.bilibili.com/32313260\r\nBlog: https://www.xdtx.cc\r\nQQ Group: 647605169\r\nWeChat: 小迪同学",
+  "paths": [
+    {
+      "name": "Media Path",
+      "host": "Your Media Path",
+      "container": "/mnt",
+      "mode": "rw",
+      "description": "Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc.",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Data Path",
+      "host": "/mnt/user/appdata/Plex",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web Port",
+      "host": "2266",
+      "container": "2266",
+      "protocol": "tcp",
+      "description": "Web Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP",
+      "host": "32410",
+      "container": "32410",
+      "protocol": "udp",
+      "description": "UDP Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP Port",
+      "host": "32412-32414",
+      "container": "32412-32414",
+      "protocol": "udp",
+      "description": "UDP Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "DLAN UDP Port",
+      "host": "32415",
+      "container": "32415",
+      "protocol": "udp",
+      "description": "DLAN UDP Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "DLAN TCP Port",
+      "host": "32416",
+      "container": "32416",
+      "protocol": "tcp",
+      "description": "DLAN TCP Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Roku Port",
+      "host": "32417",
+      "container": "32417",
+      "protocol": "tcp",
+      "description": "Roku Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Bonjour/Avahi Port",
+      "host": "32418",
+      "container": "32418",
+      "protocol": "udp",
+      "description": "Bonjour/Avahi Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "VERSION",
+      "key": "VERSION",
+      "value": "public",
+      "description": "Set whether to update plex or not - see Application Setup section.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PLEX CLAIM",
+      "key": "PLEX_CLAIM",
+      "value": "Your PLEX CLAIM",
+      "description": "Optionally you can obtain a claim token from https://plex.tv/claim and input here. Keep in mind that the claim tokens expire within 4 minutes.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "99",
+      "description": "PUID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "100",
+      "description": "PGID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "022",
+      "description": "UMASK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [
+    {
+      "name": "GPU",
+      "host": "/dev/dri",
+      "container": "/dev/dri",
+      "description": "GPU",
+      "required": false,
+      "display": "always"
+    }
+  ],
+  "labels": [],
+  "gpus": []
+}

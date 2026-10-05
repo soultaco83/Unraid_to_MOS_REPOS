@@ -1,0 +1,61 @@
+{
+  "name": "Portainer",
+  "repo": "portainer/portainer-ce:alpine",
+  "category": [
+    "Network",
+    "Utilities",
+    "Productivity"
+  ],
+  "registry": "https://registry.hub.docker.com/r/portainer/portainer/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:1811]",
+  "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Portainer_B.png",
+  "project": "https://portainer.io",
+  "support": "https://lime-technology.com/forums/topic/69491-support-jj9987-portainer/",
+  "description": "Portainer is a simple management solution for Docker. It consists of a web UI that allows you to easily manage your Docker containers, images, networks and volumes.\r\n\r\nYouTube: https://www.youtube.com/@xiaoditx\r\nTemplates: https://github.com/xushier/Unraid-Docker-Templates\r\nIcons: https://github.com/xushier/HD-Icons\r\nBiliBili: https://space.bilibili.com/32313260\r\nBlog: https://www.xdtx.cc\r\nQQ Group: 647605169\r\nWeChat: 小迪同学",
+  "paths": [
+    {
+      "name": "Config Path",
+      "host": "/mnt/user/appdata/Portainer",
+      "container": "/data",
+      "mode": "rw",
+      "description": "Config Path",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Docker Socket",
+      "host": "/var/run/docker.sock",
+      "container": "/var/run/docker.sock",
+      "mode": "rw",
+      "description": "Docker Socket",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web Port",
+      "host": "1811",
+      "container": "9000",
+      "protocol": "tcp",
+      "description": "Web Port",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

@@ -1,0 +1,68 @@
+{
+  "name": "Xunlei",
+  "repo": "cnk3x/xunlei",
+  "category": [
+    "Downloader"
+  ],
+  "registry": "https://hub.docker.com/r/cnk3x/xunlei/",
+  "network": "host",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": true,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:2345]",
+  "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons@master/border-radius/Xunlei_A.png",
+  "project": "https://github.com/cnk3x/xunlei",
+  "support": "https://github.com/cnk3x/xunlei",
+  "description": "YouTube: https://www.youtube.com/@xiaoditx\r\nTemplates: https://github.com/xushier/Unraid-Docker-Templates\r\nIcons: https://github.com/xushier/HD-Icons\r\nBiliBili: https://space.bilibili.com/32313260\r\nBlog: https://www.xdtx.cc\r\nQQ Group: 647605169\r\nWeChat: 小迪同学",
+  "paths": [
+    {
+      "name": "Download Path",
+      "host": "Your Download Path",
+      "container": "/xunlei/downloads",
+      "mode": "rw",
+      "description": "Download Path",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Config Path",
+      "host": "/mnt/user/appdata/Xunlei",
+      "container": "/xunlei/data",
+      "mode": "rw",
+      "description": "Config Path",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [],
+  "variables": [
+    {
+      "name": "Web Port",
+      "key": "XL_WEB_PORT",
+      "value": "2345",
+      "description": "Web Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Debug",
+      "key": "XL_DEBUG",
+      "value": "0",
+      "description": "Debug",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

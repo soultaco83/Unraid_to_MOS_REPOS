@@ -1,0 +1,163 @@
+{
+  "name": "binhex-gonic",
+  "repo": "ghcr.io/binhex/arch-gonic",
+  "category": [
+    "Media",
+    "Misc"
+  ],
+  "registry": "https://github.com/binhex/arch-gonic/pkgs/container/arch-gonic",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:4747]",
+  "readme_url": "https://github.com/binhex/documentation",
+  "icon": "https://raw.githubusercontent.com/binhex/docker-templates/master/binhex/images/gonic-icon.png",
+  "project": "https://github.com/sentriz/gonic",
+  "support": "https://forums.unraid.net/topic/165665-support-binhex-gonic",
+  "description": "Free-software subsonic server API implementation, supporting its many clients.",
+  "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
+  "paths": [
+    {
+      "name": "Path: /config",
+      "host": "/mnt/user/appdata/gonic",
+      "container": "/config",
+      "mode": "rw",
+      "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Path: /media",
+      "host": "/mnt/user",
+      "container": "/media",
+      "mode": "rw",
+      "description": "This is the container path to your media files, e.g. movies, tv, music, pictures etc.",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Port: Web Interface",
+      "host": "4747",
+      "container": "4747",
+      "protocol": "tcp",
+      "description": "This is the port for the Web UI for the application",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Variable: GONIC_MUSIC_PATH",
+      "key": "GONIC_MUSIC_PATH",
+      "value": "/media",
+      "description": "Path to music files",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Variable: GONIC_PODCAST_PATH",
+      "key": "GONIC_PODCAST_PATH",
+      "value": "/config/gonic/podcasts",
+      "description": "Path to store downloaded podcasts",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Variable: GONIC_PLAYLISTS_PATH",
+      "key": "GONIC_PLAYLISTS_PATH",
+      "value": "/config/gonic/playlists",
+      "description": "Path to store created playlists",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Variable: ENABLE_HEALTHCHECK",
+      "key": "ENABLE_HEALTHCHECK",
+      "value": "yes|no",
+      "description": "Enable or disable healthchecks.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Variable: HEALTHCHECK_COMMAND",
+      "key": "HEALTHCHECK_COMMAND",
+      "value": null,
+      "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Variable: HEALTHCHECK_ACTION",
+      "key": "HEALTHCHECK_ACTION",
+      "value": null,
+      "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Variable: HEALTHCHECK_HOSTNAME",
+      "key": "HEALTHCHECK_HOSTNAME",
+      "value": "google.com",
+      "description": "The hostname used when performing HTTPS and DNS healthchecking.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Variable: PUID",
+      "key": "PUID",
+      "value": "99",
+      "description": "User ID for the running container",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Variable: PGID",
+      "key": "PGID",
+      "value": "100",
+      "description": "Group ID for the running container",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Variable: UMASK",
+      "key": "UMASK",
+      "value": "000",
+      "description": "UMASK for the running container",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

@@ -1,0 +1,171 @@
+{
+  "name": "PlexAniBridge",
+  "repo": "ghcr.io/eliasbenb/plexanibridge:latest",
+  "category": [
+    "Media",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "ghcr.io/eliasbenb/plexanibridge",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/eliasbenb/PlexAniBridge/refs/heads/main/docs/img/logo.png",
+  "project": "https://plexanibridge.elias.eu.org",
+  "support": "https://github.com/eliasbenb/PlexAniBridge/issues",
+  "description": "A synchronization tool that automatically keeps your AniList profile up-to-date based on your Plex watching activity. \r\n        [br]\n        See configuration instructions: https://github.com/eliasbenb/PlexAniBridge#Configuration",
+  "paths": [
+    {
+      "name": "Data Path",
+      "host": "/mnt/user/appdata/plex_ani_bridge/data",
+      "container": "/app/data",
+      "mode": "rw",
+      "description": "Path to store internal data",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [],
+  "variables": [
+    {
+      "name": "AniList Token",
+      "key": "ANILIST_TOKEN",
+      "value": null,
+      "description": "AniList API token",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Plex - Token",
+      "key": "PLEX_TOKEN",
+      "value": null,
+      "description": "Plex API token",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Plex - User",
+      "key": "PLEX_USER",
+      "value": null,
+      "description": "Plex user to sync",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Plex - URL",
+      "key": "PLEX_URL",
+      "value": null,
+      "description": "Plex server URL",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Plex - Sections",
+      "key": "PLEX_SECTIONS",
+      "value": "[\"Anime TV\", \"Anime Movies\"]",
+      "description": "JSON list of Plex sections to sync",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Sync Interval",
+      "key": "SYNC_INTERVAL",
+      "value": "3600",
+      "description": "Interval, in seconds, to sync Plex and AniList. Set to -1 to disable",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Partial Scan",
+      "key": "PARTIAL_SCAN",
+      "value": "True|False",
+      "description": "Only consider items added/updated/rated since last sync.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Destructive Sync",
+      "key": "DESTRUCTIVE_SYNC",
+      "value": "False|True",
+      "description": "Regressively update AniList data to match Plex regardless of existing data.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Excluded Sync Fields",
+      "key": "EXCLUDED_SYNC_FIELDS",
+      "value": "[\"notes\", \"score\"]",
+      "description": "JSON list of AniList fields to exclude from sync",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Internal Data Path",
+      "key": "DATA_PATH",
+      "value": "/app/data",
+      "description": "Internal data path",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Log Level",
+      "key": "LOG_LEVEL",
+      "value": "INFO|DEBUG|WARNING|ERROR|CRITICAL",
+      "description": "Log level",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Dry Run",
+      "key": "DRY_RUN",
+      "value": "False|True",
+      "description": "Disables modifying AniList data",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Fuzzy Search Threshold",
+      "key": "FUZZY_SEARCH_THRESHOLD",
+      "value": "90",
+      "description": "Fuzzy search threshold for matching anime titles",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

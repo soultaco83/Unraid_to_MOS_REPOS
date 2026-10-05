@@ -1,0 +1,134 @@
+{
+  "name": "Amule",
+  "repo": "tchabaud/amule",
+  "category": [
+    "Downloader",
+    "Productivity",
+    "Utilities"
+  ],
+  "registry": "https://hub.docker.com/r/tchabaud/amule",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:4711]",
+  "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Amule_A.png",
+  "project": "https://github.com/t-chab/dockerfiles",
+  "support": "https://forums.unraid.net/topic/120394-support-smartphonelover-amule-torrent-client/",
+  "description": "DESCRIPTION\r\naMule is a free peer-to-peer file sharing utility that works with the EDonkey network and the Kad network, offering similar features to eMule and adding others such as GeoIP (country flags).\r\n\r\nVERSION\r\n1.0 (2022-02-23)\r\n\r\nYouTube: https://www.youtube.com/@xiaoditx\r\nTemplates: https://github.com/xushier/Unraid-Docker-Templates\r\nIcons: https://github.com/xushier/HD-Icons\r\nBiliBili: https://space.bilibili.com/32313260\r\nBlog: https://www.xdtx.cc\r\nQQ Group: 647605169\r\nWeChat: 小迪同学",
+  "paths": [
+    {
+      "name": "Completed Path",
+      "host": "Your Download Completed Path",
+      "container": "/incoming",
+      "mode": "rw",
+      "description": "This is the location for complete downloads.",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Incompleted Path",
+      "host": "/mnt/user/appdata/Amule/incompleted",
+      "container": "/temp",
+      "mode": "rw",
+      "description": "This is the location for incomplete downloads.",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Config Path",
+      "host": "/mnt/user/appdata/Amule/config",
+      "container": "/home/amule/.aMule",
+      "mode": "rw",
+      "description": "This is the location for the internal data.",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web Port",
+      "host": "4711",
+      "container": "4711",
+      "protocol": "tcp",
+      "description": "Web Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP Port",
+      "host": "4662",
+      "container": "4662",
+      "protocol": "tcp",
+      "description": "Client to client transfers",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP Port",
+      "host": "4672",
+      "container": "4672",
+      "protocol": "udp",
+      "description": "Extended aMule protocol, Queue Rating, File Reask Ping",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "1000",
+      "description": "PUID",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "1000",
+      "description": "PGID",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Password",
+      "key": "WEBUI_PWD",
+      "value": "Your Password",
+      "description": "Password for WebUI.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Theme",
+      "key": "WEBUI_TEMPLATE",
+      "value": "default",
+      "description": "Alternative material WebUI design.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

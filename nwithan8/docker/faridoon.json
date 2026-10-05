@@ -1,0 +1,134 @@
+{
+  "name": "Faridoon",
+  "repo": "ghcr.io/jamesread/faridoon:latest",
+  "category": [
+    "Media",
+    "Misc",
+    "Productivity",
+    "Utilities"
+  ],
+  "registry": "ghcr.io/jamesread/faridoon",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]/",
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/faridoon-icon.png",
+  "project": "https://jamesread.github.io/Faridoon/",
+  "support": "https://jamesread.github.io/Faridoon/configuration/",
+  "description": "A web app to publish your favourite chat quotes.",
+  "requires": "Requires a separate MySQL database.",
+  "paths": [
+    {
+      "name": "Config Path",
+      "host": "/mnt/user/appdata/faridoon/config",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Path to store configuration files",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "8080",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "Container Port: 8080",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "MySQL - Host",
+      "key": "DB_HOST",
+      "value": null,
+      "description": "MySQL host",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "MySQL - Name",
+      "key": "DB_NAME",
+      "value": "faridoon",
+      "description": "MySQL database name",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "MySQL - User",
+      "key": "DB_USER",
+      "value": "faridoon",
+      "description": "MySQL user",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "MySQL - Password",
+      "key": "DB_PASS",
+      "value": null,
+      "description": "MySQL password",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Admin Password",
+      "key": "ADMIN_PASSWORD",
+      "value": null,
+      "description": "Admin password",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Site Title",
+      "key": "SITE_TITLE",
+      "value": "Faridoon",
+      "description": "Title of the site",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Enable Voting",
+      "key": "ENABLE_VOTING",
+      "value": "0|1",
+      "description": "Set to 1 to enable voting on quotes.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Enable Syntax Highlighting",
+      "key": "ENABLE_SYNTAX_HIGHLIGHTING",
+      "value": "0|1",
+      "description": "Set to 1 to enable syntax highlighting in quotes.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

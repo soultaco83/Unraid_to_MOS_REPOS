@@ -1,0 +1,160 @@
+{
+  "name": "Kodbox",
+  "repo": "kodcloud/kodbox:latest",
+  "category": [
+    "Utilities"
+  ],
+  "registry": "https://hub.docker.com/r/kodcloud/kodbox/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:3911]",
+  "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Kodcloud_A.png",
+  "project": "https://kodcloud.com",
+  "support": "https://hub.docker.com/r/kodcloud/kodbox/",
+  "description": "YouTube: https://www.youtube.com/@xiaoditx\r\nTemplates: https://github.com/xushier/Unraid-Docker-Templates\r\nIcons: https://github.com/xushier/HD-Icons\r\nBiliBili: https://space.bilibili.com/32313260\r\nBlog: https://www.xdtx.cc\r\nQQ Group: 647605169\r\nWeChat: 小迪同学",
+  "paths": [
+    {
+      "name": "Data Path",
+      "host": "/mnt/user/appdata/Kodbox",
+      "container": "/var/www/html",
+      "mode": "rw",
+      "description": "Data Path",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Custom Data Path",
+      "host": "Your Custom Data Path",
+      "container": "/mnt",
+      "mode": "rw",
+      "description": "Custom Data Path",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web Port",
+      "host": "3911",
+      "container": "80",
+      "protocol": "tcp",
+      "description": "Web Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "DATABASE_NAME",
+      "key": "MYSQL_DATABASE",
+      "value": "Kodbox",
+      "description": "DATABASE_NAME",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "DATABASE_USER",
+      "key": "MYSQL_USER",
+      "value": "Kodbox",
+      "description": "DATABASE_USER",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "DATABASE_PASSWORD",
+      "key": "MYSQL_PASSWORD",
+      "value": "MYSQL_PASSWORD",
+      "description": "DATABASE_PASSWORD",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "DATABASE_HOST",
+      "key": "MYSQL_SERVER",
+      "value": "MYSQL_SERVER",
+      "description": "DATABASE_HOST",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "DATABASE_PORT",
+      "key": "MYSQL_PORT",
+      "value": "MYSQL_PORT",
+      "description": "DATABASE_PORT",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "REDIS_SESSION_TYPE",
+      "key": "SESSION_TYPE",
+      "value": "redis",
+      "description": "REDIS_SESSION_TYPE",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "REDIS_HOST",
+      "key": "SESSION_HOST",
+      "value": "REDIS_HOST",
+      "description": "REDIS_HOST",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "REDIS_PORT",
+      "key": "SESSION_PORT",
+      "value": "REDIS_PORT",
+      "description": "REDIS_PORT",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "KODBOX_ADMIN_USER",
+      "key": "KODBOX_ADMIN_USER",
+      "value": "KODBOX_ADMIN_USER",
+      "description": "KODBOX_ADMIN_USER",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "KODBOX_ADMIN_PASSWORD",
+      "key": "KODBOX_ADMIN_PASSWORD",
+      "value": "KODBOX_ADMIN_PASSWORD",
+      "description": "KODBOX_ADMIN_PASSWORD",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

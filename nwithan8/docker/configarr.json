@@ -1,0 +1,72 @@
+{
+  "name": "Configarr",
+  "repo": "ghcr.io/raydak-labs/configarr:latest",
+  "category": [
+    "Downloader",
+    "Media",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "ghcr.io/raydak-labs/configarr",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/configarr-icon.png",
+  "project": "https://configarr.raydak.de/",
+  "support": "https://configarr.raydak.de/docs/intro",
+  "description": "A powerful configuration and synchronization tool designed specifically for Sonarr v4 and Radarr v5. It streamlines the process of managing custom formats and quality profiles by automatically synchronizing settings from TRaSH Guides while supporting additional customizations.",
+  "requires": "Expects a `config.yml` and `secrets.yml` file in the \"Config Path\" path. See documentation: https://configarr.raydak.de/docs/configuration/config-file",
+  "paths": [
+    {
+      "name": "Config Path",
+      "host": "/mnt/user/appdata/configarr/config",
+      "container": "/app/config",
+      "mode": "rw",
+      "description": "Config path, stores config.yml and secrets.yml",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Repos Cache Path",
+      "host": "/mnt/user/appdata/configarr/repos",
+      "container": "/app/repos",
+      "mode": "rw",
+      "description": "Repos cache path",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Custom Formats Path",
+      "host": "/mnt/user/appdata/configarr/cfs",
+      "container": "/app/cfs",
+      "mode": "rw",
+      "description": "Custom formats path, optional",
+      "required": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Templates Path",
+      "host": "/mnt/user/appdata/configarr/templates",
+      "container": "/app/templates",
+      "mode": "rw",
+      "description": "Templates path, optional",
+      "required": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "ports": [],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

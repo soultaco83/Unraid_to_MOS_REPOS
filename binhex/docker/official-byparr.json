@@ -1,0 +1,61 @@
+{
+  "name": "binhex-official-byparr",
+  "repo": "ghcr.io/thephaseless/byparr",
+  "category": [
+    "Network",
+    "Misc"
+  ],
+  "registry": "https://github.com/ThePhaseless/Byparr/pkgs/container/byparr",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--shm-size=2gb",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/binhex/docker-templates/master/binhex/images/flaresolverr-icon.png",
+  "project": "https://github.com/ThePhaseless/Byparr",
+  "support": "https://github.com/ThePhaseless/Byparr/issues",
+  "description": "An alternative to FlareSolverr as a drop-in replacement, built with seleniumbase and FastAPI.",
+  "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
+  "paths": [],
+  "ports": [
+    {
+      "name": "Port: API TCP",
+      "host": "8191",
+      "container": "8191",
+      "protocol": "tcp",
+      "description": "This is the TCP port that Byparr listens for incoming requests.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Variable: USE_HEADLESS",
+      "key": "USE_HEADLESS",
+      "value": "default",
+      "description": "Specify whether to run headless or not.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Variable: PROXY",
+      "key": "PROXY",
+      "value": null,
+      "description": "Specify the Proxy to use in format: protocol://username:password@host:port.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

@@ -1,0 +1,61 @@
+{
+  "name": "DumbAssets",
+  "repo": "dumbwareio/dumbassets:latest",
+  "category": [
+    "Productivity"
+  ],
+  "registry": "https://hub.docker.com/r/dumbwareio/dumbassets",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:3000]",
+  "icon": "https://raw.githubusercontent.com/devzwf/unraid-docker-templates/main/images/dumbassets-logo.png",
+  "project": "https://github.com/DumbWareio/DumbAssets",
+  "support": "https://forums.unraid.net/topic/185964-support-devzwf-dumbwareio-suite/",
+  "description": "A stupid simple asset tracker for keeping track of your physical assets, their components, and applicable warranties and routine maintenance.",
+  "donate": "https://ko-fi.com/devzwf",
+  "paths": [
+    {
+      "name": "Data",
+      "host": "/mnt/user/appdata/dumbassets",
+      "container": "/app/data",
+      "mode": "rw",
+      "description": "Data Dir",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "3000",
+      "container": "3000",
+      "protocol": "tcp",
+      "description": "The port on which the application will run.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "PIN",
+      "key": "DUMBASSETS_PIN",
+      "value": "12345",
+      "description": "PIN protection",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

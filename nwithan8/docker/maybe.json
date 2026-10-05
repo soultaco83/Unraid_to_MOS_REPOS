@@ -1,0 +1,153 @@
+{
+  "name": "Maybe",
+  "repo": "ghcr.io/maybe-finance/maybe:stable",
+  "category": [
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "ghcr.io/maybe-finance/maybe",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:3000]",
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/maybe-icon.png",
+  "project": "https://maybe.co",
+  "support": "https://github.com/maybe-finance/maybe/issues",
+  "description": "A self-hosted personal finance and wealth management app.",
+  "requires": "Requires a separate Postgres database. See the Maybe documentation for more information: https://github.com/maybe-finance/maybe/blob/main/docs/hosting/docker.md",
+  "paths": [
+    {
+      "name": "Config data",
+      "host": "/mnt/user/appdata/maybe/data",
+      "container": "/rails/storage",
+      "mode": "rw",
+      "description": "Config data for application",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "3000",
+      "container": "3000",
+      "protocol": "tcp",
+      "description": "Container Port: 3000",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Secret Key",
+      "key": "SECRET_KEY_BASE",
+      "value": null,
+      "description": "Secret key. Run `openssl rand -hex 64` to generate a secret",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Postgres - Host",
+      "key": "DB_HOST",
+      "value": null,
+      "description": "Postgres database host",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Postgres - Port",
+      "key": "DB_PORT",
+      "value": "5432",
+      "description": "Postgres database port",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Postgres - Username",
+      "key": "POSTGRES_USER",
+      "value": "maybe_user",
+      "description": "Postgres database username",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Postgres - Password",
+      "key": "POSTGRES_PASSWORD",
+      "value": null,
+      "description": "Postgres database password",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Postgres - Database",
+      "key": "POSTGRES_DB",
+      "value": "maybe_production",
+      "description": "Postgres database name",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Is Self-Hosted",
+      "key": "SELF_HOSTING_ENABLED",
+      "value": "true|false",
+      "description": "Is the application self-hosted. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Enforce SSL",
+      "key": "RAILS_FORCE_SSL",
+      "value": "false|true",
+      "description": "Enforce SSL connections. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Assume SSL",
+      "key": "RAILS_ASSUME_SSL",
+      "value": "false|true",
+      "description": "Assume SSL connections. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Good Job Execution Mode",
+      "key": "GOOD_JOB_EXECUTION_MODE",
+      "value": "async",
+      "description": "Good Job execution mode. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

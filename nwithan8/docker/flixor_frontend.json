@@ -1,0 +1,42 @@
+{
+  "name": "Flixor - Frontend",
+  "repo": "flixorui/flixor_web:latest",
+  "category": [
+    "Media",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/flixorui/flixor_web",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:80]/",
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/flixor-icon.png",
+  "project": "https://github.com/Flixorui/flixor",
+  "support": "https://github.com/Flixorui/flixor/issues",
+  "description": "A fast, Netflix‑style web app, Android, iOS, and MacOS for your Plex library. Browse beautiful rows, see rich details (IMDb/Rotten Tomatoes), and play instantly in your browser with built‑in DASH/HLS playback. Works on any modern desktop or mobile browser. \r\n        \r\n        This is the frontend web component.",
+  "requires": "Requires a separate Flixor - Backend container.",
+  "paths": [],
+  "ports": [
+    {
+      "name": "API Port",
+      "host": "8080",
+      "container": "80",
+      "protocol": "tcp",
+      "description": "Container Port: 80",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

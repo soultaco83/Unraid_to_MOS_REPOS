@@ -1,0 +1,102 @@
+{
+  "name": "picsur",
+  "repo": "ghcr.io/caramelfur/picsur:latest",
+  "category": [
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": null,
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]",
+  "icon": "https://github.com/CaramelFur/Picsur/blob/master/branding/logo/picsur-128.png?raw=true",
+  "project": "https://github.com/CaramelFur/Picsur",
+  "support": "https://github.com/CaramelFur/Picsur/issues",
+  "description": "An easy to use, selfhostable image sharing service like Imgur with built in converting",
+  "donate": "https://paypal.me/ibracorp",
+  "paths": [],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "8087",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "PICSUR_DB_HOST",
+      "key": "PICSUR_DB_HOST",
+      "value": "postgres",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PICSUR_DB_PORT",
+      "key": "PICSUR_DB_PORT",
+      "value": "5432",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PICSUR_DB_USERNAME",
+      "key": "PICSUR_DB_USERNAME",
+      "value": "postgres",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PICSUR_DB_PASSWORD",
+      "key": "PICSUR_DB_PASSWORD",
+      "value": null,
+      "description": "",
+      "required": true,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PICSUR_DB_DATABASE",
+      "key": "PICSUR_DB_DATABASE",
+      "value": "picsur",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PICSUR_ADMIN_PASSWORD",
+      "key": "PICSUR_ADMIN_PASSWORD",
+      "value": null,
+      "description": "",
+      "required": true,
+      "mask": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

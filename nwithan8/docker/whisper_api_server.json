@@ -1,0 +1,52 @@
+{
+  "name": "Whisper API Server",
+  "repo": "didmar/whisper-api-server",
+  "category": [
+    "AI",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/didmar/whisper-api-server",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/whisper-api-server-icon.png",
+  "project": "https://github.com/didmar/whisper-api-server",
+  "support": "https://github.com/didmar/whisper-api-server/issues",
+  "description": "A drop-in replacement for the OpenAI's Whisper API using the same API but running locally.",
+  "paths": [
+    {
+      "name": "Cache Directory",
+      "host": "/mnt/user/appdata/whisper_api_server/cache",
+      "container": "/root/.cache",
+      "mode": "rw",
+      "description": "Path to the cache directory. This is where models will be stored, which can be quite large.",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "API Port",
+      "host": "8000",
+      "container": "8000",
+      "protocol": "tcp",
+      "description": "Container Port: 8000",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

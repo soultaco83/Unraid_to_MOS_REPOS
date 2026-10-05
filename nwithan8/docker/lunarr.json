@@ -1,0 +1,83 @@
+{
+  "name": "Lunarr",
+  "repo": "sayem314/lunarr:latest",
+  "category": [
+    "Media",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/sayem314/lunarr",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:3000]/",
+  "icon": "https://raw.githubusercontent.com/lunarr-app/lunarr-go/refs/heads/main/static/images/lunarr-icon.png",
+  "project": "https://github.com/lunarr-app/lunarr-go",
+  "support": "https://github.com/lunarr-app/lunarr-go/issues",
+  "description": "Self-hosted media streaming server designed as an alternative to Plex, allowing you to monitor and manage your movie and TV show files on a headless server.",
+  "paths": [
+    {
+      "name": "Media Library",
+      "host": null,
+      "container": "/media",
+      "mode": "ro",
+      "description": "Path to media files",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Config Data",
+      "host": "/mnt/user/appdata/lunarr/config",
+      "container": "/data",
+      "mode": "rw",
+      "description": "Path to the config data",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "3000",
+      "container": "3000",
+      "protocol": "tcp",
+      "description": "Container Port: 3000",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Auth Secret",
+      "key": "AUTH_SECRET",
+      "value": null,
+      "description": "Generate a secure random key with `openssl rand -base64 32`",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Public Domain",
+      "key": "ORIGIN",
+      "value": null,
+      "description": "Domain where this instance will be accessed (e.g. https://lunarr.example.com)",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

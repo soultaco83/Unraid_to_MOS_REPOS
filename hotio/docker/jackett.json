@@ -1,0 +1,264 @@
+{
+  "name": "jackett",
+  "repo": "ghcr.io/hotio/jackett:latest",
+  "category": [
+    "Downloader",
+    "Media",
+    "Misc"
+  ],
+  "registry": "https://github.com/hotio/jackett/pkgs/container/jackett",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--hostname=jackett.internal --cap-add=NET_ADMIN",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:9117]",
+  "readme_url": "https://hotio.dev/containers/jackett",
+  "icon": "https://hotio.dev/webhook-avatars/jackett.png",
+  "project": "https://hotio.dev/containers/jackett",
+  "support": "https://hotio.dev/discord",
+  "description": "WireGuard VPN, Privoxy and Unbound built-in! Add torrent trackers, something about an API...Like Prowlarr, but less cool logo.",
+  "requires": "Don't forget to click **Show more settings...** for all **Variables**! If you do not use the VPN feature, you can remove all VPN related **Variables** and **Extra Parameters** (turn on **ADVANCED VIEW**).",
+  "paths": [
+    {
+      "name": "Host Path for /config",
+      "host": null,
+      "container": "/config",
+      "mode": "rw",
+      "description": "Container Path: /config",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Host Port for 9117",
+      "host": "9117",
+      "container": "9117",
+      "protocol": "tcp",
+      "description": "Container Port: 9117",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "PRIVOXY_ENABLED",
+      "key": "PRIVOXY_ENABLED",
+      "value": "false|true",
+      "description": "Container Variable: PRIVOXY_ENABLED",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UNBOUND_ENABLED",
+      "key": "UNBOUND_ENABLED",
+      "value": "false|true",
+      "description": "Container Variable: UNBOUND_ENABLED",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UNBOUND_NAMESERVERS",
+      "key": "UNBOUND_NAMESERVERS",
+      "value": null,
+      "description": "Container Variable: UNBOUND_NAMESERVERS",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "VPN_ENABLED",
+      "key": "VPN_ENABLED",
+      "value": "false|true",
+      "description": "Container Variable: VPN_ENABLED",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "VPN_CONF",
+      "key": "VPN_CONF",
+      "value": "wg0",
+      "description": "Container Variable: VPN_CONF",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "VPN_PROVIDER",
+      "key": "VPN_PROVIDER",
+      "value": "generic|proton|pia",
+      "description": "Container Variable: VPN_PROVIDER",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "VPN_LAN_NETWORK",
+      "key": "VPN_LAN_NETWORK",
+      "value": null,
+      "description": "Container Variable: VPN_LAN_NETWORK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "VPN_LAN_LEAK_ENABLED",
+      "key": "VPN_LAN_LEAK_ENABLED",
+      "value": "false|true",
+      "description": "Container Variable: VPN_LAN_LEAK_ENABLED",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "VPN_EXPOSE_PORTS_ON_LAN",
+      "key": "VPN_EXPOSE_PORTS_ON_LAN",
+      "value": null,
+      "description": "Container Variable: VPN_EXPOSE_PORTS_ON_LAN",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "VPN_AUTO_PORT_FORWARD",
+      "key": "VPN_AUTO_PORT_FORWARD",
+      "value": "false",
+      "description": "Container Variable: VPN_AUTO_PORT_FORWARD",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "VPN_PORT_REDIRECTS",
+      "key": "VPN_PORT_REDIRECTS",
+      "value": null,
+      "description": "Container Variable: VPN_PORT_REDIRECTS",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "VPN_HEALTHCHECK_ENABLED",
+      "key": "VPN_HEALTHCHECK_ENABLED",
+      "value": "false|true",
+      "description": "Container Variable: VPN_HEALTHCHECK_ENABLED",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "VPN_NAMESERVERS",
+      "key": "VPN_NAMESERVERS",
+      "value": null,
+      "description": "Container Variable: VPN_NAMESERVERS",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "VPN_PIA_USER",
+      "key": "VPN_PIA_USER",
+      "value": null,
+      "description": "Container Variable: VPN_PIA_USER",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "VPN_PIA_PASS",
+      "key": "VPN_PIA_PASS",
+      "value": null,
+      "description": "Container Variable: VPN_PIA_PASS",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "VPN_PIA_PREFERRED_REGION",
+      "key": "VPN_PIA_PREFERRED_REGION",
+      "value": null,
+      "description": "Container Variable: VPN_PIA_PREFERRED_REGION",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "VPN_PIA_DIP_TOKEN",
+      "key": "VPN_PIA_DIP_TOKEN",
+      "value": null,
+      "description": "Container Variable: VPN_PIA_DIP_TOKEN",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "VPN_PIA_PORT_FORWARD_PERSIST",
+      "key": "VPN_PIA_PORT_FORWARD_PERSIST",
+      "value": "false|true",
+      "description": "Container Variable: VPN_PIA_PORT_FORWARD_PERSIST",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "99",
+      "description": "Container Variable: PUID",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "100",
+      "description": "Container Variable: PGID",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "002",
+      "description": "Container Variable: UMASK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

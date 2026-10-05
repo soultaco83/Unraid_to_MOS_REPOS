@@ -1,0 +1,84 @@
+{
+  "name": "RemoteTerm for MeshCore",
+  "repo": "jkingsman/remoteterm-meshcore:latest",
+  "category": [
+    "Network",
+    "Media",
+    "Misc",
+    "Productivity",
+    "Utilities"
+  ],
+  "registry": "https://hub.docker.com/r/jkingsman/remoteterm-meshcore",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8000]/",
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/remoteterm-meshcore-icon.png",
+  "project": "https://github.com/jkingsman/Remote-Terminal-for-MeshCore",
+  "support": "https://github.com/jkingsman/Remote-Terminal-for-MeshCore/issues",
+  "description": "A remote client for MeshCore radios with packet capture, store-and-decrypt, bots, MQTT, and more!",
+  "requires": "Requires a MeshCore device.\r\n        [br]\n        Defaults to serial connection. Can be configured for TCP or Bluetooth as well, see documentation: https://github.com/jkingsman/Remote-Terminal-for-MeshCore/blob/main/docker-compose.example.yml",
+  "paths": [
+    {
+      "name": "App Data",
+      "host": "/mnt/user/appdata/remoteterm_meshcore/data",
+      "container": "/app/data",
+      "mode": "rw",
+      "description": "Path to the application data",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "5274",
+      "container": "8000",
+      "protocol": "tcp",
+      "description": "Container Port: 8000",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Internal Database Path",
+      "key": "MESHCORE_DATABASE_PATH",
+      "value": "data/meshcore.db",
+      "description": "Internal path to the database. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Internal Serial Path",
+      "key": "MESHCORE_SERIAL_PORT",
+      "value": "/dev/meshcore-radio",
+      "description": "Internal path to the serial port. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [
+    {
+      "name": "MeshCore Device",
+      "host": null,
+      "container": "/dev/meshcore-radio",
+      "description": "MeshCore USB device to control",
+      "required": true,
+      "display": "always-hide"
+    }
+  ],
+  "labels": [],
+  "gpus": []
+}

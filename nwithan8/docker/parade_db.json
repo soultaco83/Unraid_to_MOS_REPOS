@@ -1,0 +1,82 @@
+{
+  "name": "ParadeDB",
+  "repo": "paradedb/paradedb:latest",
+  "category": [
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/paradedb/paradedb",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/paradedb-icon.png",
+  "project": "https://paradedb.com",
+  "support": "https://docs.paradedb.com/",
+  "description": "ParadeDB is an Elasticsearch alternative built on Postgres. We’re modernizing the features of Elasticsearch, starting with real-time search and analytics.",
+  "paths": [
+    {
+      "name": "Data path",
+      "host": "/mnt/user/appdata/paradedb/data",
+      "container": "/var/lib/postgresql",
+      "mode": "rw",
+      "description": "Path to store the database data",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Database Port",
+      "host": "5432",
+      "container": "5432",
+      "protocol": "tcp",
+      "description": "Container Port: 5432",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Postgres User",
+      "key": "POSTGRES_USER",
+      "value": null,
+      "description": "Postgres user",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Postgres Password",
+      "key": "POSTGRES_PASSWORD",
+      "value": null,
+      "description": "Postgres password",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Postgres Database",
+      "key": "POSTGRES_DB",
+      "value": null,
+      "description": "Postgres database",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

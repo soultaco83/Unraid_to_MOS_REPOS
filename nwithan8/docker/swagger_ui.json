@@ -1,0 +1,71 @@
+{
+  "name": "Swagger UI",
+  "repo": "swaggerapi/swagger-ui:latest",
+  "category": [
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/swaggerapi/swagger-ui",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]/",
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/swagger-icon.png",
+  "project": "https://swagger.io/",
+  "support": "https://github.com/swagger-api/swagger-ui/tree/master/docs",
+  "description": "Swagger UI allows anyone — be it your development team or your end consumers — to visualize and interact with the API’s resources without having any of the implementation logic in place. It’s automatically generated from your OpenAPI (formerly known as Swagger) Specification, with the visual documentation making it easy for back end implementation and client side consumption. \r\n        [br]\n        There are additional configuration options via environmental variables. See documentation: https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md#docker",
+  "paths": [],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "8080",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "Container Port: 8080",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Swagger JSON File",
+      "key": "SWAGGER_JSON",
+      "value": null,
+      "description": "Path to swagger.json file used to render the API documentation. Remove if not used.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Swagger JSON URL",
+      "key": "SWAGGER_JSON_URL",
+      "value": null,
+      "description": "URL to the swagger.json file used to render the API documentation. Remove if not used.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Base URL",
+      "key": "BASE_URL",
+      "value": "/",
+      "description": "Base URL for the API documentation. Change if you are running behind a reverse proxy or in a subdirectory.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

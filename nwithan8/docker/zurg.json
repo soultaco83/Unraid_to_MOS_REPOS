@@ -1,0 +1,74 @@
+{
+  "name": "zurg",
+  "repo": "ghcr.io/debridmediamanager/zurg-public:latest",
+  "category": [
+    "Downloader",
+    "Media",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "ghcr.io/debridmediamanager/zurg-public",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/zurg-icon.png",
+  "project": "https://github.com/debridmediamanager/zurg-public",
+  "support": "https://github.com/debridmediamanager/zurg-public/issues",
+  "description": "A self-hosted Real-Debrid webdav server. Together with rclone it can mount your Real-Debrid torrent library into your file system like Dropbox. It's meant to be used with Infuse (webdav server) and Plex (mount zurg webdav with rclone).",
+  "requires": "Expects a `config.yml` file to be mounted at `/app/config.yml` before starting the container. See configuration details: https://github.com/debridmediamanager/zurg-public/blob/main/config.yml  \r\n        \r\n        Expects a `plex_update.sh` script to be mounted at `/app/plex_update.sh` if Plex integration is desired. See script details: https://github.com/debridmediamanager/zurg-public/blob/main/scripts/plex_update.sh",
+  "paths": [
+    {
+      "name": "Config File Path",
+      "host": "/mnt/user/appdata/zurg/config.yml",
+      "container": "/app/config.yml",
+      "mode": "rw",
+      "description": "Path to the config file",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Plex Update Script",
+      "host": null,
+      "container": "/app/plex_update.sh",
+      "mode": "rw",
+      "description": "Path to Plex update script: https://github.com/debridmediamanager/zurg-public/blob/main/scripts/plex_update.sh",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "App Data",
+      "host": "/mnt/user/appdata/zurg/data",
+      "container": "/app/data",
+      "mode": "rw",
+      "description": "Path to the app data folder",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "API Port",
+      "host": "9999",
+      "container": "9999",
+      "protocol": "tcp",
+      "description": "Container Port: 9999",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

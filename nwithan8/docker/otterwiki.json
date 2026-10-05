@@ -1,0 +1,73 @@
+{
+  "name": "An Otter Wiki",
+  "repo": "redimp/otterwiki:latest",
+  "category": [
+    "Hosting",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/redimp/otterwiki",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:80]/",
+  "icon": "https://raw.githubusercontent.com/redimp/otterwiki/main/otterwiki/static/img/otterhead.png",
+  "project": "https://otterwiki.com",
+  "support": "https://forums.unraid.net/topic/133764-support-grtgbln-docker-templates",
+  "description": "A Python-based collaborative content management system (wiki), powered by Git and Markdown.",
+  "paths": [
+    {
+      "name": "Data storage",
+      "host": "/mnt/user/appdata/otterwiki",
+      "container": "/app-data",
+      "mode": "rw",
+      "description": "Path to data storage",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "80",
+      "container": "80",
+      "protocol": "tcp",
+      "description": "Container Port: 80",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "99",
+      "description": "",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "100",
+      "description": "",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

@@ -1,0 +1,193 @@
+{
+  "name": "Facet",
+  "repo": "ghcr.io/jesposito/facet:latest",
+  "category": [
+    "AI",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "ghcr.io/jesposito/facet",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]/",
+  "icon": "https://raw.githubusercontent.com/jesposito/Facet/main/assets/icon.png",
+  "project": "https://github.com/jesposito/Facet",
+  "support": "https://github.com/jesposito/Facet/issues",
+  "description": "Facet is a self-hosted personal profile platform that lets you create multiple views of your professional profile for different audiences (recruiters, conferences, clients). \r\n        \r\n        You own your data and control what each audience sees. \r\n        \r\n        Default password: changeme123 ((you will be prompted to change it on first login)",
+  "paths": [
+    {
+      "name": "App Data",
+      "host": "/mnt/user/appdata/facet/data",
+      "container": "/data",
+      "mode": "rw",
+      "description": "Path to the app data",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Uploads Storage",
+      "host": "/mnt/user/appdata/facet/uploads",
+      "container": "/uploads",
+      "mode": "rw",
+      "description": "Path to the uploads storage",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "8080",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "Container Port: 8080",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Public URL",
+      "key": "APP_URL",
+      "value": null,
+      "description": "Public URL for Facet (e.g. http://IP_ADDRESS:8080). Used for OAuth callbacks and share links.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Admin Emails",
+      "key": "ADMIN_EMAILS",
+      "value": null,
+      "description": "Comma-separated email allowlist for OAuth login",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Behind Proxy",
+      "key": "TRUST_PROXY",
+      "value": "false|true",
+      "description": "Set to true if running behind a reverse proxy",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "OAuth - Google - Client ID",
+      "key": "GOOGLE_CLIENT_ID",
+      "value": null,
+      "description": "Client ID for 'Sign in with Google'. Redirect URI: YOUR_URL/api/oauth2-redirect",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "OAuth - Google - Client Secret",
+      "key": "GOOGLE_CLIENT_SECRET",
+      "value": null,
+      "description": "Client secret from Google Cloud Console.",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "OAuth - GitHub - Client ID",
+      "key": "GITHUB_CLIENT_ID",
+      "value": null,
+      "description": "Client ID for 'Sign in with GitHub'. Redirect URI: YOUR_URL/api/oauth2-redirect",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "OAuth - GitHub - Client Secret",
+      "key": "GITHUB_CLIENT_SECRET",
+      "value": null,
+      "description": "Client secret from GitHub OAuth Apps.",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "AI - OpenAI - API Key",
+      "key": "OPENAI_API_KEY",
+      "value": null,
+      "description": "API key for OpenAI services. Required for AI features powered by OpenAI.",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "AI - Anthropic - API Key",
+      "key": "ANTHROPIC_API_KEY",
+      "value": null,
+      "description": "API key for Anthropic services. Required for AI features powered by Anthropic.",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "AI - Ollama - URL",
+      "key": "OLLAMA_BASE_URL",
+      "value": null,
+      "description": "URL for Ollama API. Required for AI features powered by Ollama.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "AI - Ollama - Model",
+      "key": "OLLAMA_MODEL",
+      "value": null,
+      "description": "Model name for Ollama API. Required for AI features powered by Ollama.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "099",
+      "description": "",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "100",
+      "description": "",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

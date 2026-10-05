@@ -1,0 +1,172 @@
+{
+  "name": "Huntarr-Lidarr",
+  "repo": "huntarr/4lidarr:latest",
+  "category": [
+    "Downloader",
+    "Media",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/huntarr/4lidarr",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/huntarr-lidarr-icon.png",
+  "project": "https://github.com/plexguide/Huntarr-Lidarr",
+  "support": "https://github.com/plexguide/Huntarr-Lidarr/issues",
+  "description": "DEPRECATED: Use Huntarr instead. \r\n        [br]\n        Huntarr (Lidarr Edition) continually searches your Lidarr library for missing music or music that need quality upgrades. It automatically triggers searches for both missing music and music below your quality cutoff. It's designed to run continuously while being gentle on your indexers, helping you gradually complete your music collection with the best available quality.",
+  "requires": "Requires a separate Lidarr v1 instance.",
+  "paths": [],
+  "ports": [],
+  "variables": [
+    {
+      "name": "Lidarr - URL",
+      "key": "API_URL",
+      "value": "http://localhost:8686",
+      "description": "URL of your Lidarr instance",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Lidarr - API Key",
+      "key": "API_KEY",
+      "value": null,
+      "description": "API key for your Lidarr instance",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Lidarr - Monitored Only",
+      "key": "MONITORED_ONLY",
+      "value": "true|false",
+      "description": "Only process monitored items",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Huntarr - Mode",
+      "key": "HUNT_MISSING_MODE",
+      "value": "artist|album|both",
+      "description": "Which level to search for new releases at.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Huntarr - Missing Items Per Cycle",
+      "key": "HUNT_MISSING_ITEMS",
+      "value": "1",
+      "description": "Maximum missing items to process per cycle. Set to 0 to disable.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Huntarr - Upgrade Albums Per Cycle",
+      "key": "HUNT_UPGRADE_ALBUMS",
+      "value": "0",
+      "description": "Maximum upgrade albums to process per cycle. Set to 0 to disable.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Huntarr - Use Random Selection",
+      "key": "RANDOM_SELECTION",
+      "value": "false|true",
+      "description": "Use random selection for processing if enabled, or sequential if disabled.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Huntarr - Minimum Queue Size",
+      "key": "MINIMUM_DOWNLOAD_QUEUE_SIZE",
+      "value": "-1",
+      "description": "Minimum number of items in the download queue before starting a hunt. Set to -1 to disable.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Lidarr - API Timeout",
+      "key": "API_TIMEOUT",
+      "value": "60",
+      "description": "Timeout for API requests in seconds.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Huntarr - Sleep Duration",
+      "key": "SLEEP_DURATION",
+      "value": "900",
+      "description": "Duration, in seconds, to wait between cycles.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Huntarr - Reset Interval",
+      "key": "STATE_RESET_INTERVAL_HOURS",
+      "value": "168",
+      "description": "Interval, in hours, after which to reset the processed state files. Set to 0 to disable.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Debug Mode",
+      "key": "DEBUG_MODE",
+      "value": "false|true",
+      "description": "Enable debug mode for detailed logging.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Command Status - Wait Time",
+      "key": "COMMAND_WAIT_DELAY",
+      "value": "1",
+      "description": "Delay in seconds between checking for command status",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Command Status - Max Attempts",
+      "key": "COMMAND_WAIT_ATTEMPTS",
+      "value": "600",
+      "description": "Maximum number of attempts to check for command status",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

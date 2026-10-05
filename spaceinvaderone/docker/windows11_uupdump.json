@@ -1,0 +1,78 @@
+{
+  "name": "windows11_uupdump",
+  "repo": "spaceinvaderone/windows11_insider",
+  "category": [
+    "Utilities"
+  ],
+  "registry": "https://hub.docker.com/repository/docker/spaceinvaderone/windows11_insider",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/SpaceinvaderOne/unraid_vm_icons/master/icons/Windows/Windows_11.png",
+  "project": "https://github.com/SpaceinvaderOne/unraid_win11_insider",
+  "support": "https://forums.unraid.net/topic/111241-support-spaceinvaderone-windows11-uup-dump/",
+  "description": "A container to download the Window 11 insiders build and put it in the iso share to install as a vm\r\nContainer uses files from https://uupdump.net/ to easily download UUP files from  the Windows Update servers.\r\n\r\nThe default setting in the container will download Windows 11.\r\nHowever you can add a script file from https://uupdump.net/  for downloading other isos.\r\nTo do this download and unzip the download package and add the files to the custom folder in appdata\r\nset the variable to custom.\r\n\r\nSet the name for the downloaded iso image in the isoname variable\r\n\r\n\r\nThis project is not affiliated with Microsoft Corporation. Windows is a registered trademark of Microsoft Corporation.",
+  "paths": [
+    {
+      "name": "Isos path",
+      "host": "/mnt/user/isos/Windows/",
+      "container": "/isos",
+      "mode": "rw",
+      "description": "Path to where you store your iso images",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "appdata",
+      "host": "/mnt/user/appdata/windows11_uupdump",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Container Path: /config",
+      "required": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "ports": [],
+  "variables": [
+    {
+      "name": "Default or Custom",
+      "key": "version",
+      "value": "default",
+      "description": "Choose the default script or choose custom to add your own from uupdump.net (add name in name variable if you choose custom)",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Name for ISO image",
+      "key": "isoname",
+      "value": "Window11_Insiders.iso",
+      "description": "name for downloaded iso to be put in the iso share",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Custom script name",
+      "key": "name",
+      "value": "uup_download_linux.sh",
+      "description": "If using custom script in appdata/custom from uupdump.net you can specify the name here (you shouldnt need to change this)",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

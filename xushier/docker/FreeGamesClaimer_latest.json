@@ -1,0 +1,180 @@
+{
+  "name": "FreeGamesClaimer",
+  "repo": "ghcr.io/vogler/free-games-claimer",
+  "category": [
+    "Utilities"
+  ],
+  "registry": "https://github.com/vogler/free-games-claimer/pkgs/container/free-games-claimer",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": "node epic-games.js",
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:6183]",
+  "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Freegamesclaimer_A.png",
+  "project": "https://github.com/vogler/free-games-claimer",
+  "support": "https://github.com/Nackophilz/unraid_templates/issues",
+  "description": "FreeGamesClaimer is a program that will allow you to retrieve your free games and add them to your library from different platforms such as:\r\n\r\nEpicGames \r\nGOG \r\nAmazon Gaming \r\nMicrosoft (coming soon) \r\n\r\nIf you only want to use specific store and not all, you can add this in you're post arguments: \r\nbash -c \"node epic-games.js; node gog.js; node prime-gaming.js\" \r\nYou can choose only one of them, or two of them, remember to separate each node with \";\" and you're good to go !\r\n\r\nYouTube: https://www.youtube.com/@xiaoditx\r\nTemplates: https://github.com/xushier/Unraid-Docker-Templates\r\nIcons: https://github.com/xushier/HD-Icons\r\nBiliBili: https://space.bilibili.com/32313260\r\nBlog: https://www.xdtx.cc\r\nQQ Group: 647605169\r\nWeChat: 小迪同学",
+  "paths": [
+    {
+      "name": "Data Path",
+      "host": "/mnt/user/appdata/FGC",
+      "container": "/fgc/data",
+      "mode": "rw",
+      "description": "Data Path",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web Port",
+      "host": "6183",
+      "container": "6080",
+      "protocol": "tcp",
+      "description": "Web Port",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Generic Email",
+      "key": "EMAIL",
+      "value": "email",
+      "description": "Default email for all your applications",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Generic Password",
+      "key": "PASSWORD",
+      "value": "xxxx",
+      "description": "Default password for all your applications",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Epic Games Mail",
+      "key": "EG_EMAIL",
+      "value": "Your Epic Games Mail",
+      "description": "Epic Games email for login. Overrides EMAIL.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Epic Games Password",
+      "key": "EG_PASSWORD",
+      "value": "Your Epic Games Password",
+      "description": "Epic Games password for login. Overrides PASSWORD.",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Epic Games MFA OTP",
+      "key": "EG_OTPKEY",
+      "value": "Your Epic Games MFA OTP",
+      "description": "Epic Games MFA OTP key.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Prime Gaming Mail",
+      "key": "PG_EMAIL",
+      "value": null,
+      "description": "Prime Gaming email for login. Overrides EMAIL.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Prime Gaming Password",
+      "key": "PG_PASSWORD",
+      "value": null,
+      "description": "Prime Gaming password for login. Overrides PASSWORD.",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Prime Gaming MFA OTP",
+      "key": "PG_OTPKEY",
+      "value": null,
+      "description": "Prime Gaming MFA OTP key.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Prime Gaming Redeem on external store",
+      "key": "PG_REDEEM",
+      "value": "0",
+      "description": "Prime Gaming: try to redeem keys on external stores (experimental).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "GOG Mail",
+      "key": "GOG_EMAIL",
+      "value": null,
+      "description": "GOG email for login. Overrides EMAIL.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "GOG Password",
+      "key": "GOG_PASSWORD",
+      "value": null,
+      "description": "GOG password for login. Overrides PASSWORD.",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Notification",
+      "key": "NOTIFY",
+      "value": "mailto://email-prefix:password@xxx.com",
+      "description": "Notification :https://github.com/caronc/apprise#productivity-based-notifications to make a configuration (based on apprise).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "WebUI SHOW",
+      "key": "SHOW",
+      "value": "1",
+      "description": "Show browser if 1. Default for Docker, not shown when running outside.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

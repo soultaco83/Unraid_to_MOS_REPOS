@@ -1,0 +1,102 @@
+{
+  "name": "QbittorrentEE",
+  "repo": "superng6/qbittorrentee",
+  "category": [
+    "Downloader"
+  ],
+  "registry": "https://hub.docker.com/r/superng6/qbittorrentee/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:1922]",
+  "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons@master/border-radius/Qbittorrent_B.png",
+  "project": "https://github.com/SuperNG6/Docker-qBittorrent-Enhanced-Edition",
+  "support": "https://github.com/SuperNG6/Docker-qBittorrent-Enhanced-Edition",
+  "description": "qBittorrent增强版，防吸血\r\n\r\nYouTube: https://www.youtube.com/@xiaoditx\r\nTemplates: https://github.com/xushier/Unraid-Docker-Templates\r\nIcons: https://github.com/xushier/HD-Icons\r\nBiliBili: https://space.bilibili.com/32313260\r\nBlog: https://www.xdtx.cc\r\nQQ Group: 647605169\r\nWeChat: 小迪同学",
+  "paths": [
+    {
+      "name": "Config Path",
+      "host": "/mnt/user/appdata/QbittorrentEE_Superng6",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Config Path",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Download Path",
+      "host": "Your Download Path",
+      "container": "/downloads",
+      "mode": "rw",
+      "description": "Download Path",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "TCP Port",
+      "host": "6888",
+      "container": "6881",
+      "protocol": "tcp",
+      "description": "TCP Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP Port",
+      "host": "6888",
+      "container": "6881",
+      "protocol": "udp",
+      "description": "UDP Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Web Port",
+      "host": "1922",
+      "container": "1922",
+      "protocol": "tcp",
+      "description": "Web Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Listen Web Port",
+      "key": "WEBUIPORT",
+      "value": "1922",
+      "description": "Listen Web Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Timezone",
+      "key": "TZ",
+      "value": "Asia/Shanghai",
+      "description": "Timezone",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

@@ -1,0 +1,154 @@
+{
+  "name": "Mydia",
+  "repo": "ghcr.io/getmydia/mydia:latest",
+  "category": [
+    "Media",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "ghcr.io/getmydia/mydia",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:4000]/",
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/mydia-icon.png",
+  "project": "https://github.com/getmydia/mydia",
+  "support": "https://github.com/getmydia/mydia/issues",
+  "description": "A modern, self-hosted media management platform for tracking, organizing, and monitoring your media library.",
+  "requires": "Additional configuration options documented here: https://github.com/getmydia/mydia#-environment-variables-reference",
+  "paths": [
+    {
+      "name": "Movies Path",
+      "host": null,
+      "container": "/media/movies",
+      "mode": "rw",
+      "description": "Path to your movies folder on the host system",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "TV Shows Path",
+      "host": null,
+      "container": "/media/tv",
+      "mode": "rw",
+      "description": "Path to your TV shows folder on the host system",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Downloads Path",
+      "host": null,
+      "container": "/media/downloads",
+      "mode": "rw",
+      "description": "Path to your downloads folder on the host system",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Config Path",
+      "host": "/mnt/user/appdata/mydia/config",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Path to the configuration folder",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "4000",
+      "container": "4000",
+      "protocol": "tcp",
+      "description": "Container Port: 4000",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Secret Key Base",
+      "key": "SECRET_KEY_BASE",
+      "value": null,
+      "description": "Generate with 'openssl rand -base64 48'",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Guardian Secret Key",
+      "key": "GUARDIAN_SECRET_KEY",
+      "value": null,
+      "description": "Generate with 'openssl rand -base64 48'",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Host Domain",
+      "key": "PHX_HOST",
+      "value": "localhost",
+      "description": "Change to your domain or IP address",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Internal Port",
+      "key": "PORT",
+      "value": "4000",
+      "description": "Internal application port. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Internal Movies Path",
+      "key": "MOVIES_PATH",
+      "value": "/media/movies",
+      "description": "Internal path to movies folder. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Internal TV Shows Path",
+      "key": "TV_PATH",
+      "value": "/media/tv",
+      "description": "Internal path to TV shows folder. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Internal Database Path",
+      "key": "DATABASE_PATH",
+      "value": "/config/mydia.db",
+      "description": "Internal path to the database file. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

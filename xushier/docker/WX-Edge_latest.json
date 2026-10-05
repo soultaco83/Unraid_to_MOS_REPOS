@@ -1,0 +1,37 @@
+{
+  "name": "WX-Edge",
+  "repo": "onething1/wxedge:latest",
+  "category": [
+    "Hosting"
+  ],
+  "registry": "https://hub.docker.com/r/onething1/wxedge",
+  "network": "host",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": true,
+  "extra_parameters": "--tmpfs=/run --tmpfs=/tmp --restart=unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:18888]",
+  "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Wangxinyun_A.png",
+  "project": "https://www.onethingcloud.com",
+  "support": null,
+  "description": "YouTube: https://www.youtube.com/@xiaoditx\r\nTemplates: https://github.com/xushier/Unraid-Docker-Templates\r\nIcons: https://github.com/xushier/HD-Icons\r\nBiliBili: https://space.bilibili.com/32313260\r\nBlog: https://www.xdtx.cc\r\nQQ Group: 647605169\r\nWeChat: 小迪同学",
+  "paths": [
+    {
+      "name": "Data",
+      "host": "/mnt/user/appdata/WX-Edge",
+      "container": "/storage",
+      "mode": "rw",
+      "description": "",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

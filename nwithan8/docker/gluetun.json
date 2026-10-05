@@ -1,0 +1,75 @@
+{
+  "name": "Gluetun",
+  "repo": "qmcgaw/gluetun:latest",
+  "category": [
+    "Network",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/qmcgaw/gluetun",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": "--cap-add NET_ADMIN",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/qdm12/gluetun/master/title.svg",
+  "project": "https://github.com/qdm12/gluetun",
+  "support": "https://github.com/qdm12/gluetun/issues",
+  "description": "VPN client in a thin Docker container for multiple VPN providers, written in Go, and using OpenVPN or Wireguard, DNS over TLS, with a few proxy servers built-in.",
+  "requires": "Add variables based on the specific VPN provider: https://github.com/qdm12/gluetun-wiki/tree/main/setup#setup",
+  "paths": [
+    {
+      "name": "Data Path",
+      "host": "/mnt/user/appdata/gluetun/data",
+      "container": "/gluetun",
+      "mode": "rw",
+      "description": "Path to the gluetun data",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "HTTP Proxy",
+      "host": "8888",
+      "container": "8888",
+      "protocol": "tcp",
+      "description": "Container Port: 8888",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Shadowsocks TCP",
+      "host": "8388",
+      "container": "8388",
+      "protocol": "tcp",
+      "description": "Container Port: 8388",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Shadowsocks UDP",
+      "host": "8388",
+      "container": "8388",
+      "protocol": "udp",
+      "description": "Container Port: 8388",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

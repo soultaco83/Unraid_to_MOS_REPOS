@@ -1,0 +1,123 @@
+{
+  "name": "binhex-seerr",
+  "repo": "ghcr.io/binhex/arch-seerr",
+  "category": [
+    "Downloader",
+    "Media"
+  ],
+  "registry": "https://github.com/binhex/arch-seerr/pkgs/container/arch-seerr",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=always",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:5055]",
+  "readme_url": "https://github.com/binhex/documentation",
+  "icon": "https://raw.githubusercontent.com/binhex/docker-templates/master/binhex/images/seerr-icon.png",
+  "project": "https://github.com/seerr-team/seerr",
+  "support": "https://forums.unraid.net/topic/196020-support-binhex-seerr/",
+  "description": "Seerr is a free and open source software application for managing requests for your media library. It integrates with the media server of your choice: Jellyfin, Plex, and Emby. In addition, it integrates with your existing services, such as Sonarr, Radarr.",
+  "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
+  "paths": [
+    {
+      "name": "Path: /config",
+      "host": "/mnt/user/appdata/seerr",
+      "container": "/config",
+      "mode": "rw",
+      "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Port: Web Interface",
+      "host": "5055",
+      "container": "5055",
+      "protocol": "tcp",
+      "description": "This is the port for the Web UI for the application",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Variable: ENABLE_HEALTHCHECK",
+      "key": "ENABLE_HEALTHCHECK",
+      "value": "yes|no",
+      "description": "Enable or disable healthchecks.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Variable: HEALTHCHECK_COMMAND",
+      "key": "HEALTHCHECK_COMMAND",
+      "value": null,
+      "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Variable: HEALTHCHECK_ACTION",
+      "key": "HEALTHCHECK_ACTION",
+      "value": null,
+      "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Variable: HEALTHCHECK_HOSTNAME",
+      "key": "HEALTHCHECK_HOSTNAME",
+      "value": "google.com",
+      "description": "The hostname used when performing HTTPS and DNS healthchecking.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Variable: PUID",
+      "key": "PUID",
+      "value": "99",
+      "description": "User ID for the running container",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Variable: PGID",
+      "key": "PGID",
+      "value": "100",
+      "description": "Group ID for the running container",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Variable: UMASK",
+      "key": "UMASK",
+      "value": "000",
+      "description": "UMASK for the running container",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

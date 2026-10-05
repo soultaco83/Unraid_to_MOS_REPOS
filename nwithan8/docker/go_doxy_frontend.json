@@ -1,0 +1,41 @@
+{
+  "name": "GoDoxy Frontend",
+  "repo": "ghcr.io/yusing/godoxy-frontend:latest",
+  "category": [
+    "Network",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "ghcr.io/yusing/godoxy-frontend",
+  "network": "host",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/go-doxy-icon.png",
+  "project": "https://github.com/yusing/go-proxy",
+  "support": "https://github.com/yusing/go-proxy/issues",
+  "description": "A frontend dashboard for GoDoxy.",
+  "requires": "Requires a separate GoDoxy instance.",
+  "paths": [],
+  "ports": [],
+  "variables": [
+    {
+      "name": "API - Address",
+      "key": "GODOXY_API_ADDR",
+      "value": "127.0.0.1:8888",
+      "description": "API address",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

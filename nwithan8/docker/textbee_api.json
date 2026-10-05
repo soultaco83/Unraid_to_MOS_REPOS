@@ -1,0 +1,213 @@
+{
+  "name": "TextBee - API",
+  "repo": "ghcr.io/vernu/textbee/api:latest",
+  "category": [
+    "Network",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "ghcr.io/vernu/textbee/api",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/vernu/textbee/refs/heads/main/web/public/images/logo.png",
+  "project": "https://textbee.dev",
+  "support": "https://textbee.dev",
+  "description": "A simple SMS gateway that allows users to send SMS messages from a web interface or from their application via a REST API. It utilizes android phones as SMS gateways.",
+  "requires": "Requires a separate MongoDB database.",
+  "paths": [],
+  "ports": [
+    {
+      "name": "API Port",
+      "host": "3005",
+      "container": "3005",
+      "protocol": "tcp",
+      "description": "Container Port: 3005",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "MongoDB URL",
+      "key": "MONGO_URI",
+      "value": "mongodb://localhost:27017/textbee",
+      "description": "URL of the MongoDB database",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "JWT Secret",
+      "key": "JWT_SECRET",
+      "value": "changeme",
+      "description": "Secret key for JWT",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Firebase - Project ID",
+      "key": "FIREBASE_PROJECT_ID",
+      "value": null,
+      "description": "Firebase Project ID",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Firebase - Private Key ID",
+      "key": "FIREBASE_PRIVATE_KEY_ID",
+      "value": null,
+      "description": "Firebase Private Key ID",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Firebase - Private Key",
+      "key": "FIREBASE_PRIVATE_KEY",
+      "value": null,
+      "description": "Firebase Private Key",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Firebase - Client Email",
+      "key": "FIREBASE_CLIENT_EMAIL",
+      "value": null,
+      "description": "Firebase Client Email",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Firebase - Client ID",
+      "key": "FIREBASE_CLIENT_ID",
+      "value": null,
+      "description": "Firebase Client ID",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Firebase - Client C509 Cert URL",
+      "key": "FIREBASE_CLIENT_C509_CERT_URL",
+      "value": null,
+      "description": "Firebase Client C509 Cert URL",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Web URL",
+      "key": "FRONTEND_URL",
+      "value": "http://localhost:3000",
+      "description": "URL of the web interface. Needed for password reset links",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Email - Host",
+      "key": "MAIL_HOST",
+      "value": null,
+      "description": "Email Host",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Email - Port",
+      "key": "MAIL_PORT",
+      "value": null,
+      "description": "Email Port",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Email - User",
+      "key": "MAIL_USER",
+      "value": null,
+      "description": "Email User",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Email - Password",
+      "key": "MAIL_PASS",
+      "value": null,
+      "description": "Email Password",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Email - From",
+      "key": "MAIL_FROM",
+      "value": null,
+      "description": "Email From",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Email - Reply To",
+      "key": "MAIL_REPLY_TO",
+      "value": null,
+      "description": "Email Reply To",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Internal API Port",
+      "key": "PORT",
+      "value": "3005",
+      "description": "Internal API Port. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "JWT Expiration Time",
+      "key": "JWT_EXPIRATION",
+      "value": "60d",
+      "description": "JWT Expiration Time",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

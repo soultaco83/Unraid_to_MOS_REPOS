@@ -1,0 +1,59 @@
+{
+  "name": "MemCached",
+  "repo": "bitnami/memcached:latest",
+  "category": [
+    "Utilities"
+  ],
+  "registry": "https://hub.docker.com/r/bitnami/memcached/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Memcached_A.png",
+  "project": "https://memcached.org/",
+  "support": "https://forums.unraid.net/topic/89502-support-a75g-repo/",
+  "description": "Memcached is an in-memory key-value store for small chunks of arbitrary data (strings, objects) from results of database calls, API calls, or page rendering.\r\n\r\nYouTube: https://www.youtube.com/@xiaoditx\r\nTemplates: https://github.com/xushier/Unraid-Docker-Templates\r\nIcons: https://github.com/xushier/HD-Icons\r\nBiliBili: https://space.bilibili.com/32313260\r\nBlog: https://www.xdtx.cc\r\nQQ Group: 647605169\r\nWeChat: 小迪同学",
+  "paths": [],
+  "ports": [
+    {
+      "name": "Port",
+      "host": "11211",
+      "container": "11211",
+      "protocol": "tcp",
+      "description": "Port",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Username",
+      "key": "MEMCACHED_USERNAME",
+      "value": null,
+      "description": "Memcached Username if you want authentication",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Password",
+      "key": "MEMCACHED_PASSWORD",
+      "value": null,
+      "description": "Memcache Password if you want authentication",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

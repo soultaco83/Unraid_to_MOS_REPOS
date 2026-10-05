@@ -1,0 +1,113 @@
+{
+  "name": "MESH-API",
+  "repo": "mrtbot/mesh-ai:latest",
+  "category": [
+    "AI",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/mrtbot/mesh-ai",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:5000]/",
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/mesh-api-icon.png",
+  "project": "https://github.com/mr-tbot/mesh-api",
+  "support": "https://github.com/mr-tbot/mesh-api/issues",
+  "description": "Off-Grid AI + Mesh Router for Meshtastic - Seamlessly connect LM Studio, Ollama, OpenAI, 3rd-party APIs, and Home Assistant to your LoRa mesh. Supports custom commands, Twilio SMS (inbound/outbound), Discord channel routing, and GPS emergency alerts via SMS, email, or Discord.",
+  "requires": "Requires multiple files to exist prior to starting the container. Run `touch FILE_NAME` for all files listed here: See configuration details: https://github.com/mr-tbot/mesh-api/blob/main/docker-compose.yml \r\n        [br]\n        Expects a `config.json` file to be mounted at `/app/config.json` before starting the container. See configuration details: https://github.com/mr-tbot/mesh-api#configuration",
+  "paths": [
+    {
+      "name": "Config File",
+      "host": "/mnt/user/appdata/mesh_ai/config.json",
+      "container": "/app/config.json",
+      "mode": "rw",
+      "description": "Path to the config file",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Commands Config File",
+      "host": "/mnt/user/appdata/mesh_ai/commands_config.json",
+      "container": "/app/commands_config.json",
+      "mode": "rw",
+      "description": "Path to the commands config file",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Message-of-the-Day File",
+      "host": "/mnt/user/appdata/mesh_ai/motd.json",
+      "container": "/app/motd.json",
+      "mode": "rw",
+      "description": "Path to the message of the day file",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Messages Log",
+      "host": "/mnt/user/appdata/mesh_ai/messages.log",
+      "container": "/app/messages.log",
+      "mode": "rw",
+      "description": "Path to the messages log file",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Messages Archive",
+      "host": "/mnt/user/appdata/mesh_ai/messages_archive.json",
+      "container": "/app/messages_archive.json",
+      "mode": "rw",
+      "description": "Path to the messages archive log file",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Extensions Configs",
+      "host": "/mnt/user/appdata/mesh_ai/extensions",
+      "container": "/app/extensions",
+      "mode": "rw",
+      "description": "Path to the extensions configs directory",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Script Log",
+      "host": "/mnt/user/appdata/mesh_ai/script.log",
+      "container": "/app/script.log",
+      "mode": "rw",
+      "description": "Path to the script log file",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "5000",
+      "container": "5000",
+      "protocol": "tcp",
+      "description": "Container Port: 5000",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

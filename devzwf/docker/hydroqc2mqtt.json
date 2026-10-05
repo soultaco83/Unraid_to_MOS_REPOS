@@ -1,0 +1,208 @@
+{
+  "name": "hydroqc2mqtt",
+  "repo": "registry.gitlab.com/hydroqc/hydroqc2mqtt:latest",
+  "category": [
+    "Home Automation"
+  ],
+  "registry": "https://registry.gitlab.com/hydroqc/hydroqc2mqtt",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": "--restart=always",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/devzwf/unraid-docker-templates/main/images/hydroqc-logo.png",
+  "project": "https://hydroqc.ca/",
+  "support": "https://forums.unraid.net/topic/129079-support-devzwf-hydroqc2mqtt",
+  "description": "This project was created to provide a way to access Hydro-Québec account and winter credit data in Home-Assistant.\r\n\r\nThis module use the hydroqc library to fetch all pertinent account information and winter credit signals to be sent to MQTT. It also provide Home-Assistant discovery topics to create all the relevant sensors in Home-Assistant.\r\n\r\nIt also includes a separate logic that sends the hourly consumption statistics to Home-Assitant via websocket",
+  "donate": "https://ko-fi.com/devzwf",
+  "paths": [],
+  "ports": [],
+  "variables": [
+    {
+      "name": "MQTT Username",
+      "key": "MQTT_USERNAME",
+      "value": null,
+      "description": "Optional",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "MQTT Password",
+      "key": "MQTT_PASSWORD",
+      "value": null,
+      "description": "Optional",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "MQTT Host",
+      "key": "MQTT_HOST",
+      "value": null,
+      "description": "",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "MQTT Port",
+      "key": "MQTT_PORT",
+      "value": "1883",
+      "description": "",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Contract 0 Name",
+      "key": "HQ2M_CONTRACTS_0_NAME",
+      "value": null,
+      "description": "Name of the contract, will appear in Home Assistant and in the hydroqc topics.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Contract 0 Username",
+      "key": "HQ2M_CONTRACTS_0_USERNAME",
+      "value": null,
+      "description": "Username for your HQ account",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Contract 0 Password",
+      "key": "HQ2M_CONTRACTS_0_PASSWORD",
+      "value": null,
+      "description": "Your HQ account password",
+      "required": true,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Contract 0 Customer number",
+      "key": "HQ2M_CONTRACTS_0_CUSTOMER",
+      "value": null,
+      "description": "Customer number (Numéro de client) from your invoice. 10 digits, you may need to add a leading 0 to the value Ex: ‘987 654 321’ will be ‘0987654321’",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Contract 0 Account Number",
+      "key": "HQ2M_CONTRACTS_0_ACCOUNT",
+      "value": null,
+      "description": "Account Number (Numéro de compte) from your invoice",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Contract 0 Contract number",
+      "key": "HQ2M_CONTRACTS_0_CONTRACT",
+      "value": null,
+      "description": "Contract Number (Numéro de contrat) from your invoice. 10 digits, you may need to add a leading 0 to the value. Ex: ‘123 456 789’ will be ‘0123456789’",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Contract 0 Homeassistant websocket URL",
+      "key": "HQ2M_CONTRACTS_0_HOME_ASSISTANT_WEBSOCKET_URL",
+      "value": null,
+      "description": "URL to your Home-Assistant installation websocket API",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Contract 0 Homeassistant Token",
+      "key": "HQ2M_CONTRACTS_0_HOME_ASSISTANT_TOKEN",
+      "value": null,
+      "description": "Long-lived Home-Assistant access token to be used to access the API",
+      "required": true,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Contract 0 Hourly sync consumption Flag",
+      "key": "HQ2M_CONTRACTS_0_SYNC_HOURLY_CONSUMPTION_ENABLED",
+      "value": "true",
+      "description": "Enable importing hourly consumption from Hydro-Quebec (last 24h)",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Contract 0 Rate",
+      "key": "HQ2M_CONTRACTS_0_RATE",
+      "value": "D",
+      "description": "Your rate",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Contract 0 Rate Option",
+      "key": "HQ2M_CONTRACTS_0_RATE_OPTION",
+      "value": "CPC",
+      "description": "Rate option for the contract must be 'NONE' if you do not have one.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Contract 0 Preheat duration",
+      "key": "HQ2M_CONTRACTS_0_PREHEAT_DURATION_MINUTES",
+      "value": "180",
+      "description": "Duration of the pre-heat period in minute",
+      "required": false,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Contract 0 Log Level",
+      "key": "HQ2M_CONTRACTS_0_LOG_LEVEL",
+      "value": "INFO",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Contract 0 HTTP Log Level",
+      "key": "HQ2M_CONTRACTS_0_HTTP_LOG_LEVEL",
+      "value": "WARNING",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

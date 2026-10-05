@@ -1,0 +1,314 @@
+{
+  "name": "AuthPortal",
+  "repo": "modomofn/auth-portal:latest",
+  "category": [
+    "Network",
+    "Utilities",
+    "Media",
+    "Productivity",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/modomofn/auth-portal",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]/",
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/auth-portal-icon.png",
+  "project": "https://github.com/modom-ofn/auth-portal",
+  "support": "https://github.com/modom-ofn/auth-portal/issues",
+  "description": "AuthPortal is a lightweight, self-hosted authentication gateway for Plex users. It reproduces Overseerr’s clean popup login (no code entry), stores the Plex token, and issues a secure session cookie for your intranet portal.",
+  "requires": "Requires a separate Postgres database.",
+  "paths": [],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "8080",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "Container Port: 8080",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Database Connection URL",
+      "key": "DATABASE_URL",
+      "value": "postgres://POSTGRES_USER:POSTGRES_PASSWORD@POSTGRES_IP:5432/AuthPortaldb?sslmode=disable",
+      "description": "Postgres database connection URL",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "App Base URL",
+      "key": "APP_BASE_URL",
+      "value": "http://IP_ADDRESS:PORT",
+      "description": "Public URL of this service. If using HTTPS, cookies will be marked Secure.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Trusted Proxy CIDR Ranges",
+      "key": "TRUSTED_PROXY_CIDRS",
+      "value": null,
+      "description": "Comma-separated list of trusted proxy CIDR ranges for forwarded headers",
+      "required": false,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Media Server",
+      "key": "MEDIA_SERVER",
+      "value": "plex|emby|jellyfin",
+      "description": "Type of media server to authenticate against",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Session Secret",
+      "key": "SESSION_SECRET",
+      "value": null,
+      "description": "HMAC secret for JWT cookie",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Data Key",
+      "key": "DATA_KEY",
+      "value": null,
+      "description": "Base64 32-byte key for sealing tokens at rest",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Force Secure Cookie",
+      "key": "FORCE_SECURE_COOKIE",
+      "value": "0|1",
+      "description": "Set to 1 to force Secure on cookies (behind TLS/ingress)",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Force HSTS Header",
+      "key": "FORCE_HSTS",
+      "value": "0|1",
+      "description": "Set to 1 to force HSTS headers even if APP_BASE_URL is http (when TLS terminates upstream)",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Authorized Page - External URL",
+      "key": "LOGIN_EXTRA_LINK_URL",
+      "value": null,
+      "description": "External URL on authorized page",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Authorized Page - External URL Text",
+      "key": "LOGIN_EXTRA_LINK_TEXT",
+      "value": null,
+      "description": "Text for external URL on authorized page",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Unauthorized Page Request - Email",
+      "key": "UNAUTH_REQUEST_EMAIL",
+      "value": null,
+      "description": "Email address for unauthorized page request access link",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Unauthorized Page Request - Email Subject",
+      "key": "UNAUTH_REQUEST_SUBJECT",
+      "value": null,
+      "description": "Subject for unauthorized page request access email",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Plex - Owner Token",
+      "key": "PLEX_OWNER_TOKEN",
+      "value": null,
+      "description": "Token from Plex server owner; used to validate server membership.",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Plex - Server Machine ID",
+      "key": "PLEX_SERVER_MACHINE_ID",
+      "value": null,
+      "description": "Machine ID of your Plex server (preferred over name).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Plex - Server Name",
+      "key": "PLEX_SERVER_NAME",
+      "value": null,
+      "description": "Optional: Plex server name (used if machine ID not set).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Emby - Server URL",
+      "key": "EMBY_SERVER_URL",
+      "value": null,
+      "description": "URL of your Emby server (e.g. http://IP:PORT).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Emby - Server API Key",
+      "key": "EMBY_API_KEY",
+      "value": null,
+      "description": "API key from your Emby server.",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Emby - App Name",
+      "key": "EMBY_APP_NAME",
+      "value": "AuthPortal",
+      "description": "Name of the Emby application (for client headers).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Emby - App Version",
+      "key": "EMBY_APP_VERSION",
+      "value": null,
+      "description": "Version of the Emby application (for client headers).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Jellyfin - Server URL",
+      "key": "JELLYFIN_SERVER_URL",
+      "value": null,
+      "description": "URL of your Jellyfin server (e.g. http://IP:PORT).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Jellyfin - Server API Key",
+      "key": "JELLYFIN_API_KEY",
+      "value": null,
+      "description": "API key from your Jellyfin server.",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Jellyfin - App Name",
+      "key": "JELLYFIN_APP_NAME",
+      "value": "AuthPortal",
+      "description": "Name of the Jellyfin application (for client headers).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Jellyfin - App Version",
+      "key": "JELLYFIN_APP_VERSION",
+      "value": null,
+      "description": "Version of the Jellyfin application (for client headers).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "OIDC Provider - Signing Key",
+      "key": "OIDC_SIGNING_KEY",
+      "value": null,
+      "description": "PEM-encoded private key for OIDC ID token signing",
+      "required": false,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "OIDC Provider - Issuer URL",
+      "key": "OIDC_ISSUER_URL",
+      "value": "http://IP_ADDRESS:PORT",
+      "description": "Issuer URL for OIDC provider (should match APP_BASE_URL)",
+      "required": false,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Trusted Redirect Hosts",
+      "key": "TRUSTED_REDIRECT_HOSTS",
+      "value": null,
+      "description": "Optional, comma-separated allow-list for absolute OIDC redirect_uri hosts",
+      "required": false,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Log Level",
+      "key": "LOG_LEVEL",
+      "value": "INFO|DEBUG|WARN|ERROR",
+      "description": "Logging level",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

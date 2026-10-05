@@ -1,0 +1,63 @@
+{
+  "name": "Deleterr",
+  "repo": "rfsbraz/deleterr:latest",
+  "category": [
+    "Downloader",
+    "Media",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "https://github.com/rfsbraz/deleterr/pkgs/container/deleterr",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/deleterr-icon.png",
+  "project": "https://github.com/rfsbraz/deleterr",
+  "support": "https://github.com/rfsbraz/deleterr/issues",
+  "description": "Deleterr uses Radarr, Sonarr, and Tautulli to identify and delete media files based on user-specified criteria. Deleterr is customizable, allowing you to specify metadata based rules for different libraries and Sonarr/Radarr instances. \r\n        [br]\n        Setup Deleterr to run on a schedule and it will automatically delete media files that meet your criteria. This allows to keep your library fresh and clean, without having to manually manage it to free up space.",
+  "requires": "Expects a `settings.yaml` file in the Config File Path folder: https://github.com/rfsbraz/deleterr?tab=readme-ov-file#configuration",
+  "paths": [
+    {
+      "name": "Config File Path",
+      "host": "/mnt/user/appdata/deleterr/config",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Path to the folder containing the config file",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Log Files Path",
+      "host": "/mnt/user/appdata/deleterr/logs",
+      "container": "/config/logs",
+      "mode": "rw",
+      "description": "Path to the folder containing the log files",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [],
+  "variables": [
+    {
+      "name": "Log Level",
+      "key": "LOG_LEVEL",
+      "value": "INFO|DEBUG|ERROR",
+      "description": "Log level for the application",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

@@ -1,0 +1,193 @@
+{
+  "name": "webhook.site Frontend",
+  "repo": "webhooksite/webhook.site:latest",
+  "category": [
+    "Media",
+    "Misc",
+    "Productivity",
+    "Utilities"
+  ],
+  "registry": "https://hub.docker.com/r/webhooksite/webhook.site",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": "php artisan queue:work --daemon --tries=3 --timeout=10\"",
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:80]",
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/webhook-site-icon.png",
+  "project": "https://webhook.site",
+  "support": "https://github.com/webhooksite/webhook.site/issues",
+  "description": "(Frontend) A website to generate unique, random URLs that you can use to test and debug Webhooks and HTTP requests, as well as to create your own workflows.",
+  "requires": "Requires a separate Redis database and \"webhook.site Backend\" (also available in Community Applications).\n\n        You must enter a container console and run the following command upon each startup:\n\n        `sed -i -e 's/laravel-echo-server:6001/${BACKEND_SERVER_HOST}:${BACKEND_SERVER_PORT}/g' /etc/nginx/conf.d/nginx.conf`",
+  "paths": [],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "8084",
+      "container": "80",
+      "protocol": "tcp",
+      "description": "Container Port: 80",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Server Host",
+      "key": "BACKEND_SERVER_HOST",
+      "value": "localhost",
+      "description": "Hostname for the backend server. Replace with IP address of the backend server.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Server Port",
+      "key": "BACKEND_SERVER_PORT",
+      "value": "6001",
+      "description": "Port for the backend server",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "App URL",
+      "key": "APP_URL",
+      "value": "http://localhost:8084",
+      "description": "Application URL. Replace with IP and port. Port must match Web UI Port",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Redis Host",
+      "key": "REDIS_HOST",
+      "value": "localhost",
+      "description": "Redis host. Replace with IP address of Redis server.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Redis Port",
+      "key": "REDIS_PORT",
+      "value": "6379",
+      "description": "Redis port",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Redis Password",
+      "key": "REDIS_PASSWORD",
+      "value": null,
+      "description": "Redis password",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Redis Database",
+      "key": "REDIS_DB",
+      "value": null,
+      "description": "Redis database",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "App Environment",
+      "key": "APP_ENV",
+      "value": "dev",
+      "description": "Application environment. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "App Debug",
+      "key": "APP_DEBUG",
+      "value": "true|false",
+      "description": "Application debug mode. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "App Log",
+      "key": "APP_LOG",
+      "value": "errorlog",
+      "description": "Application log level. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Database connection",
+      "key": "DB_CONNECTION",
+      "value": "sqlite",
+      "description": "Database connection type. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Broadcast Driver",
+      "key": "BROADCAST_DRIVER",
+      "value": "redis",
+      "description": "Broadcast driver. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Cache Driver",
+      "key": "CACHE_DRIVER",
+      "value": "redis",
+      "description": "Cache driver. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Queue Driver",
+      "key": "QUEUE_DRIVER",
+      "value": "redis",
+      "description": "Queue driver. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Echo Host Mode",
+      "key": "ECHO_HOST_MODE",
+      "value": "path",
+      "description": "Echo host mode. Not recommended to change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

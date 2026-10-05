@@ -1,0 +1,84 @@
+{
+  "name": "Nascab",
+  "repo": "ypptec/nascab:latest",
+  "category": [
+    "Backup",
+    "Hosting",
+    "Utilities",
+    "Media"
+  ],
+  "registry": "https://hub.docker.com/r/ypptec/nascab",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:6592]",
+  "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Nascab_A.png",
+  "project": "https://www.nascab.cn",
+  "support": "https://www.nascab.cn",
+  "description": "YouTube: https://www.youtube.com/@xiaoditx\r\nTemplates: https://github.com/xushier/Unraid-Docker-Templates\r\nIcons: https://github.com/xushier/HD-Icons\r\nBiliBili: https://space.bilibili.com/32313260\r\nBlog: https://www.xdtx.cc\r\nQQ Group: 647605169\r\nWeChat: 小迪同学",
+  "paths": [
+    {
+      "name": "Database &amp; Cache Path",
+      "host": "/mnt/user/appdata/Nascab",
+      "container": "/root/.local/share/nascab",
+      "mode": "rw",
+      "description": "Database &amp; Cache Path",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Personal Data",
+      "host": "Your Personal Data",
+      "container": "/mydata",
+      "mode": "rw",
+      "description": "Personal Data",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web Http Port",
+      "host": "6592",
+      "container": "80",
+      "protocol": "tcp",
+      "description": "Web Http Port",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "WebDAV Port",
+      "host": "6593",
+      "container": "90",
+      "protocol": "tcp",
+      "description": "WebDAV Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "FTP Port",
+      "host": "6594",
+      "container": "21",
+      "protocol": "tcp",
+      "description": "FTP Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

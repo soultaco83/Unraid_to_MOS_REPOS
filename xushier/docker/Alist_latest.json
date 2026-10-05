@@ -1,0 +1,49 @@
+{
+  "name": "Alist",
+  "repo": "xhofe/alist:latest",
+  "category": [
+    "Utilities"
+  ],
+  "registry": "https://hub.docker.com/r/xhofe/alist/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:5244]",
+  "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons@master/border-radius/Alist_A.png",
+  "project": "https://alist.nn.ci",
+  "support": "https://github.com/alist-org/alist",
+  "description": "A file list program that supports multiple storage, powered by gin and React.\r\n\r\nYouTube: https://www.youtube.com/channel/UCPj4GP1FxDt0I23GhctHRFA\r\nTemplates: https://github.com/xushier/Unraid-Docker-Templates\r\nIcons: https://github.com/xushier/HD-Icons\r\nBiliBili: https://space.bilibili.com/32313260\r\nBlog: https://www.xdtx.cc\r\nQQ Group: 647605169\r\nWeChat: 小迪同学",
+  "paths": [
+    {
+      "name": "Config Path",
+      "host": "/mnt/user/appdata/Alist",
+      "container": "/opt/alist/data",
+      "mode": "rw",
+      "description": "Config Path",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web Port",
+      "host": "5244",
+      "container": "5244",
+      "protocol": "tcp",
+      "description": "Web Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

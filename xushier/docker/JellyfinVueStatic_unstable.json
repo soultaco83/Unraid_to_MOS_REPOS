@@ -1,0 +1,39 @@
+{
+  "name": "JellyfinVueStatic",
+  "repo": "jellyfin/jellyfin-vue:unstable-static",
+  "category": [
+    "Media",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/jellyfin/jellyfin-vue",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:2999]",
+  "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons@master/border-radius/Jellyfin_C.png",
+  "project": "https://jellyfin.org",
+  "support": "https://github.com/jellyfin/jellyfin-vue",
+  "description": "A modern web client for Jellyfin based on Vue. It relies on Jellyfin to store and manage your media.\r\n\r\nYouTube: https://www.youtube.com/@xiaoditx\r\nTemplates: https://github.com/xushier/Unraid-Docker-Templates\r\nIcons: https://github.com/xushier/HD-Icons\r\nBiliBili: https://space.bilibili.com/32313260\r\nBlog: https://www.xdtx.cc\r\nQQ Group: 647605169\r\nWeChat: 小迪同学",
+  "paths": [],
+  "ports": [
+    {
+      "name": "Web Port",
+      "host": "2999",
+      "container": "80",
+      "protocol": "tcp",
+      "description": "Web Port",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

@@ -1,0 +1,41 @@
+{
+  "name": "streamdock",
+  "repo": "ghcr.io/limmer55/streamdock:latest",
+  "category": [
+    "Media",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "ghcr.io/limmer55/streamdock",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:6050]/",
+  "icon": "https://raw.githubusercontent.com/limmer55/streamdock/refs/heads/main/images/logo.png",
+  "project": "https://github.com/limmer55/streamdock",
+  "support": "https://github.com/limmer55/streamdock/issues",
+  "description": "A Web-IPTV Player docker image.",
+  "paths": [],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "6050",
+      "container": "6050",
+      "protocol": "tcp",
+      "description": "Container Port: 6050",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

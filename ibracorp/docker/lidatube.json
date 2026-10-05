@@ -1,0 +1,112 @@
+{
+  "name": "lidatube",
+  "repo": "thewicklowwolf/lidatube:latest",
+  "category": [
+    "Utilities",
+    "Media"
+  ],
+  "registry": null,
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:5000]",
+  "icon": "https://user-images.githubusercontent.com/111055425/272870500-69396f7a-af18-42a9-b1ea-0585b488bdec.png",
+  "project": "https://github.com/TheWicklowWolf/LidaTube",
+  "support": "https://github.com/TheWicklowWolf/LidaTube/issues",
+  "description": "Web GUI for finding and downloading missing Lidarr albums",
+  "donate": "https://paypal.me/ibracorp",
+  "paths": [
+    {
+      "name": "Downloads",
+      "host": "/mnt/user/data/downloads",
+      "container": "/lidatube/downloads",
+      "mode": "rw,shared",
+      "description": "",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Localtime",
+      "host": "/etc/localtime",
+      "container": "/etc/localtime",
+      "mode": "ro",
+      "description": "",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "5000",
+      "container": "5000",
+      "protocol": "tcp",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Lidarr",
+      "key": "lidarr_address",
+      "value": "http://SERVER-IP:8686",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Lidarr API",
+      "key": "lidarr_api_key",
+      "value": null,
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Thread Limit",
+      "key": "thread_limit",
+      "value": "1",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "100",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "99",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

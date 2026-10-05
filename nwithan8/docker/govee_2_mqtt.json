@@ -1,0 +1,131 @@
+{
+  "name": "Govee2MQTT",
+  "repo": "ghcr.io/wez/govee2mqtt:latest",
+  "category": [
+    "Home Automation",
+    "Productivity",
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "ghcr.io/wez/govee2mqtt",
+  "network": "host",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/govee2mqtt-icon.png",
+  "project": "https://github.com/wez/govee2mqtt",
+  "support": "https://github.com/wez/govee2mqtt/blob/main/docs/CONFIG.md",
+  "description": "Connect Govee lights and devices to Home Assistant via MQTT.",
+  "requires": "Requires a separate MQTT broker.",
+  "paths": [],
+  "ports": [],
+  "variables": [
+    {
+      "name": "Govee - Account Email",
+      "key": "GOVEE_EMAIL",
+      "value": null,
+      "description": "Govee account email address",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Govee - Account Password",
+      "key": "GOVEE_PASSWORD",
+      "value": null,
+      "description": "Govee account password",
+      "required": true,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Govee - API Key",
+      "key": "GOVEE_API_KEY",
+      "value": null,
+      "description": "Govee API key.",
+      "required": true,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "MQTT - Host",
+      "key": "GOVEE_MQTT_HOST",
+      "value": null,
+      "description": "MQTT Host",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "MQTT - Port",
+      "key": "GOVEE_MQTT_PORT",
+      "value": "1883",
+      "description": "MQTT Port",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "MQTT - Username",
+      "key": "GOVEE_MQTT_USER",
+      "value": null,
+      "description": "MQTT Username. Remove if no authentication required.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "MQTT - Password",
+      "key": "GOVEE_MQTT_PASSWORD",
+      "value": null,
+      "description": "MQTT Password. Remove if no authentication required.",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Temperature Unit",
+      "key": "GOVEE_TEMPERATURE_SCALE",
+      "value": "C|F",
+      "description": "Temperature unit for devices. Celsius or Fahrenheit.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Log Style",
+      "key": "RUST_LOG_STYLE",
+      "value": "always",
+      "description": "When to use Rust-style colored output for logs",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Log Level",
+      "key": "RUST_LOG",
+      "value": null,
+      "description": "Set to 'govee=trace' for debug logs",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}
