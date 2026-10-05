@@ -3,8 +3,8 @@
 # create_and_push.fish - create (or update) the single Unraid_to_MOS_REPOS
 # repository on GitHub and push the local templates to it.
 #
-# The repository bundles one self-contained MOS Hub repository folder per
-# upstream author, so the whole collection is added to MOS Hub as ONE URL.
+# The repository is ONE flat MOS Hub repository (root maintainer.json + docker/),
+# so the whole template collection is added to MOS Hub as ONE URL.
 #
 # Usage:
 #   tools/create_and_push.fish [ROOT_DIR] [--name NAME] [--owner OWNER]

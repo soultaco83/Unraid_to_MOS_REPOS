@@ -3,9 +3,10 @@
 # publish_repo.fish - turn the Unraid_to_MOS_REPOS working tree into a single
 # clean git repository that is ready to push to GitHub.
 #
-# The repository keeps one self-contained MOS Hub repository folder per upstream
-# author (each with its own maintainer.json, docker/ and images/), plus the
-# conversion tools, and commits the whole tree as ONE repository.
+# The repository is ONE flat MOS Hub repository: maintainer.json and
+# docker/<App>.json sit at the repository root (the only layout the Hub
+# indexes), with the upstream licence texts under licenses/ and the conversion
+# and publish tools under tools/.
 #
 # Usage:
 #   tools/publish_repo.fish [ROOT_DIR] [REMOTE_URL]

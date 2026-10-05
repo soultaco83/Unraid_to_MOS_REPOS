@@ -1,35 +1,44 @@
 #!/usr/bin/env python3
 """
 convert_sources.py - clone well-known unRAID Community Applications template
-repositories and convert every Docker (<Container>) template into a per-source
-MOS Hub repository folder under OUTPUT_DIR/<source>/.
+repositories and convert every Docker (<Container>) template into ONE flat MOS
+Hub repository (Unraid_to_MOS_REPOS).
 
-The whole OUTPUT_DIR is published as one git repository (Unraid_to_MOS_REPOS).
-It holds a self-contained MOS Hub repository per upstream source - each with its
-own maintainer.json, docker/ and images/ - so the original author of every
-template set stays clearly separated, while the whole collection is added to
-MOS Hub as a single repository URL.
+The MOS Hub only indexes the *root* of a repository; its documented layout is
+
+    maintainer.json     repository metadata (maintainer, donation)
+    docker/<App>.json   one JSON template per container
+    images/  plugins/   optional
+    README.md
+
+It does not descend into sub-directories, so every converted template is written
+into a single top-level docker/ directory. The upstream author of a template
+stays identifiable through the README source table and through the per-template
+project / support / registry / donate fields. Only the templates whose file name
+(or display name) would clash with another author's are prefixed/suffixed with
+the source key.
 
 Usage:
     python3 convert_sources.py [WORK_DIR] [OUTPUT_DIR]
+                               [--mos-paths] [--maintainer NAME] [--donation URL]
 
 Defaults:
-    WORK_DIR   = /tmp/unraid-sources                     (shallow clones cached here)
+    WORK_DIR   = /tmp/unraid-sources                    (shallow clones cached here)
     OUTPUT_DIR = /mnt/github/github/Unraid_to_MOS_REPOS
 
-Only <Container version="2"> Docker templates are converted. unRAID plugins
-and multi-container (<Containers>) templates are skipped automatically because
-their XML root tag is not <Container>.
+Only <Container version="2"> Docker templates are converted. unRAID plugins and
+multi-container (<Containers>) templates are skipped automatically because their
+XML root tag is not <Container>.
 """
 from __future__ import annotations
 
+import argparse
 import glob
 import json
 import os
 import shutil
 import subprocess
 import sys
-import xml.etree.ElementTree as ET
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import unraid_to_mos as conv  # noqa: E402
@@ -51,10 +60,21 @@ SOURCES = [
     {"key": "p3terx",          "maintainer": "P3TERX",          "repo": "P3TERX/unraid-docker-templates"},
 ]
 
-IMAGE_EXTS = ("*.png", "*.svg", "*.webp", "*.jpg", "*.jpeg", "*.gif", "*.ico")
+# Repository level metadata written to maintainer.json. The Hub displays this as
+# the maintainer of every template in the repository.
+ROOT_MAINTAINER = "selfhosters"
+ROOT_DONATION = ""
 
+LICENSE_FILES = ("LICENSE", "LICENSE.md", "LICENSE.txt", "License", "license", "COPYING")
+
+# unRAID pools are mounted below /mnt/<pool>; MOS has no /mnt/user aggregation,
+# so with --mos-paths the unRAID host paths are mapped onto the conventional MOS
+# pool name ("cache" - rename afterwards if your appdata pool differs).
+UNRAID_PREFIX = "/mnt/user/"
+MOS_PREFIX = "/mnt/cache/"
 
 def clone(repo, dest):
+    """Shallow-clone an upstream template repository (cached between runs)."""
     if os.path.isdir(os.path.join(dest, ".git")):
         return
     shutil.rmtree(dest, ignore_errors=True)
@@ -64,129 +84,277 @@ def clone(repo, dest):
     )
 
 
-def detect_donation(src):
-    for f in glob.glob(os.path.join(src, "**", "*.xml"), recursive=True):
-        if os.sep + ".git" + os.sep in f:
-            continue
-        try:
-            root = ET.parse(f).getroot()
-        except Exception:  # noqa: BLE001
-            continue
-        el = root.find("DonateLink")
-        if el is not None and (el.text or "").strip():
-            return el.text.strip()
-    return ""
+def find_license(src):
+    """Return the upstream licence file for a cloned repository, or None."""
+    for base in (src, os.path.dirname(os.path.normpath(src))):
+        for cand in LICENSE_FILES:
+            candidate = os.path.join(base, cand)
+            if os.path.isfile(candidate):
+                return candidate
+    return None
 
 
-def mirror_icons(src, out_dir):
-    index = {}
-    for ext in IMAGE_EXTS:
-        for path in glob.glob(os.path.join(src, "**", ext), recursive=True):
-            if os.sep + ".git" + os.sep in path:
-                continue
-            index.setdefault(os.path.basename(path).lower(), path)
-    out_img = os.path.join(out_dir, "images")
-    copied = 0
-    for f in sorted(glob.glob(os.path.join(out_dir, "docker", "*.json"))):
-        data = json.load(open(f, encoding="utf-8"))
-        base = os.path.basename((data.get("icon") or "").split("?")[0]).lower()
-        if base and base in index:
-            os.makedirs(out_img, exist_ok=True)
-            dest = os.path.join(out_img, os.path.basename(index[base]))
-            if not os.path.exists(dest):
-                shutil.copy2(index[base], dest)
-                copied += 1
-    return copied
+def rewrite_paths(obj):
+    """Map unRAID host paths (/mnt/user/...) onto the MOS pool layout."""
+    for row in obj.get("paths") or []:
+        host = row.get("host") or ""
+        if host.startswith(UNRAID_PREFIX):
+            row["host"] = MOS_PREFIX + host[len(UNRAID_PREFIX):]
+    return obj
 
 
-def normalize_modes(out_dir):
-    """Force 0644 on every file and 0755 on every directory of a repository.
+def unique_file(used, key, stem):
+    """Pick a file name that is unique across the merged docker/ directory.
 
-    Nothing here is executable, but two operations leak modes into the output:
-    open(..., "w") keeps the mode of a file that already exists, and
-    shutil.copy2 copies the mode of the source icon. Either one lets a stray
-    0755/0777 (from an editor, an old run or an upstream repo) survive into the
-    generated repository, where it turns every reconversion into a dirty git
-    tree and makes the output depend on something other than the input. Fixing
-    the mode keeps conversions reproducible.
+    Comparison is case-insensitive so that the published repository also stays
+    intact when it is checked out on a case-insensitive file system
+    (macOS/Windows).
     """
-    if not os.path.isdir(out_dir):
-        return
-    os.chmod(out_dir, 0o755)
-    for root, dirs, files in os.walk(out_dir):
-        dirs[:] = [d for d in dirs if d != ".git"]
+    name = stem + ".json"
+    if name.lower() not in used:
+        return name
+    name = "%s-%s.json" % (key, stem)
+    suffix = 2
+    while name.lower() in used:
+        name = "%s-%s-%d.json" % (key, stem, suffix)
+        suffix += 1
+    return name
+
+
+def unique_name(used, key, base):
+    """Pick a display name that is unique across the merged repository.
+
+    The Hub lists templates by their "name", so two authors shipping the same
+    application (e.g. Ghost, FileBrowser) have to stay distinguishable.
+    """
+    name = base
+    if name not in used:
+        return name
+    name = "%s (%s)" % (base, key)
+    suffix = 2
+    while name in used:
+        name = "%s (%s-%d)" % (base, key, suffix)
+        suffix += 1
+    return name
+
+
+def merge(builds, out_root, mos_paths=False):
+    """Merge every per-source docker/ directory into OUT_ROOT/docker/.
+
+    Returns the report rows (key, maintainer, template count, upstream repo,
+    licence file) used for the README table.
+    """
+    docker_dir = os.path.join(out_root, "docker")
+    shutil.rmtree(docker_dir, ignore_errors=True)
+    os.makedirs(docker_dir, exist_ok=True)
+
+    used_files, used_names = {}, {}
+    report = []
+    for entry in builds:
+        placed = 0
+        pattern = os.path.join(entry["build"], "docker", "*.json")
+        for path in sorted(glob.glob(pattern)):
+            with open(path, encoding="utf-8") as fh:
+                obj = json.load(fh)
+            stem = os.path.splitext(os.path.basename(path))[0]
+            if mos_paths:
+                rewrite_paths(obj)
+            obj["name"] = unique_name(used_names, entry["key"], obj.get("name") or stem)
+            fname = unique_file(used_files, entry["key"], stem)
+            used_files[fname.lower()] = entry["key"]
+            used_names[obj["name"]] = entry["key"]
+            with open(os.path.join(docker_dir, fname), "w", encoding="utf-8") as fh:
+                json.dump(obj, fh, indent=2, ensure_ascii=False)
+                fh.write("\n")
+            placed += 1
+        entry["count"] = placed
+        report.append(entry)
+    return report
+
+
+def write_maintainer(out_root, maintainer, donation):
+    """Write the repository-level maintainer.json the Hub reads first."""
+    path = os.path.join(out_root, "maintainer.json")
+    with open(path, "w", encoding="utf-8") as fh:
+        json.dump({"maintainer": maintainer, "donation": donation}, fh, indent=2)
+        fh.write("\n")
+    os.chmod(path, 0o644)
+
+
+def write_licenses(out_root, builds):
+    """Keep the upstream licence text of every author that published one."""
+    lic_dir = os.path.join(out_root, "licenses")
+    shutil.rmtree(lic_dir, ignore_errors=True)
+    os.makedirs(lic_dir, exist_ok=True)
+    kept = 0
+    for entry in builds:
+        src = entry.get("license")
+        if not src:
+            continue
+        dest = os.path.join(lic_dir, "%s.txt" % entry["key"])
+        shutil.copyfile(src, dest)
+        os.chmod(dest, 0o644)
+        kept += 1
+    return kept
+
+
+def write_readme(out_root, report, mos_paths, maintainer):
+    """Write the repository README (layout, MOS Hub instructions, sources)."""
+    total = sum(row["count"] for row in report)
+    lines = [
+        "# Unraid to MOS - template repository",
+        "",
+        "A single flat [MOS Hub](https://github.com/ich777/mos-templates) repository",
+        "holding docker templates converted from **%d** unRAID Community Applications" % len(report),
+        "template repositories: **%d templates** from %d upstream authors." % (total, len(report)),
+        "",
+        "`maintainer.json` and `docker/<App>.json` sit at the repository root, which is",
+        "the only layout the MOS Hub indexes. Author provenance is preserved in every",
+        "template (`project`, `support`, `registry`, `donate`) and in the table below;",
+        "templates whose file/display name would clash with another author's carry a",
+        "source prefix.",
+        "",
+        "## Add it to MOS Hub",
+        "",
+        "1. Open **Settings -> System Configuration -> MOS Hub Settings**.",
+        "2. Add this repository URL:",
+        "",
+        "   ```",
+        "   https://github.com/soultaco83/Unraid_to_MOS_REPOS",
+        "   ```",
+        "",
+        "3. Click **Refresh**, then open the **Docker** tab.",
+        "",
+        "## Layout",
+        "",
+        "```",
+        "maintainer.json      repository metadata (maintainer: %s)" % maintainer,
+        "docker/<App>.json    one template per container (%d total)" % total,
+        "licenses/            upstream licence text, where the author published one",
+        "tools/               conversion + publish scripts (not part of the Hub payload)",
+        "```",
+        "",
+        "Only Docker (`<Container>`) templates are converted; unRAID plugins and",
+        "multi-container stacks are excluded. Icons are referenced from the upstream",
+        "repositories, so they always match what the author currently ships.",
+        "",
+    ]
+    if mos_paths:
+        lines += [
+            "Host paths were mapped from the unRAID `/mnt/user/...` layout onto the MOS",
+            "pool layout `/mnt/cache/...`. Rename `cache` to your own appdata pool if it",
+            "differs.",
+            "",
+        ]
+    lines += [
+        "## Sources",
+        "",
+        "| Source | Maintainer | Templates | Upstream | Licence |",
+        "|---|---|---:|---|---|",
+    ]
+    for row in sorted(report, key=lambda r: r["key"]):
+        lic = "[kept](./licenses/%s.txt)" % row["key"] if row.get("license") else "not published"
+        lines.append("| `%s` | %s | %d | [%s](https://github.com/%s) | %s |"
+                     % (row["key"], row["maintainer"], row["count"], row["repo"], row["repo"], lic))
+    lines += [
+        "",
+        "Generated with `tools/convert_sources.py`, validated with",
+        "`tools/validate_repos.py`, committed with `tools/publish_repo.fish` and pushed",
+        "with `tools/create_and_push.fish`.",
+        "",
+    ]
+    path = os.path.join(out_root, "README.md")
+    with open(path, "w", encoding="utf-8") as fh:
+        fh.write("\n".join(lines))
+    os.chmod(path, 0o644)
+
+
+def prune_old_layout(out_root, keys):
+    """Remove the previous per-author repository folders and stray artifacts."""
+    removed = []
+    for key in keys:
+        path = os.path.join(out_root, key)
+        if os.path.isdir(path):
+            shutil.rmtree(path, ignore_errors=True)
+            removed.append(key)
+    for stray in ("images",):
+        path = os.path.join(out_root, stray)
+        if os.path.isdir(path):
+            shutil.rmtree(path, ignore_errors=True)
+            removed.append(stray)
+    return removed
+
+
+def normalize_modes(root, skip=("tools", ".git")):
+    """Normalise modes: directories 0755, data files 0644."""
+    os.chmod(root, 0o755)
+    for dirpath, dirs, files in os.walk(root):
+        dirs[:] = [d for d in dirs if d not in skip]
         for name in dirs:
-            os.chmod(os.path.join(root, name), 0o755)
+            os.chmod(os.path.join(dirpath, name), 0o755)
         for name in files:
-            os.chmod(os.path.join(root, name), 0o644)
-
-
-def write_readme(out_dir, maintainer, repo, count):
-    with open(os.path.join(out_dir, "README.md"), "w", encoding="utf-8") as fh:
-        fh.write(
-            "# %s - MOS Templates\n\n"
-            "Docker container templates from [%s](https://github.com/%s), converted to the\n"
-            "[MOS Hub](https://github.com/ich777/mos-templates) JSON template format.\n\n"
-            "* Maintainer: **%s**\n"
-            "* Source: https://github.com/%s\n"
-            "* Templates: **%d**\n\n"
-            "## Layout\n\n```\nmaintainer.json\ndocker/<App>.json\nimages/            (icons that were hosted in the source repo)\n```\n\n"
-            "Generated with `tools/convert_sources.py` (Docker templates only, plugins excluded).\n"
-            % (maintainer, repo, repo, maintainer, repo, count)
-        )
-
-
-INDEX_HEADER = (
-    "# Unraid to MOS - template repository\n\n"
-    "A single GitHub repository that bundles **one self-contained MOS Hub repository\n"
-    "per upstream author**. Each folder below has its own `maintainer.json`, `docker/`\n"
-    "and `images/`, so the original author of every template set stays clearly\n"
-    "separated while the whole collection is added to MOS Hub as **one repository URL**.\n\n"
-    "Converted from well-known unRAID Community Applications template repositories.\n"
-    "Only Docker (`<Container>`) templates are converted; unRAID plugins and\n"
-    "multi-container stacks are excluded.\n\n"
-    "| Folder | Maintainer | Templates | Upstream |\n"
-    "|---|---|---:|---|\n"
-)
+            os.chmod(os.path.join(dirpath, name), 0o644)
 
 
 def main(argv):
-    work = argv[1] if len(argv) > 1 else "/tmp/unraid-sources"
-    out_root = argv[2] if len(argv) > 2 else "/mnt/github/github/Unraid_to_MOS_REPOS"
+    parser = argparse.ArgumentParser(
+        description="Convert unRAID template repositories into one flat MOS Hub repository."
+    )
+    parser.add_argument("work", nargs="?", default="/tmp/unraid-sources",
+                        help="directory used to cache the upstream clones")
+    parser.add_argument("out", nargs="?", default="/mnt/github/github/Unraid_to_MOS_REPOS",
+                        help="published MOS Hub repository root")
+    parser.add_argument("--mos-paths", action="store_true",
+                        help="map /mnt/user/... host paths onto /mnt/cache/... (MOS pools)")
+    parser.add_argument("--maintainer", default=ROOT_MAINTAINER,
+                        help="value written to maintainer.json (default: %(default)s)")
+    parser.add_argument("--donation", default=ROOT_DONATION,
+                        help="donation URL written to maintainer.json")
+    args = parser.parse_args(argv[1:])
+
+    work, out_root = args.work, args.out
     os.makedirs(work, exist_ok=True)
     os.makedirs(out_root, exist_ok=True)
 
-    report = []
+    builds = []
     for src in SOURCES:
         clone_dir = os.path.join(work, src["key"])
-        out_dir = os.path.join(out_root, src["key"])
+        build_dir = os.path.join(work, "build", src["key"])
         clone(src["repo"], clone_dir)
-        shutil.rmtree(os.path.join(out_dir, "docker"), ignore_errors=True)
-        shutil.rmtree(os.path.join(out_dir, "images"), ignore_errors=True)
-        donation = detect_donation(clone_dir)
+        shutil.rmtree(build_dir, ignore_errors=True)
+        os.makedirs(build_dir, exist_ok=True)
         conv.MAINTAINER = src["maintainer"]
-        conv.DONATION = donation
-        conv.main(["unraid_to_mos", clone_dir, out_dir])
-        icons = mirror_icons(clone_dir, out_dir)
-        count = len(glob.glob(os.path.join(out_dir, "docker", "*.json")))
-        write_readme(out_dir, src["maintainer"], src["repo"], count)
-        normalize_modes(out_dir)
-        report.append((src["key"], src["maintainer"], count, src["repo"]))
-        print("-> %-16s %3d templates, %3d icons, donation=%r\n"
-              % (src["key"], count, icons, donation))
+        conv.DONATION = ""
+        print("== %s (%s)" % (src["key"], src["repo"]))
+        conv.main(["unraid_to_mos", clone_dir, build_dir])
+        builds.append({
+            "key": src["key"],
+            "maintainer": src["maintainer"],
+            "repo": src["repo"],
+            "build": build_dir,
+            "license": find_license(clone_dir),
+        })
 
-    with open(os.path.join(out_root, "README.md"), "w", encoding="utf-8") as fh:
-        fh.write(INDEX_HEADER)
-        for key, maintainer, count, repo in report:
-            fh.write("| [%s](./%s) | %s | %d | [%s](https://github.com/%s) |\n"
-                     % (key, key, maintainer, count, repo, repo))
-        fh.write(
-            "\nGenerated with `tools/convert_sources.py`, committed with"
-            " `tools/publish_repo.fish` and pushed with `tools/create_and_push.fish`.\n"
-        )
-    os.chmod(os.path.join(out_root, "README.md"), 0o644)
-    print("DONE - total templates:", sum(r[2] for r in report))
+    report = merge(builds, out_root, mos_paths=args.mos_paths)
+    write_maintainer(out_root, args.maintainer, args.donation)
+    kept = write_licenses(out_root, builds)
+    write_readme(out_root, report, args.mos_paths, args.maintainer)
+    removed = prune_old_layout(out_root, [s["key"] for s in SOURCES])
+    normalize_modes(out_root)
+
+    print()
+    for row in report:
+        print("%-16s %5d templates  %s" % (row["key"], row["count"], row["repo"]))
+    print("-" * 64)
+    print("%-16s %5d templates  (%d sources, %d licences kept)"
+          % ("TOTAL", sum(r["count"] for r in report), len(report), kept))
+    if removed:
+        print("removed old layout : %s" % ", ".join(sorted(removed)))
+    print("output             : %s" % os.path.join(out_root, "docker"))
 
 
 if __name__ == "__main__":
     main(sys.argv)
+
+
+
