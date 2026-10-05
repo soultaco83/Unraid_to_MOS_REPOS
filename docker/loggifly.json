@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/loggifly",
+      "host": "/mnt/cache/appdata/loggifly",
       "container": "/config",
       "mode": "rw",
       "description": "Path to config files",

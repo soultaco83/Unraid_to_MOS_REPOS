@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/donetick/config",
+      "host": "/mnt/cache/appdata/donetick/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to config files",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/donetick/database",
+      "host": "/mnt/cache/appdata/donetick/database",
       "container": "/usr/src/app/data",
       "mode": "rw",
       "description": "Path to database files",

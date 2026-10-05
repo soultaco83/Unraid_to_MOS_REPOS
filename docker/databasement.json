@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Directory",
-      "host": "/mnt/user/appdata/databasement/data",
+      "host": "/mnt/cache/appdata/databasement/data",
       "container": "/data",
       "mode": "rw",
       "description": "",

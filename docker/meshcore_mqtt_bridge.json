@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/meshcore_mqtt_bridge/config",
+      "host": "/mnt/cache/appdata/meshcore_mqtt_bridge/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to the config data",

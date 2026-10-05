@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Site Content",
-      "host": "/mnt/user/appdata/hugo/site",
+      "host": "/mnt/cache/appdata/hugo/site",
       "container": "/src",
       "mode": "rw",
       "description": "Site content to be served by Hugo",

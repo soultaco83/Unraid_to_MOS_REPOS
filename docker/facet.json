@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/facet/data",
+      "host": "/mnt/cache/appdata/facet/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the app data",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Uploads Storage",
-      "host": "/mnt/user/appdata/facet/uploads",
+      "host": "/mnt/cache/appdata/facet/uploads",
       "container": "/uploads",
       "mode": "rw",
       "description": "Path to the uploads storage",
@@ -169,7 +169,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -179,7 +179,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

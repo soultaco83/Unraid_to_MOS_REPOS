@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config path",
-      "host": "/mnt/user/appdata/dd_bot/config",
+      "host": "/mnt/cache/appdata/dd_bot/config",
       "container": "/app/settings",
       "mode": "rw",
       "description": "Storage for config files",

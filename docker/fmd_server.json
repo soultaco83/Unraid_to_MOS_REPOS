@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/fmd_server/config.yml",
+      "host": "/mnt/cache/appdata/fmd_server/config.yml",
       "container": "/etc/fmd-server/config.yml",
       "mode": "ro",
       "description": "Path to the configuration file",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/fmd_server/db",
+      "host": "/mnt/cache/appdata/fmd_server/db",
       "container": "/var/lib/fmd-server/db/",
       "mode": "rw",
       "description": "Path to the database",
@@ -59,7 +59,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -69,7 +69,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

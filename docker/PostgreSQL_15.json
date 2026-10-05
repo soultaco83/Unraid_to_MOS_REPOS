@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Database Storage Path",
-      "host": "/mnt/user/appdata/Postgresql_15",
+      "host": "/mnt/cache/appdata/Postgresql_15",
       "container": "/var/lib/postgresql/data",
       "mode": "rw",
       "description": "PostgreSQL data storage location",

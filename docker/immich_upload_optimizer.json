@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Tasks Config Path",
-      "host": "/mnt/user/appdata/immich-upload-optimizer/config",
+      "host": "/mnt/cache/appdata/immich-upload-optimizer/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to a folder containing the tasks config file",

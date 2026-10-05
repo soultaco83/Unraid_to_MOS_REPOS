@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/romm_comm/.env",
+      "host": "/mnt/cache/appdata/romm_comm/.env",
       "container": "/app/.env",
       "mode": "rw",
       "description": "A .env config file",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/romm_comm/data",
+      "host": "/mnt/cache/appdata/romm_comm/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Data path, where app data is stored",

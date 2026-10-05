@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/peertube/data",
+      "host": "/mnt/cache/appdata/peertube/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to data storage",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/peertube/config",
+      "host": "/mnt/cache/appdata/peertube/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to config storage",

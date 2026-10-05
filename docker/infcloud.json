@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/infcloud/config.js",
+      "host": "/mnt/cache/appdata/infcloud/config.js",
       "container": "/usr/share/nginx/infcloud/config.js",
       "mode": "ro",
       "description": "Config file path",
@@ -33,7 +33,7 @@
     },
     {
       "name": "PHP Path",
-      "host": "/mnt/user/appdata/infcloud/php",
+      "host": "/mnt/cache/appdata/infcloud/php",
       "container": "/usr/share/nginx/infcloud",
       "mode": "rw",
       "description": "Data path",

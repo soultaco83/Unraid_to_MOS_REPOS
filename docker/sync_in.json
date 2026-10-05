@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/sync_in/environment.yaml",
+      "host": "/mnt/cache/appdata/sync_in/environment.yaml",
       "container": "/app/environment/environment.yaml",
       "mode": "rw",
       "description": "Path to the environment file",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/sync_in/data",
+      "host": "/mnt/cache/appdata/sync_in/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to data folder",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Desktop Releases Path",
-      "host": "/mnt/user/appdata/sync_in/releases",
+      "host": "/mnt/cache/appdata/sync_in/releases",
       "container": "/app/static/releases",
       "mode": "ro",
       "description": "Path to desktop releases",
@@ -79,7 +79,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -89,7 +89,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

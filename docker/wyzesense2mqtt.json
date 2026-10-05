@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "ConfigPath",
-      "host": "/mnt/user/appdata/wyzesense2mqtt/config",
+      "host": "/mnt/cache/appdata/wyzesense2mqtt/config",
       "container": "/wyzesense2mqtt/config",
       "mode": "rw",
       "description": "Container Path: /wyzesense2mqtt/config",
@@ -31,7 +31,7 @@
     },
     {
       "name": "LogsPath",
-      "host": "/mnt/user/appdata/wyzesense2mqtt/logs/",
+      "host": "/mnt/cache/appdata/wyzesense2mqtt/logs/",
       "container": "/mnt/user/appdata/wyzesense2mqtt/logs/",
       "mode": "rw",
       "description": "Container Path: /wyzesense2mqtt/logs",

@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data path",
-      "host": "/mnt/user/appdata/workout_tracker/data",
+      "host": "/mnt/cache/appdata/workout_tracker/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to data files",

@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/prefetcharr/config.toml",
+      "host": "/mnt/cache/appdata/prefetcharr/config.toml",
       "container": "/config",
       "mode": "rw",
       "description": "Path to the config file",
@@ -35,7 +35,7 @@
     },
     {
       "name": "Log Path",
-      "host": "/mnt/user/appdata/prefetcharr/log",
+      "host": "/mnt/cache/appdata/prefetcharr/log",
       "container": "/log",
       "mode": "rw",
       "description": "Path to the log folder",

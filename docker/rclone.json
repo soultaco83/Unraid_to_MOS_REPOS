@@ -23,8 +23,8 @@
   "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
   "paths": [
     {
-      "name": "Path: /config",
-      "host": "/mnt/user/appdata/rclone",
+      "name": "/config",
+      "host": "/mnt/cache/appdata/rclone",
       "container": "/config",
       "mode": "rw",
       "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
@@ -33,8 +33,8 @@
       "default": null
     },
     {
-      "name": "Path: /media",
-      "host": "/mnt/user",
+      "name": "/media",
+      "host": "/mnt/Array",
       "container": "/media",
       "mode": "rw",
       "description": "This is the container path to your media files, e.g. movies, tv, music, pictures etc.",
@@ -45,7 +45,7 @@
   ],
   "ports": [
     {
-      "name": "Port: Web Interface",
+      "name": "Web Interface",
       "host": "5572",
       "container": "5572",
       "protocol": "tcp",
@@ -56,7 +56,7 @@
       "default": null
     },
     {
-      "name": "Port: Rclone Authorization",
+      "name": "Rclone Authorization",
       "host": "53682",
       "container": "53682",
       "protocol": "tcp",
@@ -69,7 +69,7 @@
   ],
   "variables": [
     {
-      "name": "Variable: RCLONE_CONFIG_PATH",
+      "name": "RCLONE_CONFIG_PATH",
       "key": "RCLONE_CONFIG_PATH",
       "value": "/config/rclone/config/rclone.conf",
       "description": "Specify the file path to your preconfigured rclone configuration file.",
@@ -79,7 +79,7 @@
       "default": null
     },
     {
-      "name": "Variable: RCLONE_MEDIA_SHARES",
+      "name": "RCLONE_MEDIA_SHARES",
       "key": "RCLONE_MEDIA_SHARES",
       "value": null,
       "description": "Specify the media shares to process in rclone.",
@@ -89,7 +89,7 @@
       "default": null
     },
     {
-      "name": "Variable: RCLONE_REMOTE_NAME",
+      "name": "RCLONE_REMOTE_NAME",
       "key": "RCLONE_REMOTE_NAME",
       "value": "remote",
       "description": "Specify the remote name as defined in the rclone configuration file.",
@@ -99,7 +99,7 @@
       "default": null
     },
     {
-      "name": "Variable: RCLONE_SLEEP_PERIOD",
+      "name": "RCLONE_SLEEP_PERIOD",
       "key": "RCLONE_SLEEP_PERIOD",
       "value": "24h",
       "description": "Specify the delay between re-runs of rclone.",
@@ -109,7 +109,7 @@
       "default": null
     },
     {
-      "name": "Variable: RCLONE_OPERATION",
+      "name": "RCLONE_OPERATION",
       "key": "RCLONE_OPERATION",
       "value": "copy|sync",
       "description": "Specify whether to copy new files or syncronise, syncronise may cause delete operation so use with caution.",
@@ -119,7 +119,7 @@
       "default": null
     },
     {
-      "name": "Variable: RCLONE_DIRECTION",
+      "name": "RCLONE_DIRECTION",
       "key": "RCLONE_DIRECTION",
       "value": "localtoremote|remotetolocal|both",
       "description": "Specify the direction to syncronise, local to remote, remote to local or two way sync.",
@@ -129,7 +129,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_WEBUI",
+      "name": "ENABLE_WEBUI",
       "key": "ENABLE_WEBUI",
       "value": "yes|no",
       "description": "Specify whether to enable the rclone Web UI.",
@@ -139,7 +139,7 @@
       "default": null
     },
     {
-      "name": "Variable: WEBUI_USER",
+      "name": "WEBUI_USER",
       "key": "WEBUI_USER",
       "value": "admin",
       "description": "Specify the rclone Web UI username.",
@@ -149,7 +149,7 @@
       "default": null
     },
     {
-      "name": "Variable: WEBUI_PASS",
+      "name": "WEBUI_PASS",
       "key": "WEBUI_PASS",
       "value": null,
       "description": "Specify the rclone Web UI password.",
@@ -159,7 +159,7 @@
       "default": null
     },
     {
-      "name": "Variable: RCLONE_USER_FLAGS",
+      "name": "RCLONE_USER_FLAGS",
       "key": "RCLONE_USER_FLAGS",
       "value": null,
       "description": "Specify any additional user defined flags for rclone.",
@@ -169,7 +169,7 @@
       "default": null
     },
     {
-      "name": "Variable: RCLONE_POST_CHECK",
+      "name": "RCLONE_POST_CHECK",
       "key": "RCLONE_POST_CHECK",
       "value": "yes|no",
       "description": "Specify whether to verify local and remote files match.",
@@ -179,7 +179,7 @@
       "default": null
     },
     {
-      "name": "Variable: RCLONE_POST_REPORT",
+      "name": "RCLONE_POST_REPORT",
       "key": "RCLONE_POST_REPORT",
       "value": "combined|differ|error|match|missing-on-dst|missing-on-src",
       "description": "Specify what post check level to report.",
@@ -189,7 +189,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_HEALTHCHECK",
+      "name": "ENABLE_HEALTHCHECK",
       "key": "ENABLE_HEALTHCHECK",
       "value": "yes|no",
       "description": "Enable or disable healthchecks.",
@@ -199,7 +199,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_COMMAND",
+      "name": "HEALTHCHECK_COMMAND",
       "key": "HEALTHCHECK_COMMAND",
       "value": null,
       "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
@@ -209,7 +209,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_ACTION",
+      "name": "HEALTHCHECK_ACTION",
       "key": "HEALTHCHECK_ACTION",
       "value": null,
       "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
@@ -219,7 +219,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_HOSTNAME",
+      "name": "HEALTHCHECK_HOSTNAME",
       "key": "HEALTHCHECK_HOSTNAME",
       "value": "google.com",
       "description": "The hostname used when performing HTTPS and DNS healthchecking.",
@@ -229,9 +229,9 @@
       "default": null
     },
     {
-      "name": "Variable: PUID",
+      "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "User ID for the running container",
       "required": true,
       "mask": false,
@@ -239,9 +239,9 @@
       "default": null
     },
     {
-      "name": "Variable: PGID",
+      "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Group ID for the running container",
       "required": true,
       "mask": false,
@@ -249,7 +249,7 @@
       "default": null
     },
     {
-      "name": "Variable: UMASK",
+      "name": "UMASK",
       "key": "UMASK",
       "value": "000",
       "description": "UMASK for the running container",

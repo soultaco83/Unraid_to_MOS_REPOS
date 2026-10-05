@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/Redis",
+      "host": "/mnt/cache/appdata/Redis",
       "container": "/data",
       "mode": "rw",
       "description": "Data Path",

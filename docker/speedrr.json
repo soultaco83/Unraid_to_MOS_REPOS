@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Config Folder",
-      "host": "/mnt/user/appdata/speedrr/config",
+      "host": "/mnt/cache/appdata/speedrr/config",
       "container": "/data",
       "mode": "rw",
       "description": "Path to config files",

@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Config File Path",
-      "host": "/mnt/user/appdata/ps5_mqtt/config",
+      "host": "/mnt/cache/appdata/ps5_mqtt/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to application config data",

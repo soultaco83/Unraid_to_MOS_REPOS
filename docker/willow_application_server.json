@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/willow_application_server/app",
+      "host": "/mnt/cache/appdata/willow_application_server/app",
       "container": "/app",
       "mode": "rw",
       "description": "Path to store application data",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Storage Path",
-      "host": "/mnt/user/appdata/willow_application_server/storage",
+      "host": "/mnt/cache/appdata/willow_application_server/storage",
       "container": "/app/storage",
       "mode": "rw",
       "description": "Path to store application storage",

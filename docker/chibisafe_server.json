@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/chibisafe-server/database",
+      "host": "/mnt/cache/appdata/chibisafe-server/database",
       "container": "/app/database",
       "mode": "rw",
       "description": "Path to the database",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Uploads Path",
-      "host": "/mnt/user/appdata/chibisafe-server/uploads",
+      "host": "/mnt/cache/appdata/chibisafe-server/uploads",
       "container": "/app/uploads",
       "mode": "rw",
       "description": "Path to uploaded files",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Logs Path",
-      "host": "/mnt/user/appdata/chibisafe-server/logs",
+      "host": "/mnt/cache/appdata/chibisafe-server/logs",
       "container": "/app/logs",
       "mode": "rw",
       "description": "Path to log files",

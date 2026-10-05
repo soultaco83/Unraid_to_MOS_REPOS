@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/BaiduNetDisk",
+      "host": "/mnt/cache/appdata/BaiduNetDisk",
       "container": "/config",
       "mode": "rw",
       "description": "Config Path",
@@ -67,7 +67,7 @@
     {
       "name": "PUID",
       "key": "USER_ID",
-      "value": "0",
+      "value": "500",
       "description": "PUID",
       "required": false,
       "mask": false,
@@ -77,7 +77,7 @@
     {
       "name": "PGID",
       "key": "GROUP_ID",
-      "value": "0",
+      "value": "500",
       "description": "PGID",
       "required": false,
       "mask": false,

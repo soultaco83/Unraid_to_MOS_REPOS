@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/rauthy/config.toml",
+      "host": "/mnt/cache/appdata/rauthy/config.toml",
       "container": "/app/config.toml",
       "mode": "rw",
       "description": "Path to config.toml file",
@@ -34,7 +34,7 @@
     },
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/rauthy/data",
+      "host": "/mnt/cache/appdata/rauthy/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to data directory",

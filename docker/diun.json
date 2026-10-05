@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/diun/diun.yml",
+      "host": "/mnt/cache/appdata/diun/diun.yml",
       "container": "/diun.yml",
       "mode": "ro",
       "description": "Path to the Diun configuration file",
@@ -34,7 +34,7 @@
     },
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/diun/data",
+      "host": "/mnt/cache/appdata/diun/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path where Diun should store its data",

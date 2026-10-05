@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "appdata",
-      "host": "/mnt/user/appdata/pwm",
+      "host": "/mnt/cache/appdata/pwm",
       "container": "/usr/share/pwm",
       "mode": "rw",
       "description": "Container Path: /usr/share/pwm",

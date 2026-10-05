@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Backup Path",
-      "host": "/mnt/user/appdata/jellystat/backup-data",
+      "host": "/mnt/cache/appdata/jellystat/backup-data",
       "container": "/app/backend/backup-data",
       "mode": "rw",
       "description": "Path to backup data",

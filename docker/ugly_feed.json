@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/uglyfeed/config.yaml",
+      "host": "/mnt/cache/appdata/uglyfeed/config.yaml",
       "container": "/app/config.yaml",
       "mode": "rw",
       "description": "Path to config file",
@@ -35,7 +35,7 @@
     },
     {
       "name": "Input Path",
-      "host": "/mnt/user/appdata/uglyfeed/input",
+      "host": "/mnt/cache/appdata/uglyfeed/input",
       "container": "/app/input",
       "mode": "rw",
       "description": "Path to input files",
@@ -45,7 +45,7 @@
     },
     {
       "name": "Output Path",
-      "host": "/mnt/user/appdata/uglyfeed/output",
+      "host": "/mnt/cache/appdata/uglyfeed/output",
       "container": "/app/output",
       "mode": "rw",
       "description": "Path to output files",
@@ -55,7 +55,7 @@
     },
     {
       "name": "Rewritten Path",
-      "host": "/mnt/user/appdata/uglyfeed/rewritten",
+      "host": "/mnt/cache/appdata/uglyfeed/rewritten",
       "container": "/app/rewritten",
       "mode": "rw",
       "description": "Path to rewritten files",

@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Data Directory",
-      "host": "/mnt/user/appdata/dbackup/data",
+      "host": "/mnt/cache/appdata/dbackup/data",
       "container": "/data",
       "mode": "rw",
       "description": "# All persistent data (db, storage, certs)",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Local Backup Disrectory",
-      "host": "/mnt/user/appdata/dbackup/backups",
+      "host": "/mnt/cache/appdata/dbackup/backups",
       "container": "/backups",
       "mode": "rw",
       "description": "# Optional: used for local backups",

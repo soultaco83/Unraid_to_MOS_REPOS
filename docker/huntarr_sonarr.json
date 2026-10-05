@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Config Data",
-      "host": "/mnt/user/appdata/huntarr-sonarr/config",
+      "host": "/mnt/cache/appdata/huntarr-sonarr/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to config data",

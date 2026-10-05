@@ -20,7 +20,7 @@
   "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
   "paths": [
     {
-      "name": "Path: /downloads",
+      "name": "/downloads",
       "host": null,
       "container": "/downloads",
       "mode": "rw",
@@ -30,8 +30,8 @@
       "default": null
     },
     {
-      "name": "Path: /config",
-      "host": "/mnt/user/appdata/metube",
+      "name": "/config",
+      "host": "/mnt/cache/appdata/metube",
       "container": "/config",
       "mode": "rw",
       "description": "This is the path to store MeTube configuration files",
@@ -42,7 +42,7 @@
   ],
   "ports": [
     {
-      "name": "Port: Web Interface",
+      "name": "Web Interface",
       "host": "8333",
       "container": "8081",
       "protocol": "tcp",
@@ -55,7 +55,7 @@
   ],
   "variables": [
     {
-      "name": "Variable: CUSTOM_DIRS",
+      "name": "CUSTOM_DIRS",
       "key": "CUSTOM_DIRS",
       "value": "true|false",
       "description": "Whether to enable downloading videos into custom directories",
@@ -65,7 +65,7 @@
       "default": null
     },
     {
-      "name": "Variable: DOWNLOAD_MODE",
+      "name": "DOWNLOAD_MODE",
       "key": "DOWNLOAD_MODE",
       "value": "sequential|concurrent|limited",
       "description": "Controls how downloads are scheduled and executed",
@@ -75,7 +75,7 @@
       "default": null
     },
     {
-      "name": "Variable: MAX_CONCURRENT_DOWNLOADS",
+      "name": "MAX_CONCURRENT_DOWNLOADS",
       "key": "MAX_CONCURRENT_DOWNLOADS",
       "value": "3",
       "description": "Maximum number of simultaneous downloads (used with limited mode)",
@@ -85,7 +85,7 @@
       "default": null
     },
     {
-      "name": "Variable: DOWNLOAD_DIR",
+      "name": "DOWNLOAD_DIR",
       "key": "DOWNLOAD_DIR",
       "value": "/downloads",
       "description": "Path to where the downloads will be saved",
@@ -95,7 +95,7 @@
       "default": null
     },
     {
-      "name": "Variable: DEFAULT_THEME",
+      "name": "DEFAULT_THEME",
       "key": "DEFAULT_THEME",
       "value": "auto|light|dark",
       "description": "Default theme to use for the UI",
@@ -105,7 +105,7 @@
       "default": null
     },
     {
-      "name": "Variable: AUDIO_DOWNLOAD_DIR",
+      "name": "AUDIO_DOWNLOAD_DIR",
       "key": "AUDIO_DOWNLOAD_DIR",
       "value": null,
       "description": "Path to where audio-only downloads will be saved (defaults to DOWNLOAD_DIR if empty)",
@@ -115,7 +115,7 @@
       "default": null
     },
     {
-      "name": "Variable: DOWNLOAD_DIRS_INDEXABLE",
+      "name": "DOWNLOAD_DIRS_INDEXABLE",
       "key": "DOWNLOAD_DIRS_INDEXABLE",
       "value": "true|false",
       "description": "If true, the download dirs are indexable on the webserver",
@@ -125,7 +125,7 @@
       "default": null
     },
     {
-      "name": "Variable: CREATE_CUSTOM_DIRS",
+      "name": "CREATE_CUSTOM_DIRS",
       "key": "CREATE_CUSTOM_DIRS",
       "value": "true|false",
       "description": "Whether to support automatically creating directories if they do not exist",
@@ -135,7 +135,7 @@
       "default": null
     },
     {
-      "name": "Variable: CUSTOM_DIRS_EXCLUDE_REGEX",
+      "name": "CUSTOM_DIRS_EXCLUDE_REGEX",
       "key": "CUSTOM_DIRS_EXCLUDE_REGEX",
       "value": null,
       "description": "Regular expression to exclude some custom directories from the drop-down",
@@ -145,7 +145,7 @@
       "default": null
     },
     {
-      "name": "Variable: STATE_DIR",
+      "name": "STATE_DIR",
       "key": "STATE_DIR",
       "value": "/config/.metube",
       "description": "Path to where the queue persistence files will be saved",
@@ -155,7 +155,7 @@
       "default": null
     },
     {
-      "name": "Variable: TEMP_DIR",
+      "name": "TEMP_DIR",
       "key": "TEMP_DIR",
       "value": "/downloads",
       "description": "Path where intermediary download files will be saved",
@@ -165,7 +165,7 @@
       "default": null
     },
     {
-      "name": "Variable: DELETE_FILE_ON_TRASHCAN",
+      "name": "DELETE_FILE_ON_TRASHCAN",
       "key": "DELETE_FILE_ON_TRASHCAN",
       "value": "true|false",
       "description": "If true, downloaded files are deleted when trashed from the UI",
@@ -175,7 +175,7 @@
       "default": null
     },
     {
-      "name": "Variable: URL_PREFIX",
+      "name": "URL_PREFIX",
       "key": "URL_PREFIX",
       "value": "/",
       "description": "Base path for the web server (for reverse proxy use)",
@@ -185,7 +185,7 @@
       "default": null
     },
     {
-      "name": "Variable: PUBLIC_HOST_URL",
+      "name": "PUBLIC_HOST_URL",
       "key": "PUBLIC_HOST_URL",
       "value": null,
       "description": "Base URL for download links shown in the UI",
@@ -195,7 +195,7 @@
       "default": null
     },
     {
-      "name": "Variable: HTTPS",
+      "name": "HTTPS",
       "key": "HTTPS",
       "value": "false|true",
       "description": "Use HTTPS instead of HTTP (requires CERTFILE and KEYFILE)",
@@ -205,7 +205,7 @@
       "default": null
     },
     {
-      "name": "Variable: CERTFILE",
+      "name": "CERTFILE",
       "key": "CERTFILE",
       "value": null,
       "description": "HTTPS certificate file path",
@@ -215,7 +215,7 @@
       "default": null
     },
     {
-      "name": "Variable: KEYFILE",
+      "name": "KEYFILE",
       "key": "KEYFILE",
       "value": null,
       "description": "HTTPS key file path",
@@ -225,7 +225,7 @@
       "default": null
     },
     {
-      "name": "Variable: PUBLIC_HOST_AUDIO_URL",
+      "name": "PUBLIC_HOST_AUDIO_URL",
       "key": "PUBLIC_HOST_AUDIO_URL",
       "value": null,
       "description": "Base URL for audio download links",
@@ -235,7 +235,7 @@
       "default": null
     },
     {
-      "name": "Variable: OUTPUT_TEMPLATE",
+      "name": "OUTPUT_TEMPLATE",
       "key": "OUTPUT_TEMPLATE",
       "value": "%(title)s.%(ext)s",
       "description": "Template for downloaded video filenames",
@@ -245,7 +245,7 @@
       "default": null
     },
     {
-      "name": "Variable: OUTPUT_TEMPLATE_CHAPTER",
+      "name": "OUTPUT_TEMPLATE_CHAPTER",
       "key": "OUTPUT_TEMPLATE_CHAPTER",
       "value": "%(title)s - %(section_number)s %(section_title)s.%(ext)s",
       "description": "Template for chapter filenames",
@@ -255,7 +255,7 @@
       "default": null
     },
     {
-      "name": "Variable: OUTPUT_TEMPLATE_PLAYLIST",
+      "name": "OUTPUT_TEMPLATE_PLAYLIST",
       "key": "OUTPUT_TEMPLATE_PLAYLIST",
       "value": "%(playlist_title)s/%(title)s.%(ext)s",
       "description": "Template for playlist video filenames",
@@ -265,7 +265,7 @@
       "default": null
     },
     {
-      "name": "Variable: DEFAULT_OPTION_PLAYLIST_STRICT_MODE",
+      "name": "DEFAULT_OPTION_PLAYLIST_STRICT_MODE",
       "key": "DEFAULT_OPTION_PLAYLIST_STRICT_MODE",
       "value": "true|false",
       "description": "If true, strict playlist mode is enabled by default",
@@ -275,7 +275,7 @@
       "default": null
     },
     {
-      "name": "Variable: DEFAULT_OPTION_PLAYLIST_ITEM_LIMIT",
+      "name": "DEFAULT_OPTION_PLAYLIST_ITEM_LIMIT",
       "key": "DEFAULT_OPTION_PLAYLIST_ITEM_LIMIT",
       "value": "0",
       "description": "Maximum number of playlist items that can be downloaded (0 = no limit)",
@@ -285,7 +285,7 @@
       "default": null
     },
     {
-      "name": "Variable: YTDL_OPTIONS",
+      "name": "YTDL_OPTIONS",
       "key": "YTDL_OPTIONS",
       "value": "{}",
       "description": "Additional options to pass to yt-dlp in JSON format",
@@ -295,7 +295,7 @@
       "default": null
     },
     {
-      "name": "Variable: YTDL_OPTIONS_FILE",
+      "name": "YTDL_OPTIONS_FILE",
       "key": "YTDL_OPTIONS_FILE",
       "value": null,
       "description": "Path to JSON file for yt-dlp options",
@@ -305,7 +305,7 @@
       "default": null
     },
     {
-      "name": "Variable: ROBOTS_TXT",
+      "name": "ROBOTS_TXT",
       "key": "ROBOTS_TXT",
       "value": null,
       "description": "Path to robots.txt file mounted in the container",
@@ -315,7 +315,7 @@
       "default": null
     },
     {
-      "name": "Variable: LOGLEVEL",
+      "name": "LOGLEVEL",
       "key": "LOGLEVEL",
       "value": "DEBUG|INFO|WARNING|ERROR|CRITICAL|NONE",
       "description": "Log level for the application",
@@ -325,7 +325,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_ACCESSLOG",
+      "name": "ENABLE_ACCESSLOG",
       "key": "ENABLE_ACCESSLOG",
       "value": "true|false",
       "description": "Whether to enable access log",
@@ -335,9 +335,9 @@
       "default": null
     },
     {
-      "name": "Variable: PUID",
+      "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "User ID under which MeTube will run",
       "required": false,
       "mask": false,
@@ -345,9 +345,9 @@
       "default": null
     },
     {
-      "name": "Variable: PGID",
+      "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Group ID under which MeTube will run",
       "required": false,
       "mask": false,
@@ -355,7 +355,7 @@
       "default": null
     },
     {
-      "name": "Variable: UMASK",
+      "name": "UMASK",
       "key": "UMASK",
       "value": "022",
       "description": "Umask value used by MeTube",

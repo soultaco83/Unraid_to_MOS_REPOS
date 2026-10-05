@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/bluesky_pds/data",
+      "host": "/mnt/cache/appdata/bluesky_pds/data",
       "container": "/pds",
       "mode": "rw",
       "description": "Path to store data",
@@ -111,7 +111,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "1000",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -121,7 +121,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "1001",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

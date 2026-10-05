@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/plauna/data",
+      "host": "/mnt/cache/appdata/plauna/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the data folder",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/plauna/config",
+      "host": "/mnt/cache/appdata/plauna/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to the config folder",

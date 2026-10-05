@@ -33,7 +33,7 @@
     },
     {
       "name": "Cache Path",
-      "host": "/mnt/user/appdata/borg-ui/cache",
+      "host": "/mnt/cache/appdata/borg-ui/cache",
       "container": "/home/borg/.cache/borg",
       "mode": "rw",
       "description": "Path to cache folder",
@@ -43,7 +43,7 @@
     },
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/borg-ui/data",
+      "host": "/mnt/cache/appdata/borg-ui/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to app data folder",
@@ -109,7 +109,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -119,7 +119,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

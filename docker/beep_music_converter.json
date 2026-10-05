@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "appdata",
-      "host": "/mnt/user/appdata/beep_music_converter",
+      "host": "/mnt/cache/appdata/beep_music_converter",
       "container": "/config",
       "mode": "rw",
       "description": "appdata",

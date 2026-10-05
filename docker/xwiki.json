@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Data",
-      "host": "/mnt/user/appdata/xwiki",
+      "host": "/mnt/cache/appdata/xwiki",
       "container": "/usr/local/xwiki",
       "mode": "rw",
       "description": "",

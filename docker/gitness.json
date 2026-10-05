@@ -32,7 +32,7 @@
     },
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/gitness",
+      "host": "/mnt/cache/appdata/gitness",
       "container": "/data",
       "mode": "rw",
       "description": "",

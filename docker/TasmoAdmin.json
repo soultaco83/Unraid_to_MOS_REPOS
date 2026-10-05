@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "data",
-      "host": "/mnt/user/appdata/tasmoadmin/",
+      "host": "/mnt/cache/appdata/tasmoadmin/",
       "container": "/data",
       "mode": "rw",
       "description": "Container Path: /data",

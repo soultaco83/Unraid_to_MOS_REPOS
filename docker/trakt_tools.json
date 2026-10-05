@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config path",
-      "host": "/mnt/user/appdata/trakt_tools/config",
+      "host": "/mnt/cache/appdata/trakt_tools/config",
       "container": "/trakt/config",
       "mode": "rw",
       "description": "Path to config files",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Export path",
-      "host": "/mnt/user/appdata/trakt_tools/export",
+      "host": "/mnt/cache/appdata/trakt_tools/export",
       "container": "/trakt/export",
       "mode": "rw",
       "description": "Path to export files",

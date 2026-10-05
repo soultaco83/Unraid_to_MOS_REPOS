@@ -33,7 +33,7 @@
     },
     {
       "name": "Config Data",
-      "host": "/mnt/user/appdata/lunarr/config",
+      "host": "/mnt/cache/appdata/lunarr/config",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the config data",

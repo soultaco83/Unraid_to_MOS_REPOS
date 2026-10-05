@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/a_train/data",
+      "host": "/mnt/cache/appdata/a_train/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to data files",

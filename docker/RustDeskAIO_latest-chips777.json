@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/RustDesk-AIO",
+      "host": "/mnt/cache/appdata/RustDesk-AIO",
       "container": "/rustdesk-server",
       "mode": "rw",
       "description": "Data Path",
@@ -100,7 +100,7 @@
     {
       "name": "UID",
       "key": "UID",
-      "value": "99",
+      "value": "500",
       "description": "Only change when you know what you are doing!",
       "required": true,
       "mask": false,
@@ -110,7 +110,7 @@
     {
       "name": "GID",
       "key": "GID",
-      "value": "100",
+      "value": "500",
       "description": "Only change when you know what you are doing!",
       "required": true,
       "mask": false,

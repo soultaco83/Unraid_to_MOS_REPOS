@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Uploads Path",
-      "host": "/mnt/user/appdata/wedding_share/uploads",
+      "host": "/mnt/cache/appdata/wedding_share/uploads",
       "container": "/app/wwwroot/uploads",
       "mode": "rw",
       "description": "Path to uploaded files",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Thumbnails Path",
-      "host": "/mnt/user/appdata/wedding_share/thumbnails",
+      "host": "/mnt/cache/appdata/wedding_share/thumbnails",
       "container": "/app/wwwroot/thumbnails",
       "mode": "rw",
       "description": "Path to thumbnail images",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/wedding_share/config",
+      "host": "/mnt/cache/appdata/wedding_share/config",
       "container": "/app/config",
       "mode": "rw",
       "description": "Path to configuration files",
@@ -53,7 +53,7 @@
     },
     {
       "name": "Custom Resources Path",
-      "host": "/mnt/user/appdata/wedding_share/custom_resources",
+      "host": "/mnt/cache/appdata/wedding_share/custom_resources",
       "container": "/app/wwwroot/custom_resources",
       "mode": "rw",
       "description": "Path to custom resources (CSS, JS, etc.)",

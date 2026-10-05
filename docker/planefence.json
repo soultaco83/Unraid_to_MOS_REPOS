@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Persistent Data Path",
-      "host": "/mnt/user/appdata/planefence/data",
+      "host": "/mnt/cache/appdata/planefence/data",
       "container": "/usr/share/planefence/persist",
       "mode": "rw",
       "description": "Path to persistent data",
@@ -33,7 +33,7 @@
     },
     {
       "name": "HTML Path",
-      "host": "/mnt/user/appdata/planefence/html",
+      "host": "/mnt/cache/appdata/planefence/html",
       "container": "/usr/share/planefence/html",
       "mode": "rw",
       "description": "Path to HTML files",

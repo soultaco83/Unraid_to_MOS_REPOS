@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "video storage location",
-      "host": "/mnt/user/cctv/",
+      "host": "/mnt/Array/cctv/",
       "container": "/opt/shinobi/videos",
       "mode": "rw,slave",
       "description": "/opt/shinobi/videos",
@@ -42,7 +42,7 @@
     },
     {
       "name": "appdata location",
-      "host": "/mnt/user/appdata/shinobipro",
+      "host": "/mnt/cache/appdata/shinobipro",
       "container": "/config",
       "mode": "rw",
       "description": "/config",
@@ -52,7 +52,7 @@
     },
     {
       "name": "maria db database location",
-      "host": "/mnt/user/appdata/shinobipro/database",
+      "host": "/mnt/cache/appdata/shinobipro/database",
       "container": "/var/lib/mysql",
       "mode": "rw",
       "description": "/var/lib/mysql",
@@ -62,7 +62,7 @@
     },
     {
       "name": "customautoload modules",
-      "host": "/mnt/user/appdata/shinobipro/customautoload",
+      "host": "/mnt/cache/appdata/shinobipro/customautoload",
       "container": "/opt/shinobi/libs/customAutoLoad",
       "mode": "rw",
       "description": "Container Path: /opt/shinobi/libs/customAutoLoad",

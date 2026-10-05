@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "appdata",
-      "host": "/mnt/user/appdata/4get/",
+      "host": "/mnt/cache/appdata/4get/",
       "container": "/config",
       "mode": "rw",
       "description": "appdata root",
@@ -30,7 +30,7 @@
     },
     {
       "name": "certs",
-      "host": "/mnt/user/appdata/4get/certs/",
+      "host": "/mnt/cache/appdata/4get/certs/",
       "container": "/etc/4get/certs",
       "mode": "rw",
       "description": "Not usually needed",
@@ -40,7 +40,7 @@
     },
     {
       "name": "captcha",
-      "host": "/mnt/user/appdata/4get/captcha/",
+      "host": "/mnt/cache/appdata/4get/captcha/",
       "container": "/var/www/html/4get/data/captcha",
       "mode": "rw",
       "description": "captcha",
@@ -50,7 +50,7 @@
     },
     {
       "name": "banners",
-      "host": "/mnt/user/appdata/4get/banner/",
+      "host": "/mnt/cache/appdata/4get/banner/",
       "container": "/var/www/html/4get/banner",
       "mode": "rw",
       "description": "custom banner location",

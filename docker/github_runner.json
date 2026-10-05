@@ -32,7 +32,7 @@
     },
     {
       "name": "Persistent Files",
-      "host": "/mnt/user/appdata/github_runner/persistent_files",
+      "host": "/mnt/cache/appdata/github_runner/persistent_files",
       "container": "/runner/persistent_files",
       "mode": "rw",
       "description": "Path to persistent files",

@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Isos path",
-      "host": "/mnt/user/isos/Windows/",
+      "host": "/mnt/Array/isos/Windows/",
       "container": "/isos",
       "mode": "rw",
       "description": "Path to where you store your iso images",
@@ -30,7 +30,7 @@
     },
     {
       "name": "appdata",
-      "host": "/mnt/user/appdata/windows11_uupdump",
+      "host": "/mnt/cache/appdata/windows11_uupdump",
       "container": "/config",
       "mode": "rw",
       "description": "Container Path: /config",

@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/kafka/data",
+      "host": "/mnt/cache/appdata/kafka/data",
       "container": "/bitnami/kafka",
       "mode": "rw",
       "description": "Path to data files",

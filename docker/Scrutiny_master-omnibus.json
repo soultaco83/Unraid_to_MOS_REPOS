@@ -41,7 +41,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/Scrutiny/config",
+      "host": "/mnt/cache/appdata/Scrutiny/config",
       "container": "/opt/scrutiny/config",
       "mode": "rw",
       "description": "",
@@ -51,7 +51,7 @@
     },
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/Scrutiny/influxdb",
+      "host": "/mnt/cache/appdata/Scrutiny/influxdb",
       "container": "/opt/scrutiny/influxdb",
       "mode": "rw",
       "description": "",

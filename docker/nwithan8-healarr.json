@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Folder",
-      "host": "/mnt/user/appdata/healarr/config",
+      "host": "/mnt/cache/appdata/healarr/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to the config folder",

@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/forgotten_movies/data",
+      "host": "/mnt/cache/appdata/forgotten_movies/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to the application data folder",
@@ -339,7 +339,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -349,7 +349,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

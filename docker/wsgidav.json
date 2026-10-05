@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Storage",
-      "host": "/mnt/user/appdata/wsgidav/storage",
+      "host": "/mnt/cache/appdata/wsgidav/storage",
       "container": "/var/wsgidav-root",
       "mode": "rw",
       "description": "Path to the storage directory",

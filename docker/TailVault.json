@@ -33,7 +33,7 @@
     },
     {
       "name": "tailscale states",
-      "host": "/mnt/user/appdata/tailvault",
+      "host": "/mnt/cache/appdata/tailvault",
       "container": "/config",
       "mode": "rw",
       "description": "appdata",

@@ -21,8 +21,8 @@
   "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
   "paths": [
     {
-      "name": "Path: /config",
-      "host": "/mnt/user/appdata/minecraftbedrockserver",
+      "name": "/config",
+      "host": "/mnt/cache/appdata/minecraftbedrockserver",
       "container": "/config",
       "mode": "rw",
       "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
@@ -33,7 +33,7 @@
   ],
   "ports": [
     {
-      "name": "Port: Web Interface",
+      "name": "Web Interface",
       "host": "8222",
       "container": "8222",
       "protocol": "tcp",
@@ -44,7 +44,7 @@
       "default": null
     },
     {
-      "name": "Port: Minecraft Server connection (TCP)",
+      "name": "Minecraft Server connection (TCP)",
       "host": "25565",
       "container": "25565",
       "protocol": "tcp",
@@ -55,7 +55,7 @@
       "default": null
     },
     {
-      "name": "Port: Minecraft Server connection (UDP)",
+      "name": "Minecraft Server connection (UDP)",
       "host": "25565",
       "container": "25565",
       "protocol": "udp",
@@ -68,7 +68,7 @@
   ],
   "variables": [
     {
-      "name": "Variable: CREATE_BACKUP_HOURS",
+      "name": "CREATE_BACKUP_HOURS",
       "key": "CREATE_BACKUP_HOURS",
       "value": "12",
       "description": "Specify the hour in 24 hour format to perform the backup.",
@@ -78,7 +78,7 @@
       "default": null
     },
     {
-      "name": "Variable: PURGE_BACKUP_DAYS",
+      "name": "PURGE_BACKUP_DAYS",
       "key": "PURGE_BACKUP_DAYS",
       "value": "14",
       "description": "Specify the number of days before a backup is considered for purging.",
@@ -88,7 +88,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_WEBUI_CONSOLE",
+      "name": "ENABLE_WEBUI_CONSOLE",
       "key": "ENABLE_WEBUI_CONSOLE",
       "value": "yes|no",
       "description": "Specify whether you want to enable the Web UI console.",
@@ -98,7 +98,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_WEBUI_AUTH",
+      "name": "ENABLE_WEBUI_AUTH",
       "key": "ENABLE_WEBUI_AUTH",
       "value": "yes|no",
       "description": "Specify whether you want authentication prompts when connecting to the Web UI console.",
@@ -108,7 +108,7 @@
       "default": null
     },
     {
-      "name": "Variable: WEBUI_USER",
+      "name": "WEBUI_USER",
       "key": "WEBUI_USER",
       "value": "admin",
       "description": "Specify the Web UI username.",
@@ -118,7 +118,7 @@
       "default": null
     },
     {
-      "name": "Variable: WEBUI_PASS",
+      "name": "WEBUI_PASS",
       "key": "WEBUI_PASS",
       "value": "admin",
       "description": "Specify the Web UI password.",
@@ -128,7 +128,7 @@
       "default": null
     },
     {
-      "name": "Variable: WEBUI_CONSOLE_TITLE",
+      "name": "WEBUI_CONSOLE_TITLE",
       "key": "WEBUI_CONSOLE_TITLE",
       "value": "Minecraft Java Server",
       "description": "Specify the Web UI console title.",
@@ -138,7 +138,7 @@
       "default": null
     },
     {
-      "name": "Variable: CUSTOM_JAR_PATH",
+      "name": "CUSTOM_JAR_PATH",
       "key": "CUSTOM_JAR_PATH",
       "value": "/config/minecraft/minecraft_server.jar",
       "description": "Specify the absolute path to custom Jar.",
@@ -148,7 +148,7 @@
       "default": null
     },
     {
-      "name": "Variable: JAVA_VERSION",
+      "name": "JAVA_VERSION",
       "key": "JAVA_VERSION",
       "value": "latest|21|17|11|8",
       "description": "Specify the version of Java Runtime.",
@@ -158,7 +158,7 @@
       "default": null
     },
     {
-      "name": "Variable: JAVA_INITIAL_HEAP_SIZE",
+      "name": "JAVA_INITIAL_HEAP_SIZE",
       "key": "JAVA_INITIAL_HEAP_SIZE",
       "value": "512M",
       "description": "Specify the initial Java Heap size in MB.",
@@ -168,7 +168,7 @@
       "default": null
     },
     {
-      "name": "Variable: JAVA_MAX_HEAP_SIZE",
+      "name": "JAVA_MAX_HEAP_SIZE",
       "key": "JAVA_MAX_HEAP_SIZE",
       "value": "1024M",
       "description": "Specify the maximum Java Heap size in MB.",
@@ -178,7 +178,7 @@
       "default": null
     },
     {
-      "name": "Variable: JAVA_MAX_THREADS",
+      "name": "JAVA_MAX_THREADS",
       "key": "JAVA_MAX_THREADS",
       "value": "1",
       "description": "Specify the maximum number of Java threads.",
@@ -188,7 +188,7 @@
       "default": null
     },
     {
-      "name": "Variable: JAVA_CUSTOM_ARGS",
+      "name": "JAVA_CUSTOM_ARGS",
       "key": "JAVA_CUSTOM_ARGS",
       "value": null,
       "description": "Specify custom Java arguments.",
@@ -198,7 +198,7 @@
       "default": null
     },
     {
-      "name": "Variable: STARTUP_CMD",
+      "name": "STARTUP_CMD",
       "key": "STARTUP_CMD",
       "value": null,
       "description": "Specify the Minecraft command you want to run on startup of the server.",
@@ -208,7 +208,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_HEALTHCHECK",
+      "name": "ENABLE_HEALTHCHECK",
       "key": "ENABLE_HEALTHCHECK",
       "value": "yes|no",
       "description": "Enable or disable healthchecks.",
@@ -218,7 +218,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_COMMAND",
+      "name": "HEALTHCHECK_COMMAND",
       "key": "HEALTHCHECK_COMMAND",
       "value": null,
       "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
@@ -228,7 +228,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_ACTION",
+      "name": "HEALTHCHECK_ACTION",
       "key": "HEALTHCHECK_ACTION",
       "value": null,
       "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
@@ -238,7 +238,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_HOSTNAME",
+      "name": "HEALTHCHECK_HOSTNAME",
       "key": "HEALTHCHECK_HOSTNAME",
       "value": "google.com",
       "description": "The hostname used when performing HTTPS and DNS healthchecking.",
@@ -248,9 +248,9 @@
       "default": null
     },
     {
-      "name": "Variable: PUID",
+      "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "User ID for the running container",
       "required": true,
       "mask": false,
@@ -258,9 +258,9 @@
       "default": null
     },
     {
-      "name": "Variable: PGID",
+      "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Group ID for the running container",
       "required": true,
       "mask": false,
@@ -268,7 +268,7 @@
       "default": null
     },
     {
-      "name": "Variable: UMASK",
+      "name": "UMASK",
       "key": "UMASK",
       "value": "000",
       "description": "UMASK for the running container",

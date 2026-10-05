@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Model Storage",
-      "host": "/mnt/user/appdata/ollama-intel-gpu",
+      "host": "/mnt/cache/appdata/ollama-intel-gpu",
       "container": "/root/.ollama",
       "mode": "rw",
       "description": "Path on the host for persistent model storage. Models are large (4-20 GB each).",

@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/SubConverter",
+      "host": "/mnt/cache/appdata/SubConverter",
       "container": "/mnt",
       "mode": "rw",
       "description": "Data Path",

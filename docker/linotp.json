@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/linotp/data",
+      "host": "/mnt/cache/appdata/linotp/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the data directory for LinOTP",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Cache Path",
-      "host": "/mnt/user/appdata/linotp/cache",
+      "host": "/mnt/cache/appdata/linotp/cache",
       "container": "/cache",
       "mode": "rw",
       "description": "Path to the cache directory for LinOTP",

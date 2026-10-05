@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/whisper/config.yaml",
+      "host": "/mnt/cache/appdata/whisper/config.yaml",
       "container": "/usr/src/app/config.yaml",
       "mode": "rw",
       "description": "Path to the config file",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Storage",
-      "host": "/mnt/user/appdata/whisper/storage",
+      "host": "/mnt/cache/appdata/whisper/storage",
       "container": "/tmp/whisper",
       "mode": "rw",
       "description": "Path to the storage directory. Remove to use in-memory storage (lost when container restarts)",

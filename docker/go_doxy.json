@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/go_doxy/config",
+      "host": "/mnt/cache/appdata/go_doxy/config",
       "container": "/app/config",
       "mode": "rw",
       "description": "Path to the config directory",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Error Pages Path",
-      "host": "/mnt/user/appdata/go_doxy/error_pages",
+      "host": "/mnt/cache/appdata/go_doxy/error_pages",
       "container": "/app/error_pages",
       "mode": "rw",
       "description": "Path to the error pages directory",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Certs Path",
-      "host": "/mnt/user/appdata/go_doxy/certs",
+      "host": "/mnt/cache/appdata/go_doxy/certs",
       "container": "/app/certs",
       "mode": "rw",
       "description": "Path to the certs directory",
@@ -178,7 +178,7 @@
     {
       "name": "PGID",
       "key": "GODOXY_UID",
-      "value": "99",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -188,7 +188,7 @@
     {
       "name": "PUID",
       "key": "GODOXY_GID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Appdata",
-      "host": "/mnt/user/appdata/ghost",
+      "host": "/mnt/cache/appdata/ghost",
       "container": "/bitnami",
       "mode": "rw",
       "description": "Appdata",

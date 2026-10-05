@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "WorkSpace Path",
-      "host": "/mnt/user/appdata/",
+      "host": "/mnt/cache/appdata/",
       "container": "/ws",
       "mode": "rw",
       "description": "WorkSpace Path",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Appdata",
-      "host": "/mnt/user/appdata/CodeServer",
+      "host": "/mnt/cache/appdata/CodeServer",
       "container": "/config",
       "mode": "rw",
       "description": "Contains all relevant configuration files.",
@@ -138,7 +138,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "0",
+      "value": "500",
       "description": "PUID",
       "required": true,
       "mask": false,
@@ -148,7 +148,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "0",
+      "value": "500",
       "description": "PGID",
       "required": true,
       "mask": false,

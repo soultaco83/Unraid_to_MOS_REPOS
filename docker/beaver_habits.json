@@ -11,7 +11,7 @@
   "custom_ip": null,
   "default_shell": null,
   "privileged": false,
-  "extra_parameters": "--user 99:100",
+  "extra_parameters": "--user 500:500",
   "post_parameters": null,
   "cpu_set": null,
   "web_ui_url": "http://[IP]:[PORT:8080]/",
@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Data Storage Path",
-      "host": "/mnt/user/appdata/beaver_habits/data",
+      "host": "/mnt/cache/appdata/beaver_habits/data",
       "container": "/app/.user",
       "mode": "rw",
       "description": "Path to data storage",

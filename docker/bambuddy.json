@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Data",
-      "host": "/mnt/user/appdata/bambuddy/data",
+      "host": "/mnt/cache/appdata/bambuddy/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Persistent storage location for your SQLite database, custom settings, and print farm configurations.",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Logs",
-      "host": "/mnt/user/appdata/bambuddy/logs",
+      "host": "/mnt/cache/appdata/bambuddy/logs",
       "container": "/app/logs",
       "mode": "rw",
       "description": "Persistent storage folder where application runtime and printer connection logs are saved.",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Virtual Printer Storage",
-      "host": "/mnt/user/appdata/bambuddy/virtual_printer",
+      "host": "/mnt/cache/appdata/bambuddy/virtual_printer",
       "container": "/app/data/virtual_printer",
       "mode": "rw",
       "description": "Persistent storage path for the local Virtual Printer emulation layer, allowing OrcaSlicer/Bambu Studio to handle direct LAN transfers.",

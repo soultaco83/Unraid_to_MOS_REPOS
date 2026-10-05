@@ -21,8 +21,8 @@
   "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
   "paths": [
     {
-      "name": "Path: /config",
-      "host": "/mnt/user/appdata/qbittorrentvpn",
+      "name": "/config",
+      "host": "/mnt/cache/appdata/qbittorrentvpn",
       "container": "/config",
       "mode": "rw",
       "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
@@ -31,7 +31,7 @@
       "default": null
     },
     {
-      "name": "Path: /data",
+      "name": "/data",
       "host": null,
       "container": "/data",
       "mode": "rw",
@@ -43,7 +43,7 @@
   ],
   "ports": [
     {
-      "name": "Port: Web Interface",
+      "name": "Web Interface",
       "host": "8080",
       "container": "8080",
       "protocol": "tcp",
@@ -54,7 +54,7 @@
       "default": null
     },
     {
-      "name": "Port: Privoxy",
+      "name": "Privoxy",
       "host": "8118",
       "container": "8118",
       "protocol": "tcp",
@@ -65,7 +65,7 @@
       "default": null
     },
     {
-      "name": "Port: microsocks",
+      "name": "microsocks",
       "host": "9118",
       "container": "9118",
       "protocol": "tcp",
@@ -76,7 +76,7 @@
       "default": null
     },
     {
-      "name": "Port: Incoming port TCP",
+      "name": "Incoming port TCP",
       "host": "58946",
       "container": "58946",
       "protocol": "tcp",
@@ -87,7 +87,7 @@
       "default": null
     },
     {
-      "name": "Port: Incoming port UDP",
+      "name": "Incoming port UDP",
       "host": "58946",
       "container": "58946",
       "protocol": "udp",
@@ -100,7 +100,7 @@
   ],
   "variables": [
     {
-      "name": "Variable: VPN_ENABLED",
+      "name": "VPN_ENABLED",
       "key": "VPN_ENABLED",
       "value": "yes|no",
       "description": "Specify whether to enable the VPN.",
@@ -110,7 +110,7 @@
       "default": null
     },
     {
-      "name": "Variable: VPN_USER",
+      "name": "VPN_USER",
       "key": "VPN_USER",
       "value": null,
       "description": "Specify your VPN providers username.",
@@ -120,7 +120,7 @@
       "default": null
     },
     {
-      "name": "Variable: VPN_PASS",
+      "name": "VPN_PASS",
       "key": "VPN_PASS",
       "value": null,
       "description": "Specify your VPN providers password.",
@@ -130,7 +130,7 @@
       "default": null
     },
     {
-      "name": "Variable: VPN_PROV",
+      "name": "VPN_PROV",
       "key": "VPN_PROV",
       "value": "pia|airvpn|protonvpn|custom",
       "description": "Specify your VPN providers password.",
@@ -140,7 +140,7 @@
       "default": null
     },
     {
-      "name": "Variable: VPN_CLIENT",
+      "name": "VPN_CLIENT",
       "key": "VPN_CLIENT",
       "value": "openvpn|wireguard",
       "description": "Specify either Wireguard or OpenVPN.",
@@ -150,7 +150,7 @@
       "default": null
     },
     {
-      "name": "Variable: VPN_OPTIONS",
+      "name": "VPN_OPTIONS",
       "key": "VPN_OPTIONS",
       "value": null,
       "description": "Advanced OpenVPN options, do not specify unless you know what you are doing.",
@@ -160,7 +160,7 @@
       "default": null
     },
     {
-      "name": "Variable: STRICT_PORT_FORWARD",
+      "name": "STRICT_PORT_FORWARD",
       "key": "STRICT_PORT_FORWARD",
       "value": "yes|no",
       "description": "Specify whether to only permit connection to port forward enable endpoints - only takes effect for VPN providers PIA and ProtonVPN.",
@@ -170,7 +170,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_PRIVOXY",
+      "name": "ENABLE_PRIVOXY",
       "key": "ENABLE_PRIVOXY",
       "value": "no|yes",
       "description": "Specify whether to run Privoxy - HTTPS proxy server.",
@@ -180,7 +180,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_STARTUP_SCRIPTS",
+      "name": "ENABLE_STARTUP_SCRIPTS",
       "key": "ENABLE_STARTUP_SCRIPTS",
       "value": "no|yes",
       "description": "Advanced option, used to enable the running of an arbitary script before the VPN tunnel is established.",
@@ -190,7 +190,7 @@
       "default": null
     },
     {
-      "name": "Variable: USERSPACE_WIREGUARD",
+      "name": "USERSPACE_WIREGUARD",
       "key": "USERSPACE_WIREGUARD",
       "value": "no|yes",
       "description": "Specify whether to use slower userspace Wireguard implementation.",
@@ -200,7 +200,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_SOCKS",
+      "name": "ENABLE_SOCKS",
       "key": "ENABLE_SOCKS",
       "value": "no|yes",
       "description": "Specify whether to run microsocks - Socks5 proxy server.",
@@ -210,7 +210,7 @@
       "default": null
     },
     {
-      "name": "Variable: SOCKS_USER",
+      "name": "SOCKS_USER",
       "key": "SOCKS_USER",
       "value": "admin",
       "description": "Specify the socks (microsocks) username.",
@@ -220,7 +220,7 @@
       "default": null
     },
     {
-      "name": "Variable: SOCKS_PASS",
+      "name": "SOCKS_PASS",
       "key": "SOCKS_PASS",
       "value": "socks",
       "description": "Specify the socks (microsocks) password.",
@@ -230,7 +230,7 @@
       "default": null
     },
     {
-      "name": "Variable: LAN_NETWORK",
+      "name": "LAN_NETWORK",
       "key": "LAN_NETWORK",
       "value": "192.168.1.0/24",
       "description": "Specify your internal network in CIDR format.",
@@ -240,7 +240,7 @@
       "default": null
     },
     {
-      "name": "Variable: NAME_SERVERS",
+      "name": "NAME_SERVERS",
       "key": "NAME_SERVERS",
       "value": "1.1.1.1,1.0.0.1",
       "description": "Specify the Name Servers used to perform lookups inside the container.",
@@ -250,7 +250,7 @@
       "default": null
     },
     {
-      "name": "Variable: WEBUI_PORT",
+      "name": "WEBUI_PORT",
       "key": "WEBUI_PORT",
       "value": "8080",
       "description": "Specify the containers Web UI port for the application.",
@@ -260,7 +260,7 @@
       "default": null
     },
     {
-      "name": "Variable: VPN_INPUT_PORTS",
+      "name": "VPN_INPUT_PORTS",
       "key": "VPN_INPUT_PORTS",
       "value": null,
       "description": "Specify any inbound ports for the VPN network.",
@@ -270,7 +270,7 @@
       "default": null
     },
     {
-      "name": "Variable: VPN_OUTPUT_PORTS",
+      "name": "VPN_OUTPUT_PORTS",
       "key": "VPN_OUTPUT_PORTS",
       "value": null,
       "description": "SSpecify any outbound ports for the VPN network.",
@@ -280,7 +280,7 @@
       "default": null
     },
     {
-      "name": "Variable: DEBUG",
+      "name": "DEBUG",
       "key": "DEBUG",
       "value": "false|true",
       "description": "Specify whether you want to enable debug logging, useful when diagnosing startup issues.",
@@ -290,7 +290,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_HEALTHCHECK",
+      "name": "ENABLE_HEALTHCHECK",
       "key": "ENABLE_HEALTHCHECK",
       "value": "yes|no",
       "description": "Enable or disable healthchecks.",
@@ -300,7 +300,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_COMMAND",
+      "name": "HEALTHCHECK_COMMAND",
       "key": "HEALTHCHECK_COMMAND",
       "value": null,
       "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
@@ -310,7 +310,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_ACTION",
+      "name": "HEALTHCHECK_ACTION",
       "key": "HEALTHCHECK_ACTION",
       "value": null,
       "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
@@ -320,7 +320,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_HOSTNAME",
+      "name": "HEALTHCHECK_HOSTNAME",
       "key": "HEALTHCHECK_HOSTNAME",
       "value": "google.com",
       "description": "The hostname used when performing HTTPS and DNS healthchecking.",
@@ -330,9 +330,9 @@
       "default": null
     },
     {
-      "name": "Variable: PUID",
+      "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "User ID for the running container.",
       "required": true,
       "mask": false,
@@ -340,9 +340,9 @@
       "default": null
     },
     {
-      "name": "Variable: PGID",
+      "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Group ID for the running container.",
       "required": true,
       "mask": false,
@@ -350,7 +350,7 @@
       "default": null
     },
     {
-      "name": "Variable: UMASK",
+      "name": "UMASK",
       "key": "UMASK",
       "value": "000",
       "description": "UMASK for the running container.",

@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "appdata",
-      "host": "/mnt/user/appdata/JellEmPlex-Dedupe",
+      "host": "/mnt/cache/appdata/JellEmPlex-Dedupe",
       "container": "/app/serverconfig",
       "mode": "rw",
       "description": "Appdata",

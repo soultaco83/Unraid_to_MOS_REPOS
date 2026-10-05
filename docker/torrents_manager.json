@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/torrents_manager/data",
+      "host": "/mnt/cache/appdata/torrents_manager/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to the data directory for Torrents Manager",

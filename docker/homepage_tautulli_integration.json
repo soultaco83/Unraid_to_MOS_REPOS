@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/homepage_tautulli/config",
+      "host": "/mnt/cache/appdata/homepage_tautulli/config",
       "container": "/app/config",
       "mode": "rw",
       "description": "Path to config files",

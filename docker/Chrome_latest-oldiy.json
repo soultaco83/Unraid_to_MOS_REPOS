@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/Chrome/cfg",
+      "host": "/mnt/cache/appdata/Chrome/cfg",
       "container": "/cfg",
       "mode": "rw",
       "description": "Config Path",
@@ -31,7 +31,7 @@
     },
     {
       "name": "Download Path",
-      "host": "/mnt/user/appdata/Chrome/downloads",
+      "host": "/mnt/cache/appdata/Chrome/downloads",
       "container": "/root/Downloads",
       "mode": "rw",
       "description": "Download Path",

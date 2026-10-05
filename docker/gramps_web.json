@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Users database path",
-      "host": "/mnt/user/appdata/gramps/users",
+      "host": "/mnt/cache/appdata/gramps/users",
       "container": "/app/users",
       "mode": "rw",
       "description": "Users database path",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Search index path",
-      "host": "/mnt/user/appdata/gramps/indexdir",
+      "host": "/mnt/cache/appdata/gramps/indexdir",
       "container": "/app/indexdir",
       "mode": "rw",
       "description": "Search index path",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Thumbnail storage path",
-      "host": "/mnt/user/appdata/gramps/thumbnail_cache",
+      "host": "/mnt/cache/appdata/gramps/thumbnail_cache",
       "container": "/app/thumbnail_cache",
       "mode": "rw",
       "description": "Thumbnail storage path",
@@ -52,7 +52,7 @@
     },
     {
       "name": "Export and report storage path",
-      "host": "/mnt/user/appdata/gramps/cache",
+      "host": "/mnt/cache/appdata/gramps/cache",
       "container": "/app/cache",
       "mode": "rw",
       "description": "Export and report storage path",
@@ -62,7 +62,7 @@
     },
     {
       "name": "Secrets storage path",
-      "host": "/mnt/user/appdata/gramps/secret",
+      "host": "/mnt/cache/appdata/gramps/secret",
       "container": "/app/secret",
       "mode": "rw",
       "description": "Secrets storage path",
@@ -72,7 +72,7 @@
     },
     {
       "name": "Database path",
-      "host": "/mnt/user/appdata/gramps/database",
+      "host": "/mnt/cache/appdata/gramps/database",
       "container": "/root/.gramps/grampsdb",
       "mode": "rw",
       "description": "Database path",
@@ -82,7 +82,7 @@
     },
     {
       "name": "Media storage path",
-      "host": "/mnt/user/appdata/gramps/media",
+      "host": "/mnt/cache/appdata/gramps/media",
       "container": "/app/media",
       "mode": "rw",
       "description": "Media storage path",
@@ -92,7 +92,7 @@
     },
     {
       "name": "Temporary storage path",
-      "host": "/mnt/user/appdata/gramps/tmp",
+      "host": "/mnt/cache/appdata/gramps/tmp",
       "container": "/tmp",
       "mode": "rw",
       "description": "Temporary storage path",

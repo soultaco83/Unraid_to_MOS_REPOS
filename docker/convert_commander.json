@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Uploads Path",
-      "host": "/mnt/user/appdata/convert_commander/uploads",
+      "host": "/mnt/cache/appdata/convert_commander/uploads",
       "container": "/app/uploads",
       "mode": "rw",
       "description": "Path to uploaded files. Remove to make ephemeral",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Converts Path",
-      "host": "/mnt/user/appdata/convert_commander/converts",
+      "host": "/mnt/cache/appdata/convert_commander/converts",
       "container": "/app/convert",
       "mode": "rw",
       "description": "Path to converted files. Remove to make ephemeral",

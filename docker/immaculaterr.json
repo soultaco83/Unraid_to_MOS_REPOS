@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Config Data",
-      "host": "/mnt/user/appdata/immaculaterr/config",
+      "host": "/mnt/cache/appdata/immaculaterr/config",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the config data",

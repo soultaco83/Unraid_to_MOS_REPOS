@@ -26,7 +26,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/paperless-ai",
+      "host": "/mnt/cache/appdata/paperless-ai",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to app data",

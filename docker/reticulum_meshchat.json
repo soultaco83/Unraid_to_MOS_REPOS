@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Config Data",
-      "host": "/mnt/user/appdata/reticulum_meshchat/config",
+      "host": "/mnt/cache/appdata/reticulum_meshchat/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to the config data",

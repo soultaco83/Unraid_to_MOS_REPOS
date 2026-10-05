@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config data",
-      "host": "/mnt/user/appdata/rtsp_to_web/config.json",
+      "host": "/mnt/cache/appdata/rtsp_to_web/config.json",
       "container": "/config/config.json",
       "mode": "rw",
       "description": "Config data for application",

@@ -33,7 +33,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/aura/config",
+      "host": "/mnt/cache/appdata/aura/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to the config directory",

@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Data",
-      "host": "/mnt/user/appdata/itsweber-play/data",
+      "host": "/mnt/cache/appdata/itsweber-play/data",
       "container": "/data",
       "mode": "rw",
       "description": "Postgres, Redis, MinIO, Logs, Whisper-Modelle — alles unter /data. Regelmäßig sichern.",

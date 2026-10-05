@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Config Directory",
-      "host": "/mnt/user/appdata/plexharvester",
+      "host": "/mnt/cache/appdata/plexharvester",
       "container": "/config",
       "mode": "rw",
       "description": "Persistent storage for configuration, cache, and logs.",

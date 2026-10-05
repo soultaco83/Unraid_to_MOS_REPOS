@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Logs",
-      "host": "/mnt/user/appdata/tsunami/logs",
+      "host": "/mnt/cache/appdata/tsunami/logs",
       "container": "/usr/tsunami/logs",
       "mode": "rw",
       "description": "Log files",

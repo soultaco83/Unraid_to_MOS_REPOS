@@ -33,7 +33,7 @@
     },
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/slink/data",
+      "host": "/mnt/cache/appdata/slink/data",
       "container": "/app/var/data",
       "mode": "rw",
       "description": "Path to the database",

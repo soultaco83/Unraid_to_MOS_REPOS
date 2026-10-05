@@ -33,7 +33,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/image_maid",
+      "host": "/mnt/cache/appdata/image_maid",
       "container": "/config",
       "mode": "rw",
       "description": "Path to config directory containing .env file",

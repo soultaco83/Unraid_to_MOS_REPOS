@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/bark/data",
+      "host": "/mnt/cache/appdata/bark/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to data files",

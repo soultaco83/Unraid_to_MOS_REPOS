@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Config Folder",
-      "host": "/mnt/user/appdata/esphome-enhanced",
+      "host": "/mnt/cache/appdata/esphome-enhanced",
       "container": "/config",
       "mode": "rw",
       "description": "Container Path: /config - Where your yaml files will be stored",
@@ -31,7 +31,7 @@
     },
     {
       "name": "Data Folder",
-      "host": "/mnt/user/appdata/esphome-enhanced-data",
+      "host": "/mnt/cache/appdata/esphome-enhanced-data",
       "container": "/data",
       "mode": "rw",
       "description": "Container Path: /data - Where your compiled binaries will be stored",

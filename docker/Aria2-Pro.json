@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Aria2 Download Path",
-      "host": "/mnt/user/appdata/aria2-downloads",
+      "host": "/mnt/cache/appdata/aria2-downloads",
       "container": "/downloads",
       "mode": "rw",
       "description": "Container Path: /downloads",
@@ -31,7 +31,7 @@
     },
     {
       "name": "Aria2 Configuration File Directory",
-      "host": "/mnt/user/appdata/aria2-config",
+      "host": "/mnt/cache/appdata/aria2-config",
       "container": "/config",
       "mode": "rw",
       "description": "Container Path: /config",
@@ -45,7 +45,7 @@
     {
       "name": "User UID",
       "key": "PUID",
-      "value": "1000",
+      "value": "500",
       "description": "Bind UID to the container, which means you can use a non-root user to manage downloaded files.",
       "required": true,
       "mask": false,
@@ -55,7 +55,7 @@
     {
       "name": "User GID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Bind GID to the container, which means you can use a non-root user to manage downloaded files.",
       "required": true,
       "mask": false,

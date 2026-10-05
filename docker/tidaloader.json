@@ -100,7 +100,7 @@
     {
       "name": "PUID",
       "key": "USER_UID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -110,7 +110,7 @@
     {
       "name": "PGID",
       "key": "USER_GID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

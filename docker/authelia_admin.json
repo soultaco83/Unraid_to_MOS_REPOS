@@ -35,7 +35,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/authelia_admin/config",
+      "host": "/mnt/cache/appdata/authelia_admin/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to the config folder",
@@ -45,7 +45,7 @@
     },
     {
       "name": "App Data Path",
-      "host": "/mnt/user/appdata/authelia_admin/data",
+      "host": "/mnt/cache/appdata/authelia_admin/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the app data folder",

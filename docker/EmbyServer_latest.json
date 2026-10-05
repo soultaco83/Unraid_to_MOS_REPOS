@@ -30,7 +30,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/EmbyServer",
+      "host": "/mnt/cache/appdata/EmbyServer",
       "container": "/config",
       "mode": "rw",
       "description": "Config Path",
@@ -56,7 +56,7 @@
     {
       "name": "UID",
       "key": "UID",
-      "value": "0",
+      "value": "500",
       "description": "UID",
       "required": false,
       "mask": false,
@@ -66,7 +66,7 @@
     {
       "name": "GID",
       "key": "GID",
-      "value": "0",
+      "value": "500",
       "description": "GID",
       "required": false,
       "mask": false,

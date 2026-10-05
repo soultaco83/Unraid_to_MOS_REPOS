@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Storage Path",
-      "host": "/mnt/user/appdata/nominatim/data",
+      "host": "/mnt/cache/appdata/nominatim/data",
       "container": "/var/lib/postgresql/16/main",
       "mode": "rw",
       "description": "Path to store the app data",

@@ -20,11 +20,27 @@ the source key.
 
 Usage:
     python3 convert_sources.py [WORK_DIR] [OUTPUT_DIR]
-                               [--mos-paths] [--maintainer NAME] [--donation URL]
+                               [--mos-paths] [--mos-defaults]
+                               [--appdata-root PATH] [--array-root PATH]
+                               [--maintainer NAME] [--donation URL]
 
 Defaults:
     WORK_DIR   = /tmp/unraid-sources                    (shallow clones cached here)
     OUTPUT_DIR = /mnt/github/github/Unraid_to_MOS_REPOS
+
+The published repository targets MOS, not unRAID, so two switches rewrite the
+converted templates onto the MOS conventions:
+
+    --mos-paths      /mnt/user/appdata/... -> /mnt/cache/appdata/...
+                     every other /mnt/user/... share -> /mnt/Array/...
+                     unRAID only folders (dynamix webUI, unRAID VM manager) dropped
+    --mos-defaults   PUID/PGID (any uid/gid spelling) -> 500, `--user 99:100`
+                     -> `--user 500:500`, dynamix label prefixes removed
+
+Both paths are configurable (--appdata-root / --array-root) because pool names
+are local to an installation. The publish call is
+
+    python3 tools/convert_sources.py --mos-paths --mos-defaults
 
 Only <Container version="2"> Docker templates are converted. unRAID plugins and
 multi-container (<Containers>) templates are skipped automatically because their
@@ -36,6 +52,7 @@ import argparse
 import glob
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -43,10 +60,12 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import unraid_to_mos as conv  # noqa: E402
 
+# ich777 is deliberately absent: ich777 is a MOS founder and maintains an own
+# MOS Hub repository (https://github.com/ich777/mos-templates), so their
+# templates would show up twice in the Hub.
 SOURCES = [
     {"key": "unraid",          "maintainer": "Lime Technology", "repo": "unraid/docker-templates"},
     {"key": "binhex",          "maintainer": "binhex",          "repo": "binhex/docker-templates"},
-    {"key": "ich777",          "maintainer": "ich777",          "repo": "ich777/docker-templates"},
     {"key": "nwithan8",        "maintainer": "nwithan8",        "repo": "nwithan8/unraid_templates"},
     {"key": "xushier",         "maintainer": "xushier",         "repo": "xushier/Unraid-Docker-Templates"},
     {"key": "ibracorp",        "maintainer": "IBRACORP",        "repo": "ibracorp/unraid-templates"},
@@ -75,11 +94,47 @@ ROOT_DONATION = ""
 
 LICENSE_FILES = ("LICENSE", "LICENSE.md", "LICENSE.txt", "License", "license", "COPYING")
 
-# unRAID pools are mounted below /mnt/<pool>; MOS has no /mnt/user aggregation,
-# so with --mos-paths the unRAID host paths are mapped onto the conventional MOS
-# pool name ("cache" - rename afterwards if your appdata pool differs).
+# --------------------------------------------------------------------------- #
+# MOS rewrite (--mos-paths / --mos-defaults)                                  #
+# --------------------------------------------------------------------------- #
+# unRAID aggregates every share below /mnt/user/ (/mnt/user0/ is the array-only
+# view); MOS keeps data directly inside a pool, container data conventionally in
+# /mnt/cache/appdata and everything else on the main array. Both roots are
+# configurable (--appdata-root / --array-root) because pool names are local to an
+# installation.
 UNRAID_PREFIX = "/mnt/user/"
-MOS_PREFIX = "/mnt/cache/"
+UNRAID_ARRAY_PREFIX = "/mnt/user0/"
+MOS_APPDATA_ROOT = "/mnt/cache/appdata"
+MOS_ARRAY_ROOT = "/mnt/Array"
+
+# Host folders that exist on unRAID only: the dynamix webUI, its plugin
+# configuration and the unRAID VM manager. MOS ships an own UI and VM manager, so
+# these mounts have no counterpart and are dropped instead of rewritten.
+UNRAID_ONLY_HOSTS = (
+    "/usr/local/emhttp",
+    "/boot/config/plugins/dynamix",
+    "/boot/config/domain.cfg",
+)
+
+# MOS runs containers as its local user 500; unRAID templates ship 99/100. The
+# same concept is spelled PUID/PGID, UID/GID, USER_ID/GROUP_ID or <APP>_UID /
+# <APP>_GID upstream, so the keys are matched by pattern instead of by name.
+MOS_UID = "500"
+MOS_GID = "500"
+IDENTITY_KEY_RE = re.compile(r"^(?:P?[UG]ID|(?:USER|GROUP)_?ID|.*_[UG]ID)$", re.IGNORECASE)
+GROUP_KEY_RE = re.compile(r"^(?:P?GID|GROUP_?ID|.*_GID)$", re.IGNORECASE)
+
+# Every /mnt/user/... (and /mnt/user0/...) occurrence inside a free-form field
+# such as extra parameters or a description.
+UNRAID_PATH_RE = re.compile(r"/mnt/user0?(?:/[^\s:'\",]*)?")
+
+# unRAID's dynamix UI prefixes every configuration label with its type.
+ROW_NAME_PREFIXES = ("Variable: ", "Path: ", "Port: ", "Device: ", "Label: ", "Config: ")
+
+# /mnt/<pool>/appdata/... - the appdata share whatever the pool is called
+APP_DATA_RE = re.compile(r"^/mnt/[^/]+/appdata(?P<rest>/.*)?$")
+# `--user 99:100` / `--user=099:100` - unRAID's user/group pair in flag form
+USER_FLAG_RE = re.compile(r"--user(=|\s+)0*(\d+):0*(\d+)")
 
 def clone(repo, dest):
     """Shallow-clone an upstream template repository (cached between runs)."""
@@ -102,16 +157,93 @@ def find_license(src):
     return None
 
 
-def rewrite_paths(obj):
-    """Map unRAID host paths (/mnt/user/...) onto the MOS pool layout."""
-    bare = UNRAID_PREFIX.rstrip("/")
-    target = MOS_PREFIX.rstrip("/")
+def mos_host_path(host, appdata_root=MOS_APPDATA_ROOT, array_root=MOS_ARRAY_ROOT):
+    """Translate one unRAID host path onto the MOS layout.
+
+    Returns None for folders that exist on unRAID only (dynamix webUI, unRAID VM
+    manager) - those have to be dropped, not rewritten. Paths that are already
+    MOS/device paths (e.g. /var/run/docker.sock, /dev/dri) are returned as is.
+    """
+    if host.startswith(UNRAID_ONLY_HOSTS):
+        return None
+    appdata = APP_DATA_RE.match(host)
+    if appdata:                                    # /mnt/<pool>/appdata[/...]
+        return appdata_root + (appdata.group("rest") or "")
+    for prefix in (UNRAID_PREFIX, UNRAID_ARRAY_PREFIX):
+        if host == prefix.rstrip("/"):
+            return array_root
+        if host.startswith(prefix):                # share -> main array
+            return "%s/%s" % (array_root, host[len(prefix):])
+    return host
+
+
+def rewrite_paths(obj, appdata_root=MOS_APPDATA_ROOT, array_root=MOS_ARRAY_ROOT):
+    """Map unRAID host paths onto the MOS pool layout (--mos-paths).
+
+    Covered are the mount rows of the template plus every `/mnt/user/...`
+    occurrence in a free-form field (extra parameters, post parameters,
+    description) - `--env-file=/mnt/user/...` is a host path as well. Mount
+    *targets* inside the container are left alone: they are part of what the
+    application expects, not a host path.
+    """
+    rows = []
     for row in obj.get("paths") or []:
-        host = row.get("host") or ""
-        if host == bare:
-            row["host"] = target
-        elif host.startswith(UNRAID_PREFIX):
-            row["host"] = MOS_PREFIX + host[len(UNRAID_PREFIX):]
+        host = (row.get("host") or "").strip()
+        mapped = mos_host_path(host, appdata_root, array_root)
+        if mapped is None:
+            continue                               # unRAID-only mount
+        if mapped:
+            row["host"] = mapped
+        rows.append(row)
+    obj["paths"] = rows
+    for field in ("extra_parameters", "post_parameters", "description"):
+        text = obj.get(field)
+        if text and UNRAID_PATH_RE.search(text):
+            obj[field] = UNRAID_PATH_RE.sub(
+                lambda m: mos_host_path(m.group(0), appdata_root, array_root) or "", text)
+    return obj
+
+
+def identity_value(key):
+    """Return the MOS value for a uid/gid style variable key, or None."""
+    if not IDENTITY_KEY_RE.match(key or ""):
+        return None
+    return MOS_GID if GROUP_KEY_RE.match(key) else MOS_UID
+
+
+def mos_user_flag(value):
+    """Translate unRAID's `--user 99:100` (also `099:100`, `--user=99:100`)."""
+    def repl(match):
+        separator, uid, gid = match.group(1), match.group(2).lstrip("0"), match.group(3).lstrip("0")
+        if (uid, gid) != ("99", "100"):
+            return match.group(0)                  # keep other explicit users
+        return "--user%s%s:%s" % (separator, MOS_UID, MOS_GID)
+    return USER_FLAG_RE.sub(repl, value)
+
+
+def apply_mos_defaults(obj):
+    """Replace unRAID specific defaults with the MOS conventions (--mos-defaults).
+
+    * PUID/PGID (and the UID/GID spelling) default to MOS's user 500, unRAID
+      ships 99/100 which has no meaning on MOS.
+    * `--user 99:100` is the same pair in Docker flag form.
+    * dynamix label prefixes ("Variable: ", "Path: ", ...) only make sense in
+      the unRAID UI.
+    """
+    for row in obj.get("variables") or []:
+        value = identity_value((row.get("key") or "").upper())
+        if value:
+            row["value"] = value
+    extra = obj.get("extra_parameters")
+    if extra:
+        obj["extra_parameters"] = mos_user_flag(extra)
+    for section in ("variables", "paths", "ports", "devices", "labels"):
+        for row in obj.get(section) or []:
+            name = row.get("name") or ""
+            for prefix in ROW_NAME_PREFIXES:
+                if name.startswith(prefix) and len(name) > len(prefix):
+                    row["name"] = name[len(prefix):]
+                    break
     return obj
 
 
@@ -150,7 +282,8 @@ def unique_name(used, key, base):
     return name
 
 
-def merge(builds, out_root, mos_paths=False):
+def merge(builds, out_root, mos_paths=False, mos_defaults=False,
+          appdata_root=MOS_APPDATA_ROOT, array_root=MOS_ARRAY_ROOT):
     """Merge every per-source docker/ directory into OUT_ROOT/docker/.
 
     Returns the report rows (key, maintainer, template count, upstream repo,
@@ -170,7 +303,9 @@ def merge(builds, out_root, mos_paths=False):
                 obj = json.load(fh)
             stem = os.path.splitext(os.path.basename(path))[0]
             if mos_paths:
-                rewrite_paths(obj)
+                rewrite_paths(obj, appdata_root, array_root)
+            if mos_defaults:
+                apply_mos_defaults(obj)
             # Credit the upstream template author per template. The Hub shows the
             # repository level maintainer for docker templates, but `author` is a
             # valid template field there and keeps the provenance in the data.
@@ -214,13 +349,16 @@ def write_licenses(out_root, builds):
     return kept
 
 
-def write_readme(out_root, report, mos_paths, maintainer):
+def write_readme(out_root, report, maintainer, mos_paths=False, mos_defaults=False,
+                 appdata_root=MOS_APPDATA_ROOT, array_root=MOS_ARRAY_ROOT):
     """Write the repository README (layout, MOS Hub instructions, sources)."""
     total = sum(row["count"] for row in report)
+    hub_docs = ("https://github.com/mos-nas/mos-docs/blob/main/"
+                "docs/MOS-Hub/Creating-Your-Own-MOS-Hub-Repository.md")
     lines = [
         "# Unraid to MOS - template repository",
         "",
-        "A single flat [MOS Hub](https://github.com/ich777/mos-templates) repository",
+        "A single flat [MOS Hub](%s) repository" % hub_docs,
         "holding docker templates converted from **%d** unRAID Community Applications" % len(report),
         "template repositories: **%d templates** from %d upstream authors." % (total, len(report)),
         "",
@@ -285,11 +423,38 @@ def write_readme(out_root, report, mos_paths, maintainer):
         "repositories, so they always match what the author currently ships.",
         "",
     ]
-    if mos_paths:
+    if mos_paths or mos_defaults:
         lines += [
-            "Host paths were mapped from the unRAID `/mnt/user/...` layout onto the MOS",
-            "pool layout `/mnt/cache/...`. Rename `cache` to your own appdata pool if it",
-            "differs.",
+            "## MOS compatibility",
+            "",
+            "unRAID specifics were replaced by the MOS equivalents:",
+            "",
+        ]
+        if mos_paths:
+            lines += [
+                "* host paths: `/mnt/user/appdata/...` -> `%s/...`, every other" % appdata_root,
+                "  `/mnt/user/...` share -> `%s/...` (MOS keeps data directly in a" % array_root,
+                "  pool instead of aggregating shares below `/mnt/user`), same for",
+                "  `/mnt/user/...` in extra parameters and descriptions; folders that",
+                "  exist on unRAID only (dynamix webUI, unRAID VM manager) dropped.",
+                "  Container side mount targets stay untouched - they are what the",
+                "  application expects inside the container, not a host path",
+            ]
+        if mos_defaults:
+            lines += [
+                "* identity: `PUID`/`PGID` and every `UID`/`GID` spelling",
+                "  (`UID`, `GID`, `USER_ID`, `GROUP_ID`, `<APP>_UID`, ...) default to",
+                "  `%s`/`%s` instead of unRAID's 99/100, `--user 99:100` became" % (MOS_UID, MOS_GID),
+                "  `--user %s:%s`, dynamix label prefixes (`Variable: `, `Path: `, ...)" % (MOS_UID, MOS_GID),
+                "  removed",
+            ]
+        lines += [
+            "",
+            "Icons, ports, variables and `br0` network modes were kept as they are: MOS",
+            "supports them (`br0` is the bridge used by VMs and containers). The paths",
+            "follow the pool names of the host that generated this repository",
+            "(`%s`, `%s`) - re-run the conversion with" % (appdata_root, array_root),
+            "`--appdata-root` / `--array-root` for differently named pools.",
             "",
         ]
     lines += [
@@ -304,7 +469,18 @@ def write_readme(out_root, report, mos_paths, maintainer):
                      % (row["key"], row["maintainer"], row["count"], row["repo"], row["repo"], lic))
     lines += [
         "",
-        "Generated with `tools/convert_sources.py`, validated with",
+        "`ich777` is not part of this collection: ich777 is a MOS founder and",
+        "publishes an own MOS Hub repository",
+        "([ich777/mos-templates](https://github.com/ich777/mos-templates)), so listing",
+        "those templates here as well would duplicate every app in the Hub.",
+    ]
+    switches = " ".join(name for name, enabled in
+                        (("--mos-paths", mos_paths), ("--mos-defaults", mos_defaults))
+                        if enabled)
+    lines += [
+        "",
+        "Generated with `tools/convert_sources.py%s`, validated with" % (
+            " " + switches if switches else ""),
         "`tools/validate_repos.py`, committed with `tools/publish_repo.fish` and pushed",
         "with `tools/create_and_push.fish`.",
         "",
@@ -351,7 +527,15 @@ def main(argv):
     parser.add_argument("out", nargs="?", default="/mnt/github/github/Unraid_to_MOS_REPOS",
                         help="published MOS Hub repository root")
     parser.add_argument("--mos-paths", action="store_true",
-                        help="map /mnt/user/... host paths onto /mnt/cache/... (MOS pools)")
+                        help="rewrite unRAID host paths onto the MOS pools "
+                             "(appdata + main array)")
+    parser.add_argument("--mos-defaults", action="store_true",
+                        help="replace unRAID identity/UI defaults with the MOS "
+                             "conventions (PUID/PGID 500, --user 99:100, label prefixes)")
+    parser.add_argument("--appdata-root", default=MOS_APPDATA_ROOT,
+                        help="MOS path for container data (default: %(default)s)")
+    parser.add_argument("--array-root", default=MOS_ARRAY_ROOT,
+                        help="MOS path for main array data (default: %(default)s)")
     parser.add_argument("--maintainer", default=ROOT_MAINTAINER,
                         help="value written to maintainer.json (default: %(default)s)")
     parser.add_argument("--donation", default=ROOT_DONATION,
@@ -381,10 +565,14 @@ def main(argv):
             "license": find_license(clone_dir),
         })
 
-    report = merge(builds, out_root, mos_paths=args.mos_paths)
+    report = merge(builds, out_root, mos_paths=args.mos_paths,
+                   mos_defaults=args.mos_defaults,
+                   appdata_root=args.appdata_root, array_root=args.array_root)
     write_maintainer(out_root, args.maintainer, args.donation)
     kept = write_licenses(out_root, builds)
-    write_readme(out_root, report, args.mos_paths, args.maintainer)
+    write_readme(out_root, report, args.maintainer, mos_paths=args.mos_paths,
+                 mos_defaults=args.mos_defaults,
+                 appdata_root=args.appdata_root, array_root=args.array_root)
     removed = prune_old_layout(out_root, [s["key"] for s in SOURCES])
     normalize_modes(out_root)
 
@@ -397,6 +585,10 @@ def main(argv):
     if removed:
         print("removed old layout : %s" % ", ".join(sorted(removed)))
     print("output             : %s" % os.path.join(out_root, "docker"))
+    if args.mos_paths:
+        print("MOS paths          : appdata %s, array %s"
+              % (args.appdata_root, args.array_root))
+    print("MOS defaults       : %s" % ("applied" if args.mos_defaults else "not applied"))
 
 
 if __name__ == "__main__":

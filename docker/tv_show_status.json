@@ -34,7 +34,7 @@
     },
     {
       "name": "App Config",
-      "host": "/mnt/user/appdata/umtk/config",
+      "host": "/mnt/cache/appdata/umtk/config",
       "container": "/app/config",
       "mode": "rw",
       "description": "Path to the config folder",

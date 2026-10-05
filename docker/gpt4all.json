@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/gpt4all/data",
+      "host": "/mnt/cache/appdata/gpt4all/data",
       "container": "/data",
       "mode": "rw",
       "description": "Data directory",

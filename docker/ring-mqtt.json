@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "DataPath",
-      "host": "/mnt/user/appdata/ring-mqtt",
+      "host": "/mnt/cache/appdata/ring-mqtt",
       "container": "/data",
       "mode": "rw",
       "description": "Data Path",

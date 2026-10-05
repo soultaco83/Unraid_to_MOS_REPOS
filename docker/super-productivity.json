@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/super-productivity",
+      "host": "/mnt/cache/appdata/super-productivity",
       "container": "/config",
       "mode": "rw",
       "description": "",

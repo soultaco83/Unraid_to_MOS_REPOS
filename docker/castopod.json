@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Media Path",
-      "host": "/mnt/user/appdata/castopod/media",
+      "host": "/mnt/cache/appdata/castopod/media",
       "container": "/var/www/castopod/public/media",
       "mode": "rw",
       "description": "Path to media storage",

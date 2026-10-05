@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Appdata",
-      "host": "/mnt/user/appdata/wrapperr",
+      "host": "/mnt/cache/appdata/wrapperr",
       "container": "/app/config",
       "mode": "rw",
       "description": "Container Path: /config",

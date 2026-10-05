@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/libation/config",
+      "host": "/mnt/cache/appdata/libation/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to configuration files",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Books Path",
-      "host": "/mnt/user/appdata/libation/books",
+      "host": "/mnt/cache/appdata/libation/books",
       "container": "/data",
       "mode": "rw",
       "description": "Path to book files",

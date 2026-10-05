@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/meshview/config",
+      "host": "/mnt/cache/appdata/meshview/config",
       "container": "/etc/meshview",
       "mode": "rw",
       "description": "Path to the config folder",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/meshview/data",
+      "host": "/mnt/cache/appdata/meshview/data",
       "container": "/var/lib/meshview",
       "mode": "rw",
       "description": "Path to the data folder",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Logs Path",
-      "host": "/mnt/user/appdata/meshview/logs",
+      "host": "/mnt/cache/appdata/meshview/logs",
       "container": "/var/log/meshview",
       "mode": "rw",
       "description": "Path to the logs folder",
@@ -53,7 +53,7 @@
     },
     {
       "name": "Database Backups Path",
-      "host": "/mnt/user/appdata/meshview/backups",
+      "host": "/mnt/cache/appdata/meshview/backups",
       "container": "/var/lib/meshview/backups",
       "mode": "rw",
       "description": "Path to the database backups folder",

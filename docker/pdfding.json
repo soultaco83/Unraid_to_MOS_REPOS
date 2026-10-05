@@ -34,7 +34,7 @@
     },
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/pdfding/db",
+      "host": "/mnt/cache/appdata/pdfding/db",
       "container": "/home/nonroot/pdfding/db",
       "mode": "rw",
       "description": "Path to the SQLite database folder. Remove if using Postgres. May need to update write permissions.",
@@ -420,7 +420,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "1000",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -430,7 +430,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "1000",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

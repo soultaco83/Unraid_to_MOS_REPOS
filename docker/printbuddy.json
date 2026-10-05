@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Data",
-      "host": "/mnt/user/appdata/printbuddy/data",
+      "host": "/mnt/cache/appdata/printbuddy/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Persistent storage location for your SQLite database, custom settings, and print farm configurations.",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Logs",
-      "host": "/mnt/user/appdata/printbuddy/logs",
+      "host": "/mnt/cache/appdata/printbuddy/logs",
       "container": "/app/logs",
       "mode": "rw",
       "description": "Persistent storage folder where application runtime and printer connection logs are saved.",
@@ -56,7 +56,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "The user ID for the container process. This should match the user ID of the Unraid user that owns the appdata folder.",
       "required": true,
       "mask": false,
@@ -66,7 +66,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "The group ID for the container process. This should match the group ID of the Unraid user that owns the appdata folder.",
       "required": true,
       "mask": false,

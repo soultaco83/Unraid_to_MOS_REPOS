@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Host Path 1",
-      "host": "/mnt/user/appdata/JiraServiceDesk",
+      "host": "/mnt/cache/appdata/JiraServiceDesk",
       "container": "/var/atlassian/application-data/jira",
       "mode": "rw",
       "description": "Container Path: /var/atlassian/application-data/jira",

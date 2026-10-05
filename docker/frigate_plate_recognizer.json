@@ -35,7 +35,7 @@
     },
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/frigate_plate_recognizer/config",
+      "host": "/mnt/cache/appdata/frigate_plate_recognizer/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to app data",

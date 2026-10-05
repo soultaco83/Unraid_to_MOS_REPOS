@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/alexa_subwatch/config",
+      "host": "/mnt/cache/appdata/alexa_subwatch/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to config files",

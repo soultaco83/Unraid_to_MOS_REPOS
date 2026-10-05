@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/people_tracker/stream",
+      "host": "/mnt/cache/appdata/people_tracker/stream",
       "container": "/people-data",
       "mode": "rw",
       "description": "Path to app data",

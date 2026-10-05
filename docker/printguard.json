@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/printguard/data",
+      "host": "/mnt/cache/appdata/printguard/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the data folder",

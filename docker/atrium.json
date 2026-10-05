@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Uploads Path",
-      "host": "/mnt/user/appdata/atrium/uploads",
+      "host": "/mnt/cache/appdata/atrium/uploads",
       "container": "/app/uploads",
       "mode": "rw",
       "description": "Path to store uploaded files",

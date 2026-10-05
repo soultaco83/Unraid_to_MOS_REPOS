@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/libre_closet/data",
+      "host": "/mnt/cache/appdata/libre_closet/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to the app data",

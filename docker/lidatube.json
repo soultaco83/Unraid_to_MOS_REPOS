@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Downloads",
-      "host": "/mnt/user/data/downloads",
+      "host": "/mnt/Array/data/downloads",
       "container": "/lidatube/downloads",
       "mode": "rw,shared",
       "description": "",
@@ -88,7 +88,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": false,
       "mask": false,
@@ -98,7 +98,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "",
       "required": false,
       "mask": false,

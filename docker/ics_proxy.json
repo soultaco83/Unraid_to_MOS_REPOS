@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/ics_proxy/db",
+      "host": "/mnt/cache/appdata/ics_proxy/db",
       "container": "/app/db",
       "mode": "rw",
       "description": "Path to the db directory",

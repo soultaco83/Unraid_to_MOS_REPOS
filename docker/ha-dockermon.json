@@ -32,7 +32,7 @@
     },
     {
       "name": "configpath",
-      "host": "/mnt/user/appdata/ha-dockermon/",
+      "host": "/mnt/cache/appdata/ha-dockermon/",
       "container": "/config",
       "mode": "rw",
       "description": "Container Path: /config",

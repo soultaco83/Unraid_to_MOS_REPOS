@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Storage path",
-      "host": "/mnt/user/appdata/docuwiki/storage",
+      "host": "/mnt/cache/appdata/docuwiki/storage",
       "container": "/storage",
       "mode": "rw",
       "description": "Path to stored files",

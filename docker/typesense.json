@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Data Location",
-      "host": "/mnt/user/appdata/typesense/data",
+      "host": "/mnt/cache/appdata/typesense/data",
       "container": "/data",
       "mode": "rw",
       "description": "Persistent data directory for collections, snapshots and indexes",

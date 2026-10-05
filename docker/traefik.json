@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Folder",
-      "host": "/mnt/user/appdata/traefik",
+      "host": "/mnt/cache/appdata/traefik",
       "container": "/etc/traefik",
       "mode": "rw",
       "description": "Appdata Location",

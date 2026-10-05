@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "appdata",
-      "host": "/mnt/user/appdata/plateminder/data",
+      "host": "/mnt/cache/appdata/plateminder/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path for data/image storage",
@@ -31,7 +31,7 @@
     },
     {
       "name": "config_yaml",
-      "host": "/mnt/user/appdata/plateminder/config.yaml",
+      "host": "/mnt/cache/appdata/plateminder/config.yaml",
       "container": "/app/config.yaml",
       "mode": "rw",
       "description": "",

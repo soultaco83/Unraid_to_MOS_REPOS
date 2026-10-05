@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/dakosys/data",
+      "host": "/mnt/cache/appdata/dakosys/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Data path",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Config Data",
-      "host": "/mnt/user/appdata/dakosys/config",
+      "host": "/mnt/cache/appdata/dakosys/config",
       "container": "/app/config",
       "mode": "rw",
       "description": "Configuration data",

@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Directory",
-      "host": "/mnt/user/appdata/localstack/data",
+      "host": "/mnt/cache/appdata/localstack/data",
       "container": "/var/lib/localstack",
       "mode": "rw",
       "description": "Path to the data directory",

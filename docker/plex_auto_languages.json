@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/plex_auto_languages/config",
+      "host": "/mnt/cache/appdata/plex_auto_languages/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to configuration files",

@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "App Data Path",
-      "host": "/mnt/user/appdata/lumen/data",
+      "host": "/mnt/cache/appdata/lumen/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to app data files",

@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/puter/config",
+      "host": "/mnt/cache/appdata/puter/config",
       "container": "/etc/puter",
       "mode": "rw",
       "description": "Config path",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/puter/data",
+      "host": "/mnt/cache/appdata/puter/data",
       "container": "/var/puter",
       "mode": "rw",
       "description": "Data path",
@@ -59,7 +59,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "1000",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -69,7 +69,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "1000",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

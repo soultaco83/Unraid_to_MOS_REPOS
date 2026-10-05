@@ -22,8 +22,8 @@
   "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
   "paths": [
     {
-      "name": "Path: /config",
-      "host": "/mnt/user/appdata/gonic",
+      "name": "/config",
+      "host": "/mnt/cache/appdata/gonic",
       "container": "/config",
       "mode": "rw",
       "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
@@ -32,8 +32,8 @@
       "default": null
     },
     {
-      "name": "Path: /media",
-      "host": "/mnt/user",
+      "name": "/media",
+      "host": "/mnt/Array",
       "container": "/media",
       "mode": "rw",
       "description": "This is the container path to your media files, e.g. movies, tv, music, pictures etc.",
@@ -44,7 +44,7 @@
   ],
   "ports": [
     {
-      "name": "Port: Web Interface",
+      "name": "Web Interface",
       "host": "4747",
       "container": "4747",
       "protocol": "tcp",
@@ -57,7 +57,7 @@
   ],
   "variables": [
     {
-      "name": "Variable: GONIC_MUSIC_PATH",
+      "name": "GONIC_MUSIC_PATH",
       "key": "GONIC_MUSIC_PATH",
       "value": "/media",
       "description": "Path to music files",
@@ -67,7 +67,7 @@
       "default": null
     },
     {
-      "name": "Variable: GONIC_PODCAST_PATH",
+      "name": "GONIC_PODCAST_PATH",
       "key": "GONIC_PODCAST_PATH",
       "value": "/config/gonic/podcasts",
       "description": "Path to store downloaded podcasts",
@@ -77,7 +77,7 @@
       "default": null
     },
     {
-      "name": "Variable: GONIC_PLAYLISTS_PATH",
+      "name": "GONIC_PLAYLISTS_PATH",
       "key": "GONIC_PLAYLISTS_PATH",
       "value": "/config/gonic/playlists",
       "description": "Path to store created playlists",
@@ -87,7 +87,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_HEALTHCHECK",
+      "name": "ENABLE_HEALTHCHECK",
       "key": "ENABLE_HEALTHCHECK",
       "value": "yes|no",
       "description": "Enable or disable healthchecks.",
@@ -97,7 +97,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_COMMAND",
+      "name": "HEALTHCHECK_COMMAND",
       "key": "HEALTHCHECK_COMMAND",
       "value": null,
       "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
@@ -107,7 +107,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_ACTION",
+      "name": "HEALTHCHECK_ACTION",
       "key": "HEALTHCHECK_ACTION",
       "value": null,
       "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
@@ -117,7 +117,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_HOSTNAME",
+      "name": "HEALTHCHECK_HOSTNAME",
       "key": "HEALTHCHECK_HOSTNAME",
       "value": "google.com",
       "description": "The hostname used when performing HTTPS and DNS healthchecking.",
@@ -127,9 +127,9 @@
       "default": null
     },
     {
-      "name": "Variable: PUID",
+      "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "User ID for the running container",
       "required": true,
       "mask": false,
@@ -137,9 +137,9 @@
       "default": null
     },
     {
-      "name": "Variable: PGID",
+      "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Group ID for the running container",
       "required": true,
       "mask": false,
@@ -147,7 +147,7 @@
       "default": null
     },
     {
-      "name": "Variable: UMASK",
+      "name": "UMASK",
       "key": "UMASK",
       "value": "000",
       "description": "UMASK for the running container",

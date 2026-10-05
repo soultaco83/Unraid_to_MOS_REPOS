@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/databasus/data",
+      "host": "/mnt/cache/appdata/databasus/data",
       "container": "/databasus-data",
       "mode": "rw",
       "description": "Path to app data folder",

@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "AppData Config Path",
-      "host": "/mnt/user/appdata/unms",
+      "host": "/mnt/cache/appdata/unms",
       "container": "/config",
       "mode": "rw",
       "description": "Container Path: /config",

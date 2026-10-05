@@ -64,7 +64,7 @@
     },
     {
       "name": "App Config",
-      "host": "/mnt/user/appdata/umtk/config",
+      "host": "/mnt/cache/appdata/umtk/config",
       "container": "/app/config",
       "mode": "rw",
       "description": "Path to the config folder",
@@ -100,7 +100,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -110,7 +110,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

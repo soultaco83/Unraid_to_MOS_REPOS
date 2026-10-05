@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/redirecterr/config",
+      "host": "/mnt/cache/appdata/redirecterr/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to configuration data",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Logs Path",
-      "host": "/mnt/user/appdata/redirecterr/logs",
+      "host": "/mnt/cache/appdata/redirecterr/logs",
       "container": "/logs",
       "mode": "rw",
       "description": "Path to log files",

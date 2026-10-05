@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Signing Cert (.p12) Path",
-      "host": "/mnt/user/appdata/documenso/cert.p12",
+      "host": "/mnt/cache/appdata/documenso/cert.p12",
       "container": "/opt/documenso/signing",
       "mode": "ro",
       "description": "Host path to PKCS#12 certificate",

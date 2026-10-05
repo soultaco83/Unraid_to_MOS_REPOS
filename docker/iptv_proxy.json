@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "M3U Storage Path",
-      "host": "/mnt/user/appdata/iptv-proxy/m3u",
+      "host": "/mnt/cache/appdata/iptv-proxy/m3u",
       "container": "/root/iptv",
       "mode": "rw",
       "description": "Path to M3U files",

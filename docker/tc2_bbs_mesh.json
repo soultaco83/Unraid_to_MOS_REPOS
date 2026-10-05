@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/tc2_bbs_mesh/config",
+      "host": "/mnt/cache/appdata/tc2_bbs_mesh/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to store configuration files",

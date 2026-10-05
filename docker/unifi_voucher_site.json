@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/unifi_voucher_site/options.json",
+      "host": "/mnt/cache/appdata/unifi_voucher_site/options.json",
       "container": "/data/options.json",
       "mode": "rw",
       "description": "Config file. Remove to use environmental variables instead.",

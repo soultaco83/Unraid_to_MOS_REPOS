@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/medassist/database",
+      "host": "/mnt/cache/appdata/medassist/database",
       "container": "/app/medassist",
       "mode": "rw",
       "description": "Data path",

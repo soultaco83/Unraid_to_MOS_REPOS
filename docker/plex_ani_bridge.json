@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/plex_ani_bridge/data",
+      "host": "/mnt/cache/appdata/plex_ani_bridge/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to store internal data",

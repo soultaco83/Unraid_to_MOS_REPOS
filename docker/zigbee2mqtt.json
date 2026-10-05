@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "appdata",
-      "host": "/mnt/user/appdata/zigbee2mqtt",
+      "host": "/mnt/cache/appdata/zigbee2mqtt",
       "container": "/app/data",
       "mode": "rw",
       "description": "Container Path: /app/data",

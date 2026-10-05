@@ -23,7 +23,7 @@
   "ports": [],
   "variables": [
     {
-      "name": "Variable: LOG_LEVEL",
+      "name": "LOG_LEVEL",
       "key": "LOG_LEVEL",
       "value": "info",
       "description": "Specify the logging level for the application.",
@@ -33,7 +33,7 @@
       "default": null
     },
     {
-      "name": "Variable: PURGE_STALLED",
+      "name": "PURGE_STALLED",
       "key": "PURGE_STALLED",
       "value": "True",
       "description": "Specify whether to purge stalled torrents.",
@@ -43,7 +43,7 @@
       "default": null
     },
     {
-      "name": "Variable: PURGE_STALLED_INTERVAL",
+      "name": "PURGE_STALLED_INTERVAL",
       "key": "PURGE_STALLED_INTERVAL",
       "value": "300",
       "description": "Specify the interval for purging stalled torrents in seconds.",
@@ -53,7 +53,7 @@
       "default": null
     },
     {
-      "name": "Variable: BLOCK_STALLED_TORRENTS",
+      "name": "BLOCK_STALLED_TORRENTS",
       "key": "BLOCK_STALLED_TORRENTS",
       "value": "True",
       "description": "Specify whether to block stalled torrents.",
@@ -63,7 +63,7 @@
       "default": null
     },
     {
-      "name": "Variable: PURGE_IMPORTED",
+      "name": "PURGE_IMPORTED",
       "key": "PURGE_IMPORTED",
       "value": "True",
       "description": "Specify whether to purge imported torrents.",
@@ -73,7 +73,7 @@
       "default": null
     },
     {
-      "name": "Variable: PURGE_IMPORTED_INTERVAL",
+      "name": "PURGE_IMPORTED_INTERVAL",
       "key": "PURGE_IMPORTED_INTERVAL",
       "value": "600",
       "description": "Specify the interval for purging imported torrents in seconds.",
@@ -83,7 +83,7 @@
       "default": null
     },
     {
-      "name": "Variable: DELETE_FILES",
+      "name": "DELETE_FILES",
       "key": "DELETE_FILES",
       "value": "True",
       "description": "Specify whether to delete files after processing.",
@@ -93,7 +93,7 @@
       "default": null
     },
     {
-      "name": "Variable: RETRY_SEARCH",
+      "name": "RETRY_SEARCH",
       "key": "RETRY_SEARCH",
       "value": "True",
       "description": "Specify whether to retry search for stalled torrents.",
@@ -103,7 +103,7 @@
       "default": null
     },
     {
-      "name": "Variable: TORRENT_CLIENT",
+      "name": "TORRENT_CLIENT",
       "key": "TORRENT_CLIENT",
       "value": "qbittorrent",
       "description": "Specify the torrent client to use.",
@@ -113,7 +113,7 @@
       "default": null
     },
     {
-      "name": "Variable: TORRENT_AGE",
+      "name": "TORRENT_AGE",
       "key": "TORRENT_AGE",
       "value": "5",
       "description": "Specify the age of torrents to consider for purging in minutes.",
@@ -123,7 +123,7 @@
       "default": null
     },
     {
-      "name": "Variable: QBIT_URL",
+      "name": "QBIT_URL",
       "key": "QBIT_URL",
       "value": null,
       "description": "Specify the IP address or hostname to QBittorent webUI.",
@@ -133,7 +133,7 @@
       "default": null
     },
     {
-      "name": "Variable: QBIT_USER",
+      "name": "QBIT_USER",
       "key": "QBIT_USER",
       "value": "admin",
       "description": "Specify the username for QBittorent webUI.",
@@ -143,7 +143,7 @@
       "default": null
     },
     {
-      "name": "Variable: QBIT_PASSWORD",
+      "name": "QBIT_PASSWORD",
       "key": "QBIT_PASSWORD",
       "value": null,
       "description": "Specify the password for QBittorent webUI.",
@@ -153,7 +153,7 @@
       "default": null
     },
     {
-      "name": "Variable: QBIT_TOKEN_REFRESH_INTERVAL",
+      "name": "QBIT_TOKEN_REFRESH_INTERVAL",
       "key": "QBIT_TOKEN_REFRESH_INTERVAL",
       "value": "600",
       "description": "Specify the interval for refreshing the QBittorrent API token in seconds.",
@@ -163,7 +163,7 @@
       "default": null
     },
     {
-      "name": "Variable: SONARR_API_KEY",
+      "name": "SONARR_API_KEY",
       "key": "SONARR_API_KEY",
       "value": null,
       "description": "Specify the API key for Sonarr.",
@@ -173,7 +173,7 @@
       "default": null
     },
     {
-      "name": "Variable: SONARR_LABELS",
+      "name": "SONARR_LABELS",
       "key": "SONARR_LABELS",
       "value": "tv-sonarr",
       "description": "Specify the labels to apply to Sonarr.",
@@ -183,7 +183,7 @@
       "default": null
     },
     {
-      "name": "Variable: SONARR_IMPORTED_LABEL",
+      "name": "SONARR_IMPORTED_LABEL",
       "key": "SONARR_IMPORTED_LABEL",
       "value": "sonarr-imported",
       "description": "Specify the label to apply to imported episodes in Sonarr.",
@@ -193,7 +193,7 @@
       "default": null
     },
     {
-      "name": "Variable: SONARR_URL",
+      "name": "SONARR_URL",
       "key": "SONARR_URL",
       "value": null,
       "description": "Specify the URL for Sonarr.",
@@ -203,7 +203,7 @@
       "default": null
     },
     {
-      "name": "Variable: RADARR_API_KEY",
+      "name": "RADARR_API_KEY",
       "key": "RADARR_API_KEY",
       "value": "s",
       "description": "Specify the API key for Radarr.",
@@ -213,7 +213,7 @@
       "default": null
     },
     {
-      "name": "Variable: RADARR_LABELS",
+      "name": "RADARR_LABELS",
       "key": "RADARR_LABELS",
       "value": "radarr",
       "description": "Specify the labels to apply to Radarr.",
@@ -223,7 +223,7 @@
       "default": null
     },
     {
-      "name": "Variable: RADARR_URL",
+      "name": "RADARR_URL",
       "key": "RADARR_URL",
       "value": null,
       "description": "Specify the URL for Radarr.",
@@ -233,7 +233,7 @@
       "default": null
     },
     {
-      "name": "Variable: RADARR_IMPORTED_LABEL",
+      "name": "RADARR_IMPORTED_LABEL",
       "key": "RADARR_IMPORTED_LABEL",
       "value": "radarr-imported",
       "description": "Specify the labels to apply to Radarr.",

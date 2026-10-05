@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/mqtt2discord/config.json",
+      "host": "/mnt/cache/appdata/mqtt2discord/config.json",
       "container": "/usr/src/bot/config.json",
       "mode": "rw",
       "description": "Path to the config file",

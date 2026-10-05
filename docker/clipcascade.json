@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/clipcascade/database",
+      "host": "/mnt/cache/appdata/clipcascade/database",
       "container": "/database",
       "mode": "rw",
       "description": "Path to the database fi5259600000mle",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Logs Path",
-      "host": "/mnt/user/appdata/clipcascade/logs",
+      "host": "/mnt/cache/appdata/clipcascade/logs",
       "container": "/logs",
       "mode": "rw",
       "description": "Path to the logs directory",

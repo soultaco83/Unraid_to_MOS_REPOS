@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/textpod/data",
+      "host": "/mnt/cache/appdata/textpod/data",
       "container": "/app",
       "mode": "rw",
       "description": "Data path",

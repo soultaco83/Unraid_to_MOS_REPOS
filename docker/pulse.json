@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Data Directory",
-      "host": "/mnt/user/appdata/pulse",
+      "host": "/mnt/cache/appdata/pulse",
       "container": "/data",
       "mode": "rw",
       "description": "Data Directory",

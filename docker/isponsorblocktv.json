@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/isponsorblocktv/data",
+      "host": "/mnt/cache/appdata/isponsorblocktv/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to the app data",

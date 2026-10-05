@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Temp Path",
-      "host": "/mnt/user/appdata/tv_rename/tmp",
+      "host": "/mnt/cache/appdata/tv_rename/tmp",
       "container": "/tmp/tv",
       "mode": "rw",
       "description": "Path to temp files",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Cache Path",
-      "host": "/mnt/user/appdata/tv_rename/cache",
+      "host": "/mnt/cache/appdata/tv_rename/cache",
       "container": "/cache",
       "mode": "rw",
       "description": "Path to cache files",
@@ -47,7 +47,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -57,7 +57,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

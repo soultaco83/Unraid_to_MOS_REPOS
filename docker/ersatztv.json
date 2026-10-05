@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Host Path for /root/.local/share/ersatztv",
-      "host": "/mnt/user/appdata/ErsatzTV",
+      "host": "/mnt/cache/appdata/ErsatzTV",
       "container": "/root/.local/share/ersatztv",
       "mode": "rw",
       "description": "Container Path: /root/.local/share/ersatztv",

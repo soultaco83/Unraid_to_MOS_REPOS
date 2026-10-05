@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Database Dir",
-      "host": "/mnt/user/appdata/wallos/db",
+      "host": "/mnt/cache/appdata/wallos/db",
       "container": "/var/www/html/db",
       "mode": "rw",
       "description": "Database Directory",
@@ -31,7 +31,7 @@
     },
     {
       "name": "Logos Dir",
-      "host": "/mnt/user/appdata/wallos/logos",
+      "host": "/mnt/cache/appdata/wallos/logos",
       "container": "/var/www/html/images/uploads/logos",
       "mode": "rw",
       "description": "Logos directory",

@@ -26,7 +26,7 @@
   "paths": [
     {
       "name": "Data Directory",
-      "host": "/mnt/user/appdata/anon_addy/data",
+      "host": "/mnt/cache/appdata/anon_addy/data",
       "container": "/data",
       "mode": "rw",
       "description": "",

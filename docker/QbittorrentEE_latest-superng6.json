@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/QbittorrentEE_Superng6",
+      "host": "/mnt/cache/appdata/QbittorrentEE_Superng6",
       "container": "/config",
       "mode": "rw",
       "description": "Config Path",

@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/mesh_ai/config.json",
+      "host": "/mnt/cache/appdata/mesh_ai/config.json",
       "container": "/app/config.json",
       "mode": "rw",
       "description": "Path to the config file",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Commands Config File",
-      "host": "/mnt/user/appdata/mesh_ai/commands_config.json",
+      "host": "/mnt/cache/appdata/mesh_ai/commands_config.json",
       "container": "/app/commands_config.json",
       "mode": "rw",
       "description": "Path to the commands config file",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Message-of-the-Day File",
-      "host": "/mnt/user/appdata/mesh_ai/motd.json",
+      "host": "/mnt/cache/appdata/mesh_ai/motd.json",
       "container": "/app/motd.json",
       "mode": "rw",
       "description": "Path to the message of the day file",
@@ -54,7 +54,7 @@
     },
     {
       "name": "Messages Log",
-      "host": "/mnt/user/appdata/mesh_ai/messages.log",
+      "host": "/mnt/cache/appdata/mesh_ai/messages.log",
       "container": "/app/messages.log",
       "mode": "rw",
       "description": "Path to the messages log file",
@@ -64,7 +64,7 @@
     },
     {
       "name": "Messages Archive",
-      "host": "/mnt/user/appdata/mesh_ai/messages_archive.json",
+      "host": "/mnt/cache/appdata/mesh_ai/messages_archive.json",
       "container": "/app/messages_archive.json",
       "mode": "rw",
       "description": "Path to the messages archive log file",
@@ -74,7 +74,7 @@
     },
     {
       "name": "Extensions Configs",
-      "host": "/mnt/user/appdata/mesh_ai/extensions",
+      "host": "/mnt/cache/appdata/mesh_ai/extensions",
       "container": "/app/extensions",
       "mode": "rw",
       "description": "Path to the extensions configs directory",
@@ -84,7 +84,7 @@
     },
     {
       "name": "Script Log",
-      "host": "/mnt/user/appdata/mesh_ai/script.log",
+      "host": "/mnt/cache/appdata/mesh_ai/script.log",
       "container": "/app/script.log",
       "mode": "rw",
       "description": "Path to the script log file",

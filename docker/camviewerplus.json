@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/camviewerplus",
+      "host": "/mnt/cache/appdata/camviewerplus",
       "container": "/usr/src/camviewerplus/conf",
       "mode": "rw",
       "description": "",

@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/docuseal",
+      "host": "/mnt/cache/appdata/docuseal",
       "container": "/data",
       "mode": "rw",
       "description": "",

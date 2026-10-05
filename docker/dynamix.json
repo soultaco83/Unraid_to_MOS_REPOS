@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/dynamix/config.json",
+      "host": "/mnt/cache/appdata/dynamix/config.json",
       "container": "/app/config.json",
       "mode": "rw",
       "description": "Path to the config file",
@@ -34,7 +34,7 @@
     },
     {
       "name": "User Exemptions File",
-      "host": "/mnt/user/appdata/dynamix/used_collections.json",
+      "host": "/mnt/cache/appdata/dynamix/used_collections.json",
       "container": "/app/used_collections.json",
       "mode": "rw",
       "description": "Path to the user exemptions file",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Used Collections File",
-      "host": "/mnt/user/appdata/dynamix/used_collections.json",
+      "host": "/mnt/cache/appdata/dynamix/used_collections.json",
       "container": "/app/used_collections.json",
       "mode": "rw",
       "description": "Path to the used collections file",
@@ -54,7 +54,7 @@
     },
     {
       "name": "Run State File",
-      "host": "/mnt/user/appdata/dynamix/run_state.json",
+      "host": "/mnt/cache/appdata/dynamix/run_state.json",
       "container": "/app/run_state.json",
       "mode": "rw",
       "description": "Path to the run state file",
@@ -64,7 +64,7 @@
     },
     {
       "name": "Log Folder",
-      "host": "/mnt/user/appdata/dynamix/logs",
+      "host": "/mnt/cache/appdata/dynamix/logs",
       "container": "/app/logs",
       "mode": "rw",
       "description": "Path to the log folder",

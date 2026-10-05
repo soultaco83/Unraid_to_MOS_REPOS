@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Config data",
-      "host": "/mnt/user/appdata/free_games_claimer/data",
+      "host": "/mnt/cache/appdata/free_games_claimer/data",
       "container": "/fgc/data",
       "mode": "rw",
       "description": "Config data for application",

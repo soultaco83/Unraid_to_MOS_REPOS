@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Appdata",
-      "host": "/mnt/user/appdata/yacht",
+      "host": "/mnt/cache/appdata/yacht",
       "container": "/config",
       "mode": "rw",
       "description": "To store Yacht configuration. Default: /appdata",
@@ -68,7 +68,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "Container Variable: PUID",
       "required": true,
       "mask": false,
@@ -78,7 +78,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Container Variable: PGID",
       "required": true,
       "mask": false,

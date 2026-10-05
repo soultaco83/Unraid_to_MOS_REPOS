@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/timelite",
+      "host": "/mnt/cache/appdata/timelite",
       "container": "/config",
       "mode": "rw",
       "description": "",

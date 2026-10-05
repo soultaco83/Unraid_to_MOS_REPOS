@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/koinsight/data",
+      "host": "/mnt/cache/appdata/koinsight/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to the data folder",

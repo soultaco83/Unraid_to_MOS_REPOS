@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Config Dir",
-      "host": "/mnt/user/appdata/tasks-md/config",
+      "host": "/mnt/cache/appdata/tasks-md/config",
       "container": "/config",
       "mode": "rw",
       "description": "",
@@ -31,7 +31,7 @@
     },
     {
       "name": "Tasks Directory",
-      "host": "/mnt/user/appdata/tasks-md/tasks",
+      "host": "/mnt/cache/appdata/tasks-md/tasks",
       "container": "/tasks",
       "mode": "rw",
       "description": "",
@@ -57,7 +57,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "1000",
+      "value": "500",
       "description": "",
       "required": false,
       "mask": false,
@@ -67,7 +67,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "1000",
+      "value": "500",
       "description": "",
       "required": false,
       "mask": false,

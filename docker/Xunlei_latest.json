@@ -30,7 +30,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/Xunlei",
+      "host": "/mnt/cache/appdata/Xunlei",
       "container": "/xunlei/data",
       "mode": "rw",
       "description": "Config Path",

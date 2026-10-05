@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/nodecast_tv/data",
+      "host": "/mnt/cache/appdata/nodecast_tv/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to the app data folder",

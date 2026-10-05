@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/FGC",
+      "host": "/mnt/cache/appdata/FGC",
       "container": "/fgc/data",
       "mode": "rw",
       "description": "Data Path",

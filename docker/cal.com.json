@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/cal.com/",
+      "host": "/mnt/cache/appdata/cal.com/",
       "container": "/cal",
       "mode": "rw",
       "description": "",

@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Config path",
-      "host": "/mnt/user/appdata/webtrees",
+      "host": "/mnt/cache/appdata/webtrees",
       "container": "/var/www/html/data",
       "mode": "rw",
       "description": "Config path",
@@ -108,7 +108,7 @@
     {
       "name": "PGID",
       "key": "GROUP_ID",
-      "value": "100",
+      "value": "500",
       "description": "Group ID",
       "required": true,
       "mask": false,

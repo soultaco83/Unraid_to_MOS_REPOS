@@ -30,7 +30,7 @@
     },
     {
       "name": "Output Path",
-      "host": "/mnt/user/appdata/Snap2html",
+      "host": "/mnt/cache/appdata/Snap2html",
       "container": "/out",
       "mode": "rw",
       "description": "Output Path",

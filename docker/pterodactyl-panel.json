@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Shared data",
-      "host": "/mnt/user/pterodactyl-node/data",
+      "host": "/mnt/Array/pterodactyl-node/data",
       "container": "/mnt/user/pterodactyl-node/data",
       "mode": "rw",
       "description": "Container Path: /mnt/user/pterodactyl-node/data",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Game Data",
-      "host": "/mnt/user/pterodactyl-node/",
+      "host": "/mnt/Array/pterodactyl-node/",
       "container": "/etc/pterodactyl",
       "mode": "rw",
       "description": "Container Path: /etc/pterodactyl",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Appdata",
-      "host": "/mnt/user/appdata/pterodactyl/",
+      "host": "/mnt/cache/appdata/pterodactyl/",
       "container": "/data",
       "mode": "rw",
       "description": "Appdata",

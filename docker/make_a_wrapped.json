@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/make_a_wrapped/data",
+      "host": "/mnt/cache/appdata/make_a_wrapped/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to application data",

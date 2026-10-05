@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Data",
-      "host": "/mnt/user/appdata/maintainerr",
+      "host": "/mnt/cache/appdata/maintainerr",
       "container": "/opt/data",
       "mode": "rw",
       "description": "",

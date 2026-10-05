@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/configarr/config",
+      "host": "/mnt/cache/appdata/configarr/config",
       "container": "/app/config",
       "mode": "rw",
       "description": "Config path, stores config.yml and secrets.yml",
@@ -35,7 +35,7 @@
     },
     {
       "name": "Repos Cache Path",
-      "host": "/mnt/user/appdata/configarr/repos",
+      "host": "/mnt/cache/appdata/configarr/repos",
       "container": "/app/repos",
       "mode": "rw",
       "description": "Repos cache path",
@@ -45,7 +45,7 @@
     },
     {
       "name": "Custom Formats Path",
-      "host": "/mnt/user/appdata/configarr/cfs",
+      "host": "/mnt/cache/appdata/configarr/cfs",
       "container": "/app/cfs",
       "mode": "rw",
       "description": "Custom formats path, optional",
@@ -55,7 +55,7 @@
     },
     {
       "name": "Templates Path",
-      "host": "/mnt/user/appdata/configarr/templates",
+      "host": "/mnt/cache/appdata/configarr/templates",
       "container": "/app/templates",
       "mode": "rw",
       "description": "Templates path, optional",

@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Database Storage Path",
-      "host": "/mnt/user/appdata/wanderer/db",
+      "host": "/mnt/cache/appdata/wanderer/db",
       "container": "/pb_data",
       "mode": "rw",
       "description": "Path to store the database",

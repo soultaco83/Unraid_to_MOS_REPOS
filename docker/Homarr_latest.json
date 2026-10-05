@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Icons Path",
-      "host": "/mnt/user/appdata/Homarr/icons",
+      "host": "/mnt/cache/appdata/Homarr/icons",
       "container": "/app/public/icons",
       "mode": "rw",
       "description": "This is the location for custom icons.",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/Homarr/configs",
+      "host": "/mnt/cache/appdata/Homarr/configs",
       "container": "/app/data/configs",
       "mode": "rw",
       "description": "This is the location for the internal data.",

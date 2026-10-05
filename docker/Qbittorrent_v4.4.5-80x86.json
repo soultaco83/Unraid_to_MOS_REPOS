@@ -30,7 +30,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/Qbittorrent_80x86/config",
+      "host": "/mnt/cache/appdata/Qbittorrent_80x86/config",
       "container": "/config",
       "mode": "rw",
       "description": "Config Path",
@@ -40,7 +40,7 @@
     },
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/Qbittorrent_80x86/data",
+      "host": "/mnt/cache/appdata/Qbittorrent_80x86/data",
       "container": "/data",
       "mode": "rw",
       "description": "Data Path",
@@ -88,7 +88,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "PUID",
       "required": true,
       "mask": false,
@@ -98,7 +98,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "PGID",
       "required": true,
       "mask": false,

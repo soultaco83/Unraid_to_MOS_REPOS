@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/kimai",
+      "host": "/mnt/cache/appdata/kimai",
       "container": "/config",
       "mode": "rw",
       "description": "",

@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "DVR Recordings",
-      "host": "/mnt/user/dvr/viniplay/dvr",
+      "host": "/mnt/Array/dvr/viniplay/dvr",
       "container": "/dvr",
       "mode": "rw",
       "description": "Path to DVR recordings",
@@ -33,7 +33,7 @@
     },
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/viniplay/data",
+      "host": "/mnt/cache/appdata/viniplay/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the data folder",

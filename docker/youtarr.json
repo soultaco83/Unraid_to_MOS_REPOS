@@ -34,7 +34,7 @@
     },
     {
       "name": "Config Storage",
-      "host": "/mnt/user/appdata/youtarr/config",
+      "host": "/mnt/cache/appdata/youtarr/config",
       "container": "/app/config",
       "mode": "rw",
       "description": "Path to store configuration files",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Image Storage",
-      "host": "/mnt/user/appdata/youtarr/images",
+      "host": "/mnt/cache/appdata/youtarr/images",
       "container": "/app/server/images",
       "mode": "rw",
       "description": "Path to store images",
@@ -54,7 +54,7 @@
     },
     {
       "name": "Job Storage",
-      "host": "/mnt/user/appdata/youtarr/jobs",
+      "host": "/mnt/cache/appdata/youtarr/jobs",
       "container": "/app/jobs",
       "mode": "rw",
       "description": "Path to store job files",

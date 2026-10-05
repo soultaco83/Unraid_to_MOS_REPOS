@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "/app/config",
-      "host": "/mnt/user/appdata/homepage",
+      "host": "/mnt/cache/appdata/homepage",
       "container": "/app/config",
       "mode": "rw",
       "description": "",

@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/watchma/data",
+      "host": "/mnt/cache/appdata/watchma/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to app data folder",

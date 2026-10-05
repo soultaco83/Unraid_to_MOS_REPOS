@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/plate_recognizer/stream",
+      "host": "/mnt/cache/appdata/plate_recognizer/stream",
       "container": "/user-data",
       "mode": "rw",
       "description": "Path to app data",

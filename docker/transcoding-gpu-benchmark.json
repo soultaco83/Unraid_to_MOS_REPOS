@@ -31,7 +31,7 @@
     },
     {
       "name": "App data (clips + history)",
-      "host": "/mnt/user/appdata/transcoding-gpu-benchmark",
+      "host": "/mnt/cache/appdata/transcoding-gpu-benchmark",
       "container": "/config",
       "mode": "rw",
       "description": "Persistent app-data folder (standard Unraid appdata). REQUIRED for the one-time download of the pinned benchmark clips (kept here forever - container updates never re-download them), and stores your run history, CPU efficiency baseline and leaderboard identity. Safe to leave as-is.",
@@ -41,7 +41,7 @@
     },
     {
       "name": "Cache (unused, keeps Docker tidy)",
-      "host": "/mnt/user/appdata/transcoding-gpu-benchmark/cache",
+      "host": "/mnt/cache/appdata/transcoding-gpu-benchmark/cache",
       "container": "/cache",
       "mode": "rw",
       "description": "The Jellyfin base image declares a /cache volume the benchmark never uses. Mapping it here stops Docker from creating a new anonymous volume on every container update. Safe to leave as-is.",
@@ -80,18 +80,8 @@
       "default": null
     },
     {
-      "name": "Temperature unit (optional)",
-      "host": "/boot/config/plugins/dynamix/dynamix.cfg",
-      "container": "/dynamix.cfg",
-      "mode": "ro",
-      "description": "Optional, read-only. Lets the scoreboard show temperatures in Fahrenheit or Celsius to match your Unraid display setting (Settings - Display Settings). Safe to leave as-is; remove it and temperatures default to Celsius (you can still click the Temp readout to switch).",
-      "required": false,
-      "display": "advanced",
-      "default": null
-    },
-    {
       "name": "Your test clips folder",
-      "host": "/mnt/user/appdata/transcoding-gpu-benchmark/input",
+      "host": "/mnt/cache/appdata/transcoding-gpu-benchmark/input",
       "container": "/input",
       "mode": "ro",
       "description": "Read-only drop folder for benchmarking YOUR OWN videos: copy one or a few files in and they appear in the 'Or test your own file' picker (codec and resolution auto-detected). The benchmark samples 60 seconds from the MIDDLE of the chosen file (openings are easy-to-decode logos/credits) and loads it into RAM. You can point this at any folder - but NOT your whole media library (too many files and it refuses). Custom-file runs are local-only and never submitted to the shared database.",

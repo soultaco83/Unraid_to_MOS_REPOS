@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/Wbo",
+      "host": "/mnt/cache/appdata/Wbo",
       "container": "/opt/app/server-data",
       "mode": "rw",
       "description": "Data Path",

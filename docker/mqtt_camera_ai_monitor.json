@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/mqtt_camera_ai_monitor/config.yaml",
+      "host": "/mnt/cache/appdata/mqtt_camera_ai_monitor/config.yaml",
       "container": "/app/config/custom-config.yaml",
       "mode": "rw",
       "description": "Path to the configuration file",

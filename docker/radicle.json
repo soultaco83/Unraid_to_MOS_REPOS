@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config path",
-      "host": "/mnt/user/appdata/radicale/config",
+      "host": "/mnt/cache/appdata/radicale/config",
       "container": "/config",
       "mode": "ro",
       "description": "Parent folder storing config file",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Data path",
-      "host": "/mnt/user/appdata/radicale/data",
+      "host": "/mnt/cache/appdata/radicale/data",
       "container": "/data",
       "mode": "rw",
       "description": "Data path",

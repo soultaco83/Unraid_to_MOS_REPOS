@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/neko/config.yaml",
+      "host": "/mnt/cache/appdata/neko/config.yaml",
       "container": "/etc/neko/neko.yaml",
       "mode": "rw",
       "description": "Path to the config file",

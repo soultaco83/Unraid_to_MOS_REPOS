@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/Kodbox",
+      "host": "/mnt/cache/appdata/Kodbox",
       "container": "/var/www/html",
       "mode": "rw",
       "description": "Data Path",

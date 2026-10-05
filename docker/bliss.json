@@ -33,7 +33,7 @@
     },
     {
       "name": "Configuration Data",
-      "host": "/mnt/user/appdata/bliss/config",
+      "host": "/mnt/cache/appdata/bliss/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to configuration data",
@@ -70,7 +70,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -80,7 +80,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

@@ -34,7 +34,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/kaizoku/config",
+      "host": "/mnt/cache/appdata/kaizoku/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to store configuration files",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Logs Path",
-      "host": "/mnt/user/appdata/kaizoku/logs",
+      "host": "/mnt/cache/appdata/kaizoku/logs",
       "container": "/logs",
       "mode": "rw",
       "description": "Path to store logs",
@@ -110,7 +110,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -120,7 +120,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

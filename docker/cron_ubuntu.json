@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Cron Path",
-      "host": "/mnt/user/appdata/cron_ubuntu/config",
+      "host": "/mnt/cache/appdata/cron_ubuntu/config",
       "container": "/etc/cron.d",
       "mode": "rw",
       "description": "Path to cron files",

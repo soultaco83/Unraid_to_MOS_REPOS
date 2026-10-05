@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Zerobyte",
-      "host": "/mnt/user/appdata/zerobyte/lib",
+      "host": "/mnt/cache/appdata/zerobyte/lib",
       "container": "/var/lib/zerobyte",
       "mode": "rw",
       "description": "",

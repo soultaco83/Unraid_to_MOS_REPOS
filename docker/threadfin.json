@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Configuration data",
-      "host": "/mnt/user/appdata/threadfin/config",
+      "host": "/mnt/cache/appdata/threadfin/config",
       "container": "/home/threadfin/conf",
       "mode": "rw",
       "description": "Path to configuration data",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Temporary data",
-      "host": "/mnt/user/appdata/threadfin/temp",
+      "host": "/mnt/cache/appdata/threadfin/temp",
       "container": "/tmp/threadfin",
       "mode": "rw",
       "description": "Path to temporary data",
@@ -58,7 +58,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "1001",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -68,7 +68,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "1001",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

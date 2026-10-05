@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config File Path",
-      "host": "/mnt/user/appdata/autopulse/config.yaml",
+      "host": "/mnt/cache/appdata/autopulse/config.yaml",
       "container": "/app/config.yaml",
       "mode": "rw",
       "description": "Path to the configuration file",
@@ -34,7 +34,7 @@
     },
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/autopulse/data",
+      "host": "/mnt/cache/appdata/autopulse/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to the app data directory",
@@ -70,7 +70,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -80,7 +80,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

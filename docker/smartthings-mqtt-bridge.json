@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "BridgeDataPath",
-      "host": "/mnt/user/appdata/smartthings-mqtt-bridge",
+      "host": "/mnt/cache/appdata/smartthings-mqtt-bridge",
       "container": "/config",
       "mode": "rw",
       "description": "Container Path: /config",

@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Cache",
-      "host": "/mnt/user/appdata/meshtile/cache",
+      "host": "/mnt/cache/appdata/meshtile/cache",
       "container": "/data/.cache",
       "mode": "rw",
       "description": "Path to the data cache",

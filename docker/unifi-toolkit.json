@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Dir",
-      "host": "/mnt/user/appdata/unifi-toolkit",
+      "host": "/mnt/cache/appdata/unifi-toolkit",
       "container": "/app/data",
       "mode": "rw",
       "description": "IMPORTANT: Create this directory on the host first with correct permissions:\r\n      #   chown 1000:1000 /mnt/user/appdata/unifi-toolkit",

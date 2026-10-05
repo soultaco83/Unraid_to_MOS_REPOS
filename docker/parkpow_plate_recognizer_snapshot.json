@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/plate_recognizer/snapshot",
+      "host": "/mnt/cache/appdata/plate_recognizer/snapshot",
       "container": "/license",
       "mode": "rw",
       "description": "Path to app data",

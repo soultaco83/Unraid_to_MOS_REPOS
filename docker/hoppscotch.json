@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Uploads path",
-      "host": "/mnt/user/appdata/wedding_share/uploads",
+      "host": "/mnt/cache/appdata/wedding_share/uploads",
       "container": "/app/wwwroot/uploads",
       "mode": "rw",
       "description": "Path to uploaded files",

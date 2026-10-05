@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Data",
-      "host": "/mnt/user/appdata/hound/data",
+      "host": "/mnt/cache/appdata/hound/data",
       "container": "/data",
       "mode": "rw",
       "description": "Config data for application",

@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Temp Directory",
-      "host": "/mnt/user/appdata/reubah/tmp",
+      "host": "/mnt/cache/appdata/reubah/tmp",
       "container": "/app/tmp",
       "mode": "rw",
       "description": "Path to temporary files",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Doc Temp Directory",
-      "host": "/mnt/user/appdata/reubah/doc_tmp",
+      "host": "/mnt/cache/appdata/reubah/doc_tmp",
       "container": "/tmp",
       "mode": "rw",
       "description": "Path to temporary files",

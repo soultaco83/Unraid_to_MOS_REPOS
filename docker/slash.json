@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/slash",
+      "host": "/mnt/cache/appdata/slash",
       "container": "/var/opt/slash",
       "mode": "rw",
       "description": "",

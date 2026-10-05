@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Working Directory",
-      "host": "/mnt/user/appdata/ampd",
+      "host": "/mnt/cache/appdata/ampd",
       "container": "/opt/ampd/home",
       "mode": "rw",
       "description": "Path to the working directory. This is where ampd stores its data.",

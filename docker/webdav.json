@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/webdav/data",
+      "host": "/mnt/cache/appdata/webdav/data",
       "container": "/var/lib/dav",
       "mode": "rw",
       "description": "Path to files to serve",

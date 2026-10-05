@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Media Path",
-      "host": "/mnt/user/appdata/scraperr/media",
+      "host": "/mnt/cache/appdata/scraperr/media",
       "container": "/project/app/media",
       "mode": "rw",
       "description": "Path to store media files",
@@ -32,7 +32,7 @@
     },
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/scraperr/api_data",
+      "host": "/mnt/cache/appdata/scraperr/api_data",
       "container": "/project/app/data",
       "mode": "rw",
       "description": "Path to store application data",

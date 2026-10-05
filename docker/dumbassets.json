@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Data",
-      "host": "/mnt/user/appdata/dumbassets",
+      "host": "/mnt/cache/appdata/dumbassets",
       "container": "/app/data",
       "mode": "rw",
       "description": "Data Dir",

@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/atuin/config",
+      "host": "/mnt/cache/appdata/atuin/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to app data",

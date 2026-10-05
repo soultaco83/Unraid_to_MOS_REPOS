@@ -17,11 +17,11 @@
   "icon": "https://github.com/Eurotimmy/unraid-templates/blob/main/Typesense-Dashboard/typesense-dashboard.png",
   "project": "https://github.com/bfritscher/typesense-dashboard",
   "support": "https://forums.unraid.net/topic/193903-support-eurotimmy-typesense-typesense-dashboard/",
-  "description": "A lightweight, feature-rich web dashboard for managing and browsing your Typesense collections.\n\n• Default WebUI: http://IP:PORT/  \n• Optional auto-login: mount a JSON file to /srv/config.json (contains your Typesense host/port/protocol and API key).  \n• If serving behind a sub-path, set PUBLIC_PATH (e.g. \"/dashboard\").  \n• If your Typesense server is on a different origin, ensure it’s started with CORS enabled.\n\nNote: If you want auto-login functionality, create the file config.json in your Unraid server first (typically at: /mnt/user/appdata/typesense-dashboard/config.json).",
+  "description": "A lightweight, feature-rich web dashboard for managing and browsing your Typesense collections.\n\n• Default WebUI: http://IP:PORT/  \n• Optional auto-login: mount a JSON file to /srv/config.json (contains your Typesense host/port/protocol and API key).  \n• If serving behind a sub-path, set PUBLIC_PATH (e.g. \"/dashboard\").  \n• If your Typesense server is on a different origin, ensure it’s started with CORS enabled.\n\nNote: If you want auto-login functionality, create the file config.json in your Unraid server first (typically at: /mnt/cache/appdata/typesense-dashboard/config.json).",
   "paths": [
     {
       "name": "Auto-login config (optional)",
-      "host": "/mnt/user/appdata/typesense-dashboard/config.json",
+      "host": "/mnt/cache/appdata/typesense-dashboard/config.json",
       "container": "/srv/config.json",
       "mode": "rw",
       "description": "Bind a file that exists on the host. IMPORTANT: create it first or Docker will make a folder.",

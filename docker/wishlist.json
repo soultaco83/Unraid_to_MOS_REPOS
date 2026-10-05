@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/wishlist",
+      "host": "/mnt/cache/appdata/wishlist",
       "container": "/.wishlist",
       "mode": "rw",
       "description": "Storage for app files",

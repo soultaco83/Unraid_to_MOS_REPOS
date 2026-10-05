@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "pbs_etc",
-      "host": "/mnt/user/appdata/pbs/etc",
+      "host": "/mnt/cache/appdata/pbs/etc",
       "container": "/etc/proxmox-backup",
       "mode": "rw",
       "description": "ETC",
@@ -31,7 +31,7 @@
     },
     {
       "name": "pbs_logs",
-      "host": "/mnt/user/appdata/pbs/logs",
+      "host": "/mnt/cache/appdata/pbs/logs",
       "container": "/var/log/proxmox-backup",
       "mode": "rw",
       "description": "Logs Directory",
@@ -41,7 +41,7 @@
     },
     {
       "name": "pbs_lib",
-      "host": "/mnt/user/appdata/pbs/lib",
+      "host": "/mnt/cache/appdata/pbs/lib",
       "container": "/var/lib/proxmox-backup",
       "mode": "rw",
       "description": "Lib Directory",
@@ -51,7 +51,7 @@
     },
     {
       "name": "Backup Dir",
-      "host": "/mnt/user/pbs_backup/",
+      "host": "/mnt/Array/pbs_backup/",
       "container": "/backups",
       "mode": "rw",
       "description": "Backup Directory (Datastore)",

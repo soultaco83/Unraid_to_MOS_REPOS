@@ -22,7 +22,7 @@
   "paths": [],
   "ports": [
     {
-      "name": "Port: API TCP",
+      "name": "API TCP",
       "host": "8191",
       "container": "8080",
       "protocol": "tcp",

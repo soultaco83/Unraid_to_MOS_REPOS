@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Config File Path",
-      "host": "/mnt/user/appdata/lumunarr/config",
+      "host": "/mnt/cache/appdata/lumunarr/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to application config data",
@@ -51,7 +51,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -61,7 +61,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

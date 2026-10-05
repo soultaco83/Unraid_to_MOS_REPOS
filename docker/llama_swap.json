@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Models Storage",
-      "host": "/mnt/user/appdata/llama_swap/models",
+      "host": "/mnt/cache/appdata/llama_swap/models",
       "container": "/models",
       "mode": "rw",
       "description": "Path to models",

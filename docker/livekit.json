@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/livekit",
+      "host": "/mnt/cache/appdata/livekit",
       "container": "/config",
       "mode": "rw",
       "description": "Parent folder for config.yaml file",

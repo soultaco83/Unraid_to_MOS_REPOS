@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/Navidrome",
+      "host": "/mnt/cache/appdata/Navidrome",
       "container": "/data",
       "mode": "rw",
       "description": "Config Path",

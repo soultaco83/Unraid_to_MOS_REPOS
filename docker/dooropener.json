@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/door_opener/config.ini",
+      "host": "/mnt/cache/appdata/door_opener/config.ini",
       "container": "/app/config.ini",
       "mode": "rw",
       "description": "Path to the config file",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Users File",
-      "host": "/mnt/user/appdata/door_opener/users.json",
+      "host": "/mnt/cache/appdata/door_opener/users.json",
       "container": "/app/users.json",
       "mode": "rw",
       "description": "Path to the users file",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Logs Path",
-      "host": "/mnt/user/appdata/door_opener/logs",
+      "host": "/mnt/cache/appdata/door_opener/logs",
       "container": "/app/logs",
       "mode": "rw",
       "description": "Path to the logs folder",
@@ -79,7 +79,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -89,7 +89,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

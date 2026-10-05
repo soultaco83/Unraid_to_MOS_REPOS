@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/Chrome",
+      "host": "/mnt/cache/appdata/Chrome",
       "container": "/chrome",
       "mode": "rw",
       "description": "Data Path",
@@ -67,7 +67,7 @@
     {
       "name": "PUID",
       "key": "UID",
-      "value": "99",
+      "value": "500",
       "description": "PUID",
       "required": false,
       "mask": false,
@@ -77,7 +77,7 @@
     {
       "name": "PGID",
       "key": "GID",
-      "value": "100",
+      "value": "500",
       "description": "PGID",
       "required": false,
       "mask": false,

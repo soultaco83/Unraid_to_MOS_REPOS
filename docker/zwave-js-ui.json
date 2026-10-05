@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Config folder",
-      "host": "/mnt/user/appdata/zwave-js-ui",
+      "host": "/mnt/cache/appdata/zwave-js-ui",
       "container": "/usr/src/app/store",
       "mode": "rw",
       "description": "",

@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/sunshine/config",
+      "host": "/mnt/cache/appdata/sunshine/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to config storage",
@@ -73,7 +73,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -83,7 +83,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

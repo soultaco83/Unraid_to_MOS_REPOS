@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/gluetun/data",
+      "host": "/mnt/cache/appdata/gluetun/data",
       "container": "/gluetun",
       "mode": "rw",
       "description": "Path to the gluetun data",

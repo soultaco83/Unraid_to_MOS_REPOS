@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data path",
-      "host": "/mnt/user/appdata/pod_people_db/data",
+      "host": "/mnt/cache/appdata/pod_people_db/data",
       "container": "/app/podpeople-data",
       "mode": "rw",
       "description": "Path to data files",

@@ -16,7 +16,7 @@
   "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons@master/border-radius/Webdav_A.png",
   "project": "https://httpd.apache.org/docs/2.4/mod/mod_dav.html",
   "support": "https://forums.unraid.net/topic/103601-support-apache-webdav/",
-  "description": "Very simple WebDAV server based on Apache. You need a WebDAV client to transfer files. It does not include a WebUI to upload files through your browser.\r\n\r\nSpecifying USERNAME and PASSWORD only supports a single user. If you want to have lots of different logins for various users, bind mount user.passwd as follows:\r\n\r\nOpen the Unraid WebTerminal &gt;_ and execute the following:\r\nmkdir /mnt/user/appdata/apachewebdav\r\ntouch /mnt/user/appdata/apachewebdav/user.passwd\r\n\r\nAdd a new Path to this container with the following values:\r\nContainer Path: /user.passwd\r\nHost Path: /mnt/user/appdata/apachewebdav/user.passwd\r\n\r\nAfter starting the container, open its console and execute the following for \"Basic\" authentification by changing \"John\" to your username (it asks for your password after executing):\r\nhtpasswd -B /user.passwd John\r\n\r\nor this if you choosed \"Digest\" authentification:\r\nhtdigest user.passwd WebDAV-Login John\r\n\r\nExecute the command multiple times with different usernames to add more users.\r\n\r\nYouTube: https://www.youtube.com/@xiaoditx\r\nTemplates: https://github.com/xushier/Unraid-Docker-Templates\r\nIcons: https://github.com/xushier/HD-Icons\r\nBiliBili: https://space.bilibili.com/32313260\r\nBlog: https://www.xdtx.cc\r\nQQ Group: 647605169\r\nWeChat: 小迪同学",
+  "description": "Very simple WebDAV server based on Apache. You need a WebDAV client to transfer files. It does not include a WebUI to upload files through your browser.\r\n\r\nSpecifying USERNAME and PASSWORD only supports a single user. If you want to have lots of different logins for various users, bind mount user.passwd as follows:\r\n\r\nOpen the Unraid WebTerminal &gt;_ and execute the following:\r\nmkdir /mnt/cache/appdata/apachewebdav\r\ntouch /mnt/cache/appdata/apachewebdav/user.passwd\r\n\r\nAdd a new Path to this container with the following values:\r\nContainer Path: /user.passwd\r\nHost Path: /mnt/cache/appdata/apachewebdav/user.passwd\r\n\r\nAfter starting the container, open its console and execute the following for \"Basic\" authentification by changing \"John\" to your username (it asks for your password after executing):\r\nhtpasswd -B /user.passwd John\r\n\r\nor this if you choosed \"Digest\" authentification:\r\nhtdigest user.passwd WebDAV-Login John\r\n\r\nExecute the command multiple times with different usernames to add more users.\r\n\r\nYouTube: https://www.youtube.com/@xiaoditx\r\nTemplates: https://github.com/xushier/Unraid-Docker-Templates\r\nIcons: https://github.com/xushier/HD-Icons\r\nBiliBili: https://space.bilibili.com/32313260\r\nBlog: https://www.xdtx.cc\r\nQQ Group: 647605169\r\nWeChat: 小迪同学",
   "paths": [
     {
       "name": "WebDAV Files Path",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/WebDAV",
+      "host": "/mnt/cache/appdata/WebDAV",
       "container": "/var/lib/dav",
       "mode": "rw",
       "description": "Config Path",
@@ -136,7 +136,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "PUID",
       "required": false,
       "mask": false,
@@ -146,7 +146,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "PGID",
       "required": false,
       "mask": false,

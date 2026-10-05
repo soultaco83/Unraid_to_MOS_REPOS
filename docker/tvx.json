@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/tvx/config",
+      "host": "/mnt/cache/appdata/tvx/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path for persistent storage of settings, configuration files",

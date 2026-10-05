@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Dir",
-      "host": "/mnt/user/appdata/myspeed",
+      "host": "/mnt/cache/appdata/myspeed",
       "container": "/myspeed/data",
       "mode": "rw",
       "description": "Data Directory",

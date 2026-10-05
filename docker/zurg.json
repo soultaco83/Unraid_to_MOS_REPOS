@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Config File Path",
-      "host": "/mnt/user/appdata/zurg/config.yml",
+      "host": "/mnt/cache/appdata/zurg/config.yml",
       "container": "/app/config.yml",
       "mode": "rw",
       "description": "Path to the config file",
@@ -45,7 +45,7 @@
     },
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/zurg/data",
+      "host": "/mnt/cache/appdata/zurg/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to the app data folder",

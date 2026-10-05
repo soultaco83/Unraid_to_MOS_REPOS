@@ -45,7 +45,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/lingarr/config",
+      "host": "/mnt/cache/appdata/lingarr/config",
       "container": "/app/config",
       "mode": "rw",
       "description": "Path to config files",
@@ -311,7 +311,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -321,7 +321,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

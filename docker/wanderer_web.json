@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Uploads Path",
-      "host": "/mnt/user/appdata/wanderer/uploads",
+      "host": "/mnt/cache/appdata/wanderer/uploads",
       "container": "/app/uploads",
       "mode": "rw",
       "description": "Path to uploaded files",

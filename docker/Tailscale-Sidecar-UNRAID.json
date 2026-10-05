@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "State Storage",
-      "host": "/mnt/user/appdata/tailscale",
+      "host": "/mnt/cache/appdata/tailscale",
       "container": "/var/lib/tailscale",
       "mode": "rw",
       "description": "Path to Tailscale state directories.  \r\n(You can use one directory for multiple containers, a subfolder is created for each Tailscale Machine name)",

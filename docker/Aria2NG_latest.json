@@ -30,7 +30,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/Aria2NG",
+      "host": "/mnt/cache/appdata/Aria2NG",
       "container": "/conf",
       "mode": "rw",
       "description": "Config Path",

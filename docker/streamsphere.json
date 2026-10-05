@@ -34,7 +34,7 @@
     },
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/streamsphere/db",
+      "host": "/mnt/cache/appdata/streamsphere/db",
       "container": "/app/database/db",
       "mode": "rw",
       "description": "Path to database files",

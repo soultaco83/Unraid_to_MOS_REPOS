@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config dir",
-      "host": "/mnt/user/appdata/iventoy/config",
+      "host": "/mnt/cache/appdata/iventoy/config",
       "container": "/app/data",
       "mode": "rw",
       "description": "Config Dir",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Isos dir",
-      "host": "/mnt/user/isos/",
+      "host": "/mnt/Array/isos/",
       "container": "/app/iso",
       "mode": "rw",
       "description": "Isos Directory",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Log dir",
-      "host": "/mnt/user/appdata/iventoy/log",
+      "host": "/mnt/cache/appdata/iventoy/log",
       "container": "/app/log",
       "mode": "rw",
       "description": "",
@@ -54,7 +54,7 @@
     },
     {
       "name": "User dir",
-      "host": "/mnt/user/appdata/iventoy/user",
+      "host": "/mnt/cache/appdata/iventoy/user",
       "container": "/app/user",
       "mode": "rw",
       "description": "",

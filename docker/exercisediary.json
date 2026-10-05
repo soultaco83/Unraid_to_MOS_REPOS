@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Data",
-      "host": "/mnt/user/appdata/exercisediary",
+      "host": "/mnt/cache/appdata/exercisediary",
       "container": "/data/ExerciseDiary",
       "mode": "rw",
       "description": "",

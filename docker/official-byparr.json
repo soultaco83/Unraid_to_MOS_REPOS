@@ -22,7 +22,7 @@
   "paths": [],
   "ports": [
     {
-      "name": "Port: API TCP",
+      "name": "API TCP",
       "host": "8191",
       "container": "8191",
       "protocol": "tcp",
@@ -35,7 +35,7 @@
   ],
   "variables": [
     {
-      "name": "Variable: USE_HEADLESS",
+      "name": "USE_HEADLESS",
       "key": "USE_HEADLESS",
       "value": "default",
       "description": "Specify whether to run headless or not.",
@@ -45,7 +45,7 @@
       "default": null
     },
     {
-      "name": "Variable: PROXY",
+      "name": "PROXY",
       "key": "PROXY",
       "value": null,
       "description": "Specify the Proxy to use in format: protocol://username:password@host:port.",

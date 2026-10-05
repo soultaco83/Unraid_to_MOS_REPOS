@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/contextmod/config",
+      "host": "/mnt/cache/appdata/contextmod/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to the config folder",

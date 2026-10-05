@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/tugtainer",
+      "host": "/mnt/cache/appdata/tugtainer",
       "container": "/tugtainer",
       "mode": "rw",
       "description": "Path to the data folder",

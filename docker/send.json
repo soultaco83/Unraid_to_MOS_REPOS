@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Uploads",
-      "host": "/mnt/user/appdata/send",
+      "host": "/mnt/cache/appdata/send",
       "container": "/uploads",
       "mode": "rw",
       "description": "",

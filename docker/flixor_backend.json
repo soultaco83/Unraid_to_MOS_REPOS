@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/flixor_backend/config",
+      "host": "/mnt/cache/appdata/flixor_backend/config",
       "container": "/app/config",
       "mode": "rw",
       "description": "Path to the config files",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Cache Path",
-      "host": "/mnt/user/appdata/flixor_backend/cache",
+      "host": "/mnt/cache/appdata/flixor_backend/cache",
       "container": "/app/cache",
       "mode": "rw",
       "description": "Path to the cache files",

@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/webhook",
+      "host": "/mnt/cache/appdata/webhook",
       "container": "/etc/webhook",
       "mode": "rw",
       "description": "Path to the config directory",

@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Appdata",
-      "host": "/mnt/user/appdata/pomerium",
+      "host": "/mnt/cache/appdata/pomerium",
       "container": "/data",
       "mode": "rw",
       "description": "Container Path: /data",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Pomerium",
-      "host": "/mnt/user/appdata/pomerium/pomerium",
+      "host": "/mnt/cache/appdata/pomerium/pomerium",
       "container": "/pomerium/",
       "mode": "rw",
       "description": "Container Path: /pomerium/",

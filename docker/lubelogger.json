@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Config Directory",
-      "host": "/mnt/user/appdata/lubelogger/config",
+      "host": "/mnt/cache/appdata/lubelogger/config",
       "container": "/App/config",
       "mode": "rw",
       "description": "",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Data Directory",
-      "host": "/mnt/user/appdata/lubelogger/data",
+      "host": "/mnt/cache/appdata/lubelogger/data",
       "container": "/App/data",
       "mode": "rw",
       "description": "",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Documents directory",
-      "host": "/mnt/user/appdata/lubelogger/documents",
+      "host": "/mnt/cache/appdata/lubelogger/documents",
       "container": "/App/data/documents",
       "mode": "rw",
       "description": "",
@@ -52,7 +52,7 @@
     },
     {
       "name": "Images directory",
-      "host": "/mnt/user/appdata/lubelogger/images",
+      "host": "/mnt/cache/appdata/lubelogger/images",
       "container": "/App/data/images",
       "mode": "rw",
       "description": "",
@@ -62,7 +62,7 @@
     },
     {
       "name": "Logs Directory",
-      "host": "/mnt/user/appdata/lubelogger/log",
+      "host": "/mnt/cache/appdata/lubelogger/log",
       "container": "/App/log",
       "mode": "rw",
       "description": "",
@@ -72,7 +72,7 @@
     },
     {
       "name": "Keys Directory",
-      "host": "/mnt/user/appdata/lubelogger/keys",
+      "host": "/mnt/cache/appdata/lubelogger/keys",
       "container": "/root/.aspnet/DataProtection-Keys",
       "mode": "rw",
       "description": "",

@@ -21,8 +21,8 @@
   "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
   "paths": [
     {
-      "name": "Path: /etc/pihole",
-      "host": "/mnt/user/appdata/official-pihole/pihole",
+      "name": "/etc/pihole",
+      "host": "/mnt/cache/appdata/official-pihole/pihole",
       "container": "/etc/pihole",
       "mode": "rw",
       "description": "This is the container path to store pihole configuration files",
@@ -31,8 +31,8 @@
       "default": null
     },
     {
-      "name": "Path: /etc/dnsmasq.d",
-      "host": "/mnt/user/appdata/official-pihole/pihole/dnsmasq",
+      "name": "/etc/dnsmasq.d",
+      "host": "/mnt/cache/appdata/official-pihole/pihole/dnsmasq",
       "container": "/etc/dnsmasq.d",
       "mode": "rw",
       "description": "This is the container path to store dnsmaqs configuration files",
@@ -43,7 +43,7 @@
   ],
   "ports": [
     {
-      "name": "Port: Web Interface",
+      "name": "Web Interface",
       "host": "8155",
       "container": "80",
       "protocol": "tcp",
@@ -54,7 +54,7 @@
       "default": null
     },
     {
-      "name": "Port: DNS TCP",
+      "name": "DNS TCP",
       "host": "53",
       "container": "53",
       "protocol": "tcp",
@@ -65,7 +65,7 @@
       "default": null
     },
     {
-      "name": "Port: DNS UDP",
+      "name": "DNS UDP",
       "host": "53",
       "container": "53",
       "protocol": "udp",
@@ -76,7 +76,7 @@
       "default": null
     },
     {
-      "name": "Port: Network Discovery UDP",
+      "name": "Network Discovery UDP",
       "host": "67",
       "container": "67",
       "protocol": "udp",
@@ -89,7 +89,7 @@
   ],
   "variables": [
     {
-      "name": "Variable: DNSMASQ_LISTENING",
+      "name": "DNSMASQ_LISTENING",
       "key": "DNSMASQ_LISTENING",
       "value": "all",
       "description": "Specify the DNS settings Interface listening behavior to 'all', required when network is set to 'bridge'.",

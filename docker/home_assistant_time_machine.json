@@ -34,7 +34,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/home_assistant_time_machine/config",
+      "host": "/mnt/cache/appdata/home_assistant_time_machine/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to config data",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/home_assistant_time_machine/data",
+      "host": "/mnt/cache/appdata/home_assistant_time_machine/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to data storage",

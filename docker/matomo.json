@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Appdata",
-      "host": "/mnt/user/appdata/matomo",
+      "host": "/mnt/cache/appdata/matomo",
       "container": "/var/www/html",
       "mode": "rw",
       "description": "Container Path: /var/www/html",

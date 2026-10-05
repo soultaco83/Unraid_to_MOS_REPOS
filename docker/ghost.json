@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Content Storage Path",
-      "host": "/mnt/user/appdata/ghost/content",
+      "host": "/mnt/cache/appdata/ghost/content",
       "container": "/var/lib/ghost/content",
       "mode": "rw",
       "description": "Path to the content storage directory",

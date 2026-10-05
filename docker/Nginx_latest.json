@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/Nginx/www/",
+      "host": "/mnt/cache/appdata/Nginx/www/",
       "container": "/config",
       "mode": "rw",
       "description": "Data Path",
@@ -123,7 +123,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "PUID",
       "required": false,
       "mask": false,
@@ -133,7 +133,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "PUID",
       "required": false,
       "mask": false,

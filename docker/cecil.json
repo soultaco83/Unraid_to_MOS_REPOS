@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Config path",
-      "host": "/mnt/user/appdata/cecil/config",
+      "host": "/mnt/cache/appdata/cecil/config",
       "container": "/opt/cecil",
       "mode": "rw",
       "description": "Path to config files",

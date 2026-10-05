@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/Sync",
+      "host": "/mnt/Array/Sync",
       "container": "/data1",
       "mode": "rw",
       "description": "Data1",
@@ -35,7 +35,7 @@
     },
     {
       "name": "Appdata",
-      "host": "/mnt/user/appdata/Syncthing",
+      "host": "/mnt/cache/appdata/Syncthing",
       "container": "/config",
       "mode": "rw",
       "description": "Configuration files.",
@@ -94,7 +94,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "1000",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -104,7 +104,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

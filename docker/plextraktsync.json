@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Appdata",
-      "host": "/mnt/user/appdata/plextraktsync",
+      "host": "/mnt/cache/appdata/plextraktsync",
       "container": "/app/config",
       "mode": "rw",
       "description": "Container Path: /app/config",

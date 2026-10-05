@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/IYUU-Plus",
+      "host": "/mnt/cache/appdata/IYUU-Plus",
       "container": "/IYUU/db",
       "mode": "rw",
       "description": "Data Path",

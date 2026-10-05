@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Data Location",
-      "host": "/mnt/user/appdata/odoo18/data",
+      "host": "/mnt/cache/appdata/odoo18/data",
       "container": "/var/lib/odoo",
       "mode": "rw",
       "description": "Odoo filestore (attachments, sessions, etc.)",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Config Location",
-      "host": "/mnt/user/appdata/odoo18/config",
+      "host": "/mnt/cache/appdata/odoo18/config",
       "container": "/etc/odoo",
       "mode": "rw",
       "description": "Directory containing odoo.conf",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Addons Location",
-      "host": "/mnt/user/appdata/odoo18/extra-addons",
+      "host": "/mnt/cache/appdata/odoo18/extra-addons",
       "container": "/mnt/extra-addons",
       "mode": "rw",
       "description": "Custom/community addons",

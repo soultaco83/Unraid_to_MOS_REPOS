@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/newsletterr/database",
+      "host": "/mnt/cache/appdata/newsletterr/database",
       "container": "/app/database",
       "mode": "rw",
       "description": "Path to store the database",

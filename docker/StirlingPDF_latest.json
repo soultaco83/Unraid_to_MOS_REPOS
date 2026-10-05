@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "OCR Language Packs Path",
-      "host": "/mnt/user/appdata/StirlingPDF/data",
+      "host": "/mnt/cache/appdata/StirlingPDF/data",
       "container": "/usr/share/tesseract-ocr/4.00/tessdata",
       "mode": "rw",
       "description": "OCR Language Packs Path",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/StirlingPDF/configs",
+      "host": "/mnt/cache/appdata/StirlingPDF/configs",
       "container": "/configs",
       "mode": "rw",
       "description": "Config Path",

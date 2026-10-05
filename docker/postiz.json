@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/postiz/config",
+      "host": "/mnt/cache/appdata/postiz/config",
       "container": "/config",
       "mode": "rw",
       "description": "Where config data will be stored",

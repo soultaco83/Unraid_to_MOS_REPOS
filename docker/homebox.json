@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Data Dir",
-      "host": "/mnt/user/appdata/homebox",
+      "host": "/mnt/cache/appdata/homebox",
       "container": "/data",
       "mode": "rw",
       "description": "",

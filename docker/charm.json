@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/charm",
+      "host": "/mnt/cache/appdata/charm",
       "container": "/data",
       "mode": "rw",
       "description": "Storage for databases and file storage",

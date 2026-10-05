@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Data Directory",
-      "host": "/mnt/user/appdata/silverbullet/data",
+      "host": "/mnt/cache/appdata/silverbullet/data",
       "container": "/space",
       "mode": "rw",
       "description": "",

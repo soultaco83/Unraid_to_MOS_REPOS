@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Storage",
-      "host": "/mnt/user/appdata/potato-mesh-web/data",
+      "host": "/mnt/cache/appdata/potato-mesh-web/data",
       "container": "/app/.local/share/potato-mesh",
       "mode": "rw",
       "description": "Path to store application data.",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Config Storage",
-      "host": "/mnt/user/appdata/potato-mesh-web/config",
+      "host": "/mnt/cache/appdata/potato-mesh-web/config",
       "container": "/app/.config/potato-mesh",
       "mode": "rw",
       "description": "Path to store configuration data.",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Logs Storage",
-      "host": "/mnt/user/appdata/potato-mesh-web/logs",
+      "host": "/mnt/cache/appdata/potato-mesh-web/logs",
       "container": "/app/logs",
       "mode": "rw",
       "description": "Path to store log files.",

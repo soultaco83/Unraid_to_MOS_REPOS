@@ -20,8 +20,8 @@
   "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
   "paths": [
     {
-      "name": "Path: /storage",
-      "host": "/mnt/user/appdata/official-windows/storage",
+      "name": "/storage",
+      "host": "/mnt/cache/appdata/official-windows/storage",
       "container": "/storage",
       "mode": "rw",
       "description": "This is the container path to store the VM's vdisk etc.",
@@ -30,8 +30,8 @@
       "default": null
     },
     {
-      "name": "Path: /data",
-      "host": "/mnt/user/appdata/official-windows/shared",
+      "name": "/data",
+      "host": "/mnt/cache/appdata/official-windows/shared",
       "container": "/data",
       "mode": "rw",
       "description": "This is the container path to store shared files accessible from the VM.",
@@ -40,7 +40,7 @@
       "default": null
     },
     {
-      "name": "Path: /custom.iso",
+      "name": "/custom.iso",
       "host": null,
       "container": "/custom.iso",
       "mode": "rw",
@@ -50,7 +50,7 @@
       "default": null
     },
     {
-      "name": "Path: /oem",
+      "name": "/oem",
       "host": null,
       "container": "/oem",
       "mode": "rw",
@@ -62,7 +62,7 @@
   ],
   "ports": [
     {
-      "name": "Port: Web Interface",
+      "name": "Web Interface",
       "host": "8006",
       "container": "8006",
       "protocol": "tcp",
@@ -73,7 +73,7 @@
       "default": null
     },
     {
-      "name": "Port: RDP Interface TCP",
+      "name": "RDP Interface TCP",
       "host": "3389",
       "container": "3389",
       "protocol": "tcp",
@@ -84,7 +84,7 @@
       "default": null
     },
     {
-      "name": "Port: RDP Interface UDP",
+      "name": "RDP Interface UDP",
       "host": "3389",
       "container": "3389",
       "protocol": "udp",
@@ -97,7 +97,7 @@
   ],
   "variables": [
     {
-      "name": "Variable: VERSION",
+      "name": "VERSION",
       "key": "VERSION",
       "value": "11|11l|11e|10|10l|10e|8|8e|7e|ve|xp|2025|2022|2019|2016|2012|2008|2003",
       "description": "Specify the version of Windows to install (see https://github.com/dockur/windows#how-do-i-select-the-windows-version for full version description), please note these are all evaluation versions of Windows downloaded from Microsoft.",
@@ -107,7 +107,7 @@
       "default": null
     },
     {
-      "name": "Variable: DHCP",
+      "name": "DHCP",
       "key": "DHCP",
       "value": "N",
       "description": "Specify Y to enable DHCP (required for custom br0 network)",
@@ -117,7 +117,7 @@
       "default": null
     },
     {
-      "name": "Variable: DISK_SIZE",
+      "name": "DISK_SIZE",
       "key": "DISK_SIZE",
       "value": "64G",
       "description": "Specify the virtual disk size in GB.",
@@ -127,7 +127,7 @@
       "default": null
     },
     {
-      "name": "Variable: RAM_SIZE",
+      "name": "RAM_SIZE",
       "key": "RAM_SIZE",
       "value": "4G",
       "description": "Specify the amount of RAM allocated in GB.",
@@ -137,7 +137,7 @@
       "default": null
     },
     {
-      "name": "Variable: CPU_CORES",
+      "name": "CPU_CORES",
       "key": "CPU_CORES",
       "value": "2",
       "description": "Specify the number of cores.",
@@ -147,7 +147,7 @@
       "default": null
     },
     {
-      "name": "Variable: USERNAME",
+      "name": "USERNAME",
       "key": "USERNAME",
       "value": null,
       "description": "Specify the username for Windows.",
@@ -157,7 +157,7 @@
       "default": null
     },
     {
-      "name": "Variable: PASSWORD",
+      "name": "PASSWORD",
       "key": "PASSWORD",
       "value": null,
       "description": "Specify the password for Windows.",
@@ -167,7 +167,7 @@
       "default": null
     },
     {
-      "name": "Variable: LANGUAGE",
+      "name": "LANGUAGE",
       "key": "LANGUAGE",
       "value": "en-US",
       "description": "Specify the language for Windows.",
@@ -177,7 +177,7 @@
       "default": null
     },
     {
-      "name": "Variable: REGION",
+      "name": "REGION",
       "key": "REGION",
       "value": "en-US",
       "description": "Specify the region for Windows.",
@@ -187,7 +187,7 @@
       "default": null
     },
     {
-      "name": "Variable: KEYBOARD",
+      "name": "KEYBOARD",
       "key": "KEYBOARD",
       "value": "en-US",
       "description": "Specify the keyboard layout for Windows.",

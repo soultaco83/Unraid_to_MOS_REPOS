@@ -21,8 +21,8 @@
   "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
   "paths": [
     {
-      "name": "Path: /config",
-      "host": "/mnt/user/appdata/slskd",
+      "name": "/config",
+      "host": "/mnt/cache/appdata/slskd",
       "container": "/config",
       "mode": "rw",
       "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
@@ -31,8 +31,8 @@
       "default": null
     },
     {
-      "name": "Path: /media",
-      "host": "/mnt/user",
+      "name": "/media",
+      "host": "/mnt/Array",
       "container": "/media",
       "mode": "rw",
       "description": "This is the container path to your media files, e.g. movies, tv, music, pictures etc.",
@@ -41,7 +41,7 @@
       "default": null
     },
     {
-      "name": "Path: /data",
+      "name": "/data",
       "host": null,
       "container": "/data",
       "mode": "rw",
@@ -53,7 +53,7 @@
   ],
   "ports": [
     {
-      "name": "Port: HTTP Web Interface",
+      "name": "HTTP Web Interface",
       "host": "8980",
       "container": "8980",
       "protocol": "tcp",
@@ -64,7 +64,7 @@
       "default": null
     },
     {
-      "name": "Port: HTTPS Web Interface",
+      "name": "HTTPS Web Interface",
       "host": "8990",
       "container": "8990",
       "protocol": "tcp",
@@ -77,7 +77,7 @@
   ],
   "variables": [
     {
-      "name": "Variable: SLSK_USERNAME",
+      "name": "SLSK_USERNAME",
       "key": "SLSK_USERNAME",
       "value": null,
       "description": "Username for the Soulseek network.",
@@ -87,7 +87,7 @@
       "default": null
     },
     {
-      "name": "Variable: SLSK_PASSWORD",
+      "name": "SLSK_PASSWORD",
       "key": "SLSK_PASSWORD",
       "value": null,
       "description": "Password for the Soulseek network.",
@@ -97,7 +97,7 @@
       "default": null
     },
     {
-      "name": "Variable: SLSK_LISTEN_PORT",
+      "name": "SLSK_LISTEN_PORT",
       "key": "SLSK_LISTEN_PORT",
       "value": "50300",
       "description": "Port on which to listen for incoming connections.",
@@ -107,7 +107,7 @@
       "default": null
     },
     {
-      "name": "Variable: SHARED_PATHS",
+      "name": "SHARED_PATHS",
       "key": "SHARED_PATHS",
       "value": null,
       "description": "Semi-colon separated list of container paths to shared files. !!WARNING!! Be careful not to share sensitive information.",
@@ -117,7 +117,7 @@
       "default": null
     },
     {
-      "name": "Variable: INCOMPLETE_PATH",
+      "name": "INCOMPLETE_PATH",
       "key": "INCOMPLETE_PATH",
       "value": "/data/incomplete",
       "description": "The container path where incomplete downloads are saved.",
@@ -127,7 +127,7 @@
       "default": null
     },
     {
-      "name": "Variable: DOWNLOADS_PATH",
+      "name": "DOWNLOADS_PATH",
       "key": "DOWNLOADS_PATH",
       "value": "/data/completed",
       "description": "The container path where downloaded files are saved.",
@@ -137,7 +137,7 @@
       "default": null
     },
     {
-      "name": "Variable: UPLOAD_SPEED_LIMIT",
+      "name": "UPLOAD_SPEED_LIMIT",
       "key": "UPLOAD_SPEED_LIMIT",
       "value": "2147483647",
       "description": "Upload speed limit in bits/s.",
@@ -147,7 +147,7 @@
       "default": null
     },
     {
-      "name": "Variable: DOWNLOAD_SPEED_LIMIT",
+      "name": "DOWNLOAD_SPEED_LIMIT",
       "key": "DOWNLOAD_SPEED_LIMIT",
       "value": "2147483647",
       "description": "Download speed limit in bits/s.",
@@ -157,7 +157,7 @@
       "default": null
     },
     {
-      "name": "Variable: WEBUI_HTTP_PORT",
+      "name": "WEBUI_HTTP_PORT",
       "key": "WEBUI_HTTP_PORT",
       "value": "8980",
       "description": "HTTP port for web UI.",
@@ -167,7 +167,7 @@
       "default": null
     },
     {
-      "name": "Variable: WEBUI_HTTPS_PORT",
+      "name": "WEBUI_HTTPS_PORT",
       "key": "WEBUI_HTTPS_PORT",
       "value": "8990",
       "description": "HTTPS port for web UI.",
@@ -177,7 +177,7 @@
       "default": null
     },
     {
-      "name": "Variable: WEBUI_USERNAME",
+      "name": "WEBUI_USERNAME",
       "key": "WEBUI_USERNAME",
       "value": "slskd",
       "description": "Username for web UI authentication.",
@@ -187,7 +187,7 @@
       "default": null
     },
     {
-      "name": "Variable: WEBUI_PASSWORD",
+      "name": "WEBUI_PASSWORD",
       "key": "WEBUI_PASSWORD",
       "value": "slskd",
       "description": "Password for web UI authentication.",
@@ -197,7 +197,7 @@
       "default": null
     },
     {
-      "name": "Variable: API_KEY",
+      "name": "API_KEY",
       "key": "API_KEY",
       "value": null,
       "description": "API key for slskd API access, string between 16 and 255 characters, you can use the command 'openssl rand -hex 16' to generate a randomised string.",
@@ -207,7 +207,7 @@
       "default": null
     },
     {
-      "name": "Variable: REMOTE_CONFIGURATION",
+      "name": "REMOTE_CONFIGURATION",
       "key": "REMOTE_CONFIGURATION",
       "value": "true|false",
       "description": "Allow remote configuration (true/false).",
@@ -217,7 +217,7 @@
       "default": null
     },
     {
-      "name": "Variable: REMOTE_FILE_MANAGEMENT",
+      "name": "REMOTE_FILE_MANAGEMENT",
       "key": "REMOTE_FILE_MANAGEMENT",
       "value": "true|false",
       "description": "Allow remote file management (true/false).",
@@ -227,7 +227,7 @@
       "default": null
     },
     {
-      "name": "Variable: GLUETUN_INCOMING_PORT",
+      "name": "GLUETUN_INCOMING_PORT",
       "key": "GLUETUN_INCOMING_PORT",
       "value": "no|yes",
       "description": "Specify whether to attempt to identify and configure the applications listening port when connected to the gluetun network.",
@@ -237,7 +237,7 @@
       "default": null
     },
     {
-      "name": "Variable: GLUETUN_CONTROL_SERVER_PORT",
+      "name": "GLUETUN_CONTROL_SERVER_PORT",
       "key": "GLUETUN_CONTROL_SERVER_PORT",
       "value": "8000",
       "description": "Specify the port for the gluetun HTTP Control Server.",
@@ -247,7 +247,7 @@
       "default": null
     },
     {
-      "name": "Variable: GLUETUN_CONTROL_SERVER_USERNAME",
+      "name": "GLUETUN_CONTROL_SERVER_USERNAME",
       "key": "GLUETUN_CONTROL_SERVER_USERNAME",
       "value": "controlserver",
       "description": "Specify the username for the gluetun HTTP Control Server",
@@ -257,7 +257,7 @@
       "default": null
     },
     {
-      "name": "Variable: GLUETUN_CONTROL_SERVER_PASSWORD",
+      "name": "GLUETUN_CONTROL_SERVER_PASSWORD",
       "key": "GLUETUN_CONTROL_SERVER_PASSWORD",
       "value": "controlserver",
       "description": "Specify the password for the gluetun HTTP Control Server",
@@ -267,7 +267,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_HEALTHCHECK",
+      "name": "ENABLE_HEALTHCHECK",
       "key": "ENABLE_HEALTHCHECK",
       "value": "yes|no",
       "description": "Enable or disable healthchecks.",
@@ -277,7 +277,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_COMMAND",
+      "name": "HEALTHCHECK_COMMAND",
       "key": "HEALTHCHECK_COMMAND",
       "value": null,
       "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
@@ -287,7 +287,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_ACTION",
+      "name": "HEALTHCHECK_ACTION",
       "key": "HEALTHCHECK_ACTION",
       "value": null,
       "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
@@ -297,7 +297,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_HOSTNAME",
+      "name": "HEALTHCHECK_HOSTNAME",
       "key": "HEALTHCHECK_HOSTNAME",
       "value": "google.com",
       "description": "The hostname used when performing HTTPS and DNS healthchecking.",
@@ -307,9 +307,9 @@
       "default": null
     },
     {
-      "name": "Variable: PUID",
+      "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "User ID for the running container",
       "required": true,
       "mask": false,
@@ -317,9 +317,9 @@
       "default": null
     },
     {
-      "name": "Variable: PGID",
+      "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Group ID for the running container",
       "required": true,
       "mask": false,
@@ -327,7 +327,7 @@
       "default": null
     },
     {
-      "name": "Variable: UMASK",
+      "name": "UMASK",
       "key": "UMASK",
       "value": "000",
       "description": "UMASK for the running container",

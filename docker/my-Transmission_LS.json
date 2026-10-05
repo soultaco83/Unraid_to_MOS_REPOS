@@ -20,8 +20,8 @@
   "donate": "https://www.linuxserver.io/donate",
   "paths": [
     {
-      "name": "Path: /downloads",
-      "host": "/mnt/user/XiaZai",
+      "name": "/downloads",
+      "host": "/mnt/Array/XiaZai",
       "container": "/downloads",
       "mode": "rw",
       "description": "Local path for downloads.",
@@ -30,8 +30,8 @@
       "default": null
     },
     {
-      "name": "Path: /watch",
-      "host": "/mnt/user/appdata/Transmission_LS/watch",
+      "name": "/watch",
+      "host": "/mnt/cache/appdata/Transmission_LS/watch",
       "container": "/watch",
       "mode": "rw",
       "description": "Watch folder for torrent files.",
@@ -41,7 +41,7 @@
     },
     {
       "name": "Appdata",
-      "host": "/mnt/user/appdata/Transmission_LS",
+      "host": "/mnt/cache/appdata/Transmission_LS",
       "container": "/config",
       "mode": "rw",
       "description": "Where transmission should store config files and logs.",
@@ -63,7 +63,7 @@
       "default": null
     },
     {
-      "name": "Port: 51413",
+      "name": "51413",
       "host": "51415",
       "container": "51413",
       "protocol": "tcp",
@@ -74,7 +74,7 @@
       "default": null
     },
     {
-      "name": "Port: 51413",
+      "name": "51413",
       "host": "51415",
       "container": "51413",
       "protocol": "udp",
@@ -119,7 +119,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "0",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -129,7 +129,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "0",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

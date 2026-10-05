@@ -230,7 +230,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "Container Variable: PUID",
       "required": false,
       "mask": false,
@@ -240,7 +240,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Container Variable: PGID",
       "required": false,
       "mask": false,

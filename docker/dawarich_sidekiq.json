@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Imports Path",
-      "host": "/mnt/user/appdata/dawarich/imports",
+      "host": "/mnt/cache/appdata/dawarich/imports",
       "container": "/var/app/tmp/imports/watched",
       "mode": "rw",
       "description": "Path to watch for imports",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Storage Path",
-      "host": "/mnt/user/appdata/dawarich/storage",
+      "host": "/mnt/cache/appdata/dawarich/storage",
       "container": "/var/app/storage",
       "mode": "rw",
       "description": "Path to store application data",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Web Files Path",
-      "host": "/mnt/user/appdata/dawarich/wwwroot",
+      "host": "/mnt/cache/appdata/dawarich/wwwroot",
       "container": "/var/app/public",
       "mode": "rw",
       "description": "Path to web files",

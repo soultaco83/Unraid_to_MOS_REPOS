@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/Clash/config.yaml",
+      "host": "/mnt/cache/appdata/Clash/config.yaml",
       "container": "/root/.config/clash/config.yaml",
       "mode": "rw",
       "description": "",

@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Backup Storage",
-      "host": "/mnt/user/appdata/sparkyfitness/backup",
+      "host": "/mnt/cache/appdata/sparkyfitness/backup",
       "container": "/app/SparkyFitnessServer/backup",
       "mode": "rw",
       "description": "Path to the backup storage folder",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Uploads Storage",
-      "host": "/mnt/user/appdata/sparkyfitness/uploads",
+      "host": "/mnt/cache/appdata/sparkyfitness/uploads",
       "container": "/app/SparkyFitnessServer/uploads",
       "mode": "rw",
       "description": "Path to the uploads storage folder",

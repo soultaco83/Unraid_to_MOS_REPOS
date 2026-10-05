@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "appdata",
-      "host": "/mnt/user/pterodactyl-node/",
+      "host": "/mnt/Array/pterodactyl-node/",
       "container": "/etc/pterodactyl",
       "mode": "rw",
       "description": "Container Path: /etc/pterodactyl",
@@ -43,7 +43,7 @@
     },
     {
       "name": "data",
-      "host": "/mnt/user/pterodactyl-node/data",
+      "host": "/mnt/Array/pterodactyl-node/data",
       "container": "/mnt/user/pterodactyl-node/data",
       "mode": "rw",
       "description": "Container Path: /mnt/user/pterodactyl-node/data",

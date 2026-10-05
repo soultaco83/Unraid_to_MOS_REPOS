@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Storage",
-      "host": "/mnt/apps/appdata/docmost/data",
+      "host": "/mnt/cache/appdata/docmost/data",
       "container": "/app/data/storage",
       "mode": "rw",
       "description": "",

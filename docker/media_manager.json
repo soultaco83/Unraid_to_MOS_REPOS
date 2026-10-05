@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/media_manager/data",
+      "host": "/mnt/cache/appdata/media_manager/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the data directory",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Images Path",
-      "host": "/mnt/user/appdata/media_manager/data/images",
+      "host": "/mnt/cache/appdata/media_manager/data/images",
       "container": "/data/images",
       "mode": "rw",
       "description": "Path to the images directory",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/media_manager/config",
+      "host": "/mnt/cache/appdata/media_manager/config",
       "container": "/app/config",
       "mode": "rw",
       "description": "Path to the config directory",

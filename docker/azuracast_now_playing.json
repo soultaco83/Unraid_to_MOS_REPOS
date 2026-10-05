@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Data",
-      "host": "/mnt/user/appdata/nowplaying",
+      "host": "/mnt/cache/appdata/nowplaying",
       "container": "/app",
       "mode": "rw",
       "description": "Configuration data",

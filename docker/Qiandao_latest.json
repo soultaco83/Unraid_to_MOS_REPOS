@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/Qiandao",
+      "host": "/mnt/cache/appdata/Qiandao",
       "container": "/usr/src/app/config",
       "mode": "rw",
       "description": "Config Path",

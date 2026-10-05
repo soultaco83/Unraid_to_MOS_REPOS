@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/casdoor/",
+      "host": "/mnt/cache/appdata/casdoor/",
       "container": "/conf",
       "mode": "rw",
       "description": "",

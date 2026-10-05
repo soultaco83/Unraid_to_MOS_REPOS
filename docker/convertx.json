@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config data",
-      "host": "/mnt/user/appdata/convertx/data",
+      "host": "/mnt/cache/appdata/convertx/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Config data for application",

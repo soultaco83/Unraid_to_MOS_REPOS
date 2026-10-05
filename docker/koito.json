@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/koito/data",
+      "host": "/mnt/cache/appdata/koito/data",
       "container": "/etc/koito",
       "mode": "rw",
       "description": "Path to the data folder",

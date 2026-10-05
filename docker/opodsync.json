@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Data",
-      "host": "/mnt/user/appdata/opodsync/config",
+      "host": "/mnt/cache/appdata/opodsync/config",
       "container": "/var/www/server/data",
       "mode": "rw",
       "description": "Path to config data",

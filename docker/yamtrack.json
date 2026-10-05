@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Database storage path",
-      "host": "/mnt/user/appdata/yamtrack/db",
+      "host": "/mnt/cache/appdata/yamtrack/db",
       "container": "/yamtrack/db",
       "mode": "rw",
       "description": "Path to the database storage",
@@ -178,7 +178,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "1000",
+      "value": "500",
       "description": "The user ID of the user running the container",
       "required": true,
       "mask": false,
@@ -188,7 +188,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "1000",
+      "value": "500",
       "description": "The group ID of the user running the container",
       "required": true,
       "mask": false,

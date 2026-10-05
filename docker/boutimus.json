@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Directory",
-      "host": "/mnt/user/appdata/bootimus/data",
+      "host": "/mnt/cache/appdata/bootimus/data",
       "container": "/data",
       "mode": "rw",
       "description": "",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Isos Directory",
-      "host": "/mnt/user/isos/",
+      "host": "/mnt/Array/isos/",
       "container": "/data/isos",
       "mode": "rw",
       "description": "",

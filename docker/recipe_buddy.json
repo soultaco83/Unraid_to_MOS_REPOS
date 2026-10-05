@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/recipe-buddy/data",
+      "host": "/mnt/cache/appdata/recipe-buddy/data",
       "container": "/home/node/app/data",
       "mode": "rw",
       "description": "Path to the data folder",

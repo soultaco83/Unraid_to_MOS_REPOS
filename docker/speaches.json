@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Cache Directory",
-      "host": "/mnt/user/appdata/speaches/cache",
+      "host": "/mnt/cache/appdata/speaches/cache",
       "container": "/home/ubuntu/.cache/huggingface/hub",
       "mode": "rw",
       "description": "Path to the cache directory. This is where models will be stored, which can be quite large.",

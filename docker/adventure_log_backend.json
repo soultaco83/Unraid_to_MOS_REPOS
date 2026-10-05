@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Media Path",
-      "host": "/mnt/user/appdata/adventurelog/media",
+      "host": "/mnt/cache/appdata/adventurelog/media",
       "container": "/code/media",
       "mode": "rw",
       "description": "Path to the media folder",

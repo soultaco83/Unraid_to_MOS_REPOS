@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "ACME Path",
-      "host": "/mnt/user/appdata/azuracast_relay/acme",
+      "host": "/mnt/cache/appdata/azuracast_relay/acme",
       "container": "/var/app/acme",
       "mode": "rw",
       "description": "ACME storage",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Temp Data Path",
-      "host": "/mnt/user/appdata/azuracast_relay/tmp",
+      "host": "/mnt/cache/appdata/azuracast_relay/tmp",
       "container": "/var/app/www_tmp",
       "mode": "rw",
       "description": "Temporary data storage",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Stations Data Path",
-      "host": "/mnt/user/appdata/azuracast_relay/stations",
+      "host": "/mnt/cache/appdata/azuracast_relay/stations",
       "container": "/var/app/stations",
       "mode": "rw",
       "description": "Stations data storage",

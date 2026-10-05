@@ -21,8 +21,8 @@
   "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
   "paths": [
     {
-      "name": "Path: /config",
-      "host": "/mnt/user/appdata/healarr",
+      "name": "/config",
+      "host": "/mnt/cache/appdata/healarr",
       "container": "/config",
       "mode": "rw",
       "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
@@ -31,7 +31,7 @@
       "default": null
     },
     {
-      "name": "Path: /var/run/docker.sock",
+      "name": "/var/run/docker.sock",
       "host": "/var/run/docker.sock",
       "container": "/var/run/docker.sock",
       "mode": "rw",
@@ -44,7 +44,7 @@
   "ports": [],
   "variables": [
     {
-      "name": "Variable: DOCKER_HOST",
+      "name": "DOCKER_HOST",
       "key": "DOCKER_HOST",
       "value": null,
       "description": "Docker socket proxy address (e.g. 'tcp://dockersocket:2375'). Use this as a secure alternative to mounting /var/run/docker.sock. Leave empty to use direct socket mount.",
@@ -54,7 +54,7 @@
       "default": null
     },
     {
-      "name": "Variable: MONITOR_INTERVAL",
+      "name": "MONITOR_INTERVAL",
       "key": "MONITOR_INTERVAL",
       "value": "60",
       "description": "Time in seconds between checking for containers that are 'unhealthy' (default: 60).",
@@ -64,7 +64,7 @@
       "default": null
     },
     {
-      "name": "Variable: RETRY_COUNT",
+      "name": "RETRY_COUNT",
       "key": "RETRY_COUNT",
       "value": "3",
       "description": "Number of times to verify unhealthy status before taking action (default: 3).",
@@ -74,7 +74,7 @@
       "default": null
     },
     {
-      "name": "Variable: RETRY_DELAY",
+      "name": "RETRY_DELAY",
       "key": "RETRY_DELAY",
       "value": "10",
       "description": "Time in seconds to wait between retry health checks (default: 10).",
@@ -84,7 +84,7 @@
       "default": null
     },
     {
-      "name": "Variable: ACTION",
+      "name": "ACTION",
       "key": "ACTION",
       "value": "restart|stop|pause|unpause|kill|none",
       "description": "Docker action to execute on unhealthy containers: restart, stop, pause, unpause, kill or none (no action).",
@@ -94,7 +94,7 @@
       "default": null
     },
     {
-      "name": "Variable: CONTAINER_LABEL",
+      "name": "CONTAINER_LABEL",
       "key": "CONTAINER_LABEL",
       "value": null,
       "description": "Filter containers by label (e.g. 'com.example.monitor=true'). Filters use OR logic.",
@@ -104,7 +104,7 @@
       "default": null
     },
     {
-      "name": "Variable: CONTAINER_ENV_VAR",
+      "name": "CONTAINER_ENV_VAR",
       "key": "CONTAINER_ENV_VAR",
       "value": null,
       "description": "Filter containers by environment variable (e.g. 'MONITOR_ENABLED=true'). Filters use OR logic.",
@@ -114,7 +114,7 @@
       "default": null
     },
     {
-      "name": "Variable: CONTAINER_NAME",
+      "name": "CONTAINER_NAME",
       "key": "CONTAINER_NAME",
       "value": null,
       "description": "Filter containers by name, comma-separated (e.g. 'sonarr,radarr,plex'). Filters use OR logic.",
@@ -124,7 +124,7 @@
       "default": null
     },
     {
-      "name": "Variable: APPRISE_NOTIFICATION_SERVICES",
+      "name": "APPRISE_NOTIFICATION_SERVICES",
       "key": "APPRISE_NOTIFICATION_SERVICES",
       "value": null,
       "description": "Comma-separated list of Apprise service URLs for notifications (e.g. 'mailto://user:pass@gmail.com,discord://webhook_id/webhook_token').",
@@ -134,7 +134,7 @@
       "default": null
     },
     {
-      "name": "Variable: LOG_LEVEL",
+      "name": "LOG_LEVEL",
       "key": "LOG_LEVEL",
       "value": "1",
       "description": "Logging level: 0=DEBUG, 1=INFO, 2=WARN, 3=ERROR (default: 1).",
@@ -144,7 +144,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_HEALTHCHECK",
+      "name": "ENABLE_HEALTHCHECK",
       "key": "ENABLE_HEALTHCHECK",
       "value": "yes|no",
       "description": "Enable or disable healthchecks (this container).",
@@ -154,7 +154,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_COMMAND",
+      "name": "HEALTHCHECK_COMMAND",
       "key": "HEALTHCHECK_COMMAND",
       "value": null,
       "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
@@ -164,7 +164,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_ACTION",
+      "name": "HEALTHCHECK_ACTION",
       "key": "HEALTHCHECK_ACTION",
       "value": null,
       "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
@@ -174,7 +174,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_HOSTNAME",
+      "name": "HEALTHCHECK_HOSTNAME",
       "key": "HEALTHCHECK_HOSTNAME",
       "value": "google.com",
       "description": "The hostname used when performing HTTPS and DNS healthchecking.",
@@ -184,9 +184,9 @@
       "default": null
     },
     {
-      "name": "Variable: PUID",
+      "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "User ID for the running container",
       "required": true,
       "mask": false,
@@ -194,9 +194,9 @@
       "default": null
     },
     {
-      "name": "Variable: PGID",
+      "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Group ID for the running container",
       "required": true,
       "mask": false,
@@ -204,7 +204,7 @@
       "default": null
     },
     {
-      "name": "Variable: UMASK",
+      "name": "UMASK",
       "key": "UMASK",
       "value": "000",
       "description": "UMASK for the running container",

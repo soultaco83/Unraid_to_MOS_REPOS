@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/mdblistarr/db",
+      "host": "/mnt/cache/appdata/mdblistarr/db",
       "container": "/usr/src/db",
       "mode": "rw",
       "description": "Storage for database",

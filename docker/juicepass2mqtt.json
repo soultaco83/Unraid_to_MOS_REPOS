@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Dir",
-      "host": "/mnt/user/appdata/Juicepass2mqtt/config",
+      "host": "/mnt/cache/appdata/Juicepass2mqtt/config",
       "container": "/config",
       "mode": "rw",
       "description": "Config Directory",

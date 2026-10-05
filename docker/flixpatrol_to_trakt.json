@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/flixpatrol_to_trakt/config",
+      "host": "/mnt/cache/appdata/flixpatrol_to_trakt/config",
       "container": "/app/config",
       "mode": "rw",
       "description": "Path to app data",

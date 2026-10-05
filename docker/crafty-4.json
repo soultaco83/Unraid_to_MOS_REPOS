@@ -21,8 +21,8 @@
   "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
   "paths": [
     {
-      "name": "Path: /config",
-      "host": "/mnt/user/appdata/APPNAME",
+      "name": "/config",
+      "host": "/mnt/cache/appdata/APPNAME",
       "container": "/config",
       "mode": "rw",
       "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
@@ -33,7 +33,7 @@
   ],
   "ports": [
     {
-      "name": "Port: Web Interface (HTTP)",
+      "name": "Web Interface (HTTP)",
       "host": "8000",
       "container": "8000",
       "protocol": "tcp",
@@ -44,7 +44,7 @@
       "default": null
     },
     {
-      "name": "Port: Web Interface (HTTPS)",
+      "name": "Web Interface (HTTPS)",
       "host": "8443",
       "container": "8443",
       "protocol": "tcp",
@@ -55,7 +55,7 @@
       "default": null
     },
     {
-      "name": "Port: Minecraft Bedrock servers (TCP)",
+      "name": "Minecraft Bedrock servers (TCP)",
       "host": "19132-19232",
       "container": "19132-19232",
       "protocol": "tcp",
@@ -66,7 +66,7 @@
       "default": null
     },
     {
-      "name": "Port: Minecraft Bedrock servers (UDP)",
+      "name": "Minecraft Bedrock servers (UDP)",
       "host": "19132-19232",
       "container": "19132-19232",
       "protocol": "udp",
@@ -77,7 +77,7 @@
       "default": null
     },
     {
-      "name": "Port: Minecraft Java servers (TCP)",
+      "name": "Minecraft Java servers (TCP)",
       "host": "25565-25575",
       "container": "25565-25575",
       "protocol": "tcp",
@@ -90,7 +90,7 @@
   ],
   "variables": [
     {
-      "name": "Variable: TZ",
+      "name": "TZ",
       "key": "TZ",
       "value": "Etc/UTC",
       "description": "Specify the timezone.",
@@ -100,7 +100,7 @@
       "default": null
     },
     {
-      "name": "Variable: JAVA_VERSION",
+      "name": "JAVA_VERSION",
       "key": "JAVA_VERSION",
       "value": "latest|21|17|11|8",
       "description": "Specify the version of Java.",
@@ -110,7 +110,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_HEALTHCHECK",
+      "name": "ENABLE_HEALTHCHECK",
       "key": "ENABLE_HEALTHCHECK",
       "value": "yes|no",
       "description": "Enable or disable healthchecks.",
@@ -120,7 +120,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_COMMAND",
+      "name": "HEALTHCHECK_COMMAND",
       "key": "HEALTHCHECK_COMMAND",
       "value": null,
       "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
@@ -130,7 +130,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_ACTION",
+      "name": "HEALTHCHECK_ACTION",
       "key": "HEALTHCHECK_ACTION",
       "value": null,
       "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
@@ -140,7 +140,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_HOSTNAME",
+      "name": "HEALTHCHECK_HOSTNAME",
       "key": "HEALTHCHECK_HOSTNAME",
       "value": "google.com",
       "description": "The hostname used when performing HTTPS and DNS healthchecking.",
@@ -150,9 +150,9 @@
       "default": null
     },
     {
-      "name": "Variable: PUID",
+      "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "User ID for the running container",
       "required": true,
       "mask": false,
@@ -160,9 +160,9 @@
       "default": null
     },
     {
-      "name": "Variable: PGID",
+      "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Group ID for the running container",
       "required": true,
       "mask": false,
@@ -170,7 +170,7 @@
       "default": null
     },
     {
-      "name": "Variable: UMASK",
+      "name": "UMASK",
       "key": "UMASK",
       "value": "000",
       "description": "UMASK for the running container",

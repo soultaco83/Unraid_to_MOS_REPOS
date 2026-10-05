@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/CookieCloud",
+      "host": "/mnt/cache/appdata/CookieCloud",
       "container": "/data/api/data",
       "mode": "rw",
       "description": "",

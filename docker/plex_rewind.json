@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/plex_rewind/config",
+      "host": "/mnt/cache/appdata/plex_rewind/config",
       "container": "/app/config",
       "mode": "rw",
       "description": "Path to configuration files",

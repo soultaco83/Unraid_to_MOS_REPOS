@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/answer/data",
+      "host": "/mnt/cache/appdata/answer/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the data folder",

@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "pihole config",
-      "host": "/mnt/user/appdata/pihole-dot-doh/pihole/",
+      "host": "/mnt/cache/appdata/pihole-dot-doh/pihole/",
       "container": "/etc/pihole/",
       "mode": "rw,slave",
       "description": "",
@@ -33,7 +33,7 @@
     },
     {
       "name": "dnsmasq config",
-      "host": "/mnt/user/appdata/pihole-dot-doh/dnsmasq.d/",
+      "host": "/mnt/cache/appdata/pihole-dot-doh/dnsmasq.d/",
       "container": "/etc/dnsmasq.d/",
       "mode": "rw,slave",
       "description": "",
@@ -43,7 +43,7 @@
     },
     {
       "name": "DoT/DoH config",
-      "host": "/mnt/user/appdata/pihole-dot-doh/config/",
+      "host": "/mnt/cache/appdata/pihole-dot-doh/config/",
       "container": "/config/",
       "mode": "rw,slave",
       "description": "",

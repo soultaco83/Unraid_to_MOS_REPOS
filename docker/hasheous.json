@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Storage",
-      "host": "/mnt/user/appdata/hasheous/data",
+      "host": "/mnt/cache/appdata/hasheous/data",
       "container": "/root/.hasheous-server",
       "mode": "rw",
       "description": "Path to data storage location",

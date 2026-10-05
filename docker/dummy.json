@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "App Data Path",
-      "host": "/mnt/user/appdata/dummy/data",
+      "host": "/mnt/cache/appdata/dummy/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to app data",
@@ -32,7 +32,7 @@
     },
     {
       "name": "App Path",
-      "host": "/mnt/user/appdata/dummy/path",
+      "host": "/mnt/cache/appdata/dummy/path",
       "container": "/internal/path",
       "mode": "rw",
       "description": "Path to internal app data",

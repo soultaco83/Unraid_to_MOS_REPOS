@@ -33,7 +33,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/prerolls_plus/config",
+      "host": "/mnt/cache/appdata/prerolls_plus/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to config files",

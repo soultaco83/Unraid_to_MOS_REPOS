@@ -21,8 +21,8 @@
   "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
   "paths": [
     {
-      "name": "Path: /config",
-      "host": "/mnt/user/appdata/plex",
+      "name": "/config",
+      "host": "/mnt/cache/appdata/plex",
       "container": "/config",
       "mode": "rw",
       "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
@@ -31,8 +31,8 @@
       "default": null
     },
     {
-      "name": "Path: /media",
-      "host": "/mnt/user",
+      "name": "/media",
+      "host": "/mnt/Array",
       "container": "/media",
       "mode": "rw",
       "description": "This is the container path to your media files, e.g. movies, tv, music, pictures etc.",
@@ -44,7 +44,7 @@
   "ports": [],
   "variables": [
     {
-      "name": "Variable: TRANS_DIR",
+      "name": "TRANS_DIR",
       "key": "TRANS_DIR",
       "value": "/config/transcode",
       "description": "Specify the path to store temporary transcode files.",
@@ -54,7 +54,7 @@
       "default": null
     },
     {
-      "name": "Variable: NVIDIA_DRIVER_CAPABILITIES",
+      "name": "NVIDIA_DRIVER_CAPABILITIES",
       "key": "NVIDIA_DRIVER_CAPABILITIES",
       "value": "all",
       "description": "Specify whether this container can use all Nvidia driver capabilities for transcoding, if you have a Nvidia card set this to 'all'.",
@@ -64,7 +64,7 @@
       "default": null
     },
     {
-      "name": "Variable: NVIDIA_VISIBLE_DEVICES",
+      "name": "NVIDIA_VISIBLE_DEVICES",
       "key": "NVIDIA_VISIBLE_DEVICES",
       "value": null,
       "description": "Specify the Nvidia GPU device id for transcoding, format will be 'GPU-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'.",
@@ -74,7 +74,7 @@
       "default": null
     },
     {
-      "name": "Variable: CLAIM_SERVER",
+      "name": "CLAIM_SERVER",
       "key": "CLAIM_SERVER",
       "value": "no|yes",
       "description": "Specify whether to claim the Plex server on startup.",
@@ -84,7 +84,7 @@
       "default": null
     },
     {
-      "name": "Variable: PLEX_CLAIM",
+      "name": "PLEX_CLAIM",
       "key": "PLEX_CLAIM",
       "value": null,
       "description": "Specify the Plex Claim Code to retrieve your Plex Server, Claim Codes can be generated from https://plex.tv/claim - Note Claim Codes expire after 4 minutes.",
@@ -94,7 +94,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_HEALTHCHECK",
+      "name": "ENABLE_HEALTHCHECK",
       "key": "ENABLE_HEALTHCHECK",
       "value": "yes|no",
       "description": "Enable or disable healthchecks.",
@@ -104,7 +104,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_COMMAND",
+      "name": "HEALTHCHECK_COMMAND",
       "key": "HEALTHCHECK_COMMAND",
       "value": null,
       "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
@@ -114,7 +114,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_ACTION",
+      "name": "HEALTHCHECK_ACTION",
       "key": "HEALTHCHECK_ACTION",
       "value": null,
       "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
@@ -124,7 +124,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_HOSTNAME",
+      "name": "HEALTHCHECK_HOSTNAME",
       "key": "HEALTHCHECK_HOSTNAME",
       "value": "google.com",
       "description": "The hostname used when performing HTTPS and DNS healthchecking.",
@@ -134,9 +134,9 @@
       "default": null
     },
     {
-      "name": "Variable: PUID",
+      "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "User ID for the running container",
       "required": true,
       "mask": false,
@@ -144,9 +144,9 @@
       "default": null
     },
     {
-      "name": "Variable: PGID",
+      "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Group ID for the running container",
       "required": true,
       "mask": false,
@@ -154,7 +154,7 @@
       "default": null
     },
     {
-      "name": "Variable: UMASK",
+      "name": "UMASK",
       "key": "UMASK",
       "value": "000",
       "description": "UMASK for the running container",

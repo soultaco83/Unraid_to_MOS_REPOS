@@ -22,8 +22,8 @@
   "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
   "paths": [
     {
-      "name": "Path: /config",
-      "host": "/mnt/user/appdata/bitmagnet",
+      "name": "/config",
+      "host": "/mnt/cache/appdata/bitmagnet",
       "container": "/config",
       "mode": "rw",
       "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
@@ -34,7 +34,7 @@
   ],
   "ports": [
     {
-      "name": "Port: Web Interface",
+      "name": "Web Interface",
       "host": "3333",
       "container": "3333",
       "protocol": "tcp",
@@ -45,7 +45,7 @@
       "default": null
     },
     {
-      "name": "Port: Bittorrent TCP",
+      "name": "Bittorrent TCP",
       "host": "3344",
       "container": "3344",
       "protocol": "tcp",
@@ -56,7 +56,7 @@
       "default": null
     },
     {
-      "name": "Port: Bittorrent UDP",
+      "name": "Bittorrent UDP",
       "host": "3344",
       "container": "3344",
       "protocol": "udp",
@@ -67,7 +67,7 @@
       "default": null
     },
     {
-      "name": "Port: Postgres",
+      "name": "Postgres",
       "host": "5432",
       "container": "5432",
       "protocol": "tcp",
@@ -80,7 +80,7 @@
   ],
   "variables": [
     {
-      "name": "Variable: POSTGRES_BACKUP_DB",
+      "name": "POSTGRES_BACKUP_DB",
       "key": "POSTGRES_BACKUP_DB",
       "value": "false|true",
       "description": "Enable or disable automatic database backup on container start.",
@@ -90,7 +90,7 @@
       "default": null
     },
     {
-      "name": "Variable: POSTGRES_BACKUP_RETENTION_DAYS",
+      "name": "POSTGRES_BACKUP_RETENTION_DAYS",
       "key": "POSTGRES_BACKUP_RETENTION_DAYS",
       "value": "7",
       "description": "Number of days to retain database backups. Older backups will be automatically deleted.",
@@ -100,7 +100,7 @@
       "default": null
     },
     {
-      "name": "Variable: POSTGRES_SCHEDULED_BACKUP",
+      "name": "POSTGRES_SCHEDULED_BACKUP",
       "key": "POSTGRES_SCHEDULED_BACKUP",
       "value": "false|true",
       "description": "Enable or disable scheduled database backups.",
@@ -110,7 +110,7 @@
       "default": null
     },
     {
-      "name": "Variable: POSTGRES_SCHEDULED_BACKUP_INTERVAL_HOURS",
+      "name": "POSTGRES_SCHEDULED_BACKUP_INTERVAL_HOURS",
       "key": "POSTGRES_SCHEDULED_BACKUP_INTERVAL_HOURS",
       "value": "48",
       "description": "Interval in hours between scheduled database backups.",
@@ -120,7 +120,7 @@
       "default": null
     },
     {
-      "name": "Variable: POSTGRES_RESTORE_DB",
+      "name": "POSTGRES_RESTORE_DB",
       "key": "POSTGRES_RESTORE_DB",
       "value": "false|true",
       "description": "Enable or disable database restore on container start. This will drop and recreate the database.",
@@ -130,7 +130,7 @@
       "default": null
     },
     {
-      "name": "Variable: POSTGRES_RESTORE_PATH",
+      "name": "POSTGRES_RESTORE_PATH",
       "key": "POSTGRES_RESTORE_PATH",
       "value": null,
       "description": "Path to backup directory to restore from, e.g. '/config/bitmagnet/backups/bitmagnet_20251218_174202'. If not specified, the latest backup will be used.",
@@ -140,7 +140,7 @@
       "default": null
     },
     {
-      "name": "Variable: POSTGRES_VACUUM_DB",
+      "name": "POSTGRES_VACUUM_DB",
       "key": "POSTGRES_VACUUM_DB",
       "value": "false|true",
       "description": "Enable or disable database vacuuming for BitMagnet.",
@@ -150,7 +150,7 @@
       "default": null
     },
     {
-      "name": "Variable: POSTGRES_REINDEX_DB",
+      "name": "POSTGRES_REINDEX_DB",
       "key": "POSTGRES_REINDEX_DB",
       "value": "false|true",
       "description": "Enable or disable database reindexing for BitMagnet.",
@@ -160,7 +160,7 @@
       "default": null
     },
     {
-      "name": "Variable: TMDB_API_KEY",
+      "name": "TMDB_API_KEY",
       "key": "TMDB_API_KEY",
       "value": null,
       "description": "Specify your TMDB API key, if you do not specify your own key then a default key will be used which may result in slower indexing due to rate limiting.",
@@ -170,7 +170,7 @@
       "default": null
     },
     {
-      "name": "Variable: PROCESSOR_CONCURRENCY",
+      "name": "PROCESSOR_CONCURRENCY",
       "key": "PROCESSOR_CONCURRENCY",
       "value": "1",
       "description": "Defines the maximum number of torrents to be processed/classified simultaneously. The default setting of 1 aims to support the widest range of systems. Increasing the setting (for example to 3) may improve throughput of the processor queue but is known to cause slowdowns on less powerful systems.",
@@ -180,7 +180,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_HEALTHCHECK",
+      "name": "ENABLE_HEALTHCHECK",
       "key": "ENABLE_HEALTHCHECK",
       "value": "yes|no",
       "description": "Enable or disable healthchecks.",
@@ -190,7 +190,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_COMMAND",
+      "name": "HEALTHCHECK_COMMAND",
       "key": "HEALTHCHECK_COMMAND",
       "value": null,
       "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
@@ -200,7 +200,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_ACTION",
+      "name": "HEALTHCHECK_ACTION",
       "key": "HEALTHCHECK_ACTION",
       "value": null,
       "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
@@ -210,7 +210,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_HOSTNAME",
+      "name": "HEALTHCHECK_HOSTNAME",
       "key": "HEALTHCHECK_HOSTNAME",
       "value": "google.com",
       "description": "The hostname used when performing HTTPS and DNS healthchecking.",
@@ -220,9 +220,9 @@
       "default": null
     },
     {
-      "name": "Variable: PUID",
+      "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "User ID for the running container",
       "required": true,
       "mask": false,
@@ -230,9 +230,9 @@
       "default": null
     },
     {
-      "name": "Variable: PGID",
+      "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Group ID for the running container",
       "required": true,
       "mask": false,
@@ -240,7 +240,7 @@
       "default": null
     },
     {
-      "name": "Variable: UMASK",
+      "name": "UMASK",
       "key": "UMASK",
       "value": "000",
       "description": "UMASK for the running container",

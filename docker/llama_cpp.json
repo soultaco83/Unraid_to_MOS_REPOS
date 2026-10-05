@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Model Storage Path",
-      "host": "/mnt/user/appdata/llama_cpp/model",
+      "host": "/mnt/cache/appdata/llama_cpp/model",
       "container": "/models",
       "mode": "rw",
       "description": "Storage for model",

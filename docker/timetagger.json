@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/timetagger",
+      "host": "/mnt/cache/appdata/timetagger",
       "container": "/root/_timetagger",
       "mode": "rw",
       "description": "",

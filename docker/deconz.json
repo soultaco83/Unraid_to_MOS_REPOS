@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "appdata",
-      "host": "/mnt/user/appdata/deconz",
+      "host": "/mnt/cache/appdata/deconz",
       "container": "/root/.local/share/dresden-elektronik/deCONZ",
       "mode": "rw",
       "description": "Container Path: /root/.local/share/dresden-elektronik/deCONZ",

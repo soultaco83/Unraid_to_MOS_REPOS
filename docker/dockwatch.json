@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/dockwatch/config",
+      "host": "/mnt/cache/appdata/dockwatch/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to configuration files",
@@ -59,7 +59,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "1001",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -69,7 +69,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "999",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

@@ -33,7 +33,7 @@
     },
     {
       "name": "Config Dir",
-      "host": "/mnt/user/appdata/blocky/config",
+      "host": "/mnt/cache/appdata/blocky/config",
       "container": "/app/config",
       "mode": "rw",
       "description": "",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Logs Dir",
-      "host": "/mnt/user/appdata/blocky/logs",
+      "host": "/mnt/cache/appdata/blocky/logs",
       "container": "/logs",
       "mode": "rw",
       "description": "",

@@ -34,7 +34,7 @@
     },
     {
       "name": "Config Files",
-      "host": "/mnt/user/appdata/dasharr/config",
+      "host": "/mnt/cache/appdata/dasharr/config",
       "container": "/backend/config",
       "mode": "rw",
       "description": "Path to the config folder",

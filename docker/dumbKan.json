@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Data",
-      "host": "/mnt/user/appdata/dumbkan",
+      "host": "/mnt/cache/appdata/dumbkan",
       "container": "/app/data",
       "mode": "rw",
       "description": "Data Dir",

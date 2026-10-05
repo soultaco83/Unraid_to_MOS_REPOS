@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/Aliyundrive-Webdav",
+      "host": "/mnt/cache/appdata/Aliyundrive-Webdav",
       "container": "/etc/aliyundrive-webdav/",
       "mode": "rw",
       "description": "Config Path",

@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/dumbterm/config",
+      "host": "/mnt/cache/appdata/dumbterm/config",
       "container": "/root/.config",
       "mode": "rw",
       "description": "Config Dir",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Data",
-      "host": "/mnt/user/appdata/dumbterm/data",
+      "host": "/mnt/cache/appdata/dumbterm/data",
       "container": "/root/data",
       "mode": "rw",
       "description": "Data Dir",

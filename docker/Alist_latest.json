@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/Alist",
+      "host": "/mnt/cache/appdata/Alist",
       "container": "/opt/alist/data",
       "mode": "rw",
       "description": "Config Path",

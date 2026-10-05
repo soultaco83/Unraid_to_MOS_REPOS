@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/pingvin_share_x/data",
+      "host": "/mnt/cache/appdata/pingvin_share_x/data",
       "container": "/opt/app/backend/data",
       "mode": "rw",
       "description": "Path to store uploaded files",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Images Path",
-      "host": "/mnt/user/appdata/pingvin_share_x/images",
+      "host": "/mnt/cache/appdata/pingvin_share_x/images",
       "container": "/opt/app/frontend/public/img",
       "mode": "rw",
       "description": "Path to store image files",

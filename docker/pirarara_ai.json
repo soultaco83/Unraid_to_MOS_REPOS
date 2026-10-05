@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/pirarara/db",
+      "host": "/mnt/cache/appdata/pirarara/db",
       "container": "/data",
       "mode": "rw",
       "description": "Where the SQLite database file is stored",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Workspace",
-      "host": "/mnt/user/appdata/pirarara/workspace",
+      "host": "/mnt/cache/appdata/pirarara/workspace",
       "container": "/workspace",
       "mode": "rw",
       "description": "Directory where the agent can read/write files",

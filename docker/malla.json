@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/malla/config.yaml",
+      "host": "/mnt/cache/appdata/malla/config.yaml",
       "container": "/app/config.yaml",
       "mode": "ro",
       "description": "Path to the Malla config file.",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/malla/data",
+      "host": "/mnt/cache/appdata/malla/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to store Malla data.",

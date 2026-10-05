@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/meshing_around/data",
+      "host": "/mnt/cache/appdata/meshing_around/data",
       "container": "/app",
       "mode": "rw",
       "description": "Path to app data folder",

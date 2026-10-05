@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Appdata and Model Storage Path",
-      "host": "/mnt/user/appdata/invoke_ai",
+      "host": "/mnt/cache/appdata/invoke_ai",
       "container": "/invokeai_root",
       "mode": "rw",
       "description": "Path for app data and models storage",

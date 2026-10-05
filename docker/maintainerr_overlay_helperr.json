@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Images Path",
-      "host": "/mnt/user/appdata/maintainerr_overlay_helperr/images",
+      "host": "/mnt/cache/appdata/maintainerr_overlay_helperr/images",
       "container": "/images",
       "mode": "rw",
       "description": "Path to save images",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Fonts Path",
-      "host": "/mnt/user/appdata/maintainerr_overlay_helperr/fonts",
+      "host": "/mnt/cache/appdata/maintainerr_overlay_helperr/fonts",
       "container": "/fonts",
       "mode": "rw",
       "description": "Path to the font file",
@@ -368,7 +368,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "User ID for the container (Default 99 for 'nobody')",
       "required": true,
       "mask": false,
@@ -378,7 +378,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Group ID for the container (Default 100 for 'users')",
       "required": true,
       "mask": false,

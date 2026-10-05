@@ -33,7 +33,7 @@
     },
     {
       "name": "Resources",
-      "host": "/mnt/user/appdata/romm/resources",
+      "host": "/mnt/cache/appdata/romm/resources",
       "container": "/romm/resources/",
       "mode": "rw",
       "description": "Metadata storage (covers, screenshots, etc.)",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Assets",
-      "host": "/mnt/user/appdata/romm/assets",
+      "host": "/mnt/cache/appdata/romm/assets",
       "container": "/romm/assets/",
       "mode": "rw",
       "description": "Uploaded saves, states, etc.",
@@ -53,7 +53,7 @@
     },
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/romm/config",
+      "host": "/mnt/cache/appdata/romm/config",
       "container": "/romm/config/",
       "mode": "rw",
       "description": "Folder for config.yml",

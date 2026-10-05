@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Database &amp; Cache Path",
-      "host": "/mnt/user/appdata/Nascab",
+      "host": "/mnt/cache/appdata/Nascab",
       "container": "/root/.local/share/nascab",
       "mode": "rw",
       "description": "Database &amp; Cache Path",

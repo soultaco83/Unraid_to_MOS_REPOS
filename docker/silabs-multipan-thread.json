@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/silabs-multipan",
+      "host": "/mnt/cache/appdata/silabs-multipan",
       "container": "/data",
       "mode": "rw",
       "description": "",

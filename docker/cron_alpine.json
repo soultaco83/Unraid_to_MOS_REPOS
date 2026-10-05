@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Cron File",
-      "host": "/mnt/user/appdata/cron_alpine/crontab",
+      "host": "/mnt/cache/appdata/cron_alpine/crontab",
       "container": "/crontab",
       "mode": "rw",
       "description": "Crontab file",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Pre-Run Script Directory",
-      "host": "/mnt/user/appdata/cron_alpine/pre-run.d",
+      "host": "/mnt/cache/appdata/cron_alpine/pre-run.d",
       "container": "/entrypoint.pre.d",
       "mode": "rw",
       "description": "Directory for pre-run scripts",
@@ -117,7 +117,7 @@
     {
       "name": "Cron User ID",
       "key": "CRON_USER_UID",
-      "value": "099",
+      "value": "500",
       "description": "User ID to run the cron jobs as.",
       "required": true,
       "mask": false,
@@ -127,7 +127,7 @@
     {
       "name": "Cron Group ID",
       "key": "CRON_USER_GID",
-      "value": "099",
+      "value": "500",
       "description": "Group ID to run the cron jobs as.",
       "required": true,
       "mask": false,

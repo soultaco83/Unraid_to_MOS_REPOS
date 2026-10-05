@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Host Path 5",
-      "host": "/mnt/user/TV/",
+      "host": "/mnt/Array/TV/",
       "container": "/media/serviio",
       "mode": "rw",
       "description": "Path (root) to media content. ADD the container path (/media/serviio) into Library &gt; Shared Folder in Serviio GUI",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Host Path 2",
-      "host": "/mnt/user/appdata/serviio/library",
+      "host": "/mnt/cache/appdata/serviio/library",
       "container": "/opt/serviio/library",
       "mode": "rw",
       "description": "Container Path: /opt/serviio/library",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Host Path 3",
-      "host": "/mnt/user/appdata/serviio/plugins",
+      "host": "/mnt/cache/appdata/serviio/plugins",
       "container": "/opt/serviio/plugins",
       "mode": "rw",
       "description": "Container Path: /opt/serviio/plugins",
@@ -52,7 +52,7 @@
     },
     {
       "name": "Host Path 4",
-      "host": "/mnt/user/appdata/serviio/log",
+      "host": "/mnt/cache/appdata/serviio/log",
       "container": "/opt/serviio/log",
       "mode": "rw",
       "description": "Container Path: /opt/serviio/log",

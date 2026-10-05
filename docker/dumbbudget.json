@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Data",
-      "host": "/mnt/user/appdata/dumbbudget",
+      "host": "/mnt/cache/appdata/dumbbudget",
       "container": "/app/data",
       "mode": "rw",
       "description": "Data Dir",

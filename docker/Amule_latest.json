@@ -32,7 +32,7 @@
     },
     {
       "name": "Incompleted Path",
-      "host": "/mnt/user/appdata/Amule/incompleted",
+      "host": "/mnt/cache/appdata/Amule/incompleted",
       "container": "/temp",
       "mode": "rw",
       "description": "This is the location for incomplete downloads.",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/Amule/config",
+      "host": "/mnt/cache/appdata/Amule/config",
       "container": "/home/amule/.aMule",
       "mode": "rw",
       "description": "This is the location for the internal data.",
@@ -90,7 +90,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "1000",
+      "value": "500",
       "description": "PUID",
       "required": false,
       "mask": false,
@@ -100,7 +100,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "1000",
+      "value": "500",
       "description": "PGID",
       "required": false,
       "mask": false,

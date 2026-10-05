@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Temp Data Path",
-      "host": "/mnt/user/appdata/kms/data",
+      "host": "/mnt/cache/appdata/kms/data",
       "container": "/kms/var",
       "mode": "rw",
       "description": "Path to temp data path",

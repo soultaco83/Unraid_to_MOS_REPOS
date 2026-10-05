@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/Lskypro",
+      "host": "/mnt/cache/appdata/Lskypro",
       "container": "/var/www/html",
       "mode": "rw",
       "description": "Data Path",

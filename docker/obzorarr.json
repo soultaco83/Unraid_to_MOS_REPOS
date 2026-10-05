@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Data",
-      "host": "/mnt/user/appdata/obzorarr/config",
+      "host": "/mnt/cache/appdata/obzorarr/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to the config data",
@@ -70,7 +70,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "1000",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -80,7 +80,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "1000",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

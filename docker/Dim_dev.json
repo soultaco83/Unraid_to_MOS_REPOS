@@ -30,7 +30,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/Dim",
+      "host": "/mnt/cache/appdata/Dim",
       "container": "/opt/dim/config",
       "mode": "rw",
       "description": "Config Path",

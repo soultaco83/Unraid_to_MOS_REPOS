@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Appdata (runner dir)",
-      "host": "/mnt/user/appdata/bitbucket-runner",
+      "host": "/mnt/cache/appdata/bitbucket-runner",
       "container": "/runner",
       "mode": "rw",
       "description": "Persistent runner state and logs.",

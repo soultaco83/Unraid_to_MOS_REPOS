@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Folder",
-      "host": "/mnt/user/appdata/meeplestats/backend/data",
+      "host": "/mnt/cache/appdata/meeplestats/backend/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the data folder",

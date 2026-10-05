@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Custom Files",
-      "host": "/mnt/user/appdata/valhalla/custom_files",
+      "host": "/mnt/cache/appdata/valhalla/custom_files",
       "container": "/custom_files",
       "mode": "rw",
       "description": "Path to custom files.",
@@ -32,7 +32,7 @@
     },
     {
       "name": "GTFS Feeds",
-      "host": "/mnt/user/appdata/valhalla/gtfs_feeds",
+      "host": "/mnt/cache/appdata/valhalla/gtfs_feeds",
       "container": "/gtfs_feeds",
       "mode": "rw",
       "description": "Path to GTFS feeds. Remove if Build Transit is disabled.",

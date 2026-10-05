@@ -19,8 +19,8 @@
   "description": "The Qbittorrent(https://www.qbittorrent.org/) project aims to provide an open-source software alternative to µTorrent. qBittorrent is based on the Qt toolkit and libtorrent-rasterbar library.",
   "paths": [
     {
-      "name": "Path: /downloads",
-      "host": "/mnt/user/XiaZai",
+      "name": "/downloads",
+      "host": "/mnt/Array/XiaZai",
       "container": "/downloads",
       "mode": "rw",
       "description": "Location of downloads on disk.",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Appdata",
-      "host": "/mnt/user/appdata/Qbittorrent_LS",
+      "host": "/mnt/cache/appdata/Qbittorrent_LS",
       "container": "/config",
       "mode": "rw",
       "description": "Contains all relevant configuration files.",
@@ -52,7 +52,7 @@
       "default": null
     },
     {
-      "name": "Port: 6881",
+      "name": "6881",
       "host": "56687",
       "container": "56687",
       "protocol": "tcp",
@@ -63,7 +63,7 @@
       "default": null
     },
     {
-      "name": "Port: 6881",
+      "name": "6881",
       "host": "56687",
       "container": "56687",
       "protocol": "udp",
@@ -88,7 +88,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "0",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -98,7 +98,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "0",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

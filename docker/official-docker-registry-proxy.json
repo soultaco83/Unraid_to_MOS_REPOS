@@ -21,8 +21,8 @@
   "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
   "paths": [
     {
-      "name": "Path: /config",
-      "host": "/mnt/user/appdata/binhex-official-docker-registry-proxy",
+      "name": "/config",
+      "host": "/mnt/cache/appdata/binhex-official-docker-registry-proxy",
       "container": "/config",
       "mode": "rw",
       "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
@@ -31,8 +31,8 @@
       "default": null
     },
     {
-      "name": "Path: /docker_mirror_cache",
-      "host": "/mnt/user/appdata/binhex-official-docker-registry-proxy/docker_mirror_cache",
+      "name": "/docker_mirror_cache",
+      "host": "/mnt/cache/appdata/binhex-official-docker-registry-proxy/docker_mirror_cache",
       "container": "/docker_mirror_cache",
       "mode": "rw",
       "description": "This is the container path to your media files, e.g. movies, tv, music, pictures etc.",
@@ -41,8 +41,8 @@
       "default": null
     },
     {
-      "name": "Path: /ca",
-      "host": "/mnt/user/appdata/binhex-official-docker-registry-proxy/ca",
+      "name": "/ca",
+      "host": "/mnt/cache/appdata/binhex-official-docker-registry-proxy/ca",
       "container": "/ca",
       "mode": "rw",
       "description": "This is the container path to your downloaded files or user created content.",
@@ -53,7 +53,7 @@
   ],
   "ports": [
     {
-      "name": "Port: Registry Proxy Interface",
+      "name": "Registry Proxy Interface",
       "host": "3128",
       "container": "3128",
       "protocol": "tcp",
@@ -66,7 +66,7 @@
   ],
   "variables": [
     {
-      "name": "Variable: ENABLE_MANIFEST_CACHE",
+      "name": "ENABLE_MANIFEST_CACHE",
       "key": "ENABLE_MANIFEST_CACHE",
       "value": "true|false",
       "description": "Specify whether this container is sharing the network with another VPN container, if set to 'yes' then this container will stop when the VPN container is stopped.",
@@ -76,7 +76,7 @@
       "default": null
     },
     {
-      "name": "Variable: REGISTRIES",
+      "name": "REGISTRIES",
       "key": "REGISTRIES",
       "value": null,
       "description": "User ID for the running container",
@@ -86,7 +86,7 @@
       "default": null
     },
     {
-      "name": "Variable: AUTH_REGISTRIES",
+      "name": "AUTH_REGISTRIES",
       "key": "AUTH_REGISTRIES",
       "value": null,
       "description": "Group ID for the running container",

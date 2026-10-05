@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/QL-Panel",
+      "host": "/mnt/cache/appdata/QL-Panel",
       "container": "/ql/data",
       "mode": "rw",
       "description": "Data Path",

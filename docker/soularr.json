@@ -21,8 +21,8 @@
   "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
   "paths": [
     {
-      "name": "Path: /config",
-      "host": "/mnt/user/appdata/soularr",
+      "name": "/config",
+      "host": "/mnt/cache/appdata/soularr",
       "container": "/config",
       "mode": "rw",
       "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
@@ -31,7 +31,7 @@
       "default": null
     },
     {
-      "name": "Path: /data",
+      "name": "/data",
       "host": null,
       "container": "/data",
       "mode": "rw",
@@ -44,7 +44,7 @@
   "ports": [],
   "variables": [
     {
-      "name": "Variable: SCRIPT_INTERVAL",
+      "name": "SCRIPT_INTERVAL",
       "key": "SCRIPT_INTERVAL",
       "value": "300",
       "description": "The interval in seconds between script runs after process exits (default 300 seconds / 5 minutes).",
@@ -54,7 +54,7 @@
       "default": null
     },
     {
-      "name": "Variable: LIDARR_API_KEY",
+      "name": "LIDARR_API_KEY",
       "key": "LIDARR_API_KEY",
       "value": null,
       "description": "API key for Lidarr instance.",
@@ -64,7 +64,7 @@
       "default": null
     },
     {
-      "name": "Variable: LIDARR_HOST_URL",
+      "name": "LIDARR_HOST_URL",
       "key": "LIDARR_HOST_URL",
       "value": "http://lidarr:8686",
       "description": "URL to Lidarr instance.",
@@ -74,7 +74,7 @@
       "default": null
     },
     {
-      "name": "Variable: LIDARR_DOWNLOAD_DIR",
+      "name": "LIDARR_DOWNLOAD_DIR",
       "key": "LIDARR_DOWNLOAD_DIR",
       "value": "/data/lidarr_downloads",
       "description": "Download directory for Lidarr.",
@@ -84,7 +84,7 @@
       "default": null
     },
     {
-      "name": "Variable: LIDARR_DISABLE_SYNC",
+      "name": "LIDARR_DISABLE_SYNC",
       "key": "LIDARR_DISABLE_SYNC",
       "value": "False|True",
       "description": "Disable syncing with Lidarr (True/False).",
@@ -94,7 +94,7 @@
       "default": null
     },
     {
-      "name": "Variable: SLSKD_API_KEY",
+      "name": "SLSKD_API_KEY",
       "key": "SLSKD_API_KEY",
       "value": null,
       "description": "API key for Slskd instance.",
@@ -104,7 +104,7 @@
       "default": null
     },
     {
-      "name": "Variable: SLSKD_HOST_URL",
+      "name": "SLSKD_HOST_URL",
       "key": "SLSKD_HOST_URL",
       "value": "http://slskd:5030",
       "description": "URL to Slskd instance.",
@@ -114,7 +114,7 @@
       "default": null
     },
     {
-      "name": "Variable: SLSKD_URL_BASE",
+      "name": "SLSKD_URL_BASE",
       "key": "SLSKD_URL_BASE",
       "value": "/",
       "description": "URL base path for Slskd.",
@@ -124,7 +124,7 @@
       "default": null
     },
     {
-      "name": "Variable: SLSKD_DOWNLOAD_DIR",
+      "name": "SLSKD_DOWNLOAD_DIR",
       "key": "SLSKD_DOWNLOAD_DIR",
       "value": "/data/slskd_downloads",
       "description": "Download directory for Slskd.",
@@ -134,7 +134,7 @@
       "default": null
     },
     {
-      "name": "Variable: SLSKD_DELETE_SEARCHES",
+      "name": "SLSKD_DELETE_SEARCHES",
       "key": "SLSKD_DELETE_SEARCHES",
       "value": "False|True",
       "description": "Delete searches after completion (True/False).",
@@ -144,7 +144,7 @@
       "default": null
     },
     {
-      "name": "Variable: SLSKD_STALLED_TIMEOUT",
+      "name": "SLSKD_STALLED_TIMEOUT",
       "key": "SLSKD_STALLED_TIMEOUT",
       "value": "3600",
       "description": "Timeout in seconds for stalled downloads.",
@@ -154,7 +154,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_HEALTHCHECK",
+      "name": "ENABLE_HEALTHCHECK",
       "key": "ENABLE_HEALTHCHECK",
       "value": "yes|no",
       "description": "Enable or disable healthchecks.",
@@ -164,7 +164,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_COMMAND",
+      "name": "HEALTHCHECK_COMMAND",
       "key": "HEALTHCHECK_COMMAND",
       "value": null,
       "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
@@ -174,7 +174,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_ACTION",
+      "name": "HEALTHCHECK_ACTION",
       "key": "HEALTHCHECK_ACTION",
       "value": null,
       "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
@@ -184,7 +184,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_HOSTNAME",
+      "name": "HEALTHCHECK_HOSTNAME",
       "key": "HEALTHCHECK_HOSTNAME",
       "value": "google.com",
       "description": "The hostname used when performing HTTPS and DNS healthchecking.",
@@ -194,9 +194,9 @@
       "default": null
     },
     {
-      "name": "Variable: PUID",
+      "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "User ID for the running container",
       "required": true,
       "mask": false,
@@ -204,9 +204,9 @@
       "default": null
     },
     {
-      "name": "Variable: PGID",
+      "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Group ID for the running container",
       "required": true,
       "mask": false,
@@ -214,7 +214,7 @@
       "default": null
     },
     {
-      "name": "Variable: UMASK",
+      "name": "UMASK",
       "key": "UMASK",
       "value": "000",
       "description": "UMASK for the running container",

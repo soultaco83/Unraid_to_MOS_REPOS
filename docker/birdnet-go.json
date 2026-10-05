@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Config Dir",
-      "host": "/mnt/user/appdata/birdnet-go/config",
+      "host": "/mnt/cache/appdata/birdnet-go/config",
       "container": "/config",
       "mode": "rw",
       "description": "Config Directory",
@@ -31,7 +31,7 @@
     },
     {
       "name": "Data Directory",
-      "host": "/mnt/user/appdata/birdnet-go/data",
+      "host": "/mnt/cache/appdata/birdnet-go/data",
       "container": "/data",
       "mode": "rw",
       "description": "Data Directory",
@@ -57,7 +57,7 @@
     {
       "name": "BIRDNET UID",
       "key": "BIRDNET_UID",
-      "value": "99",
+      "value": "500",
       "description": "Runs the container process with your host user's ID for correct file permissions.",
       "required": true,
       "mask": false,
@@ -67,7 +67,7 @@
     {
       "name": "BIRDNET GID",
       "key": "BIRDNET_GID",
-      "value": "100",
+      "value": "500",
       "description": "Runs the container process with your host user's group ID.",
       "required": true,
       "mask": false,

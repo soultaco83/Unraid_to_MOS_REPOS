@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Soulseek - External Download Folder",
-      "host": "/mnt/user/downloads/soulseek",
+      "host": "/mnt/Array/downloads/soulseek",
       "container": "/downloads",
       "mode": "rw",
       "description": "Path to the external slskd download folder",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Data Folder",
-      "host": "/mnt/user/appdata/soulbeet/data",
+      "host": "/mnt/cache/appdata/soulbeet/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the data folder",

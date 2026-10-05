@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/zoraxy",
+      "host": "/mnt/cache/appdata/zoraxy",
       "container": "/zoraxy/config/",
       "mode": "rw",
       "description": "",

@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Model Storage Path",
-      "host": "/mnt/user/appdata/local_ai/models",
+      "host": "/mnt/cache/appdata/local_ai/models",
       "container": "/models",
       "mode": "rw",
       "description": "Storage for models",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Image Storage Path",
-      "host": "/mnt/user/appdata/local_ai/images",
+      "host": "/mnt/cache/appdata/local_ai/images",
       "container": "/tmp/generated/images/",
       "mode": "rw",
       "description": "Storage for images",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Data Storage Path",
-      "host": "/mnt/user/appdata/local_ai/data",
+      "host": "/mnt/cache/appdata/local_ai/data",
       "container": "/data",
       "mode": "rw",
       "description": "Storage for data",
@@ -54,7 +54,7 @@
     },
     {
       "name": "Configuration Storage Path",
-      "host": "/mnt/user/appdata/local_ai/configuration",
+      "host": "/mnt/cache/appdata/local_ai/configuration",
       "container": "/configuration",
       "mode": "rw",
       "description": "Storage for configuration",
@@ -64,7 +64,7 @@
     },
     {
       "name": "Backends Storage Path",
-      "host": "/mnt/user/appdata/local_ai/backends",
+      "host": "/mnt/cache/appdata/local_ai/backends",
       "container": "/backends",
       "mode": "rw",
       "description": "Storage for backends",

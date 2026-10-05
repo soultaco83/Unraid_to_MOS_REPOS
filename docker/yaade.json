@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Config Data",
-      "host": "/mnt/user/appdata/yaade/config",
+      "host": "/mnt/cache/appdata/yaade/config",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to config files",

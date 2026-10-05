@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Uploads Storage",
-      "host": "/mnt/user/appdata/norish/uploads",
+      "host": "/mnt/cache/appdata/norish/uploads",
       "container": "/app/uploads",
       "mode": "rw",
       "description": "Path to the uploads folder",

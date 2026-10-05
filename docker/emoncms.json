@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/emoncms/data",
+      "host": "/mnt/cache/appdata/emoncms/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the data folder",

@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Images path",
-      "host": "/mnt/user/appdata/chevereto/images",
+      "host": "/mnt/cache/appdata/chevereto/images",
       "container": "/var/www/html/images",
       "mode": "rw",
       "description": "Images path",

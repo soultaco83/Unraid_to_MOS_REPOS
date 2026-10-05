@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/deceptifeed/config",
+      "host": "/mnt/cache/appdata/deceptifeed/config",
       "container": "/data",
       "mode": "rw",
       "description": "Path to config files",

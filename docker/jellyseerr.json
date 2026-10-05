@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Appdata",
-      "host": "/mnt/user/appdata/jellyseerr",
+      "host": "/mnt/cache/appdata/jellyseerr",
       "container": "/app/config/",
       "mode": "rw",
       "description": "Appdata directory",
@@ -68,7 +68,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -78,7 +78,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

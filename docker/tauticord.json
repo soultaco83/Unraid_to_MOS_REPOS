@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/tauticord/config",
+      "host": "/mnt/cache/appdata/tauticord/config",
       "container": "/config",
       "mode": "rw",
       "description": "Where config file will be stored",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Log Path",
-      "host": "/mnt/user/appdata/tauticord/logs",
+      "host": "/mnt/cache/appdata/tauticord/logs",
       "container": "/logs",
       "mode": "rw",
       "description": "Where debug logs will be stored",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Monitor Path",
-      "host": "/mnt/user/appdata/tauticord/monitor",
+      "host": "/mnt/cache/appdata/tauticord/monitor",
       "container": "/monitor",
       "mode": "ro",
       "description": "Directory to monitor usage percentage of (e.g. your Plex library)",

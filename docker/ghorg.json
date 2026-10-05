@@ -33,7 +33,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/ghorg/config",
+      "host": "/mnt/cache/appdata/ghorg/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to config files",

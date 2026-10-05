@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Scripts Path",
-      "host": "/mnt/user/appdata/powershell/scripts",
+      "host": "/mnt/cache/appdata/powershell/scripts",
       "container": "/scripts",
       "mode": "rw",
       "description": "Path to your PowerShell scripts directory",

@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Storage",
-      "host": "/mnt/user/appdata/reitti/data",
+      "host": "/mnt/cache/appdata/reitti/data",
       "container": "/data/",
       "mode": "rw",
       "description": "Path to store Reitti data",

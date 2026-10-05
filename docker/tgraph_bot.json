@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/tgraph_bot/config",
+      "host": "/mnt/cache/appdata/tgraph_bot/config",
       "container": "/config",
       "mode": "rw",
       "description": "Where config file will be stored",
@@ -37,7 +37,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "1000",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -47,7 +47,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "1000",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

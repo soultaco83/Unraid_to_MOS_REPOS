@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "appdata",
-      "host": "/mnt/user/appdata/truecommand",
+      "host": "/mnt/cache/appdata/truecommand",
       "container": "/data",
       "mode": "rw",
       "description": "Container Path: /data",

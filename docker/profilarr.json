@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config path",
-      "host": "/mnt/user/appdata/profilarr/config",
+      "host": "/mnt/cache/appdata/profilarr/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to config files",

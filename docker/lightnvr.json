@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Configuration files",
-      "host": "/mnt/user/appdata/lightnvr/config",
+      "host": "/mnt/cache/appdata/lightnvr/config",
       "container": "/etc/lightnvr",
       "mode": "rw",
       "description": "-  lightnvr.ini - Main configuration\r\n-  go2rtc/go2rtc.yaml - go2rtc WebRTC/RTSP configuration",

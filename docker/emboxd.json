@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/emboxd/config",
+      "host": "/mnt/cache/appdata/emboxd/config",
       "container": "/config",
       "mode": "ro",
       "description": "Path to config files",

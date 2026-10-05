@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/surfsense/frontend/data",
+      "host": "/mnt/cache/appdata/surfsense/frontend/data",
       "container": "/app",
       "mode": "rw",
       "description": "Path to the data folder",
@@ -35,7 +35,7 @@
     },
     {
       "name": "App Node Modules",
-      "host": "/mnt/user/appdata/surfsense/frontend/node_modules",
+      "host": "/mnt/cache/appdata/surfsense/frontend/node_modules",
       "container": "/app/node_modules",
       "mode": "rw",
       "description": "Path to node modules",

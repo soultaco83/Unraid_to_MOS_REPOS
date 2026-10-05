@@ -26,7 +26,7 @@
   "paths": [
     {
       "name": "Nginx Logs Path",
-      "host": "/mnt/user/appdata/librey/nginx",
+      "host": "/mnt/cache/appdata/librey/nginx",
       "container": "/var/log/nginx",
       "mode": "rw",
       "description": "Path to Nginx logs",
@@ -36,7 +36,7 @@
     },
     {
       "name": "PHP Logs Path",
-      "host": "/mnt/user/appdata/librey/php",
+      "host": "/mnt/cache/appdata/librey/php",
       "container": "/var/log/php83",
       "mode": "rw",
       "description": "Path to PHP logs",
@@ -332,7 +332,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -342,7 +342,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

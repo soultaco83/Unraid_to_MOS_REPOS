@@ -76,7 +76,7 @@
     {
       "name": "USER_ID",
       "key": "USER_ID",
-      "value": "99",
+      "value": "500",
       "description": "Container Variable: USER_ID",
       "required": false,
       "mask": false,
@@ -86,7 +86,7 @@
     {
       "name": "GROUP_ID",
       "key": "GROUP_ID",
-      "value": "100",
+      "value": "500",
       "description": "Container Variable: GROUP_ID",
       "required": false,
       "mask": false,

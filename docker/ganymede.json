@@ -34,7 +34,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/ganymede/config",
+      "host": "/mnt/cache/appdata/ganymede/config",
       "container": "/data/config",
       "mode": "rw",
       "description": "Mount for config storage",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Logs Path",
-      "host": "/mnt/user/appdata/ganymede/logs",
+      "host": "/mnt/cache/appdata/ganymede/logs",
       "container": "/data/logs",
       "mode": "rw",
       "description": "Mount for log storage",
@@ -54,7 +54,7 @@
     },
     {
       "name": "Temp Data Path",
-      "host": "/mnt/user/appdata/ganymede/temp",
+      "host": "/mnt/cache/appdata/ganymede/temp",
       "container": "/data/temp",
       "mode": "rw",
       "description": "Mount to store temporary files during the archive process.",

@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config data",
-      "host": "/mnt/user/appdata/minio_mc/data",
+      "host": "/mnt/cache/appdata/minio_mc/data",
       "container": "/data",
       "mode": "rw",
       "description": "Config data for application",

@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/subs/database",
+      "host": "/mnt/cache/appdata/subs/database",
       "container": "/database",
       "mode": "rw",
       "description": "Database directory",

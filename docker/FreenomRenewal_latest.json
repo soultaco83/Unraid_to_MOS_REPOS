@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Logs Path",
-      "host": "/mnt/user/appdata/Freenom/logs",
+      "host": "/mnt/cache/appdata/Freenom/logs",
       "container": "/app/logs",
       "mode": "rw",
       "description": "Logs Path",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/Freenom/conf",
+      "host": "/mnt/cache/appdata/Freenom/conf",
       "container": "/conf",
       "mode": "rw",
       "description": "Config Path",

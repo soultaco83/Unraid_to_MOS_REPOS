@@ -33,7 +33,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/orpheusbetter/config",
+      "host": "/mnt/cache/appdata/orpheusbetter/config",
       "container": "/config/.orpheusbetter",
       "mode": "rw",
       "description": "Path to the orpheusbetter config directory",

@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Uploads Path",
-      "host": "/mnt/user/appdata/whishper/uploads",
+      "host": "/mnt/cache/appdata/whishper/uploads",
       "container": "/app/uploads",
       "mode": "rw",
       "description": "Path to the uploads folder",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Logs Path",
-      "host": "/mnt/user/appdata/whishper/logs",
+      "host": "/mnt/cache/appdata/whishper/logs",
       "container": "/var/log/whishper",
       "mode": "rw",
       "description": "Path to the logs folder",

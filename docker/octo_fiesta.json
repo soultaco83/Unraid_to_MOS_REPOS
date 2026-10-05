@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Downloads Path",
-      "host": "/mnt/user/appdata/octo_fiesta/downloads",
+      "host": "/mnt/cache/appdata/octo_fiesta/downloads",
       "container": "/app/downloads",
       "mode": "rw",
       "description": "Path to store downloaded files",

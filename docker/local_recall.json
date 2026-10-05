@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/local_recall/db",
+      "host": "/mnt/cache/appdata/local_recall/db",
       "container": "/db",
       "mode": "rw",
       "description": "Path to the database directory for LocalRecall",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Assets Path",
-      "host": "/mnt/user/appdata/local_recall/assets",
+      "host": "/mnt/cache/appdata/local_recall/assets",
       "container": "/assets",
       "mode": "rw",
       "description": "Path to the assets directory for LocalRecall",

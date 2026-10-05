@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/smartermail/data",
+      "host": "/mnt/cache/appdata/smartermail/data",
       "container": "/app/Data",
       "mode": "rw",
       "description": "Path to the data folder",
@@ -32,7 +32,7 @@
     },
     {
       "name": "System Data",
-      "host": "/mnt/user/appdata/smartermail/systemdata",
+      "host": "/mnt/cache/appdata/smartermail/systemdata",
       "container": "/app/SystemData",
       "mode": "rw",
       "description": "Path to the system data folder",

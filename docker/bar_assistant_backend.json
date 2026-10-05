@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data path",
-      "host": "/mnt/user/appdata/bar_assistant/data",
+      "host": "/mnt/cache/appdata/bar_assistant/data",
       "container": "/var/www/cocktails/storage/bar-assistant",
       "mode": "rw",
       "description": "Path to data files",

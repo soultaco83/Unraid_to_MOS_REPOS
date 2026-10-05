@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Downloads Path",
-      "host": "/mnt/user/appdata/pinepods/downloads",
+      "host": "/mnt/cache/appdata/pinepods/downloads",
       "container": "/opt/pinepods/downloads",
       "mode": "rw",
       "description": "Path to downloads folder",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Backups Path",
-      "host": "/mnt/user/appdata/pinepods/backups",
+      "host": "/mnt/cache/appdata/pinepods/backups",
       "container": "/opt/pinepods/backups",
       "mode": "rw",
       "description": "Path to backups folder",

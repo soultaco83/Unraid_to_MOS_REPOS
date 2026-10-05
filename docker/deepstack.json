@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "datastore",
-      "host": "/mnt/user/appdata/deepstack",
+      "host": "/mnt/cache/appdata/deepstack",
       "container": "/datastore",
       "mode": "rw",
       "description": "datastore container path",

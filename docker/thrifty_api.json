@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/thrifty/database",
+      "host": "/mnt/cache/appdata/thrifty/database",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the SQLite database files",

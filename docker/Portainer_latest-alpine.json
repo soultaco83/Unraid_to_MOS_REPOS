@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/Portainer",
+      "host": "/mnt/cache/appdata/Portainer",
       "container": "/data",
       "mode": "rw",
       "description": "Config Path",

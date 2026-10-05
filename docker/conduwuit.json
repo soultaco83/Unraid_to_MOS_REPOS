@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/conduwuit/database",
+      "host": "/mnt/cache/appdata/conduwuit/database",
       "container": "/var/lib/conduwuit",
       "mode": "rw",
       "description": "Path to database files",

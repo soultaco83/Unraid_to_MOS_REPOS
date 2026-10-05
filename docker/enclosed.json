@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config data",
-      "host": "/mnt/user/appdata/enclosed/data",
+      "host": "/mnt/cache/appdata/enclosed/data",
       "container": "/app/.data",
       "mode": "rw",
       "description": "Config data for application",

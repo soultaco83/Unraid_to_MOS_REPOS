@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "MatterData",
-      "host": "/mnt/user/appdata/python-matter-server/",
+      "host": "/mnt/cache/appdata/python-matter-server/",
       "container": "/data/",
       "mode": "rw",
       "description": "",

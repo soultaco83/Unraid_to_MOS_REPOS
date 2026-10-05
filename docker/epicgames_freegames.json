@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/auto-archiver/config",
+      "host": "/mnt/cache/appdata/auto-archiver/config",
       "container": "/usr/app/config",
       "mode": "rw",
       "description": "Path to the configuration folder",

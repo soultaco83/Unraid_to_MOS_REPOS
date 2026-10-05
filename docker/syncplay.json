@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/syncplay/data",
+      "host": "/mnt/cache/appdata/syncplay/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to app data",

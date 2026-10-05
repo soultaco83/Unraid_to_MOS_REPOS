@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Secrets Storage",
-      "host": "/mnt/user/appdata/auto-archiver/secrets",
+      "host": "/mnt/cache/appdata/auto-archiver/secrets",
       "container": "/app/secrets",
       "mode": "rw",
       "description": "Path to the secrets storage folder",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Local Archive",
-      "host": "/mnt/user/appdata/auto-archiver/local_archive",
+      "host": "/mnt/cache/appdata/auto-archiver/local_archive",
       "container": "/app/local_archive",
       "mode": "rw",
       "description": "Path to the local archive folder",

@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "hassio_data",
-      "host": "/mnt/user/appdata/hassio/",
+      "host": "/mnt/cache/appdata/hassio/",
       "container": "/data",
       "mode": "rw",
       "description": "Container Path: /data",

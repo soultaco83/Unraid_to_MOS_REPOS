@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config data",
-      "host": "/mnt/user/appdata/maybe/data",
+      "host": "/mnt/cache/appdata/maybe/data",
       "container": "/rails/storage",
       "mode": "rw",
       "description": "Config data for application",

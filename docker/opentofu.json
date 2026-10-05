@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Workspace Path",
-      "host": "/mnt/user/appdata/opentofu/workspace",
+      "host": "/mnt/cache/appdata/opentofu/workspace",
       "container": "/srv/workspace",
       "mode": "rw",
       "description": "Path to workspace",

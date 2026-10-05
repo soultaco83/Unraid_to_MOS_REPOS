@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Appdata",
-      "host": "/mnt/user/appdata/HomeAssistant_inabox_v3",
+      "host": "/mnt/cache/appdata/HomeAssistant_inabox_v3",
       "container": "/config",
       "mode": "rw",
       "description": "Where the wizard keeps its own state, downloaded Home Assistant OS images and the VM XML it generates. Safe to back up; deleting it just means starting the wizard over.",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Domains Share",
-      "host": "/mnt/user/domains",
+      "host": "/mnt/Array/domains",
       "container": "/domains",
       "mode": "rw",
       "description": "Your Unraid VMs share. This is where the wizard writes the Home Assistant OS virtual disk.",
@@ -61,26 +61,6 @@
       "default": null
     },
     {
-      "name": "VM Icons",
-      "host": "/usr/local/emhttp/plugins/dynamix.vm.manager/templates/images",
-      "container": "/icons",
-      "mode": "rw",
-      "description": "Where the Home Assistant icon is placed so it shows up next to the VM in Unraid's VM manager. Required - do not change.",
-      "required": true,
-      "display": "advanced-hide",
-      "default": null
-    },
-    {
-      "name": "Domain Config",
-      "host": "/boot/config/domain.cfg",
-      "container": "/boot/config/domain.cfg",
-      "mode": "ro",
-      "description": "Read-only access to Unraid's VM Manager settings, used to pick the correct default network for the new VM and to check up front whether Unraid will let a VM start at all. Required - do not change.",
-      "required": true,
-      "display": "advanced-hide",
-      "default": null
-    },
-    {
       "name": "QEMU Firmware",
       "host": "/usr/share/qemu",
       "container": "/host/usr/share/qemu",
@@ -101,31 +81,11 @@
       "default": null
     },
     {
-      "name": "Emhttp Scripts",
-      "host": "/usr/local/emhttp",
-      "container": "/usr/local/emhttp",
-      "mode": "ro",
-      "description": "Read-only access to Unraid's own web GUI scripts and state (including the state/var.ini file used to check the Unraid version and to exclude the boot flash drive from USB device selection, reached through Unraid's own internal symlink). Used to run Unraid's own notify script, so this container's notifications go out through whatever you have already configured - browser, email, or an agent such as Apprise - instead of only the notification bell. If this mount and 'Emhttp State' below are both absent, notifications fall back to the bell automatically; nothing breaks. Required - do not change.",
-      "required": true,
-      "display": "advanced-hide",
-      "default": null
-    },
-    {
       "name": "Emhttp State",
       "host": "/var/local/emhttp",
       "container": "/var/local/emhttp",
       "mode": "ro",
       "description": "Read-only access to Unraid's own runtime state - nginx.ini, so a notification's link points at your server's real address. Also completes the 'Emhttp Scripts' mount above: Unraid's own emhttp/state path is a symlink onto this folder, and Unraid's notify script (and the boot-flash-identity read it enables) needs both mounts present together to resolve. Required - do not change.",
-      "required": true,
-      "display": "advanced-hide",
-      "default": null
-    },
-    {
-      "name": "Notification Agents",
-      "host": "/boot/config/plugins/dynamix",
-      "container": "/boot/config/plugins/dynamix",
-      "mode": "ro",
-      "description": "Read-only access to Unraid's own notification settings and the notification agent scripts you have configured there (for example, Apprise), so Unraid's own notify script can route this container's notifications the way you already set up rather than only to the notification bell. Disclosure: agent scripts in this folder carry their own credentials in plain text (an Apprise agent's Matrix username and password, a webhook URL, and so on) - this container only reads that folder to hand notifications to Unraid's own script and never transmits or logs its contents itself, but the credentials are exposed to this container, and to anything else with access to it, exactly as they already are to every other process on your server with read access to /boot. Required - do not change.",
       "required": true,
       "display": "advanced-hide",
       "default": null

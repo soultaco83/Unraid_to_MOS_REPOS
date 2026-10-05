@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "App Cert",
-      "host": "/mnt/user/appdata/fastapi-dls/cert",
+      "host": "/mnt/cache/appdata/fastapi-dls/cert",
       "container": "/app/cert",
       "mode": "rw",
       "description": "Read the description above to make this folder. You do not need to change the path.",
@@ -33,7 +33,7 @@
     },
     {
       "name": "App Database",
-      "host": "/mnt/user/appdata/fastapi-dls/data",
+      "host": "/mnt/cache/appdata/fastapi-dls/data",
       "container": "/app/database",
       "mode": "rw",
       "description": "Read the description above to make this folder. You do not need to change the path.",

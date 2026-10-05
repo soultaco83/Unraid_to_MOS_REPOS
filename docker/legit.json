@@ -34,7 +34,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/legit/config",
+      "host": "/mnt/cache/appdata/legit/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to config files",

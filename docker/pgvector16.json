@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Database Storage Path",
-      "host": "/mnt/user/appdata/pgvector16",
+      "host": "/mnt/cache/appdata/pgvector16",
       "container": "/var/lib/postgresql",
       "mode": "rw",
       "description": "Path to store database files",

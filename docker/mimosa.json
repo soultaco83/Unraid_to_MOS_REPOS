@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Database Directory",
-      "host": "/mnt/user/appdata/mimosa/db",
+      "host": "/mnt/cache/appdata/mimosa/db",
       "container": "/app/db",
       "mode": "rw",
       "description": "",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Logs Directory",
-      "host": "/mnt/user/appdata/mimosa/logs",
+      "host": "/mnt/cache/appdata/mimosa/logs",
       "container": "/app/logs",
       "mode": "rw",
       "description": "",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Images directory",
-      "host": "/mnt/user/appdata/mimosa/images",
+      "host": "/mnt/cache/appdata/mimosa/images",
       "container": "/app/images",
       "mode": "rw",
       "description": "",

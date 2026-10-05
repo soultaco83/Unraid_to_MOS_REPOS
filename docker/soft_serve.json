@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/softserve",
+      "host": "/mnt/cache/appdata/softserve",
       "container": "/soft-serve",
       "mode": "rw",
       "description": "Storage for config file, databases and repos",

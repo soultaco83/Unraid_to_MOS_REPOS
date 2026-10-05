@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Backups Path",
-      "host": "/mnt/user/appdata/bitwarden_portal/backups",
+      "host": "/mnt/cache/appdata/bitwarden_portal/backups",
       "container": "/app/backups",
       "mode": "rw",
       "description": "Path to backup files.",

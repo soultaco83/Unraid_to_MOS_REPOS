@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Config Data",
-      "host": "/mnt/user/appdata/classifarr/data",
+      "host": "/mnt/cache/appdata/classifarr/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to persistent config data",
@@ -91,7 +91,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "1000",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -101,7 +101,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "1000",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

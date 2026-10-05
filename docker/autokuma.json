@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "AutoKuma static monitor configurations",
-      "host": "/mnt/user/appdata/autokuma/static_monitors",
+      "host": "/mnt/cache/appdata/autokuma/static_monitors",
       "container": "/static_monitors",
       "mode": "rw",
       "description": "Path to the directory containing static monitor configurations",

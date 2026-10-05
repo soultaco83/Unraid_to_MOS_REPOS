@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/odin/data",
+      "host": "/mnt/cache/appdata/odin/data",
       "container": "/pb_data",
       "mode": "rw",
       "description": "Path to store data",

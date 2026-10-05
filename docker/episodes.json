@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/episodes/db",
+      "host": "/mnt/cache/appdata/episodes/db",
       "container": "/app/db",
       "mode": "rw",
       "description": "Path to app data",

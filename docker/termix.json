@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "DataDir",
-      "host": "/mnt/user/appdata/termix/data",
+      "host": "/mnt/cache/appdata/termix/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Persistent Data Directory",

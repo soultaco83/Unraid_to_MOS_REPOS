@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Data Directory",
-      "host": "/mnt/user/appdata/christmas_community/data",
+      "host": "/mnt/cache/appdata/christmas_community/data",
       "container": "/data",
       "mode": "rw",
       "description": "",

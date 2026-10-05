@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Files Path",
-      "host": "/mnt/user/appdata/plex_prerolls/files",
+      "host": "/mnt/cache/appdata/plex_prerolls/files",
       "container": "/files",
       "mode": "ro",
       "description": "(Optional) Where preroll files are stored, for local path glob feature",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/plex_prerolls/config",
+      "host": "/mnt/cache/appdata/plex_prerolls/config",
       "container": "/config",
       "mode": "ro",
       "description": "Where config file will be stored",
@@ -53,7 +53,7 @@
     },
     {
       "name": "Log Path",
-      "host": "/mnt/user/appdata/plex_prerolls/logs",
+      "host": "/mnt/cache/appdata/plex_prerolls/logs",
       "container": "/logs",
       "mode": "rw",
       "description": "Where debug logs will be stored",
@@ -63,7 +63,7 @@
     },
     {
       "name": "Auto-Generated Prerolls Temp Data",
-      "host": "/mnt/user/appdata/plex_prerolls/renders",
+      "host": "/mnt/cache/appdata/plex_prerolls/renders",
       "container": "/renders",
       "mode": "rw",
       "description": "(Optional) Where temp data for auto-generated prerolls will be stored",

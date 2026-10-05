@@ -21,8 +21,8 @@
   "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
   "paths": [
     {
-      "name": "Path: /config",
-      "host": "/mnt/user/appdata/nicotineplus",
+      "name": "/config",
+      "host": "/mnt/cache/appdata/nicotineplus",
       "container": "/config",
       "mode": "rw",
       "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
@@ -31,7 +31,7 @@
       "default": null
     },
     {
-      "name": "Path: /data",
+      "name": "/data",
       "host": null,
       "container": "/data",
       "mode": "rw",
@@ -41,8 +41,8 @@
       "default": null
     },
     {
-      "name": "Path: /media",
-      "host": "/mnt/user",
+      "name": "/media",
+      "host": "/mnt/Array",
       "container": "/media",
       "mode": "rw",
       "description": "This is the container path to your media files, e.g. movies, tv, music, pictures etc.",
@@ -53,7 +53,7 @@
   ],
   "ports": [
     {
-      "name": "Port: VNC",
+      "name": "VNC",
       "host": "5900",
       "container": "5900",
       "protocol": "tcp",
@@ -64,7 +64,7 @@
       "default": null
     },
     {
-      "name": "Port: NoVNC (Web Interface)",
+      "name": "NoVNC (Web Interface)",
       "host": "6080",
       "container": "6080",
       "protocol": "tcp",
@@ -77,7 +77,7 @@
   ],
   "variables": [
     {
-      "name": "Variable: HTTPS_CERT_PATH",
+      "name": "HTTPS_CERT_PATH",
       "key": "HTTPS_CERT_PATH",
       "value": null,
       "description": "Specify the path to the HTTPS certificate file",
@@ -87,7 +87,7 @@
       "default": null
     },
     {
-      "name": "Variable: HTTPS_KEY_PATH",
+      "name": "HTTPS_KEY_PATH",
       "key": "HTTPS_KEY_PATH",
       "value": null,
       "description": "Specify the path to the HTTPS key file",
@@ -97,7 +97,7 @@
       "default": null
     },
     {
-      "name": "Variable: WEBPAGE_TITLE",
+      "name": "WEBPAGE_TITLE",
       "key": "WEBPAGE_TITLE",
       "value": "Nicotine+",
       "description": "Specify the web title shown for the webpage",
@@ -107,7 +107,7 @@
       "default": null
     },
     {
-      "name": "Variable: VNC_PASSWORD",
+      "name": "VNC_PASSWORD",
       "key": "VNC_PASSWORD",
       "value": null,
       "description": "Specify the password for the VNC interface",
@@ -117,7 +117,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_STARTUP_SCRIPTS",
+      "name": "ENABLE_STARTUP_SCRIPTS",
       "key": "ENABLE_STARTUP_SCRIPTS",
       "value": "no|yes",
       "description": "Specify whether to run a script located in '/config/home/scripts/' on startup",
@@ -127,7 +127,7 @@
       "default": null
     },
     {
-      "name": "Variable: GLUETUN_INCOMING_PORT",
+      "name": "GLUETUN_INCOMING_PORT",
       "key": "GLUETUN_INCOMING_PORT",
       "value": "no|yes",
       "description": "Specify whether to attempt to identify and configure the applications listening port when connected to the gluetun network.",
@@ -137,7 +137,7 @@
       "default": null
     },
     {
-      "name": "Variable: GLUETUN_CONTROL_SERVER_PORT",
+      "name": "GLUETUN_CONTROL_SERVER_PORT",
       "key": "GLUETUN_CONTROL_SERVER_PORT",
       "value": "8000",
       "description": "Specify the port for the gluetun HTTP Control Server.",
@@ -147,7 +147,7 @@
       "default": null
     },
     {
-      "name": "Variable: GLUETUN_CONTROL_SERVER_USERNAME",
+      "name": "GLUETUN_CONTROL_SERVER_USERNAME",
       "key": "GLUETUN_CONTROL_SERVER_USERNAME",
       "value": "controlserver",
       "description": "Specify the username for the gluetun HTTP Control Server",
@@ -157,7 +157,7 @@
       "default": null
     },
     {
-      "name": "Variable: GLUETUN_CONTROL_SERVER_PASSWORD",
+      "name": "GLUETUN_CONTROL_SERVER_PASSWORD",
       "key": "GLUETUN_CONTROL_SERVER_PASSWORD",
       "value": "controlserver",
       "description": "Specify the password for the gluetun HTTP Control Server",
@@ -167,7 +167,7 @@
       "default": null
     },
     {
-      "name": "Variable: WEBUI_PORT",
+      "name": "WEBUI_PORT",
       "key": "WEBUI_PORT",
       "value": "6080",
       "description": "Specify the port the application will listen on - IMPORTANT: If you change this value then you will also need to delete and re-create the port mapping to match.",
@@ -177,7 +177,7 @@
       "default": null
     },
     {
-      "name": "Variable: DEBUG",
+      "name": "DEBUG",
       "key": "DEBUG",
       "value": "no|yes",
       "description": "Specify whether you want to enable debug logging, useful when diagnosing gluetune related issues.",
@@ -187,7 +187,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_HEALTHCHECK",
+      "name": "ENABLE_HEALTHCHECK",
       "key": "ENABLE_HEALTHCHECK",
       "value": "yes|no",
       "description": "Enable or disable healthchecks.",
@@ -197,7 +197,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_COMMAND",
+      "name": "HEALTHCHECK_COMMAND",
       "key": "HEALTHCHECK_COMMAND",
       "value": null,
       "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
@@ -207,7 +207,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_ACTION",
+      "name": "HEALTHCHECK_ACTION",
       "key": "HEALTHCHECK_ACTION",
       "value": null,
       "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
@@ -217,7 +217,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_HOSTNAME",
+      "name": "HEALTHCHECK_HOSTNAME",
       "key": "HEALTHCHECK_HOSTNAME",
       "value": "google.com",
       "description": "The hostname used when performing HTTPS and DNS healthchecking.",
@@ -227,9 +227,9 @@
       "default": null
     },
     {
-      "name": "Variable: PUID",
+      "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "User ID for the running container",
       "required": true,
       "mask": false,
@@ -237,9 +237,9 @@
       "default": null
     },
     {
-      "name": "Variable: PGID",
+      "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Group ID for the running container",
       "required": true,
       "mask": false,
@@ -247,7 +247,7 @@
       "default": null
     },
     {
-      "name": "Variable: UMASK",
+      "name": "UMASK",
       "key": "UMASK",
       "value": "000",
       "description": "UMASK for the running container",

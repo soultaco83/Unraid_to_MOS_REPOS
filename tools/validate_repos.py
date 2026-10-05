@@ -16,6 +16,9 @@ this script validates that root layout. Checks performed:
   * icons are absolute http(s) URLs, because the Hub renders them remotely
   * upstream stub/example templates are not published
   * files carry no executable bits, which would dirty the git tree on reconversion
+  * no unRAID leftovers remain: host paths live under /mnt/user, PUID/PGID are
+    99/100 or unRAID only mounts/flags are still mounted (regenerate with
+    `convert_sources.py --mos-paths --mos-defaults`)
 
 Usage:
     python3 validate_repos.py [REPOS_ROOT]
@@ -28,10 +31,19 @@ from __future__ import annotations
 import glob
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from unraid_to_mos import MOS_CATEGORIES, PLACEHOLDER_MARKERS  # noqa: E402
+from convert_sources import (  # noqa: E402
+    APP_DATA_RE, UNRAID_ARRAY_PREFIX, UNRAID_ONLY_HOSTS, UNRAID_PATH_RE,
+    UNRAID_PREFIX, MOS_APPDATA_ROOT, MOS_ARRAY_ROOT, MOS_GID, MOS_UID,
+    identity_value,
+)
+
+# `--user 99:100`, `--user=099:100` - unRAID's user/group pair in flag form
+UNRAID_USER_RE = re.compile(r"--user(=|\s+)0*99:0*100(?!\d)")
 
 # Directories that are not part of the Hub payload (tools/ holds the scripts,
 # .git is the repository itself).
@@ -129,7 +141,64 @@ def check_root(root):
             else:
                 seen_names[key] = rel
 
+    problems.extend(check_mos_hygiene(root))
     return len(files), problems, warnings
+
+
+def summarize(label, findings, hint):
+    """Collapse per-template findings into one problem line with examples.
+
+    A repository converted without the MOS switches reports the same mistake in
+    hundreds of templates, so the result is aggregated instead of printed once
+    per file. `findings` maps a template file name to one example finding.
+    """
+    if not findings:
+        return []
+    shown = ", ".join(list(findings.values())[:3])
+    if len(findings) > 3:
+        shown += ", ..."
+    return ["%d template(s) still %s: %s (%s)" % (len(findings), label, shown, hint)]
+
+
+def check_mos_hygiene(root):
+    """Return problems about unRAID leftovers in a MOS Hub repository.
+
+    convert_sources.py --mos-paths --mos-defaults rewrites the converted
+    templates onto the MOS conventions. Anything found here means the repository
+    was converted without those switches, or a template was edited by hand.
+    """
+    stale_paths, stale_identity, stale_flags = {}, {}, {}
+    for path in sorted(glob.glob(os.path.join(root, "docker", "*.json"))):
+        rel = os.path.basename(path)
+        with open(path, encoding="utf-8") as fh:
+            tpl = json.load(fh)
+        for row in tpl.get("paths") or []:
+            host = (row.get("host") or "").strip()
+            if host.startswith((UNRAID_PREFIX, UNRAID_ARRAY_PREFIX)):
+                stale_paths.setdefault(rel, "%s: %s" % (rel, host))
+            elif host.startswith(UNRAID_ONLY_HOSTS):
+                stale_paths.setdefault(rel, "%s: %s (unRAID only mount)" % (rel, host))
+            elif APP_DATA_RE.match(host) and not host.startswith(MOS_APPDATA_ROOT):
+                stale_paths.setdefault(
+                    rel, "%s: %s (appdata outside %s)" % (rel, host, MOS_APPDATA_ROOT))
+        for field in ("extra_parameters", "post_parameters", "description"):
+            match = UNRAID_PATH_RE.search(str(tpl.get(field) or ""))
+            if match:
+                stale_paths.setdefault(rel, "%s: %s... in %s" % (rel, match.group(0), field))
+        for row in tpl.get("variables") or []:
+            key = (row.get("key") or "").upper()
+            expected = identity_value(key)
+            if expected and str(row.get("value") or "") != expected:
+                stale_identity.setdefault(rel, "%s: %s=%s" % (rel, key, row.get("value")))
+        extra = tpl.get("extra_parameters") or ""
+        if UNRAID_USER_RE.search(extra):
+            stale_flags.setdefault(rel, "%s: %s" % (rel, extra))
+    hint = "regenerate with `convert_sources.py --mos-paths --mos-defaults`"
+    return (summarize("reference unRAID paths (expected %s/... and %s/...)"
+                      % (MOS_APPDATA_ROOT, MOS_ARRAY_ROOT), stale_paths, hint)
+            + summarize("use unRAID uid/gid defaults (expected %s/%s)" % (MOS_UID, MOS_GID),
+                        stale_identity, hint)
+            + summarize("pass unRAID's `--user 99:100`", stale_flags, hint))
 
 
 def main(argv):

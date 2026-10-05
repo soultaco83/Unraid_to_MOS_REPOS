@@ -33,7 +33,7 @@
     },
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/gift_manager/data",
+      "host": "/mnt/cache/appdata/gift_manager/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to the data folder",

@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/mkfd/feeds",
+      "host": "/mnt/cache/appdata/mkfd/feeds",
       "container": "/public/feeds",
       "mode": "rw",
       "description": "Data path",

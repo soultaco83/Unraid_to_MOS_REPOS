@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "VM Images Location",
-      "host": "/mnt/user/domains/",
+      "host": "/mnt/Array/domains/",
       "container": "/domains",
       "mode": "rw",
       "description": "Please choose the storage location for your VM images on the server. The default path is set to /mnt/user/domains/",
@@ -32,22 +32,12 @@
     },
     {
       "name": "Appdata Location:",
-      "host": "/mnt/user/appdata/HomeAssistant_inabox",
+      "host": "/mnt/cache/appdata/HomeAssistant_inabox",
       "container": "/config",
       "mode": "rw",
       "description": "Please choose the storage location for your appdata  The default path is set to /mnt/user/appdata/HomeAssistant_inabox/",
       "required": true,
       "display": "always",
-      "default": null
-    },
-    {
-      "name": "unraid_vm_icons",
-      "host": "/usr/local/emhttp/plugins/dynamix.vm.manager/templates/images",
-      "container": "/icons",
-      "mode": "rw",
-      "description": "",
-      "required": false,
-      "display": "advanced",
       "default": null
     },
     {
@@ -61,31 +51,11 @@
       "default": null
     },
     {
-      "name": "unraid vm icons host locaction",
-      "host": "/usr/local/emhttp/plugins/dynamix.vm.manager/templates/images/",
-      "container": "/unraid_vm_icons",
-      "mode": "rw",
-      "description": "Location of where Unraid stores VM icons, aloowing container to use custom Home Assistant icon",
-      "required": true,
-      "display": "advanced",
-      "default": null
-    },
-    {
       "name": "NVRAM location",
       "host": "/etc/libvirt/qemu/nvram/",
       "container": "/etc/libvirt/qemu/nvram/",
       "mode": "rw",
       "description": "NVRAM location on host. Used so container can create a unique nvram file for the Home Assistant VM",
-      "required": true,
-      "display": "advanced",
-      "default": null
-    },
-    {
-      "name": "UNRIAD DOMAIN CONFIG",
-      "host": "/boot/config/domain.cfg",
-      "container": "/vm/domain.cfg",
-      "mode": "rw",
-      "description": "UNRAID domain.cfg path. Used to find VM Default network source",
       "required": true,
       "display": "advanced",
       "default": null
@@ -111,39 +81,9 @@
       "default": null
     },
     {
-      "name": "UNRAID /usr/local/emhttp/webGui/scripts/",
-      "host": "/usr/local/emhttp/webGui/scripts/",
-      "container": "/host/usr/local/emhttp/webGui/scripts/",
-      "mode": "rw",
-      "description": "Used so container can use unraid notification system during Home Assistant VM creation process",
-      "required": true,
-      "display": "advanced",
-      "default": null
-    },
-    {
-      "name": "UNRAID /usr/local/emhttp/webGui/include/",
-      "host": "/usr/local/emhttp/webGui/include/",
-      "container": "/host/usr/local/emhttp/webGui/include/",
-      "mode": "rw",
-      "description": "Used so container can use unraid notification system during Home Assistant VM creation process",
-      "required": true,
-      "display": "advanced",
-      "default": null
-    },
-    {
       "name": "UNRAID /tmp/notifications",
       "host": "/tmp/notifications",
       "container": "/host/tmp/notifications",
-      "mode": "rw",
-      "description": "Used so container can use unraid notification system during Home Assistant VM creation process",
-      "required": true,
-      "display": "advanced",
-      "default": null
-    },
-    {
-      "name": "UNRAID /boot/config/plugins/dynamix/",
-      "host": "/boot/config/plugins/dynamix/",
-      "container": "/host/boot/config/plugins/dynamix/",
       "mode": "rw",
       "description": "Used so container can use unraid notification system during Home Assistant VM creation process",
       "required": true,

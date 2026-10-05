@@ -34,7 +34,7 @@
     },
     {
       "name": "Working Directory",
-      "host": "/mnt/user/appdata/mympd/working",
+      "host": "/mnt/cache/appdata/mympd/working",
       "container": "/var/lib/mympd",
       "mode": "rw",
       "description": "Path to the working directory",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Cache Directory",
-      "host": "/mnt/user/appdata/mympd/cache",
+      "host": "/mnt/cache/appdata/mympd/cache",
       "container": "/var/cache/mympd",
       "mode": "rw",
       "description": "Path to the cache directory",

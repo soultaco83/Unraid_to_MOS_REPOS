@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/bitplay/config",
+      "host": "/mnt/cache/appdata/bitplay/config",
       "container": "/app/config",
       "mode": "rw",
       "description": "Path to config files",

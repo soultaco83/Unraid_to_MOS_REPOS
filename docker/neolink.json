@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "neolink_config",
-      "host": "/mnt/user/appdata/neolink/config.toml",
+      "host": "/mnt/cache/appdata/neolink/config.toml",
       "container": "/etc/neolink.toml",
       "mode": "rw",
       "description": "See the Neolink Github for camera setup examples required in this file.",

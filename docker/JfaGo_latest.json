@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/Jfa-Go/",
+      "host": "/mnt/cache/appdata/Jfa-Go/",
       "container": "/data",
       "mode": "rw",
       "description": "Path to wherever you want to store the config file and other data.",

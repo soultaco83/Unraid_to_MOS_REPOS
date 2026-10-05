@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/proxmox-datacenter-manager/config",
+      "host": "/mnt/cache/appdata/proxmox-datacenter-manager/config",
       "container": "/etc/proxmox-datacenter-manager",
       "mode": "rw",
       "description": "",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Data",
-      "host": "/mnt/user/appdata/proxmox-datacenter-manager/data",
+      "host": "/mnt/cache/appdata/proxmox-datacenter-manager/data",
       "container": "/var/lib/proxmox-datacenter-manager",
       "mode": "rw",
       "description": "",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Logs",
-      "host": "/mnt/user/appdata/proxmox-datacenter-manager/logs",
+      "host": "/mnt/cache/appdata/proxmox-datacenter-manager/logs",
       "container": "/var/log/proxmox-datacenter-manager",
       "mode": "rw",
       "description": "",
@@ -52,7 +52,7 @@
     },
     {
       "name": "Root",
-      "host": "/mnt/user/appdata/proxmox-datacenter-manager/root",
+      "host": "/mnt/cache/appdata/proxmox-datacenter-manager/root",
       "container": "/root",
       "mode": "rw",
       "description": "Root home (optional, for shell history etc)",

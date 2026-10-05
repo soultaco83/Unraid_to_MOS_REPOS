@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Uploads Path",
-      "host": "/mnt/user/appdata/stepifi/uploads",
+      "host": "/mnt/cache/appdata/stepifi/uploads",
       "container": "/app/uploads",
       "mode": "rw",
       "description": "Temporary storage for uploaded files",
@@ -31,7 +31,7 @@
     },
     {
       "name": "Converted Path",
-      "host": "/mnt/user/appdata/stepifi/converted",
+      "host": "/mnt/cache/appdata/stepifi/converted",
       "container": "/app/converted",
       "mode": "rw",
       "description": "Storage for converted files (24h retention)",

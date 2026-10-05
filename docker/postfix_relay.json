@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "OpenDKIM Key Storage Path",
-      "host": "/mnt/user/appdata/postfix_relay/opendkim_keys",
+      "host": "/mnt/cache/appdata/postfix_relay/opendkim_keys",
       "container": "/etc/opendkim/keys",
       "mode": "rw",
       "description": "Path to store OpenDKIM keys",

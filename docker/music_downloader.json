@@ -34,7 +34,7 @@
     },
     {
       "name": "Temp Downloads Path",
-      "host": "/mnt/user/appdata/music-downloader/downloads",
+      "host": "/mnt/cache/appdata/music-downloader/downloads",
       "container": "/app/downloads",
       "mode": "rw",
       "description": "Path to temporary downloads folder",
@@ -44,7 +44,7 @@
     },
     {
       "name": "YouTube Cookies Path",
-      "host": "/mnt/user/appdata/music-downloader/youtube_cookies.txt",
+      "host": "/mnt/cache/appdata/music-downloader/youtube_cookies.txt",
       "container": "/app/youtube_cookies.txt",
       "mode": "ro",
       "description": "Path to your YouTube cookies file",

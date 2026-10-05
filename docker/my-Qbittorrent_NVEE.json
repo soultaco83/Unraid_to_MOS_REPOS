@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "容器外部 QB 配置 存放位置",
-      "host": "/mnt/user/appdata/Qbittorrent_NVEE/config",
+      "host": "/mnt/cache/appdata/Qbittorrent_NVEE/config",
       "container": "/data/config",
       "mode": "rw",
       "description": "路径映射_容器路径: /data/config —— 容器内部 QB 配置存放位置",
@@ -30,7 +30,7 @@
     },
     {
       "name": "容器外部 QB 种子及相关校验文件 存放位置",
-      "host": "/mnt/user/appdata/Qbittorrent_NVEE/data",
+      "host": "/mnt/cache/appdata/Qbittorrent_NVEE/data",
       "container": "/data/data",
       "mode": "rw",
       "description": "路径映射_容器路径: /data/data —— 容器内部 QB 种子及相关校验文件存放位置",
@@ -50,7 +50,7 @@
     },
     {
       "name": "容器外部 QB 第三方主题 存放位置",
-      "host": "/mnt/user/appdata/Qbittorrent_NVEE/webui",
+      "host": "/mnt/cache/appdata/Qbittorrent_NVEE/webui",
       "container": "/data/webui",
       "mode": "rw",
       "description": "路径映射_容器路径: /data/webui —— 容器内部 QB 第三方主题 存放位置",
@@ -60,7 +60,7 @@
     },
     {
       "name": "容器外部 监视种子位置",
-      "host": "/mnt/user/appdata/Qbittorrent_NVEE/watch",
+      "host": "/mnt/cache/appdata/Qbittorrent_NVEE/watch",
       "container": "/data/watch",
       "mode": "rw",
       "description": "路径映射_容器路径: /data/watch —— 容器内部 监视种子位置",
@@ -138,7 +138,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "0",
+      "value": "500",
       "description": "变量: PUID",
       "required": true,
       "mask": false,
@@ -148,7 +148,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "0",
+      "value": "500",
       "description": "变量: PGID",
       "required": true,
       "mask": false,

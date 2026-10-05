@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/maintainerr-overlay",
+      "host": "/mnt/cache/appdata/maintainerr-overlay",
       "container": "/maintainerr-overlay",
       "mode": "rw",
       "description": "Path to the maintainerr overlay data (images, fonts, config files)",

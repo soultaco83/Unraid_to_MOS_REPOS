@@ -21,8 +21,8 @@
   "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
   "paths": [
     {
-      "name": "Path: /config",
-      "host": "/mnt/user/appdata/minidlna",
+      "name": "/config",
+      "host": "/mnt/cache/appdata/minidlna",
       "container": "/config",
       "mode": "rw",
       "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
@@ -31,8 +31,8 @@
       "default": null
     },
     {
-      "name": "Path: /media",
-      "host": "/mnt/user",
+      "name": "/media",
+      "host": "/mnt/Array",
       "container": "/media",
       "mode": "rw",
       "description": "This is the container path to your media files, e.g. movies, tv, music, pictures etc.",
@@ -44,7 +44,7 @@
   "ports": [],
   "variables": [
     {
-      "name": "Variable: SCHEDULE_SCAN_DAYS",
+      "name": "SCHEDULE_SCAN_DAYS",
       "key": "SCHEDULE_SCAN_DAYS",
       "value": "06",
       "description": "Specify the day of the week to scan media, for example to scan on Monday set the value to '00'.",
@@ -54,7 +54,7 @@
       "default": null
     },
     {
-      "name": "Variable: SCHEDULE_SCAN_HOURS",
+      "name": "SCHEDULE_SCAN_HOURS",
       "key": "SCHEDULE_SCAN_HOURS",
       "value": "02",
       "description": "Specify the hour ofthe da to scan media, for example to scan at midnight set the value to '00'.",
@@ -64,7 +64,7 @@
       "default": null
     },
     {
-      "name": "Variable: SCAN_ON_BOOT",
+      "name": "SCAN_ON_BOOT",
       "key": "SCAN_ON_BOOT",
       "value": "yes|no",
       "description": "Specify whether to scan media on startup of the container.",
@@ -74,7 +74,7 @@
       "default": null
     },
     {
-      "name": "Variable: ENABLE_HEALTHCHECK",
+      "name": "ENABLE_HEALTHCHECK",
       "key": "ENABLE_HEALTHCHECK",
       "value": "yes|no",
       "description": "Enable or disable healthchecks.",
@@ -84,7 +84,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_COMMAND",
+      "name": "HEALTHCHECK_COMMAND",
       "key": "HEALTHCHECK_COMMAND",
       "value": null,
       "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
@@ -94,7 +94,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_ACTION",
+      "name": "HEALTHCHECK_ACTION",
       "key": "HEALTHCHECK_ACTION",
       "value": null,
       "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
@@ -104,7 +104,7 @@
       "default": null
     },
     {
-      "name": "Variable: HEALTHCHECK_HOSTNAME",
+      "name": "HEALTHCHECK_HOSTNAME",
       "key": "HEALTHCHECK_HOSTNAME",
       "value": "google.com",
       "description": "The hostname used when performing HTTPS and DNS healthchecking.",
@@ -114,9 +114,9 @@
       "default": null
     },
     {
-      "name": "Variable: PUID",
+      "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "User ID for the running container",
       "required": true,
       "mask": false,
@@ -124,9 +124,9 @@
       "default": null
     },
     {
-      "name": "Variable: PGID",
+      "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Group ID for the running container",
       "required": true,
       "mask": false,
@@ -134,7 +134,7 @@
       "default": null
     },
     {
-      "name": "Variable: UMASK",
+      "name": "UMASK",
       "key": "UMASK",
       "value": "000",
       "description": "UMASK for the running container",

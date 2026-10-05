@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Parts Storage Path",
-      "host": "/mnt/user/appdata/brick_tracker/parts",
+      "host": "/mnt/cache/appdata/brick_tracker/parts",
       "container": "/app/static/parts",
       "mode": "rw",
       "description": "Path to store part images",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Instructions Storage Path",
-      "host": "/mnt/user/appdata/brick_tracker/instructions",
+      "host": "/mnt/cache/appdata/brick_tracker/instructions",
       "container": "/app/static/instructions",
       "mode": "rw",
       "description": "Path to store instruction images",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Sets Storage Path",
-      "host": "/mnt/user/appdata/brick_tracker/sets",
+      "host": "/mnt/cache/appdata/brick_tracker/sets",
       "container": "/app/static/sets",
       "mode": "rw",
       "description": "Path to store set images",
@@ -53,7 +53,7 @@
     },
     {
       "name": "Minifigures Storage Path",
-      "host": "/mnt/user/appdata/brick_tracker/minifigs",
+      "host": "/mnt/cache/appdata/brick_tracker/minifigs",
       "container": "/app/static/minifigures",
       "mode": "rw",
       "description": "Path to store minifigure images",
@@ -63,7 +63,7 @@
     },
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/brick_tracker/app.db",
+      "host": "/mnt/cache/appdata/brick_tracker/app.db",
       "container": "data/app.db",
       "mode": "rw",
       "description": "Path to the SQLite database. Run `touch app.db` BEFORE running container for the first time.",
@@ -73,7 +73,7 @@
     },
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/brick_tracker/data",
+      "host": "/mnt/cache/appdata/brick_tracker/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to store app data",

@@ -33,7 +33,7 @@
     },
     {
       "name": "Config Directory",
-      "host": "/mnt/user/appdata/glance/config",
+      "host": "/mnt/cache/appdata/glance/config",
       "container": "/app/config/",
       "mode": "rw",
       "description": "Configuration Directory",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Assets Directory",
-      "host": "/mnt/user/appdata/glance/assets",
+      "host": "/mnt/cache/appdata/glance/assets",
       "container": "/app/assets",
       "mode": "rw",
       "description": "",

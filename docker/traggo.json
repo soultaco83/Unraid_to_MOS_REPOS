@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/traggo",
+      "host": "/mnt/cache/appdata/traggo",
       "container": "/opt/traggo/data",
       "mode": "rw",
       "description": "",

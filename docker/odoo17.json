@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Addons Location",
-      "host": "/mnt/user/appdata/odoo/extra-addons",
+      "host": "/mnt/cache/appdata/odoo/extra-addons",
       "container": "/mnt/extra-addons",
       "mode": "rw",
       "description": "",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Config Location",
-      "host": "/mnt/user/appdata/odoo/config",
+      "host": "/mnt/cache/appdata/odoo/config",
       "container": "/etc/odoo",
       "mode": "rw",
       "description": "",

@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/onvif2mqtt/config",
+      "host": "/mnt/cache/appdata/onvif2mqtt/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to the configuration folder",

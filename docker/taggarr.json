@@ -34,7 +34,7 @@
     },
     {
       "name": "Logs Path",
-      "host": "/mnt/user/appdata/taggarr/logs",
+      "host": "/mnt/cache/appdata/taggarr/logs",
       "container": "/logs",
       "mode": "rw",
       "description": "Path to store logs",

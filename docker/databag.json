@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/databag",
+      "host": "/mnt/cache/appdata/databag",
       "container": "/var/lib/databag",
       "mode": "rw",
       "description": "",

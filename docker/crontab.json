@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/crontab/config",
+      "host": "/mnt/cache/appdata/crontab/config",
       "container": "/opt/crontab",
       "mode": "rw",
       "description": "Path to config files",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Logs Path",
-      "host": "/mnt/user/appdata/crontab/logs",
+      "host": "/mnt/cache/appdata/crontab/logs",
       "container": "/var/log/crontab",
       "mode": "rw",
       "description": "Path to logs",

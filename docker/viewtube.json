@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Data",
-      "host": "/mnt/user/appdata/viewtube",
+      "host": "/mnt/cache/appdata/viewtube",
       "container": "/data",
       "mode": "rw",
       "description": "",

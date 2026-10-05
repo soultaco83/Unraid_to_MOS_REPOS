@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Temp Path",
-      "host": "/mnt/user/appdata/auto-m4b/temp",
+      "host": "/mnt/cache/appdata/auto-m4b/temp",
       "container": "/temp",
       "mode": "rw",
       "description": "Path to temporary files",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/auto-m4b/config",
+      "host": "/mnt/cache/appdata/auto-m4b/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to config files",
@@ -67,7 +67,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -77,7 +77,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

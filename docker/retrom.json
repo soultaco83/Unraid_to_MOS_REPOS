@@ -34,7 +34,7 @@
     },
     {
       "name": "Config data",
-      "host": "/mnt/user/appdata/retrom/config",
+      "host": "/mnt/cache/appdata/retrom/config",
       "container": "/config",
       "mode": "rw",
       "description": "Config data for application",

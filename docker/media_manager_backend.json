@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/media_manager/config.toml",
+      "host": "/mnt/cache/appdata/media_manager/config.toml",
       "container": "/app/config.toml",
       "mode": "rw",
       "description": "Path to the config file",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/media_manager/data",
+      "host": "/mnt/cache/appdata/media_manager/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the data directory",

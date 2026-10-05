@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Keys Path",
-      "host": "/mnt/user/appdata/knot/keys",
+      "host": "/mnt/cache/appdata/knot/keys",
       "container": "/etc/ssh/keys",
       "mode": "rw",
       "description": "Path to server keys",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Repositories Path",
-      "host": "/mnt/user/appdata/knot/repositories",
+      "host": "/mnt/cache/appdata/knot/repositories",
       "container": "/home/git/repositories",
       "mode": "rw",
       "description": "Path to repositories",
@@ -43,7 +43,7 @@
     },
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/knot/data",
+      "host": "/mnt/cache/appdata/knot/data",
       "container": "/app",
       "mode": "rw",
       "description": "Path to app data",

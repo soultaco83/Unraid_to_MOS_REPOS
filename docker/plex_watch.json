@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/plex_watch/data",
+      "host": "/mnt/cache/appdata/plex_watch/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to app data",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Logs Directory",
-      "host": "/mnt/user/appdata/plex_watch/logs",
+      "host": "/mnt/cache/appdata/plex_watch/logs",
       "container": "/app/logs",
       "mode": "rw",
       "description": "Path to logs directory",

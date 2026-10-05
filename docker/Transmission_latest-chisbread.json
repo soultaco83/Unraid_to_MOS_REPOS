@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/Transmission-CB/config",
+      "host": "/mnt/cache/appdata/Transmission-CB/config",
       "container": "/config",
       "mode": "rw",
       "description": "Config Path",
@@ -40,7 +40,7 @@
     },
     {
       "name": "Watch Path",
-      "host": "/mnt/user/appdata/Transmission-CB/watch",
+      "host": "/mnt/cache/appdata/Transmission-CB/watch",
       "container": "/watch",
       "mode": "rw",
       "description": "Watch Path",
@@ -50,7 +50,7 @@
     },
     {
       "name": "Theme Path",
-      "host": "/mnt/user/appdata/Transmission-CB/transmission-web-control",
+      "host": "/mnt/cache/appdata/Transmission-CB/transmission-web-control",
       "container": "/transmission-web-control",
       "mode": "rw",
       "description": "Theme Path",
@@ -98,7 +98,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "0",
+      "value": "500",
       "description": "PUID",
       "required": false,
       "mask": false,
@@ -108,7 +108,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "0",
+      "value": "500",
       "description": "PGID",
       "required": false,
       "mask": false,

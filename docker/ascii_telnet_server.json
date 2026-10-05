@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Video File",
-      "host": "/mnt/user/appdata/ascii_telnet/video.txt",
+      "host": "/mnt/cache/appdata/ascii_telnet/video.txt",
       "container": "/video.txt",
       "mode": "rw",
       "description": "Path to video file to stream",

@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/commafeed/data",
+      "host": "/mnt/cache/appdata/commafeed/data",
       "container": "/commafeed/data",
       "mode": "rw",
       "description": "Path to the data folder",

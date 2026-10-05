@@ -54,7 +54,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/overr-syncerr/config",
+      "host": "/mnt/cache/appdata/overr-syncerr/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to the config directory.",

@@ -30,7 +30,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/SwingMusic",
+      "host": "/mnt/cache/appdata/SwingMusic",
       "container": "/config",
       "mode": "rw",
       "description": "Config Path",

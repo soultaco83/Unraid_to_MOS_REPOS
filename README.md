@@ -1,8 +1,8 @@
 # Unraid to MOS - template repository
 
-A single flat [MOS Hub](https://github.com/ich777/mos-templates) repository
-holding docker templates converted from **14** unRAID Community Applications
-template repositories: **1026 templates** from 14 upstream authors.
+A single flat [MOS Hub](https://github.com/mos-nas/mos-docs/blob/main/docs/MOS-Hub/Creating-Your-Own-MOS-Hub-Repository.md) repository
+holding docker templates converted from **13** unRAID Community Applications
+template repositories: **880 templates** from 13 upstream authors.
 
 `maintainer.json` and `docker/<App>.json` sit at the repository root, which is
 the only layout the MOS Hub indexes. Author provenance is preserved in every
@@ -43,7 +43,7 @@ from that repository's `maintainer.json` (Hub source `src/services/
 hub.service.js`, `_processDockerTemplate()`; unlike plugin templates, docker
 templates have no per-template `author` fallback). Because the Hub only reads
 the repository root, one flat repository cannot show per-author labels: all
-1026 templates below carry the hosting account as maintainer.
+880 templates below carry the hosting account as maintainer.
 Showing the original author as the label would need one repository per author,
 added to the Hub as several repository URLs.
 
@@ -55,7 +55,7 @@ through `project`, `support` and `donate`, in the template JSON through
 
 ```
 maintainer.json      repository metadata (maintainer: Soultaco83)
-docker/<App>.json    one template per container (1026 total)
+docker/<App>.json    one template per container (880 total)
 licenses/            upstream licence text, where the author published one
 tools/               conversion + publish scripts (not part of the Hub payload)
 ```
@@ -63,6 +63,29 @@ tools/               conversion + publish scripts (not part of the Hub payload)
 Only Docker (`<Container>`) templates are converted; unRAID plugins and
 multi-container stacks are excluded. Icons are referenced from the upstream
 repositories, so they always match what the author currently ships.
+
+## MOS compatibility
+
+unRAID specifics were replaced by the MOS equivalents:
+
+* host paths: `/mnt/user/appdata/...` -> `/mnt/cache/appdata/...`, every other
+  `/mnt/user/...` share -> `/mnt/Array/...` (MOS keeps data directly in a
+  pool instead of aggregating shares below `/mnt/user`), same for
+  `/mnt/user/...` in extra parameters and descriptions; folders that
+  exist on unRAID only (dynamix webUI, unRAID VM manager) dropped.
+  Container side mount targets stay untouched - they are what the
+  application expects inside the container, not a host path
+* identity: `PUID`/`PGID` and every `UID`/`GID` spelling
+  (`UID`, `GID`, `USER_ID`, `GROUP_ID`, `<APP>_UID`, ...) default to
+  `500`/`500` instead of unRAID's 99/100, `--user 99:100` became
+  `--user 500:500`, dynamix label prefixes (`Variable: `, `Path: `, ...)
+  removed
+
+Icons, ports, variables and `br0` network modes were kept as they are: MOS
+supports them (`br0` is the bridge used by VMs and containers). The paths
+follow the pool names of the host that generated this repository
+(`/mnt/cache/appdata`, `/mnt/Array`) - re-run the conversion with
+`--appdata-root` / `--array-root` for differently named pools.
 
 ## Sources
 
@@ -74,7 +97,6 @@ repositories, so they always match what the author currently ships.
 | `eurotimmy` | Eurotimmy | 8 | [Eurotimmy/unraid-templates](https://github.com/Eurotimmy/unraid-templates) | not published |
 | `hotio` | hotio | 27 | [hotio/unraid-templates](https://github.com/hotio/unraid-templates) | [kept](./licenses/hotio.txt) |
 | `ibracorp` | IBRACORP | 55 | [ibracorp/unraid-templates](https://github.com/ibracorp/unraid-templates) | [kept](./licenses/ibracorp.txt) |
-| `ich777` | ich777 | 146 | [ich777/docker-templates](https://github.com/ich777/docker-templates) | not published |
 | `nasutils` | NasUtils | 8 | [NasUtils/unraid-docker-templates](https://github.com/NasUtils/unraid-docker-templates) | [kept](./licenses/nasutils.txt) |
 | `nwithan8` | nwithan8 | 544 | [nwithan8/unraid_templates](https://github.com/nwithan8/unraid_templates) | not published |
 | `p3terx` | P3TERX | 2 | [P3TERX/unraid-docker-templates](https://github.com/P3TERX/unraid-docker-templates) | [kept](./licenses/p3terx.txt) |
@@ -83,6 +105,11 @@ repositories, so they always match what the author currently ships.
 | `unraid` | Lime Technology | 1 | [unraid/docker-templates](https://github.com/unraid/docker-templates) | [kept](./licenses/unraid.txt) |
 | `xushier` | xushier | 70 | [xushier/Unraid-Docker-Templates](https://github.com/xushier/Unraid-Docker-Templates) | not published |
 
-Generated with `tools/convert_sources.py`, validated with
+`ich777` is not part of this collection: ich777 is a MOS founder and
+publishes an own MOS Hub repository
+([ich777/mos-templates](https://github.com/ich777/mos-templates)), so listing
+those templates here as well would duplicate every app in the Hub.
+
+Generated with `tools/convert_sources.py --mos-paths --mos-defaults`, validated with
 `tools/validate_repos.py`, committed with `tools/publish_repo.fish` and pushed
 with `tools/create_and_push.fish`.

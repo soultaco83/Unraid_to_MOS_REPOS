@@ -20,22 +20,12 @@
   "paths": [
     {
       "name": "Container appdata path.",
-      "host": "/mnt/user/appdata/vm_custom_icons",
+      "host": "/mnt/cache/appdata/vm_custom_icons",
       "container": "/config",
       "mode": "rw",
       "description": "",
       "required": true,
       "display": "always",
-      "default": null
-    },
-    {
-      "name": "Unraid VM icons path",
-      "host": "/usr/local/emhttp/plugins/dynamix.vm.manager/templates/images",
-      "container": "/unraid_vm_icons",
-      "mode": "rw",
-      "description": "Path on the Unraid server to where the VM icons are stored. Do not change this path.",
-      "required": true,
-      "display": "advanced-hide",
       "default": null
     }
   ],

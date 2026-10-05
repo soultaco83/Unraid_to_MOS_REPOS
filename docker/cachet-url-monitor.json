@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Appdata",
-      "host": "/mnt/user/appdata/cachet-url-monitor/",
+      "host": "/mnt/cache/appdata/cachet-url-monitor/",
       "container": "/usr/src/app/config/",
       "mode": "rw",
       "description": "Container Path: /usr/src/app/config/",

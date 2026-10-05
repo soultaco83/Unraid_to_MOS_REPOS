@@ -32,7 +32,7 @@
     },
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/crontab-ui",
+      "host": "/mnt/cache/appdata/crontab-ui",
       "container": "/crontab-ui/crontabs",
       "mode": "rw",
       "description": "Path to app data (logs and crontabs)",

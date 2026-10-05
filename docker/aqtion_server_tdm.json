@@ -33,7 +33,7 @@
     },
     {
       "name": "Maps Path",
-      "host": "/mnt/user/appdata/aqtion_server_tdm/maps",
+      "host": "/mnt/cache/appdata/aqtion_server_tdm/maps",
       "container": "/aq2server/action/maps",
       "mode": "rw",
       "description": "Path to maps",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Logs Path",
-      "host": "/mnt/user/appdata/aqtion_server_tdm/logs",
+      "host": "/mnt/cache/appdata/aqtion_server_tdm/logs",
       "container": "/aq2server/action/logs",
       "mode": "rw",
       "description": "Path to log files",
@@ -53,7 +53,7 @@
     },
     {
       "name": "Demos Path",
-      "host": "/mnt/user/appdata/aqtion_server_tdm/demos",
+      "host": "/mnt/cache/appdata/aqtion_server_tdm/demos",
       "container": "/aq2server/action/demos",
       "mode": "rw",
       "description": "Path to demos",
@@ -230,7 +230,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "099",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,
@@ -240,7 +240,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "",
       "required": true,
       "mask": false,

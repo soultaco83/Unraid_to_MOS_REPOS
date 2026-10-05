@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Data",
-      "host": "/mnt/user/appdata/dumbpad",
+      "host": "/mnt/cache/appdata/dumbpad",
       "container": "/app/data",
       "mode": "rw",
       "description": "Data Dir",

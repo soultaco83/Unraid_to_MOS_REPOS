@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Directory",
-      "host": "/mnt/user/appdata/bichon/data",
+      "host": "/mnt/cache/appdata/bichon/data",
       "container": "/data",
       "mode": "rw",
       "description": "",

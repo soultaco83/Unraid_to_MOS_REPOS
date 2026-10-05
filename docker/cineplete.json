@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/cineplete/config",
+      "host": "/mnt/cache/appdata/cineplete/config",
       "container": "/config",
       "mode": "rw",
       "description": "Stores config.yml — persists your settings across updates.",
@@ -31,7 +31,7 @@
     },
     {
       "name": "Data",
-      "host": "/mnt/user/appdata/cineplete/data",
+      "host": "/mnt/cache/appdata/cineplete/data",
       "container": "/data",
       "mode": "rw",
       "description": "Stores scan results, TMDB cache, wishlist, and logs.",

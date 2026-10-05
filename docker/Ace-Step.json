@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Model Checkpoints",
-      "host": "/mnt/user/appdata/ace-step/checkpoints",
+      "host": "/mnt/cache/appdata/ace-step/checkpoints",
       "container": "/app/checkpoints",
       "mode": "rw",
       "description": "AI model files (~10GB, auto-downloaded on first run)",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Generated Music",
-      "host": "/mnt/user/appdata/ace-step/output",
+      "host": "/mnt/cache/appdata/ace-step/output",
       "container": "/app/gradio_outputs",
       "mode": "rw",
       "description": "Generated music files output directory",

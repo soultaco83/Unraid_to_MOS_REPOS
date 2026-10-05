@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/cloudreve/data",
+      "host": "/mnt/cache/appdata/cloudreve/data",
       "container": "/cloudreve/data",
       "mode": "rw",
       "description": "Path to the data folder",

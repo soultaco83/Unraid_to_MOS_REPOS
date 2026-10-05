@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/immich_kiosk/config.yaml",
+      "host": "/mnt/cache/appdata/immich_kiosk/config.yaml",
       "container": "/config.yaml",
       "mode": "rw",
       "description": "Config file for application. Remove this if using environmental variables instead.",

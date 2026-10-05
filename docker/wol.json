@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/wol/config.yaml",
+      "host": "/mnt/cache/appdata/wol/config.yaml",
       "container": "/etc/wol/config.yaml",
       "mode": "rw",
       "description": "Path to the config file",

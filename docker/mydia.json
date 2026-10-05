@@ -54,7 +54,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/mydia/config",
+      "host": "/mnt/cache/appdata/mydia/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to the configuration folder",

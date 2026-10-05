@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config",
-      "host": "/mnt/user/appdata/starbase/config.json",
+      "host": "/mnt/cache/appdata/starbase/config.json",
       "container": "/app/src/config.json",
       "mode": "rw",
       "description": "",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Favicon",
-      "host": "/mnt/user/appdata/starbase/fav.ico",
+      "host": "/mnt/cache/appdata/starbase/fav.ico",
       "container": "/app/public/favicon.ico",
       "mode": "rw",
       "description": "",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Logo",
-      "host": "/mnt/user/appdata/starbase/logo.png",
+      "host": "/mnt/cache/appdata/starbase/logo.png",
       "container": "/app/public/logo.png",
       "mode": "rw",
       "description": "",
@@ -53,7 +53,7 @@
     },
     {
       "name": "Icons",
-      "host": "/mnt/user/appdata/starbase/icons",
+      "host": "/mnt/cache/appdata/starbase/icons",
       "container": "/app/public/icons",
       "mode": "rw",
       "description": "",

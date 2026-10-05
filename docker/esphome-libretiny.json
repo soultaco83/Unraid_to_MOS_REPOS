@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "Config Folder",
-      "host": "/mnt/user/appdata/esphome-lt",
+      "host": "/mnt/cache/appdata/esphome-lt",
       "container": "/config",
       "mode": "rw",
       "description": "Container Path: /config",

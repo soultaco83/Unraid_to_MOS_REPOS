@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/kong",
+      "host": "/mnt/cache/appdata/kong",
       "container": "/kong/declarative",
       "mode": "rw",
       "description": "Parent folder for the Kong configuration file",

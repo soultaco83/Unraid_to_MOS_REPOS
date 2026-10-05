@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Storage path",
-      "host": "/mnt/user/appdata/automatisch/storage",
+      "host": "/mnt/cache/appdata/automatisch/storage",
       "container": "/automatisch/storage",
       "mode": "rw",
       "description": "Data storage path for application",

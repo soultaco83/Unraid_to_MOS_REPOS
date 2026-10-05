@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/release_bot/data",
+      "host": "/mnt/cache/appdata/release_bot/data",
       "container": "/app/data",
       "mode": "rw",
       "description": "Path to data (SQLite) storage",

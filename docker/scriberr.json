@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Database Path",
-      "host": "/mnt/user/appdata/scriberr/db",
+      "host": "/mnt/cache/appdata/scriberr/db",
       "container": "/app/db",
       "mode": "rw",
       "description": "Database path",
@@ -35,7 +35,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/scriberr/config",
+      "host": "/mnt/cache/appdata/scriberr/config",
       "container": "/scriberr",
       "mode": "rw",
       "description": "Config path",
@@ -45,7 +45,7 @@
     },
     {
       "name": "Models Path",
-      "host": "/mnt/user/appdata/scriberr/models",
+      "host": "/mnt/cache/appdata/scriberr/models",
       "container": "/scriberr/models",
       "mode": "rw",
       "description": "Models path",

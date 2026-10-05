@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config Data",
-      "host": "/mnt/user/appdata/radicale/config",
+      "host": "/mnt/cache/appdata/radicale/config",
       "container": "/etc/radicale",
       "mode": "rw",
       "description": "Path to the config data",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Data Storage",
-      "host": "/mnt/user/appdata/radicale/data",
+      "host": "/mnt/cache/appdata/radicale/data",
       "container": "/var/lib/radicale",
       "mode": "rw",
       "description": "Path to the data storage",

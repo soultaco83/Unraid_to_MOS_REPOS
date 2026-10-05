@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/tinyauth/data",
+      "host": "/mnt/cache/appdata/tinyauth/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the data folder",

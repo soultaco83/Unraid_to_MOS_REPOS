@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/voidauth/config",
+      "host": "/mnt/cache/appdata/voidauth/config",
       "container": "/app/config",
       "mode": "rw",
       "description": "Path to data directory",

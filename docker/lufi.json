@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "File Storage",
-      "host": "/mnt/user/appdata/lufi/files",
+      "host": "/mnt/cache/appdata/lufi/files",
       "container": "/lufi/files",
       "mode": "rw",
       "description": "Path to file storage",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Config File",
-      "host": "/mnt/user/appdata/lufi/lufi.conf",
+      "host": "/mnt/cache/appdata/lufi/lufi.conf",
       "container": "/home/nonroot/lufi/lufi.conf",
       "mode": "rw",
       "description": "Path to the config file",

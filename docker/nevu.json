@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/nevu/data",
+      "host": "/mnt/cache/appdata/nevu/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to the data folder",

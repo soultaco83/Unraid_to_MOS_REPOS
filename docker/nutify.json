@@ -33,7 +33,7 @@
     },
     {
       "name": "Logs Directory",
-      "host": "/mnt/user/appdata/nutify/logs",
+      "host": "/mnt/cache/appdata/nutify/logs",
       "container": "/app/nutify/logs",
       "mode": "rw",
       "description": "Logs directory",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Instance directory",
-      "host": "/mnt/user/appdata/nutify/instance",
+      "host": "/mnt/cache/appdata/nutify/instance",
       "container": "/app/nutify/instance",
       "mode": "rw",
       "description": "",
@@ -53,7 +53,7 @@
     },
     {
       "name": "SSL directory",
-      "host": "/mnt/user/appdata/nutify/ssl",
+      "host": "/mnt/cache/appdata/nutify/ssl",
       "container": "/app/ssl",
       "mode": "rw",
       "description": "",
@@ -63,7 +63,7 @@
     },
     {
       "name": "Nut Config directory",
-      "host": "/mnt/user/appdata/nutify/etc/nut",
+      "host": "/mnt/cache/appdata/nutify/etc/nut",
       "container": "/etc/nut",
       "mode": "rw",
       "description": "",

@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "/mnt/user/appdata/gpodder2go/data",
+      "host": "/mnt/cache/appdata/gpodder2go/data",
       "container": "/data",
       "mode": "rw",
       "description": "Path to data storage",

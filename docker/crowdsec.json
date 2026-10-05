@@ -21,7 +21,7 @@
   "paths": [
     {
       "name": "data",
-      "host": "/mnt/user/appdata/crowdsec/data/",
+      "host": "/mnt/cache/appdata/crowdsec/data/",
       "container": "/var/lib/crowdsec/data",
       "mode": "rw",
       "description": "Container Path: /var/lib/crowdsec/data",
@@ -31,7 +31,7 @@
     },
     {
       "name": "appdata",
-      "host": "/mnt/user/appdata/crowdsec/",
+      "host": "/mnt/cache/appdata/crowdsec/",
       "container": "/etc/crowdsec",
       "mode": "rw",
       "description": "Container Path: /etc/crowdsec",
@@ -41,7 +41,7 @@
     },
     {
       "name": "auth logs to analyze",
-      "host": "/mnt/user/dmz/crowdsec/auth/",
+      "host": "/mnt/Array/dmz/crowdsec/auth/",
       "container": "/var/log/auth.log",
       "mode": "rw",
       "description": "Container Path: /var/log/auth.log",
@@ -51,7 +51,7 @@
     },
     {
       "name": "crowdsec logs to analyze",
-      "host": "/mnt/user/dmz/crowdsec/",
+      "host": "/mnt/Array/dmz/crowdsec/",
       "container": "/var/log/crowdsec",
       "mode": "rw",
       "description": "Container Path: /var/log/crowdsec",
@@ -108,7 +108,7 @@
     {
       "name": "PUID",
       "key": "PUID",
-      "value": "99",
+      "value": "500",
       "description": "Container Variable: PUID",
       "required": false,
       "mask": false,
@@ -118,7 +118,7 @@
     {
       "name": "PGID",
       "key": "PGID",
-      "value": "100",
+      "value": "500",
       "description": "Container Variable: PGID",
       "required": false,
       "mask": false,

@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "App Data",
-      "host": "/mnt/user/appdata/shipping_container_recognizer/stream",
+      "host": "/mnt/cache/appdata/shipping_container_recognizer/stream",
       "container": "/container-video-data",
       "mode": "rw",
       "description": "Path to app data",

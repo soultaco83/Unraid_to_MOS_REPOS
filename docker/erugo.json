@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Storage Path",
-      "host": "/mnt/user/appdata/erugo/storage",
+      "host": "/mnt/cache/appdata/erugo/storage",
       "container": "/var/www/html/storage",
       "mode": "rw",
       "description": "Path to storage files",

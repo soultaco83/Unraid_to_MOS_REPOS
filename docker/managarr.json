@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Config File Path",
-      "host": "/mnt/user/appdata/managarr/config",
+      "host": "/mnt/cache/appdata/managarr/config",
       "container": "/root/.config/managarr",
       "mode": "rw",
       "description": "Path to the folder containing the config file",

@@ -23,7 +23,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/starr_proxy/config",
+      "host": "/mnt/cache/appdata/starr_proxy/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to configuration files",

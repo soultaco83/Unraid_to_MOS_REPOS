@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Host Path 1",
-      "host": "/mnt/user/appdata/tasmobackupv1",
+      "host": "/mnt/cache/appdata/tasmobackupv1",
       "container": "/var/www/html/data",
       "mode": "rw",
       "description": "Container Path: /var/www/html/data",

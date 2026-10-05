@@ -22,7 +22,7 @@
   "paths": [
     {
       "name": "Appdata",
-      "host": "/mnt/user/appdata/Cachet/",
+      "host": "/mnt/cache/appdata/Cachet/",
       "container": "/var/www/cachet/",
       "mode": "rw",
       "description": "Container Path: /var/www/Cachet/",

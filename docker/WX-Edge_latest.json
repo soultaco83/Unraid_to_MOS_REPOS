@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Data",
-      "host": "/mnt/user/appdata/WX-Edge",
+      "host": "/mnt/cache/appdata/WX-Edge",
       "container": "/storage",
       "mode": "rw",
       "description": "",

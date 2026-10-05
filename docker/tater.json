@@ -25,7 +25,7 @@
   "paths": [
     {
       "name": "Agent Lab Config",
-      "host": "/mnt/user/appdata/tater/agent_lab",
+      "host": "/mnt/cache/appdata/tater/agent_lab",
       "container": "/app/agent_lab",
       "mode": "rw",
       "description": "Path to the Agent Lab config data",
@@ -35,7 +35,7 @@
     },
     {
       "name": "Runtime",
-      "host": "/mnt/user/appdata/tater/runtime",
+      "host": "/mnt/cache/appdata/tater/runtime",
       "container": "/app/.runtime",
       "mode": "rw",
       "description": "Path to the runtime data",

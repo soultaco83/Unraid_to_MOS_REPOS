@@ -34,7 +34,7 @@
     },
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/sosse/config",
+      "host": "/mnt/cache/appdata/sosse/config",
       "container": "/etc/sosse",
       "mode": "rw",
       "description": "Path to store the configuration",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Logs Path",
-      "host": "/mnt/user/appdata/sosse/logs",
+      "host": "/mnt/cache/appdata/sosse/logs",
       "container": "/var/log/sosse",
       "mode": "rw",
       "description": "Path to store the logs",

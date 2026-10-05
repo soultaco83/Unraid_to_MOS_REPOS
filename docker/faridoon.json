@@ -24,7 +24,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/user/appdata/faridoon/config",
+      "host": "/mnt/cache/appdata/faridoon/config",
       "container": "/config",
       "mode": "rw",
       "description": "Path to store configuration files",
