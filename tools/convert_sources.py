@@ -96,9 +96,13 @@ def find_license(src):
 
 def rewrite_paths(obj):
     """Map unRAID host paths (/mnt/user/...) onto the MOS pool layout."""
+    bare = UNRAID_PREFIX.rstrip("/")
+    target = MOS_PREFIX.rstrip("/")
     for row in obj.get("paths") or []:
         host = row.get("host") or ""
-        if host.startswith(UNRAID_PREFIX):
+        if host == bare:
+            row["host"] = target
+        elif host.startswith(UNRAID_PREFIX):
             row["host"] = MOS_PREFIX + host[len(UNRAID_PREFIX):]
     return obj
 
