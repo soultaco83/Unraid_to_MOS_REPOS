@@ -107,13 +107,16 @@ UNRAID_ARRAY_PREFIX = "/mnt/user0/"
 MOS_APPDATA_ROOT = "/mnt/cache/appdata"
 MOS_ARRAY_ROOT = "/mnt/Array"
 
-# Host folders that exist on unRAID only: the dynamix webUI, its plugin
-# configuration and the unRAID VM manager. MOS ships an own UI and VM manager, so
-# these mounts have no counterpart and are dropped instead of rewritten.
+# Host folders and files that exist on unRAID only: the dynamix webUI and its
+# state/plugin configuration, the unRAID VM manager and the unRAID version file.
+# MOS ships an own UI and VM manager, so these mounts have no counterpart and are
+# dropped instead of rewritten.
 UNRAID_ONLY_HOSTS = (
     "/usr/local/emhttp",
+    "/var/local/emhttp",
     "/boot/config/plugins/dynamix",
     "/boot/config/domain.cfg",
+    "/etc/unraid-version",
 )
 
 # MOS runs containers as its local user 500; unRAID templates ship 99/100. The
@@ -436,9 +439,10 @@ def write_readme(out_root, report, maintainer, mos_paths=False, mos_defaults=Fal
                 "  `/mnt/user/...` share -> `%s/...` (MOS keeps data directly in a" % array_root,
                 "  pool instead of aggregating shares below `/mnt/user`), same for",
                 "  `/mnt/user/...` in extra parameters and descriptions; folders that",
-                "  exist on unRAID only (dynamix webUI, unRAID VM manager) dropped.",
-                "  Container side mount targets stay untouched - they are what the",
-                "  application expects inside the container, not a host path",
+                "  exist on unRAID only (dynamix webUI, unRAID VM manager,",
+                "  `/etc/unraid-version`) dropped. Container side mount targets stay",
+                "  untouched - they are what the application expects inside the",
+                "  container, not a host path",
             ]
         if mos_defaults:
             lines += [

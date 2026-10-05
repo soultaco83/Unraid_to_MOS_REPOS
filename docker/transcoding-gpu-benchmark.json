@@ -70,16 +70,6 @@
       "default": null
     },
     {
-      "name": "Unraid version (optional)",
-      "host": "/etc/unraid-version",
-      "container": "/unraid-version",
-      "mode": "ro",
-      "description": "Optional, read-only. Lets the result include your Unraid OS version (handy for the shared results database). Safe to leave as-is.",
-      "required": false,
-      "display": "advanced",
-      "default": null
-    },
-    {
       "name": "Your test clips folder",
       "host": "/mnt/cache/appdata/transcoding-gpu-benchmark/input",
       "container": "/input",

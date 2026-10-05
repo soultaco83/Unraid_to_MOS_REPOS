@@ -79,16 +79,6 @@
       "required": true,
       "display": "advanced-hide",
       "default": null
-    },
-    {
-      "name": "Emhttp State",
-      "host": "/var/local/emhttp",
-      "container": "/var/local/emhttp",
-      "mode": "ro",
-      "description": "Read-only access to Unraid's own runtime state - nginx.ini, so a notification's link points at your server's real address. Also completes the 'Emhttp Scripts' mount above: Unraid's own emhttp/state path is a symlink onto this folder, and Unraid's notify script (and the boot-flash-identity read it enables) needs both mounts present together to resolve. Required - do not change.",
-      "required": true,
-      "display": "advanced-hide",
-      "default": null
     }
   ],
   "ports": [

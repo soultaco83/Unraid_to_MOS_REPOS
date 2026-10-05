@@ -72,9 +72,10 @@ unRAID specifics were replaced by the MOS equivalents:
   `/mnt/user/...` share -> `/mnt/Array/...` (MOS keeps data directly in a
   pool instead of aggregating shares below `/mnt/user`), same for
   `/mnt/user/...` in extra parameters and descriptions; folders that
-  exist on unRAID only (dynamix webUI, unRAID VM manager) dropped.
-  Container side mount targets stay untouched - they are what the
-  application expects inside the container, not a host path
+  exist on unRAID only (dynamix webUI, unRAID VM manager,
+  `/etc/unraid-version`) dropped. Container side mount targets stay
+  untouched - they are what the application expects inside the
+  container, not a host path
 * identity: `PUID`/`PGID` and every `UID`/`GID` spelling
   (`UID`, `GID`, `USER_ID`, `GROUP_ID`, `<APP>_UID`, ...) default to
   `500`/`500` instead of unRAID's 99/100, `--user 99:100` became
