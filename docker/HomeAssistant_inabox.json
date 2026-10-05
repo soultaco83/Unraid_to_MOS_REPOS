@@ -25,7 +25,7 @@
       "host": "/mnt/Array/domains/",
       "container": "/domains",
       "mode": "rw",
-      "description": "Please choose the storage location for your VM images on the server. The default path is set to /mnt/user/domains/",
+      "description": "Please choose the storage location for your VM images on the server. The default path is set to /mnt/Array/domains/",
       "required": true,
       "display": "always",
       "default": null
@@ -35,7 +35,7 @@
       "host": "/mnt/cache/appdata/HomeAssistant_inabox",
       "container": "/config",
       "mode": "rw",
-      "description": "Please choose the storage location for your appdata  The default path is set to /mnt/user/appdata/HomeAssistant_inabox/",
+      "description": "Please choose the storage location for your appdata  The default path is set to /mnt/cache/appdata/HomeAssistant_inabox/",
       "required": true,
       "display": "always",
       "default": null

@@ -70,10 +70,11 @@ unRAID specifics were replaced by the MOS equivalents:
 
 * host paths: `/mnt/user/appdata/...` -> `/mnt/cache/appdata/...`, every other
   `/mnt/user/...` share -> `/mnt/Array/...` (MOS keeps data directly in a
-  pool instead of aggregating shares below `/mnt/user`), same for
-  `/mnt/user/...` in extra parameters and descriptions; folders that
-  exist on unRAID only (dynamix webUI, unRAID VM manager,
-  `/etc/unraid-version`) dropped. Container side mount targets stay
+  pool instead of aggregating shares below `/mnt/user`); the same
+  applies to `/mnt/user/...` inside template text (descriptions,
+  `requires`, extra parameters) and to variable defaults. Folders and
+  files that exist on unRAID only (dynamix webUI, unRAID VM manager,
+  `/etc/unraid-version`) are dropped. Container side mount targets stay
   untouched - they are what the application expects inside the
   container, not a host path
 * identity: `PUID`/`PGID` and every `UID`/`GID` spelling

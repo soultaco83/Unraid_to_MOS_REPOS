@@ -20,14 +20,14 @@
   "support": "https://forums.unraid.net/topic/197304-support-devzwf-unifi-toolkit/",
   "description": "A comprehensive suite of tools for UniFi network management and monitoring.",
   "donate": "https://ko-fi.com/devzwf",
-  "requires": "IMPORTANT: Create this directory on the host first with correct permissions:&amp;#13;&amp;#10;      #   chown 1000:1000 /mnt/user/appdata/unifi-toolkit\"",
+  "requires": "IMPORTANT: Create this directory on the host first with correct permissions:&amp;#13;&amp;#10;      #   chown 1000:1000 /mnt/cache/appdata/unifi-toolkit\"",
   "paths": [
     {
       "name": "Data Dir",
       "host": "/mnt/cache/appdata/unifi-toolkit",
       "container": "/app/data",
       "mode": "rw",
-      "description": "IMPORTANT: Create this directory on the host first with correct permissions:\r\n      #   chown 1000:1000 /mnt/user/appdata/unifi-toolkit",
+      "description": "IMPORTANT: Create this directory on the host first with correct permissions:\r\n      #   chown 1000:1000 /mnt/cache/appdata/unifi-toolkit",
       "required": true,
       "display": "always",
       "default": null

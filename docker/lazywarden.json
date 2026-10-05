@@ -37,7 +37,7 @@
     {
       "name": "Config Path",
       "key": "/root/lazywarden/config",
-      "value": "/mnt/user/appdata/lazywarden/config",
+      "value": "/mnt/cache/appdata/lazywarden/config",
       "description": "The path to the configuration files",
       "required": true,
       "mask": false,
@@ -47,7 +47,7 @@
     {
       "name": "Environmental Variable File",
       "key": "/app/.env",
-      "value": "/mnt/user/appdata/lazywarden/.env",
+      "value": "/mnt/cache/appdata/lazywarden/.env",
       "description": "The path to the environmental variable file",
       "required": true,
       "mask": false,
@@ -57,7 +57,7 @@
     {
       "name": "Backup Path",
       "key": "/root/lazywarden/backup-drive",
-      "value": "/mnt/user/appdata/lazywarden/backup",
+      "value": "/mnt/cache/appdata/lazywarden/backup",
       "description": "The path to the backup files",
       "required": true,
       "mask": false,

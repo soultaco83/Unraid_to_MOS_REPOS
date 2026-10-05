@@ -25,7 +25,7 @@
       "host": "/mnt/Array/domains/",
       "container": "/domains",
       "mode": "rw",
-      "description": "Please choose the storage location for your VM images on the server. The default path is set to /mnt/user/domains/",
+      "description": "Please choose the storage location for your VM images on the server. The default path is set to /mnt/Array/domains/",
       "required": true,
       "display": "always",
       "default": null
@@ -35,7 +35,7 @@
       "host": "/mnt/Array/isos/",
       "container": "/isos",
       "mode": "rw",
-      "description": "Please choose the storage location for your ISO files on the server. The default path is set to /mnt/user/isos/",
+      "description": "Please choose the storage location for your ISO files on the server. The default path is set to /mnt/Array/isos/",
       "required": true,
       "display": "always",
       "default": null
@@ -45,7 +45,7 @@
       "host": "/mnt/cache/appdata/macinabox",
       "container": "/config",
       "mode": "rw",
-      "description": "Please choose the storage location for your appdata  The default path is set to /mnt/user/appdata/macinabox/",
+      "description": "Please choose the storage location for your appdata  The default path is set to /mnt/cache/appdata/macinabox/",
       "required": true,
       "display": "always",
       "default": null

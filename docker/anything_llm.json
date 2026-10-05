@@ -20,7 +20,7 @@
   "project": "https://useanything.com",
   "support": "https://forums.unraid.net/topic/133764-support-grtgbln-docker-templates",
   "description": "The all-in-one AI app for any LLM with full RAG and AI Agent capabilities.",
-  "requires": "Before installing, you must create the following files: \r\n        - `touch .env` at /mnt/user/appdata/anythingllm/.env (see https://github.com/Mintplex-Labs/anything-llm/blob/master/docker/.env.example for an example) \r\n        - `touch anythingllm.db` at /mnt/user/appdata/anythingllm/anythingllm.db",
+  "requires": "Before installing, you must create the following files: \r\n        - `touch .env` at /mnt/cache/appdata/anythingllm/.env (see https://github.com/Mintplex-Labs/anything-llm/blob/master/docker/.env.example for an example) \r\n        - `touch anythingllm.db` at /mnt/cache/appdata/anythingllm/anythingllm.db",
   "paths": [
     {
       "name": "Environment File Path",

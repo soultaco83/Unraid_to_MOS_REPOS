@@ -24,7 +24,7 @@
       "host": "/mnt/Array/domains/",
       "container": "/vm_location",
       "mode": "rw",
-      "description": "This should be the share in which you store your VM images. Default is /mnt/user/domains",
+      "description": "This should be the share in which you store your VM images. Default is /mnt/Array/domains",
       "required": true,
       "display": "always",
       "default": null

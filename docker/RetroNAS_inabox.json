@@ -24,7 +24,7 @@
       "host": "/mnt/Array/domains/",
       "container": "/retronas_vm_location",
       "mode": "rw",
-      "description": "This should be the share in which you store your VM images. Default is /mnt/user/domains",
+      "description": "This should be the share in which you store your VM images. Default is /mnt/Array/domains",
       "required": true,
       "display": "always",
       "default": null
@@ -34,7 +34,7 @@
       "host": "/mnt/Array/retronas/",
       "container": "/retronas_virtiofs_location",
       "mode": "rw",
-      "description": "The share that you have created to store all RetroNAS roms etc Default /mnt/user/retronas",
+      "description": "The share that you have created to store all RetroNAS roms etc Default /mnt/Array/retronas",
       "required": true,
       "display": "always",
       "default": null

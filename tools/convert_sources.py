@@ -33,6 +33,7 @@ converted templates onto the MOS conventions:
 
     --mos-paths      /mnt/user/appdata/... -> /mnt/cache/appdata/...
                      every other /mnt/user/... share -> /mnt/Array/...
+                     (also inside template text and variable defaults)
                      unRAID only folders (dynamix webUI, unRAID VM manager) dropped
     --mos-defaults   PUID/PGID (any uid/gid spelling) -> 500, `--user 99:100`
                      -> `--user 500:500`, dynamix label prefixes removed
@@ -131,6 +132,11 @@ GROUP_KEY_RE = re.compile(r"^(?:P?GID|GROUP_?ID|.*_GID)$", re.IGNORECASE)
 # such as extra parameters or a description.
 UNRAID_PATH_RE = re.compile(r"/mnt/user0?(?:/[^\s:'\",]*)?")
 
+# Free-form fields that can name a host path just like a mount row can. Rows
+# carry a description of their own, variables a path default in `value`.
+FREE_TEXT_FIELDS = ("description", "requires", "extra_parameters", "post_parameters")
+ROW_SECTIONS = ("paths", "ports", "variables", "devices", "labels")
+
 # unRAID's dynamix UI prefixes every configuration label with its type.
 ROW_NAME_PREFIXES = ("Variable: ", "Path: ", "Port: ", "Device: ", "Label: ", "Config: ")
 
@@ -180,14 +186,58 @@ def mos_host_path(host, appdata_root=MOS_APPDATA_ROOT, array_root=MOS_ARRAY_ROOT
     return host
 
 
+def rewrite_free_form(obj, appdata_root=MOS_APPDATA_ROOT, array_root=MOS_ARRAY_ROOT):
+    """Rewrite /mnt/user/... occurrences in the free text of a template.
+
+    Descriptions, `requires` notes, extra parameters and variable defaults name
+    host paths too (e.g. `--env-file=/mnt/user/...` or "create
+    /mnt/user/appdata/foo first"), so they are rewritten as well. Mount targets
+    *inside* the container are not touched: they are what the application
+    expects, not a host path.
+    """
+    for field in FREE_TEXT_FIELDS:
+        if field in obj:
+            obj[field] = rewrite_free_text(obj[field], appdata_root, array_root)
+    for section in ROW_SECTIONS:
+        for row in obj.get(section) or []:
+            if "description" in row:
+                row["description"] = rewrite_free_text(
+                    row.get("description"), appdata_root, array_root)
+            if section == "variables" and "value" in row:
+                row["value"] = rewrite_free_text(row.get("value"), appdata_root, array_root)
+    return obj
+
+
+def rewrite_free_text(text, appdata_root=MOS_APPDATA_ROOT, array_root=MOS_ARRAY_ROOT):
+    """Rewrite every /mnt/user/... mention of one free-form string."""
+    if not isinstance(text, str) or not UNRAID_PATH_RE.search(text):
+        return text
+    return UNRAID_PATH_RE.sub(
+        lambda match: mos_host_path(match.group(0), appdata_root, array_root) or "", text)
+
+
+def free_form_texts(obj):
+    """Yield (label, text) of every free-form field the path rules cover.
+
+    validate_repos.py uses this list so that the check and the rewrite always
+    look at the same fields.
+    """
+    for field in FREE_TEXT_FIELDS:
+        if field in obj:
+            yield field, obj[field]
+    for section in ROW_SECTIONS:
+        for row in obj.get(section) or []:
+            if "description" in row:
+                yield "%s.description" % section, row.get("description")
+            if section == "variables" and "value" in row:
+                yield "variables.value", row.get("value")
+
+
 def rewrite_paths(obj, appdata_root=MOS_APPDATA_ROOT, array_root=MOS_ARRAY_ROOT):
     """Map unRAID host paths onto the MOS pool layout (--mos-paths).
 
-    Covered are the mount rows of the template plus every `/mnt/user/...`
-    occurrence in a free-form field (extra parameters, post parameters,
-    description) - `--env-file=/mnt/user/...` is a host path as well. Mount
-    *targets* inside the container are left alone: they are part of what the
-    application expects, not a host path.
+    Mount rows are rewritten, unRAID-only mounts dropped, and the free text of
+    the template is cleaned up as well (see rewrite_free_form).
     """
     rows = []
     for row in obj.get("paths") or []:
@@ -199,11 +249,7 @@ def rewrite_paths(obj, appdata_root=MOS_APPDATA_ROOT, array_root=MOS_ARRAY_ROOT)
             row["host"] = mapped
         rows.append(row)
     obj["paths"] = rows
-    for field in ("extra_parameters", "post_parameters", "description"):
-        text = obj.get(field)
-        if text and UNRAID_PATH_RE.search(text):
-            obj[field] = UNRAID_PATH_RE.sub(
-                lambda m: mos_host_path(m.group(0), appdata_root, array_root) or "", text)
+    rewrite_free_form(obj, appdata_root, array_root)
     return obj
 
 
@@ -437,10 +483,11 @@ def write_readme(out_root, report, maintainer, mos_paths=False, mos_defaults=Fal
             lines += [
                 "* host paths: `/mnt/user/appdata/...` -> `%s/...`, every other" % appdata_root,
                 "  `/mnt/user/...` share -> `%s/...` (MOS keeps data directly in a" % array_root,
-                "  pool instead of aggregating shares below `/mnt/user`), same for",
-                "  `/mnt/user/...` in extra parameters and descriptions; folders that",
-                "  exist on unRAID only (dynamix webUI, unRAID VM manager,",
-                "  `/etc/unraid-version`) dropped. Container side mount targets stay",
+                "  pool instead of aggregating shares below `/mnt/user`); the same",
+                "  applies to `/mnt/user/...` inside template text (descriptions,",
+                "  `requires`, extra parameters) and to variable defaults. Folders and",
+                "  files that exist on unRAID only (dynamix webUI, unRAID VM manager,",
+                "  `/etc/unraid-version`) are dropped. Container side mount targets stay",
                 "  untouched - they are what the application expects inside the",
                 "  container, not a host path",
             ]

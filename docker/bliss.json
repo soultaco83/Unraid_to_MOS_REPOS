@@ -19,7 +19,7 @@
   "project": "https://www.blisshq.com/",
   "support": "https://www.blisshq.com/get-help.html",
   "description": "bliss is an automated music library organizer for self-hosters and music hoarders.",
-  "requires": "Due to a permissions issue, you must create the Configuration Data path before starting the container. Open a terminal and run the following command: \"mkdir -p /mnt/user/appdata/bliss/config\"",
+  "requires": "Due to a permissions issue, you must create the Configuration Data path before starting the container. Open a terminal and run the following command: \"mkdir -p /mnt/cache/appdata/bliss/config\"",
   "paths": [
     {
       "name": "Music Files",

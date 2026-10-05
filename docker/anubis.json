@@ -22,7 +22,7 @@
   "project": "https://anubis.techaro.lol/",
   "support": "https://anubis.techaro.lol/docs/",
   "description": "Anubis is a Web AI Firewall Utility that weighs the soul of your connection using one or more challenges in order to protect upstream resources from scraper bots. \r\n        [br]\n        This program is designed to help protect the small internet from the endless storm of requests that flood in from AI companies. Anubis is as lightweight as possible to ensure that everyone can afford to protect the communities closest to them. \r\n        [br]\n        See configuration instructions: https://anubis.techaro.lol/docs/admin/installation/#configuration",
-  "requires": "Expects a `botPolicy.yaml` file to be mounted at `/mnt/user/appdata/anubis/botPolicy.yaml` before starting the container. See configuration details: https://anubis.techaro.lol/docs/admin/installation/#configuration",
+  "requires": "Expects a `botPolicy.yaml` file to be mounted at `/mnt/cache/appdata/anubis/botPolicy.yaml` before starting the container. See configuration details: https://anubis.techaro.lol/docs/admin/installation/#configuration",
   "paths": [
     {
       "name": "Policy File",

@@ -39,7 +39,7 @@ from unraid_to_mos import MOS_CATEGORIES, PLACEHOLDER_MARKERS  # noqa: E402
 from convert_sources import (  # noqa: E402
     APP_DATA_RE, UNRAID_ARRAY_PREFIX, UNRAID_ONLY_HOSTS, UNRAID_PATH_RE,
     UNRAID_PREFIX, MOS_APPDATA_ROOT, MOS_ARRAY_ROOT, MOS_GID, MOS_UID,
-    identity_value,
+    free_form_texts, identity_value,
 )
 
 # `--user 99:100`, `--user=099:100` - unRAID's user/group pair in flag form
@@ -181,10 +181,10 @@ def check_mos_hygiene(root):
             elif APP_DATA_RE.match(host) and not host.startswith(MOS_APPDATA_ROOT):
                 stale_paths.setdefault(
                     rel, "%s: %s (appdata outside %s)" % (rel, host, MOS_APPDATA_ROOT))
-        for field in ("extra_parameters", "post_parameters", "description"):
-            match = UNRAID_PATH_RE.search(str(tpl.get(field) or ""))
+        for label, text in free_form_texts(tpl):
+            match = UNRAID_PATH_RE.search(str(text or ""))
             if match:
-                stale_paths.setdefault(rel, "%s: %s... in %s" % (rel, match.group(0), field))
+                stale_paths.setdefault(rel, "%s: %s... in %s" % (rel, match.group(0), label))
         for row in tpl.get("variables") or []:
             key = (row.get("key") or "").upper()
             expected = identity_value(key)

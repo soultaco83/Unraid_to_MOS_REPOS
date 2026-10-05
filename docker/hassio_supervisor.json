@@ -55,7 +55,7 @@
     {
       "name": "SUPERVISOR_SHARE",
       "key": "SUPERVISOR_SHARE",
-      "value": "/mnt/user/appdata/hassio/",
+      "value": "/mnt/cache/appdata/hassio/",
       "description": "Container Variable: SUPERVISOR_SHARE",
       "required": true,
       "mask": false,

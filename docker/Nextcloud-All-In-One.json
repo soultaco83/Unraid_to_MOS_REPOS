@@ -67,8 +67,8 @@
     {
       "name": "Nextcloud Data Directory",
       "key": "NEXTCLOUD_DATADIR",
-      "value": "/mnt/user/nextcloud/",
-      "description": "Location of where you will store the nextcloud user data eg /mnt/user/nextcloud/  (the location you choose must exist)",
+      "value": "/mnt/Array/nextcloud/",
+      "description": "Location of where you will store the nextcloud user data eg /mnt/Array/nextcloud/  (the location you choose must exist)",
       "required": true,
       "mask": false,
       "display": "always",

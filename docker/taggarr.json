@@ -27,7 +27,7 @@
       "host": null,
       "container": "/tv",
       "mode": "rw",
-      "description": "Path to your TV media files for analysis (e.g. /mnt/user/tv)",
+      "description": "Path to your TV media files for analysis (e.g. /mnt/Array/tv)",
       "required": true,
       "display": "always-hide",
       "default": null
