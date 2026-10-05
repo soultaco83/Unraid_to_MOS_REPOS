@@ -97,5 +97,6 @@
       "mask": false
     }
   ],
-  "gpus": []
+  "gpus": [],
+  "author": "IBRACORP"
 }

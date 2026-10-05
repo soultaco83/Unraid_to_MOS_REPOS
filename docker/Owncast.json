@@ -137,5 +137,6 @@
       ],
       "description": "NVIDIA GPU pass-through. Requires the NVIDIA driver / container toolkit on the host (Unraid: install the Nvidia-Driver plugin)."
     }
-  ]
+  ],
+  "author": "ich777"
 }

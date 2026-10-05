@@ -57,5 +57,6 @@
   "variables": [],
   "devices": [],
   "labels": [],
-  "gpus": []
+  "gpus": [],
+  "author": "digiblur"
 }

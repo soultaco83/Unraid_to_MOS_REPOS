@@ -216,5 +216,6 @@
   ],
   "devices": [],
   "labels": [],
-  "gpus": []
+  "gpus": [],
+  "author": "binhex"
 }

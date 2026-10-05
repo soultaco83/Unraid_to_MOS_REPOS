@@ -106,5 +106,6 @@
     }
   ],
   "labels": [],
-  "gpus": []
+  "gpus": [],
+  "author": "digiblur"
 }

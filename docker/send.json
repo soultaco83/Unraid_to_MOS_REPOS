@@ -77,5 +77,6 @@
   ],
   "devices": [],
   "labels": [],
-  "gpus": []
+  "gpus": [],
+  "author": "IBRACORP"
 }

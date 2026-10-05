@@ -53,5 +53,6 @@
       "mask": false
     }
   ],
-  "gpus": []
+  "gpus": [],
+  "author": "nwithan8"
 }

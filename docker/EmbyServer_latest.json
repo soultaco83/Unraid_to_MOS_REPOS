@@ -125,5 +125,6 @@
     }
   ],
   "labels": [],
-  "gpus": []
+  "gpus": [],
+  "author": "xushier"
 }

@@ -60,9 +60,17 @@ SOURCES = [
     {"key": "p3terx",          "maintainer": "P3TERX",          "repo": "P3TERX/unraid-docker-templates"},
 ]
 
-# Repository level metadata written to maintainer.json. The Hub displays this as
-# the maintainer of every template in the repository.
-ROOT_MAINTAINER = "selfhosters"
+# Repository level metadata written to maintainer.json. The MOS Hub labels EVERY
+# docker template of a repository with `maintainer` from this file: see
+# mos-api/src/services/hub.service.js `_processDockerTemplate()`, which uses
+# `maintainerInfo.maintainer` and has no per-template `author` fallback (only
+# plugin templates do, in `_processPluginTemplate()`). One flat repository can
+# therefore never show the upstream author as the maintainer - that would need
+# one repository per author, because the Hub does not descend into
+# sub-directories. The hosting account is used instead; the upstream author
+# stays visible per template through the `author`, `project`, `support` and
+# `donate` fields and through the README source table.
+ROOT_MAINTAINER = "Soultaco83"
 ROOT_DONATION = ""
 
 LICENSE_FILES = ("LICENSE", "LICENSE.md", "LICENSE.txt", "License", "license", "COPYING")
@@ -163,6 +171,10 @@ def merge(builds, out_root, mos_paths=False):
             stem = os.path.splitext(os.path.basename(path))[0]
             if mos_paths:
                 rewrite_paths(obj)
+            # Credit the upstream template author per template. The Hub shows the
+            # repository level maintainer for docker templates, but `author` is a
+            # valid template field there and keeps the provenance in the data.
+            obj.setdefault("author", entry["maintainer"])
             obj["name"] = unique_name(used_names, entry["key"], obj.get("name") or stem)
             fname = unique_file(used_files, entry["key"], stem)
             used_files[fname.lower()] = entry["key"]
@@ -214,9 +226,9 @@ def write_readme(out_root, report, mos_paths, maintainer):
         "",
         "`maintainer.json` and `docker/<App>.json` sit at the repository root, which is",
         "the only layout the MOS Hub indexes. Author provenance is preserved in every",
-        "template (`project`, `support`, `registry`, `donate`) and in the table below;",
-        "templates whose file/display name would clash with another author's carry a",
-        "source prefix.",
+        "template (`author`, `project`, `support`, `registry`, `donate`) and in the",
+        "table below; templates whose file/display name would clash with another",
+        "author's carry a source prefix.",
         "",
         "## Add it to MOS Hub",
         "",
@@ -243,6 +255,21 @@ def write_readme(out_root, report, mos_paths, maintainer):
         "`https://mos-official.net/known-repos.json`, which currently returns 404; the",
         "Hub retries hourly and it only affects the suggested-repository list of the",
         "Hub dialog, not the templates of a configured repository.",
+        "",
+        "### The maintainer label is repository level",
+        "",
+        "Every docker template of a repository is labelled with the `maintainer` value",
+        "from that repository's `maintainer.json` (Hub source `src/services/",
+        "hub.service.js`, `_processDockerTemplate()`; unlike plugin templates, docker",
+        "templates have no per-template `author` fallback). Because the Hub only reads",
+        "the repository root, one flat repository cannot show per-author labels: all",
+        "%d templates below carry the hosting account as maintainer." % total,
+        "Showing the original author as the label would need one repository per author,",
+        "added to the Hub as several repository URLs.",
+        "",
+        "The upstream author is still identifiable per template: in the install dialog",
+        "through `project`, `support` and `donate`, in the template JSON through",
+        "`author`, and in the source table below.",
         "",
         "## Layout",
         "",

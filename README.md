@@ -6,9 +6,9 @@ template repositories: **1026 templates** from 14 upstream authors.
 
 `maintainer.json` and `docker/<App>.json` sit at the repository root, which is
 the only layout the MOS Hub indexes. Author provenance is preserved in every
-template (`project`, `support`, `registry`, `donate`) and in the table below;
-templates whose file/display name would clash with another author's carry a
-source prefix.
+template (`author`, `project`, `support`, `registry`, `donate`) and in the
+table below; templates whose file/display name would clash with another
+author's carry a source prefix.
 
 ## Add it to MOS Hub
 
@@ -36,10 +36,25 @@ The log line `Hub: Could not fetch known repositories: ... 404` comes from
 Hub retries hourly and it only affects the suggested-repository list of the
 Hub dialog, not the templates of a configured repository.
 
+### The maintainer label is repository level
+
+Every docker template of a repository is labelled with the `maintainer` value
+from that repository's `maintainer.json` (Hub source `src/services/
+hub.service.js`, `_processDockerTemplate()`; unlike plugin templates, docker
+templates have no per-template `author` fallback). Because the Hub only reads
+the repository root, one flat repository cannot show per-author labels: all
+1026 templates below carry the hosting account as maintainer.
+Showing the original author as the label would need one repository per author,
+added to the Hub as several repository URLs.
+
+The upstream author is still identifiable per template: in the install dialog
+through `project`, `support` and `donate`, in the template JSON through
+`author`, and in the source table below.
+
 ## Layout
 
 ```
-maintainer.json      repository metadata (maintainer: selfhosters)
+maintainer.json      repository metadata (maintainer: Soultaco83)
 docker/<App>.json    one template per container (1026 total)
 licenses/            upstream licence text, where the author published one
 tools/               conversion + publish scripts (not part of the Hub payload)

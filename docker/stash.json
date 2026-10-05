@@ -269,5 +269,6 @@
   ],
   "devices": [],
   "labels": [],
-  "gpus": []
+  "gpus": [],
+  "author": "hotio"
 }
