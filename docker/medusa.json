@@ -1,0 +1,103 @@
+{
+  "name": "medusa",
+  "repo": "lscr.io/linuxserver/medusa",
+  "category": [
+    "Misc"
+  ],
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/medusa",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8081]",
+  "readme_url": "https://github.com/linuxserver/docker-medusa#readme",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/medusa-logo.png",
+  "project": "https://pymedusa.com/",
+  "support": "https://github.com/linuxserver/docker-medusa/issues/new/choose",
+  "description": "Medusa(https://pymedusa.com/) is an automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
+  "donate": "https://www.linuxserver.io/donate",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": null,
+      "container": "/config",
+      "mode": "rw",
+      "description": "Persistent config files",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "/downloads",
+      "host": null,
+      "container": "/downloads",
+      "mode": "rw",
+      "description": "Download location",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/tv",
+      "host": null,
+      "container": "/tv",
+      "mode": "rw",
+      "description": "TV Shows location",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "8081",
+      "container": "8081",
+      "protocol": "tcp",
+      "description": "The port for the Medusa webui",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "Container Variable: PUID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "Container Variable: PGID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "022",
+      "description": "Container Variable: UMASK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "linuxserver"
+}

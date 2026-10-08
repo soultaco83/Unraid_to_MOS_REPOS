@@ -1,0 +1,103 @@
+{
+  "name": "apprise-api",
+  "repo": "lscr.io/linuxserver/apprise-api",
+  "category": [
+    "Misc"
+  ],
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/apprise-api",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8000]",
+  "readme_url": "https://github.com/linuxserver/docker-apprise-api#readme",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/apprise-api-logo.png",
+  "project": "https://github.com/caronc/apprise-api",
+  "support": "https://github.com/linuxserver/docker-apprise-api/issues/new/choose",
+  "description": "Apprise-api(https://github.com/caronc/apprise-api) Takes advantage of Apprise(https://github.com/caronc/apprise) through your network with a user-friendly API.\n\n* Send notifications to more than 100 services.\n* An incredibly lightweight gateway to Apprise.\n* A production ready micro-service at your disposal.\n* A Simple Website to verify and test your configuration with.\n\nApprise API was designed to easily fit into existing (and new) eco-systems that are looking for a simple notification solution.",
+  "donate": "https://www.linuxserver.io/donate",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": null,
+      "container": "/config",
+      "mode": "rw",
+      "description": "Persistent config files",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "/attachments",
+      "host": null,
+      "container": "/attachments",
+      "mode": "rw",
+      "description": "Temporary storage for attachments when sent with notifications.",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "8000",
+      "container": "8000",
+      "protocol": "tcp",
+      "description": "Port for apprise's interface and API.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "APPRISE_ATTACH_SIZE",
+      "key": "APPRISE_ATTACH_SIZE",
+      "value": "0",
+      "description": "Max attachment size in Mb. `0` disables attachments. Must have `/attachments` mounted to set to a positive value.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "Container Variable: PUID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "Container Variable: PGID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "022",
+      "description": "Container Variable: UMASK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "linuxserver"
+}

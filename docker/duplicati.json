@@ -1,0 +1,133 @@
+{
+  "name": "duplicati",
+  "repo": "lscr.io/linuxserver/duplicati",
+  "category": [
+    "Misc"
+  ],
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/duplicati",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8200]/login.html",
+  "readme_url": "https://github.com/linuxserver/docker-duplicati#readme",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/duplicati-logo.png",
+  "project": "https://www.duplicati.com/",
+  "support": "https://github.com/linuxserver/docker-duplicati/issues/new/choose",
+  "description": "Duplicati(https://www.duplicati.com/) is a backup client that securely stores encrypted, incremental, compressed backups on local storage, cloud storage services and remote file servers. It works with standard protocols like FTP, SSH, WebDAV as well as popular services like Microsoft OneDrive, Amazon S3, Google Drive, box.com, Mega, B2, and many others.",
+  "donate": "https://www.linuxserver.io/donate",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": null,
+      "container": "/config",
+      "mode": "rw",
+      "description": "Contains all relevant configuration files.",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "/backups",
+      "host": null,
+      "container": "/backups",
+      "mode": "rw",
+      "description": "Path to store local backups.",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/source",
+      "host": null,
+      "container": "/source",
+      "mode": "rw",
+      "description": "Path to source for files to backup.",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "8200",
+      "container": "8200",
+      "protocol": "tcp",
+      "description": "http gui",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "SETTINGS_ENCRYPTION_KEY",
+      "key": "SETTINGS_ENCRYPTION_KEY",
+      "value": null,
+      "description": "Encryption key for settings database. Minimum 8 characters, alphanumeric.",
+      "required": true,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "CLI_ARGS",
+      "key": "CLI_ARGS",
+      "value": null,
+      "description": "Optionally specify any CLI variables(https://duplicati.readthedocs.io/en/latest/07-other-command-line-utilities/) you want to launch the app with",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "DUPLICATI__WEBSERVICE_PASSWORD",
+      "key": "DUPLICATI__WEBSERVICE_PASSWORD",
+      "value": null,
+      "description": "Password for the webui. If left unset will default to `changeme` and can be changed from the webui settings.",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "Container Variable: PUID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "Container Variable: PGID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "022",
+      "description": "Container Variable: UMASK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "linuxserver"
+}

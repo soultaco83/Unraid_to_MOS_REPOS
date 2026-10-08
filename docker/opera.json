@@ -1,0 +1,105 @@
+{
+  "name": "opera",
+  "repo": "lscr.io/linuxserver/opera",
+  "category": [
+    "Misc"
+  ],
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/opera",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--shm-size=1gb",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "https://[IP]:[PORT:3001]",
+  "readme_url": "https://github.com/linuxserver/docker-opera#readme",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/opera-icon.png",
+  "project": "https://www.opera.com/",
+  "support": "https://github.com/linuxserver/docker-opera/issues/new/choose",
+  "description": "Opera(https://www.opera.com/) is a multi-platform web browser developed by its namesake company Opera. The browser is based on Chromium, but distinguishes itself from other Chromium-based browsers (Chrome, Edge, etc.) through its user interface and other features.",
+  "donate": "https://www.linuxserver.io/donate",
+  "requires": "This image is unprotected by default __**do not**__ expose it to the internet.\n        Please read https://github.com/linuxserver/docker-opera#security for more information.",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": null,
+      "container": "/config",
+      "mode": "rw",
+      "description": "Users home directory in the container, stores local files and settings",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "3000",
+      "container": "3000",
+      "protocol": "tcp",
+      "description": "Opera desktop gui.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "3001",
+      "host": "3001",
+      "container": "3001",
+      "protocol": "tcp",
+      "description": "HTTPS Opera desktop gui.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "OPERA_CLI",
+      "key": "OPERA_CLI",
+      "value": "https://www.linuxserver.io/",
+      "description": "Specify one or multiple Chromium CLI flags, this string will be passed to the application in full.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "Container Variable: PUID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "Container Variable: PGID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "022",
+      "description": "Container Variable: UMASK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "linuxserver"
+}

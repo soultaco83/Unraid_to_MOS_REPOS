@@ -1,0 +1,83 @@
+{
+  "name": "znc",
+  "repo": "lscr.io/linuxserver/znc",
+  "category": [
+    "Misc"
+  ],
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/znc",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:6501]",
+  "readme_url": "https://github.com/linuxserver/docker-znc#readme",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/znc-logo.png",
+  "project": "http://wiki.znc.in/ZNC",
+  "support": "https://github.com/linuxserver/docker-znc/issues/new/choose",
+  "description": "Znc(http://wiki.znc.in/ZNC) is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels. Multiple clients from different locations can connect to a single ZNC account simultaneously and therefore appear under the same nickname on IRC.",
+  "donate": "https://www.linuxserver.io/donate",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": null,
+      "container": "/config",
+      "mode": "rw",
+      "description": "Persistent config files",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "6501",
+      "container": "6501",
+      "protocol": "tcp",
+      "description": "Port ZNC listens on.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "Container Variable: PUID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "Container Variable: PGID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "022",
+      "description": "Container Variable: UMASK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "linuxserver"
+}

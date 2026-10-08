@@ -1,5 +1,5 @@
 {
-  "name": "radarr",
+  "name": "radarr (hotio)",
   "repo": "ghcr.io/hotio/radarr:latest",
   "category": [
     "Downloader",

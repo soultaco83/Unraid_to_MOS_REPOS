@@ -1,0 +1,114 @@
+{
+  "name": "boinc",
+  "repo": "lscr.io/linuxserver/boinc",
+  "category": [
+    "Misc"
+  ],
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/boinc",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--shm-size=1gb",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "https://[IP]:[PORT:8181]",
+  "readme_url": "https://github.com/linuxserver/docker-boinc#readme",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/boinc-logo.png",
+  "project": "https://boinc.berkeley.edu/",
+  "support": "https://github.com/linuxserver/docker-boinc/issues/new/choose",
+  "description": "BOINC(https://boinc.berkeley.edu/) is a platform for high-throughput computing on a large scale (thousands or millions of computers). It can be used for volunteer computing (using consumer devices) or grid computing (using organizational resources). It supports virtualized, parallel, and GPU-based applications.",
+  "donate": "https://www.linuxserver.io/donate",
+  "requires": "This image is unprotected by default __**do not**__ expose it to the internet.\n        Please read https://github.com/linuxserver/docker-boinc#security for more information.",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": null,
+      "container": "/config",
+      "mode": "rw",
+      "description": "Where BOINC should store its database and config.",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "8080",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "Boinc desktop gui HTTP (only to be used by reverse proxies and not direct access).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "8181",
+      "host": "8181",
+      "container": "8181",
+      "protocol": "tcp",
+      "description": "Boinc desktop gui HTTPS.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "PASSWORD",
+      "key": "PASSWORD",
+      "value": null,
+      "description": "Optionally set a password for the gui.",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "Container Variable: PUID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "Container Variable: PGID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "022",
+      "description": "Container Variable: UMASK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [
+    {
+      "name": "/dev/dri",
+      "host": "/dev/dri",
+      "container": "/dev/dri",
+      "description": "Only needed if you want to use your Intel GPU (vaapi).",
+      "required": false,
+      "display": "always"
+    }
+  ],
+  "labels": [],
+  "gpus": [],
+  "author": "linuxserver"
+}

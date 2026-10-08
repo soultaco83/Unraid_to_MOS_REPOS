@@ -1,0 +1,114 @@
+{
+  "name": "kasm",
+  "repo": "lscr.io/linuxserver/kasm",
+  "category": [
+    "Misc"
+  ],
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/kasm",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": true,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "https://[IP]:[PORT:3000]",
+  "readme_url": "https://github.com/linuxserver/docker-kasm#readme",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kasm-logo.png",
+  "project": "https://www.kasmweb.com/",
+  "support": "https://github.com/linuxserver/docker-kasm/issues/new/choose",
+  "description": "Kasm(https://www.kasmweb.com/) Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services. Kasm uses devops-enabled Containerized Desktop Infrastructure (CDI) to create on-demand, disposable, docker containers that are accessible via web browser. Example use-cases include Remote Browser Isolation (RBI), Data Loss Prevention (DLP), Desktop as a Service (DaaS), Secure Remote Access Services (RAS), and Open Source Intelligence (OSINT) collections.\n\nThe rendering of the graphical-based containers is powered by the open-source project KasmVNC(https://www.kasmweb.com/kasmvnc.html).",
+  "donate": "https://www.linuxserver.io/donate",
+  "paths": [
+    {
+      "name": "/opt",
+      "host": null,
+      "container": "/opt",
+      "mode": "rw",
+      "description": "Docker and installation storage. (requires /mnt/cache/appdata/path or direct disk mount)",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/profiles",
+      "host": null,
+      "container": "/profiles",
+      "mode": "rw",
+      "description": "Optionally specify a path for persistent profile storage.",
+      "required": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "3000",
+      "container": "3000",
+      "protocol": "tcp",
+      "description": "Kasm Installation wizard. (https)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "6333",
+      "host": "6333",
+      "container": "6333",
+      "protocol": "tcp",
+      "description": "Kasm Workspaces interface. (https)",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "KASM_PORT",
+      "key": "KASM_PORT",
+      "value": "6333",
+      "description": "Specify the port you bind to the outside for Kasm Workspaces.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "DOCKER_HUB_USERNAME",
+      "key": "DOCKER_HUB_USERNAME",
+      "value": "USER",
+      "description": "Optionally specify a DockerHub Username to pull private images.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "DOCKER_HUB_PASSWORD",
+      "key": "DOCKER_HUB_PASSWORD",
+      "value": "PASS",
+      "description": "Optionally specify a DockerHub password to pull private images.",
+      "required": false,
+      "mask": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "022",
+      "description": "Container Variable: UMASK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "linuxserver"
+}

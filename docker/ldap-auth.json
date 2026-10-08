@@ -1,0 +1,113 @@
+{
+  "name": "ldap-auth",
+  "repo": "lscr.io/linuxserver/ldap-auth",
+  "category": [
+    "Misc"
+  ],
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/ldap-auth",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:9000]/test",
+  "readme_url": "https://github.com/linuxserver/docker-ldap-auth#readme",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ldap-auth-logo.png",
+  "project": "https://github.com/nginxinc/nginx-ldap-auth",
+  "support": "https://github.com/linuxserver/docker-ldap-auth/issues/new/choose",
+  "description": "Ldap-auth(https://github.com/nginxinc/nginx-ldap-auth) software is for authenticating users who request protected resources from servers proxied by nginx. It includes a daemon (ldap-auth) that communicates with an authentication server, and a webserver daemon that generates an authentication cookie based on the user’s credentials. The daemons are written in Python for use with a Lightweight Directory Access Protocol (LDAP) authentication server (OpenLDAP or Microsoft Windows Active Directory 2003 and 2012).",
+  "donate": "https://www.linuxserver.io/donate",
+  "paths": [],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "8888",
+      "container": "8888",
+      "protocol": "tcp",
+      "description": "the port for ldap auth daemon",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "9000",
+      "host": "9000",
+      "container": "9000",
+      "protocol": "tcp",
+      "description": "the port for ldap login page",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "FERNETKEY",
+      "key": "FERNETKEY",
+      "value": null,
+      "description": "Optionally define a custom valid fernet key (only needed if container is frequently recreated, or if using multi-node setups, invalidating previous authentications)",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "CERTFILE",
+      "key": "CERTFILE",
+      "value": null,
+      "description": "Optionally point this to a certificate file to enable HTTP over SSL (HTTPS) for the ldap auth daemon",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "KEYFILE",
+      "key": "KEYFILE",
+      "value": null,
+      "description": "Optionally point this to the private key file, matching the certificate file referred to in CERTFILE",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "Container Variable: PUID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "Container Variable: PGID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "022",
+      "description": "Container Variable: UMASK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "linuxserver"
+}

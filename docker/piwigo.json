@@ -1,0 +1,93 @@
+{
+  "name": "piwigo",
+  "repo": "lscr.io/linuxserver/piwigo",
+  "category": [
+    "Misc"
+  ],
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/piwigo",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:80]",
+  "readme_url": "https://github.com/linuxserver/docker-piwigo#readme",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/piwigo-logo.png",
+  "project": "http://piwigo.org/",
+  "support": "https://github.com/linuxserver/docker-piwigo/issues/new/choose",
+  "description": "Piwigo(http://piwigo.org/) is a photo gallery software for the web that comes with powerful features to publish and manage your collection of pictures.",
+  "donate": "https://www.linuxserver.io/donate",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": null,
+      "container": "/config",
+      "mode": "rw",
+      "description": "Persistent config files",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "/gallery",
+      "host": null,
+      "container": "/gallery",
+      "mode": "rw",
+      "description": "Image storage for Piwigo",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "80",
+      "container": "80",
+      "protocol": "tcp",
+      "description": "Application WebUI",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "Container Variable: PUID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "Container Variable: PGID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "022",
+      "description": "Container Variable: UMASK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "linuxserver"
+}

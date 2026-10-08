@@ -1,0 +1,92 @@
+{
+  "name": "oscam",
+  "repo": "lscr.io/linuxserver/oscam",
+  "category": [
+    "Misc"
+  ],
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/oscam",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8888]",
+  "readme_url": "https://github.com/linuxserver/docker-oscam#readme",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/oscam-logo.png",
+  "project": "https://git.streamboard.tv/common/oscam",
+  "support": "https://github.com/linuxserver/docker-oscam/issues/new/choose",
+  "description": "Oscam(https://git.streamboard.tv/common/oscam) is an Open Source Conditional Access Module software used for descrambling DVB transmissions using smart cards. It's both a server and a client.",
+  "donate": "https://www.linuxserver.io/donate",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": null,
+      "container": "/config",
+      "mode": "rw",
+      "description": "Where oscam should store config files and logs.",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "8888",
+      "container": "8888",
+      "protocol": "tcp",
+      "description": "WebUI",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "Container Variable: PUID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "Container Variable: PGID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "022",
+      "description": "Container Variable: UMASK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [
+    {
+      "name": "/dev/ttyUSB0",
+      "host": "/dev/ttyUSB0",
+      "container": "/dev/ttyUSB0",
+      "description": "For passing through smart card readers.",
+      "required": true,
+      "display": "always"
+    }
+  ],
+  "labels": [],
+  "gpus": [],
+  "author": "linuxserver"
+}

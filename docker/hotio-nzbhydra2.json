@@ -1,5 +1,5 @@
 {
-  "name": "nzbhydra2",
+  "name": "nzbhydra2 (hotio)",
   "repo": "ghcr.io/hotio/nzbhydra2:latest",
   "category": [
     "Downloader",

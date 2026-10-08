@@ -1,0 +1,133 @@
+{
+  "name": "flexget",
+  "repo": "lscr.io/linuxserver/flexget",
+  "category": [
+    "Misc"
+  ],
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/flexget",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:5050]",
+  "readme_url": "https://github.com/linuxserver/docker-flexget#readme",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver-ls-logo.png",
+  "project": "http://flexget.com/",
+  "support": "https://github.com/linuxserver/docker-flexget/issues/new/choose",
+  "description": "Flexget(http://flexget.com/) is a multipurpose automation tool for all of your media.",
+  "donate": "https://www.linuxserver.io/donate",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": null,
+      "container": "/config",
+      "mode": "rw",
+      "description": "Local path for FlexGet config files.",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "/data",
+      "host": null,
+      "container": "/data",
+      "mode": "rw",
+      "description": "Default path for downloads.",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "5050",
+      "container": "5050",
+      "protocol": "tcp",
+      "description": "HTTP port for the WebUI.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "FG_LOG_LEVEL",
+      "key": "FG_LOG_LEVEL",
+      "value": "info",
+      "description": "Set the FlexGet logging level.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "FG_LOG_FILE",
+      "key": "FG_LOG_FILE",
+      "value": "/config/flexget.log",
+      "description": "Set the FlexGet log file location.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "FG_CONFIG_FILE",
+      "key": "FG_CONFIG_FILE",
+      "value": "/config/.flexget/config.yml",
+      "description": "Set the FlexGet config file location.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "FG_WEBUI_PASSWORD",
+      "key": "FG_WEBUI_PASSWORD",
+      "value": "info",
+      "description": "Set the FlexGet webui password. Pay attention to Bash/YAML reserved characters.",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "Container Variable: PUID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "Container Variable: PGID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "022",
+      "description": "Container Variable: UMASK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "linuxserver"
+}

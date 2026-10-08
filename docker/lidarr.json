@@ -1,52 +1,51 @@
 {
-  "name": "binhex-lidarr",
-  "repo": "ghcr.io/binhex/arch-lidarr",
+  "name": "lidarr",
+  "repo": "lscr.io/linuxserver/lidarr",
   "category": [
-    "Downloader",
-    "Media"
+    "Misc"
   ],
-  "registry": "https://github.com/binhex/arch-lidarr/pkgs/container/arch-lidarr",
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/lidarr",
   "network": "bridge",
   "custom_ip": null,
   "default_shell": "bash",
   "privileged": false,
-  "extra_parameters": "--restart=always",
+  "extra_parameters": null,
   "post_parameters": null,
   "cpu_set": null,
-  "web_ui_url": "http://[IP]:[PORT:8686]",
-  "readme_url": "https://github.com/binhex/documentation",
-  "icon": "https://raw.githubusercontent.com/binhex/docker-templates/master/binhex/images/lidarr-icon.png",
-  "project": "https://github.com/lidarr/Lidarr/",
-  "support": "https://forums.unraid.net/topic/62284-support-binhex-lidarr/",
-  "description": "Lidarr is a music collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new tracks from your favorite artists and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
-  "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
+  "web_ui_url": "http://[IP]:[PORT:8686]/system/status",
+  "readme_url": "https://github.com/linuxserver/docker-lidarr#readme",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lidarr-logo.png",
+  "project": "https://github.com/lidarr/Lidarr",
+  "support": "https://github.com/linuxserver/docker-lidarr/issues/new/choose",
+  "description": "Lidarr(https://github.com/lidarr/Lidarr) is a music collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new tracks from your favorite artists and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
+  "donate": "https://www.linuxserver.io/donate",
   "paths": [
     {
-      "name": "/config",
-      "host": "/mnt/cache/appdata/lidarr",
+      "name": "Appdata",
+      "host": null,
       "container": "/config",
       "mode": "rw",
-      "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
+      "description": "Configuration files for Lidarr.",
       "required": true,
-      "display": "always",
+      "display": "advanced",
       "default": null
     },
     {
-      "name": "/data",
+      "name": "/music",
       "host": null,
-      "container": "/data",
+      "container": "/music",
       "mode": "rw",
-      "description": "This is the container path to your downloaded files or user created content.",
-      "required": true,
+      "description": "Music files (See note in Application setup).",
+      "required": false,
       "display": "always",
       "default": null
     },
     {
-      "name": "/media",
-      "host": "/mnt/Array",
-      "container": "/media",
+      "name": "/downloads",
+      "host": null,
+      "container": "/downloads",
       "mode": "rw",
-      "description": "This is the container path to your media files, e.g. movies, tv, music, pictures etc.",
+      "description": "Path to your download folder for music (See note in Application setup).",
       "required": false,
       "display": "always",
       "default": null
@@ -54,11 +53,11 @@
   ],
   "ports": [
     {
-      "name": "Web Interface",
+      "name": "WebUI",
       "host": "8686",
       "container": "8686",
       "protocol": "tcp",
-      "description": "This is the Web UI port for the application.",
+      "description": "Application WebUI",
       "required": true,
       "mask": false,
       "display": "always",
@@ -67,50 +66,10 @@
   ],
   "variables": [
     {
-      "name": "ENABLE_HEALTHCHECK",
-      "key": "ENABLE_HEALTHCHECK",
-      "value": "yes|no",
-      "description": "Enable or disable healthchecks.",
-      "required": false,
-      "mask": false,
-      "display": "advanced",
-      "default": null
-    },
-    {
-      "name": "HEALTHCHECK_COMMAND",
-      "key": "HEALTHCHECK_COMMAND",
-      "value": null,
-      "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
-      "required": false,
-      "mask": false,
-      "display": "advanced",
-      "default": null
-    },
-    {
-      "name": "HEALTHCHECK_ACTION",
-      "key": "HEALTHCHECK_ACTION",
-      "value": null,
-      "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
-      "required": false,
-      "mask": false,
-      "display": "advanced",
-      "default": null
-    },
-    {
-      "name": "HEALTHCHECK_HOSTNAME",
-      "key": "HEALTHCHECK_HOSTNAME",
-      "value": "google.com",
-      "description": "The hostname used when performing HTTPS and DNS healthchecking.",
-      "required": false,
-      "mask": false,
-      "display": "advanced",
-      "default": null
-    },
-    {
       "name": "PUID",
       "key": "PUID",
       "value": "500",
-      "description": "User ID for the running container",
+      "description": "Container Variable: PUID",
       "required": true,
       "mask": false,
       "display": "advanced",
@@ -120,7 +79,7 @@
       "name": "PGID",
       "key": "PGID",
       "value": "500",
-      "description": "Group ID for the running container",
+      "description": "Container Variable: PGID",
       "required": true,
       "mask": false,
       "display": "advanced",
@@ -129,9 +88,9 @@
     {
       "name": "UMASK",
       "key": "UMASK",
-      "value": "000",
-      "description": "UMASK for the running container",
-      "required": true,
+      "value": "022",
+      "description": "Container Variable: UMASK",
+      "required": false,
       "mask": false,
       "display": "advanced",
       "default": null
@@ -140,5 +99,5 @@
   "devices": [],
   "labels": [],
   "gpus": [],
-  "author": "binhex"
+  "author": "linuxserver"
 }

@@ -1,0 +1,261 @@
+{
+  "name": "fail2ban",
+  "repo": "lscr.io/linuxserver/fail2ban",
+  "category": [
+    "Misc"
+  ],
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/fail2ban",
+  "network": "host",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--cap-add=NET_ADMIN --cap-add=NET_RAW",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "readme_url": "https://github.com/linuxserver/docker-fail2ban#readme",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/fail2ban-logo.png",
+  "project": "http://www.fail2ban.org/",
+  "support": "https://github.com/linuxserver/docker-fail2ban/issues/new/choose",
+  "description": "Fail2ban(http://www.fail2ban.org/) is a daemon to ban hosts that cause multiple authentication errors.",
+  "donate": "https://www.linuxserver.io/donate",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": null,
+      "container": "/config",
+      "mode": "rw",
+      "description": "Persistent config files",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "/var/log",
+      "host": null,
+      "container": "/var/log",
+      "mode": "ro",
+      "description": "Host logs. Mounted as Read Only.",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/airsonic",
+      "host": null,
+      "container": "/remotelogs/airsonic",
+      "mode": "ro",
+      "description": "Optional path to airsonic log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/apache2",
+      "host": null,
+      "container": "/remotelogs/apache2",
+      "mode": "ro",
+      "description": "Optional path to apache2 log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/authelia",
+      "host": null,
+      "container": "/remotelogs/authelia",
+      "mode": "ro",
+      "description": "Optional path to authelia log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/emby",
+      "host": null,
+      "container": "/remotelogs/emby",
+      "mode": "ro",
+      "description": "Optional path to emby log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/filebrowser",
+      "host": null,
+      "container": "/remotelogs/filebrowser",
+      "mode": "ro",
+      "description": "Optional path to filebrowser log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/homeassistant",
+      "host": null,
+      "container": "/remotelogs/homeassistant",
+      "mode": "ro",
+      "description": "Optional path to homeassistant log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/lighttpd",
+      "host": null,
+      "container": "/remotelogs/lighttpd",
+      "mode": "ro",
+      "description": "Optional path to lighttpd log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/nextcloud",
+      "host": null,
+      "container": "/remotelogs/nextcloud",
+      "mode": "ro",
+      "description": "Optional path to nextcloud log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/nginx",
+      "host": null,
+      "container": "/remotelogs/nginx",
+      "mode": "ro",
+      "description": "Optional path to nginx log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/nzbget",
+      "host": null,
+      "container": "/remotelogs/nzbget",
+      "mode": "ro",
+      "description": "Optional path to nzbget log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/overseerr",
+      "host": null,
+      "container": "/remotelogs/overseerr",
+      "mode": "ro",
+      "description": "Optional path to overseerr log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/prowlarr",
+      "host": null,
+      "container": "/remotelogs/prowlarr",
+      "mode": "ro",
+      "description": "Optional path to prowlarr log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/radarr",
+      "host": null,
+      "container": "/remotelogs/radarr",
+      "mode": "ro",
+      "description": "Optional path to radarr log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/sabnzbd",
+      "host": null,
+      "container": "/remotelogs/sabnzbd",
+      "mode": "ro",
+      "description": "Optional path to sabnzbd log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/sonarr",
+      "host": null,
+      "container": "/remotelogs/sonarr",
+      "mode": "ro",
+      "description": "Optional path to sonarr log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/unificontroller",
+      "host": null,
+      "container": "/remotelogs/unificontroller",
+      "mode": "ro",
+      "description": "Optional path to unificontroller log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/remotelogs/vaultwarden",
+      "host": null,
+      "container": "/remotelogs/vaultwarden",
+      "mode": "ro",
+      "description": "Optional path to vaultwarden log folder. Mounted as Read Only.",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [],
+  "variables": [
+    {
+      "name": "Verbosity",
+      "key": "VERBOSITY",
+      "value": "-vv",
+      "description": "Set the container log verbosity. Valid options are -v, -vv, -vvv, -vvvv, or leaving the value blank or not setting the variable.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "Container Variable: PUID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "Container Variable: PGID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "022",
+      "description": "Container Variable: UMASK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "linuxserver"
+}

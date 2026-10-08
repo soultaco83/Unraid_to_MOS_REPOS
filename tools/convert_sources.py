@@ -61,15 +61,13 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import unraid_to_mos as conv  # noqa: E402
 
-# The selfhosters/unRAID-CA-templates repository is the community maintained
-# unRAID Community Applications template collection; it is converted wholesale
-# together with a few dedicated author repositories.
+# Converted wholesale: the community collections (selfhosters, linuxserver)
+# plus a couple of dedicated author repositories.
 SOURCES = [
-    {"key": "selfhosters",     "maintainer": "selfhosters",     "repo": "selfhosters/unRAID-CA-templates"},
-    {"key": "binhex",          "maintainer": "binhex",          "repo": "binhex/docker-templates"},
-    {"key": "ibracorp",        "maintainer": "IBRACORP",        "repo": "ibracorp/unraid-templates"},
-    {"key": "hotio",           "maintainer": "hotio",           "repo": "hotio/unraid-templates"},
-    {"key": "spaceinvaderone", "maintainer": "SpaceinvaderOne", "repo": "SpaceinvaderOne/Docker-Templates-Unraid"},
+    {"key": "selfhosters", "maintainer": "selfhosters", "repo": "selfhosters/unRAID-CA-templates"},
+    {"key": "linuxserver", "maintainer": "linuxserver", "repo": "linuxserver/templates"},
+    {"key": "ibracorp",    "maintainer": "IBRACORP",    "repo": "ibracorp/unraid-templates"},
+    {"key": "hotio",       "maintainer": "hotio",       "repo": "hotio/unraid-templates"},
 ]
 
 # Repository level metadata written to maintainer.json. The MOS Hub labels EVERY

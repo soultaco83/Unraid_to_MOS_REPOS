@@ -1,0 +1,103 @@
+{
+  "name": "sickgear",
+  "repo": "lscr.io/linuxserver/sickgear",
+  "category": [
+    "Misc"
+  ],
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/sickgear",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8081]/home/view-changes",
+  "readme_url": "https://github.com/linuxserver/docker-sickgear#readme",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sickgear-logo.png",
+  "project": "https://github.com/sickgear/sickgear",
+  "support": "https://github.com/linuxserver/docker-sickgear/issues/new/choose",
+  "description": "SickGear(https://github.com/sickgear/sickgear) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more..\n\nFor more information on SickGear visit their website and check it out: https://github.com/SickGear/SickGear",
+  "donate": "https://www.linuxserver.io/donate",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": null,
+      "container": "/config",
+      "mode": "rw",
+      "description": "Persistent configuration files.",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "/tv",
+      "host": null,
+      "container": "/tv",
+      "mode": "rw",
+      "description": "where you store your tv shows",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/downloads",
+      "host": null,
+      "container": "/downloads",
+      "mode": "rw",
+      "description": "your downloads folder for post processing (must not be download in progress)",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "8081",
+      "container": "8081",
+      "protocol": "tcp",
+      "description": "will map the container's port 8081 to port 8081 on the host",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "Container Variable: PUID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "Container Variable: PGID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "022",
+      "description": "Container Variable: UMASK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "linuxserver"
+}

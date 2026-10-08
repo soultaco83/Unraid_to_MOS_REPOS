@@ -1,5 +1,5 @@
 {
-  "name": "lidarr",
+  "name": "lidarr (hotio)",
   "repo": "ghcr.io/hotio/lidarr:latest",
   "category": [
     "Downloader",

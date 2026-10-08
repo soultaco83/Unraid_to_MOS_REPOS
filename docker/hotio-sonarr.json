@@ -1,5 +1,5 @@
 {
-  "name": "sonarr",
+  "name": "sonarr (hotio)",
   "repo": "ghcr.io/hotio/sonarr:latest",
   "category": [
     "Downloader",

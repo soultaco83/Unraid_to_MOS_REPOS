@@ -1,5 +1,5 @@
 {
-  "name": "jackett",
+  "name": "jackett (hotio)",
   "repo": "ghcr.io/hotio/jackett:latest",
   "category": [
     "Downloader",

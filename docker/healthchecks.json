@@ -1,0 +1,284 @@
+{
+  "name": "healthchecks",
+  "repo": "lscr.io/linuxserver/healthchecks",
+  "category": [
+    "Misc"
+  ],
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/healthchecks",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8000]",
+  "readme_url": "https://github.com/linuxserver/docker-healthchecks#readme",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/healthchecks-logo.png",
+  "project": "https://github.com/healthchecks/healthchecks",
+  "support": "https://github.com/linuxserver/docker-healthchecks/issues/new/choose",
+  "description": "Healthchecks(https://github.com/healthchecks/healthchecks) is a watchdog for your cron jobs. It's a web server that listens for pings from your cron jobs, plus a web interface.",
+  "donate": "https://www.linuxserver.io/donate",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": null,
+      "container": "/config",
+      "mode": "rw",
+      "description": "Persistent config files.",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "8000",
+      "container": "8000",
+      "protocol": "tcp",
+      "description": "Healthchecks Web UI",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "2525",
+      "host": "2525",
+      "container": "2525",
+      "protocol": "tcp",
+      "description": "Port for inbound SMTP pings",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "SECRET_KEY",
+      "key": "SECRET_KEY",
+      "value": null,
+      "description": "A secret key used for cryptographic signing. Will generate a random value if one is not supplied and save it to `/config/local_settings.py`.",
+      "required": true,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "SITE_ROOT",
+      "key": "SITE_ROOT",
+      "value": null,
+      "description": "The site's top-level URL and the port it listens to if different than 80 or 443 (e.g., https://healthchecks.example.com:8000).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "SITE_NAME",
+      "key": "SITE_NAME",
+      "value": null,
+      "description": "The site's name (e.g., \"Example Corp HealthChecks\").",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "SUPERUSER_EMAIL",
+      "key": "SUPERUSER_EMAIL",
+      "value": null,
+      "description": "Superuser email.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "SUPERUSER_PASSWORD",
+      "key": "SUPERUSER_PASSWORD",
+      "value": null,
+      "description": "Superuser password.",
+      "required": true,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "ALLOWED_HOSTS",
+      "key": "ALLOWED_HOSTS",
+      "value": null,
+      "description": "A comma-separated list of valid hostnames for the server. Default is the domain portion of `SITE_ROOT`.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "APPRISE_ENABLED",
+      "key": "APPRISE_ENABLED",
+      "value": "False",
+      "description": "Set to `True` to enable the Apprise integration (https://github.com/caronc/apprise).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "CSRF_TRUSTED_ORIGINS",
+      "key": "CSRF_TRUSTED_ORIGINS",
+      "value": null,
+      "description": "A list(https://docs.python.org/3/tutorial/introduction.html#lists) of trusted origins for unsafe requests (e.g. POST). Defaults to the value of `SITE_ROOT`.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "DEBUG",
+      "key": "DEBUG",
+      "value": "True",
+      "description": "Set to `False` to disable. Debug mode relaxes CSRF protections and increases logging verbosity but should be disabled for production instances as it will impact performance and security.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "DEFAULT_FROM_EMAIL",
+      "key": "DEFAULT_FROM_EMAIL",
+      "value": null,
+      "description": "From email for alerts.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "EMAIL_HOST",
+      "key": "EMAIL_HOST",
+      "value": null,
+      "description": "SMTP host.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "EMAIL_PORT",
+      "key": "EMAIL_PORT",
+      "value": null,
+      "description": "SMTP port.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "EMAIL_HOST_USER",
+      "key": "EMAIL_HOST_USER",
+      "value": null,
+      "description": "SMTP user.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "EMAIL_HOST_PASSWORD",
+      "key": "EMAIL_HOST_PASSWORD",
+      "value": null,
+      "description": "SMTP password.",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "EMAIL_USE_TLS",
+      "key": "EMAIL_USE_TLS",
+      "value": null,
+      "description": "Use TLS for SMTP (`True` or `False`).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "INTEGRATIONS_ALLOW_PRIVATE_IPS",
+      "key": "INTEGRATIONS_ALLOW_PRIVATE_IPS",
+      "value": null,
+      "description": "Defaults to False. Set to True to allow integrations to connect to private IP addresses.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PING_EMAIL_DOMAIN",
+      "key": "PING_EMAIL_DOMAIN",
+      "value": null,
+      "description": "The domain to use for generating ping email addresses. Defaults to `localhost`.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "RP_ID",
+      "key": "RP_ID",
+      "value": null,
+      "description": "If using webauthn for 2FA set this to match your Healthchecks domain. Webauthn will only work over https.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "SITE_LOGO_URL",
+      "key": "SITE_LOGO_URL",
+      "value": null,
+      "description": "Full URL to custom site logo.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "Container Variable: PUID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "Container Variable: PGID",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "022",
+      "description": "Container Variable: UMASK",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "linuxserver"
+}

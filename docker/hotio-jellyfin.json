@@ -1,5 +1,5 @@
 {
-  "name": "jellyfin",
+  "name": "jellyfin (hotio)",
   "repo": "ghcr.io/hotio/jellyfin:latest",
   "category": [
     "Media"

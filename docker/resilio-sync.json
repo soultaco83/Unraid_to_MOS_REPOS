@@ -1,77 +1,74 @@
 {
-  "name": "binhex-resilio-sync",
-  "repo": "ghcr.io/binhex/arch-resilio-sync",
+  "name": "resilio-sync",
+  "repo": "lscr.io/linuxserver/resilio-sync",
   "category": [
-    "Productivity",
-    "Utilities",
-    "Backup"
+    "Misc"
   ],
-  "registry": "https://github.com/binhex/arch-resilio-sync/pkgs/container/arch-resilio-sync",
+  "registry": "https://github.com/orgs/linuxserver/packages/container/package/resilio-sync",
   "network": "bridge",
   "custom_ip": null,
   "default_shell": "bash",
   "privileged": false,
-  "extra_parameters": "--restart=always",
+  "extra_parameters": null,
   "post_parameters": null,
   "cpu_set": null,
-  "web_ui_url": "http://[IP]:[PORT:8888]",
-  "readme_url": "https://github.com/binhex/documentation",
-  "icon": "https://raw.githubusercontent.com/binhex/docker-templates/master/binhex/images/resilio-sync-icon.png",
+  "web_ui_url": "http://[IP]:[PORT:8888]/gui",
+  "readme_url": "https://github.com/linuxserver/docker-resilio-sync#readme",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/resilio-sync-logo.png",
   "project": "https://www.resilio.com/individuals/",
-  "support": "https://forums.unraid.net/topic/103784-support-binhex-resilio-sync/",
-  "description": "Resilio Sync (formerly BitTorrent Sync) by Resilio, Inc. is a proprietary peer-to-peer file synchronization tool available for Windows, Mac, Linux, Android, iOS, Windows Phone, Amazon Kindle Fire and BSD. It can sync files between devices on a local network, or between remote devices over the Internet via a modified version of the BitTorrent protocol. Although not touted by the developers as an intended direct replacement nor competitor to cloud-based file synchronization services, it has attained much of its publicity in this potential role.This is mainly due to the ability of Resilio Sync to address many of the concerns in existing services relating to file storage limits, privacy, cost, and performance.",
-  "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
+  "support": "https://github.com/linuxserver/docker-resilio-sync/issues/new/choose",
+  "description": "Resilio-sync(https://www.resilio.com/individuals/) (formerly BitTorrent Sync) uses the BitTorrent protocol to sync files and folders between all of your devices. There are both free and paid versions, this container supports both. There is an official sync image but we created this one as it supports user mapping to simplify permissions for volumes.",
+  "donate": "https://www.linuxserver.io/donate",
   "paths": [
     {
-      "name": "/config",
-      "host": "/mnt/cache/appdata/resilio-sync",
+      "name": "Appdata",
+      "host": null,
       "container": "/config",
       "mode": "rw",
-      "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
+      "description": "Where resilio-sync should store its config file.",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "/downloads",
+      "host": null,
+      "container": "/downloads",
+      "mode": "rw",
+      "description": "Folder for downloads/cache.",
       "required": true,
       "display": "always",
       "default": null
     },
     {
-      "name": "/media",
-      "host": "/mnt/Array",
-      "container": "/media",
+      "name": "/sync",
+      "host": null,
+      "container": "/sync",
       "mode": "rw",
-      "description": "This is the container path to your media files, e.g. movies, tv, music, pictures etc.",
-      "required": false,
+      "description": "Sync folders root.",
+      "required": true,
       "display": "always",
       "default": null
     }
   ],
   "ports": [
     {
-      "name": "Web Interface",
+      "name": "WebUI",
       "host": "8888",
       "container": "8888",
       "protocol": "tcp",
-      "description": "This is the Web UI port for the application.",
+      "description": "WebUI",
       "required": true,
       "mask": false,
       "display": "always",
       "default": null
     },
     {
-      "name": "Resilio Sync port (TCP)",
-      "host": "5555",
-      "container": "5555",
+      "name": "55555",
+      "host": "55555",
+      "container": "55555",
       "protocol": "tcp",
-      "description": "Resilio sync port (TCP).",
-      "required": true,
-      "mask": false,
-      "display": "always",
-      "default": null
-    },
-    {
-      "name": "Resilio Sync port (UDP)",
-      "host": "5555",
-      "container": "5555",
-      "protocol": "udp",
-      "description": "Resilio sync port (UDP).",
+      "description": "Sync Port.",
       "required": true,
       "mask": false,
       "display": "always",
@@ -80,50 +77,10 @@
   ],
   "variables": [
     {
-      "name": "ENABLE_HEALTHCHECK",
-      "key": "ENABLE_HEALTHCHECK",
-      "value": "yes|no",
-      "description": "Enable or disable healthchecks.",
-      "required": false,
-      "mask": false,
-      "display": "advanced",
-      "default": null
-    },
-    {
-      "name": "HEALTHCHECK_COMMAND",
-      "key": "HEALTHCHECK_COMMAND",
-      "value": null,
-      "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
-      "required": false,
-      "mask": false,
-      "display": "advanced",
-      "default": null
-    },
-    {
-      "name": "HEALTHCHECK_ACTION",
-      "key": "HEALTHCHECK_ACTION",
-      "value": null,
-      "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
-      "required": false,
-      "mask": false,
-      "display": "advanced",
-      "default": null
-    },
-    {
-      "name": "HEALTHCHECK_HOSTNAME",
-      "key": "HEALTHCHECK_HOSTNAME",
-      "value": "google.com",
-      "description": "The hostname used when performing HTTPS and DNS healthchecking.",
-      "required": false,
-      "mask": false,
-      "display": "advanced",
-      "default": null
-    },
-    {
       "name": "PUID",
       "key": "PUID",
       "value": "500",
-      "description": "User ID for the running container",
+      "description": "Container Variable: PUID",
       "required": true,
       "mask": false,
       "display": "advanced",
@@ -133,7 +90,7 @@
       "name": "PGID",
       "key": "PGID",
       "value": "500",
-      "description": "Group ID for the running container",
+      "description": "Container Variable: PGID",
       "required": true,
       "mask": false,
       "display": "advanced",
@@ -142,9 +99,9 @@
     {
       "name": "UMASK",
       "key": "UMASK",
-      "value": "000",
-      "description": "UMASK for the running container",
-      "required": true,
+      "value": "022",
+      "description": "Container Variable: UMASK",
+      "required": false,
       "mask": false,
       "display": "advanced",
       "default": null
@@ -153,5 +110,5 @@
   "devices": [],
   "labels": [],
   "gpus": [],
-  "author": "binhex"
+  "author": "linuxserver"
 }

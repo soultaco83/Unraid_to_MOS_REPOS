@@ -1,8 +1,8 @@
 # Unraid to MOS - template repository
 
 A single flat [MOS Hub](https://github.com/mos-nas/mos-docs/blob/main/docs/MOS-Hub/Creating-Your-Own-MOS-Hub-Repository.md) repository
-holding docker templates converted from **5** unRAID Community Applications
-template repositories: **300 templates** from 5 upstream authors.
+holding docker templates converted from **4** unRAID Community Applications
+template repositories: **408 templates** from 4 upstream authors.
 
 `maintainer.json` and `docker/<App>.json` sit at the repository root, which is
 the only layout the MOS Hub indexes. Author provenance is preserved in every
@@ -51,11 +51,10 @@ follow the pool names of the host that generated this repository
 
 | Source | Maintainer | Templates | Upstream | Licence |
 |---|---|---:|---|---|
-| `binhex` | binhex | 65 | [binhex/docker-templates](https://github.com/binhex/docker-templates) | [kept](./licenses/binhex.txt) |
 | `hotio` | hotio | 27 | [hotio/unraid-templates](https://github.com/hotio/unraid-templates) | [kept](./licenses/hotio.txt) |
 | `ibracorp` | IBRACORP | 55 | [ibracorp/unraid-templates](https://github.com/ibracorp/unraid-templates) | [kept](./licenses/ibracorp.txt) |
+| `linuxserver` | linuxserver | 198 | [linuxserver/templates](https://github.com/linuxserver/templates) | [kept](./licenses/linuxserver.txt) |
 | `selfhosters` | selfhosters | 128 | [selfhosters/unRAID-CA-templates](https://github.com/selfhosters/unRAID-CA-templates) | [kept](./licenses/selfhosters.txt) |
-| `spaceinvaderone` | SpaceinvaderOne | 25 | [SpaceinvaderOne/Docker-Templates-Unraid](https://github.com/SpaceinvaderOne/Docker-Templates-Unraid) | not published |
 
 Generated with `tools/convert_sources.py --mos-paths --mos-defaults`, validated with
 `tools/validate_repos.py`, committed with `tools/publish_repo.fish` and pushed

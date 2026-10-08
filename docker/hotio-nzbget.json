@@ -1,5 +1,5 @@
 {
-  "name": "nzbget",
+  "name": "nzbget (hotio)",
   "repo": "ghcr.io/hotio/nzbget:latest",
   "category": [
     "Downloader"

@@ -1,5 +1,5 @@
 {
-  "name": "sabnzbd",
+  "name": "sabnzbd (hotio)",
   "repo": "ghcr.io/hotio/sabnzbd:latest",
   "category": [
     "Downloader"
