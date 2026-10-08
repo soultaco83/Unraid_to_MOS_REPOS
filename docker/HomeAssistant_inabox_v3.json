@@ -1,0 +1,113 @@
+{
+  "name": "HomeAssistant_inabox_v3",
+  "repo": "spaceinvaderone/ha_inabox:latest",
+  "category": [
+    "Home Automation"
+  ],
+  "registry": "https://hub.docker.com/repository/docker/spaceinvaderone/ha_inabox/general",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:9123]",
+  "readme_url": "https://github.com/SpaceinvaderOne/Home_Assistant_inabox/blob/main/README.md",
+  "icon": "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/docker_icons/HomeAssistant.png",
+  "project": "https://github.com/SpaceinvaderOne/Home_Assistant_inabox",
+  "support": "https://forums.unraid.net/topic/176028-support-homeassistant_inabox",
+  "description": "HomeAssistant_inabox installs Home Assistant OS as a virtual machine on your Unraid server through a short setup wizard - it does not run Home Assistant itself inside this container. Open this container's WebUI, pick a Home Assistant OS release and a few settings, and it creates the VM, downloads and attaches the disk, and hands you back a normal Unraid VM.\r\n\r\nOnce a Home Assistant VM exists - whether this wizard created it or you already had one running - this container's WebUI becomes a small status panel instead of the wizard: it shows the VM's address, whether Home Assistant has answered there, and a Start button if the VM is stopped. If you stop or remove this container, the Home Assistant VM keeps running; it is managed by Unraid's own VM tab like any other virtual machine, not by this container.\r\n\r\nKeeping a VM running - an automatic restart if it stops unexpectedly, plus a notification - is opt-in per VM from the status panel and off by default; nothing is ever turned on for you.\r\n\r\nIf you already run Home Assistant in a VM on this server, the wizard finds it by reading the VM's own disk rather than guessing from its name, and the status panel lists it alongside anything this container installs - there is no separate \"adopt\" step to click through.\r\n\r\nThe wizard can also pass a USB device on this server through to the Home Assistant VM, for a Zigbee, Z-Wave or similar radio, and calls out devices it recognises as likely candidates rather than presenting a bare, unlabelled list.\r\n\r\nThis needs direct access to your VM manager (libvirt), your Domains share, Docker's own socket and a handful of Unraid system paths in order to build and manage the VM correctly - that is expected and required, not a mistake in this template. It has no login of its own, so keep it on a trusted LAN rather than exposing it to the internet.",
+  "requires": "Unraid's VM service must be enabled: Settings then VM Manager. The wizard checks this before it lets an install start and tells you if it is off, so nothing is lost if you forget - but it cannot create a VM without it.\n\nHardware virtualisation (Intel VT-x or AMD-V) needs to be on in your BIOS. If you have ever run a VM on this server, it already is.\n\nNo Home Assistant knowledge is needed. The wizard downloads Home Assistant OS itself, builds the VM and hands it to you set up.",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": "/mnt/cache/appdata/HomeAssistant_inabox_v3",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Where the wizard keeps its own state, downloaded Home Assistant OS images and the VM XML it generates. Safe to back up; deleting it just means starting the wizard over.",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Domains Share",
+      "host": "/mnt/Array/domains",
+      "container": "/domains",
+      "mode": "rw",
+      "description": "Your Unraid VMs share. This is where the wizard writes the Home Assistant OS virtual disk.",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Libvirt Socket",
+      "host": "/var/run/libvirt",
+      "container": "/var/run/libvirt",
+      "mode": "rw",
+      "description": "Lets the wizard talk to Unraid's VM manager (libvirt) to create the Home Assistant VM and check on it. This is the folder libvirt creates its socket in, not the socket itself, so this container can start before or after the VM service without getting in its way. Required - do not change.",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Docker Socket",
+      "host": "/var/run/docker.sock",
+      "container": "/var/run/docker.sock",
+      "mode": "ro",
+      "description": "Read-only access to Docker, used only to resolve this container's own host paths so the VM configuration the wizard writes points at real paths on your server. Required - do not change.",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "QEMU Firmware",
+      "host": "/usr/share/qemu",
+      "container": "/host/usr/share/qemu",
+      "mode": "ro",
+      "description": "Read-only access to Unraid's QEMU firmware files, used to copy the UEFI variables file the VM needs to boot. Required - do not change.",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Notifications",
+      "host": "/tmp/notifications",
+      "container": "/tmp/notifications",
+      "mode": "rw",
+      "description": "Lets the wizard raise notifications that show up in the Unraid GUI, such as when setup finishes. Required - do not change.",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "9123",
+      "container": "9123",
+      "protocol": "tcp",
+      "description": "Port the setup wizard's web page listens on. Open this in a browser to install Home Assistant. This is the wizard's own port, not Home Assistant's - the wizard links to Home Assistant from inside itself once the VM exists, on whichever port that VM turns out to answer on.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "HA_inabox version",
+      "key": "WHATVERSION",
+      "value": "3",
+      "description": "The version of this template, so the container can tell whether it matches the image running inside it. If Unraid ever updates this image to a new incompatible major version without also updating this template (templates do not update themselves), the mismatch is caught and explained on this container's WebUI instead of failing silently. Required - do not change.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "SpaceinvaderOne"
+}

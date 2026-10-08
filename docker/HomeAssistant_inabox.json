@@ -1,0 +1,203 @@
+{
+  "name": "HomeAssistant_inabox",
+  "repo": "spaceinvaderone/ha_inabox:2",
+  "category": [
+    "Utilities",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/repository/docker/spaceinvaderone/ha_inabox/general",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": true,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8123]",
+  "icon": "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/docker_icons/HomeAssistant.png",
+  "project": "https://github.com/SpaceinvaderOne/Home_Assistant_inabox",
+  "support": "https://forums.unraid.net/topic/176028-support-homeassistant_inabox/",
+  "description": "REPLACED BY HOME ASSISTANT INABOX V3. Install \"HomeAssistant_inabox_v3\" from Community Applications instead. This version is no longer developed.\n\nYour Home Assistant VM is not affected by any of this. It belongs to Unraid's VM manager, not to this container, so it keeps running whatever you do here - including deleting this container.\n\n**Moving to v3**\n\nInstall HomeAssistant_inabox_v3 from Community Applications, open it and check your existing Home Assistant VM appears on its page, then delete this old container. v3 finds Home Assistant VMs you already have by reading the VM's own disk, so an install made by this container is recognised automatically, even while it is switched off.\n\nUnraid does not update Docker templates when a container image updates, so updating this container will not move you to v3 on its own. It will start in a notice mode that explains what has happened and where to go. Nothing is damaged by that, and your VM carries on running throughout.\n\n**Staying on v2 for now**\n\nIf you are not ready to move, change this template's Repository field to `spaceinvaderone/ha_inabox:2` and restart the container. That tag is frozen at the final v2 release and will keep working exactly as it does today.\n\n---\n\nWhat this container did: downloaded, installed and managed a Home Assistant VM on your Unraid server, restarting the VM if it was found stopped, and redirecting this container's WebUI to the Home Assistant VM's own WebUI.",
+  "requires": "This container has been replaced by HomeAssistant_inabox_v3. Install that from Community Applications instead.\n\nOn your server make sure to have the VM service enabled. Optional have notifications enabled for HomeAssistant_inabox to send GUI messages during install.",
+  "paths": [
+    {
+      "name": "VM Images Location",
+      "host": "/mnt/Array/domains/",
+      "container": "/domains",
+      "mode": "rw",
+      "description": "Please choose the storage location for your VM images on the server. The default path is set to /mnt/Array/domains/",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Appdata Location:",
+      "host": "/mnt/cache/appdata/HomeAssistant_inabox",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Please choose the storage location for your appdata  The default path is set to /mnt/cache/appdata/HomeAssistant_inabox/",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UNRAID /usr/lib64",
+      "host": "/usr/lib64",
+      "container": "/host/usr/lib64",
+      "mode": "rw",
+      "description": "Used so container can use unraid notification system during Home Assistant VM creation process",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "NVRAM location",
+      "host": "/etc/libvirt/qemu/nvram/",
+      "container": "/etc/libvirt/qemu/nvram/",
+      "mode": "rw",
+      "description": "NVRAM location on host. Used so container can create a unique nvram file for the Home Assistant VM",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UNRAID /usr/lib",
+      "host": "/usr/lib",
+      "container": "/host/usr/lib",
+      "mode": "rw",
+      "description": "Used so container can use unraid notification system during Home Assistant VM creation process",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UNRAID /lib64",
+      "host": "/lib64",
+      "container": "/host/lib64",
+      "mode": "rw",
+      "description": "Used so container can use unraid notification system during Home Assistant VM creation process",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UNRAID /tmp/notifications",
+      "host": "/tmp/notifications",
+      "container": "/host/tmp/notifications",
+      "mode": "rw",
+      "description": "Used so container can use unraid notification system during Home Assistant VM creation process",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "LIBVIRT Location",
+      "host": "/var/run/libvirt",
+      "container": "/var/run/libvirt",
+      "mode": "rw",
+      "description": "LIBVIRT Location on host. Used so container can define the Home Assistant VM",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UNRAID /usr/bin",
+      "host": "/usr/bin",
+      "container": "/host/usr/bin",
+      "mode": "rw",
+      "description": "Used so container can use unraid notification system during Home Assistant VM creation process",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UNRAID /lib",
+      "host": "/lib",
+      "container": "/host/lib",
+      "mode": "rw",
+      "description": "Used so container can use unraid notification system during Home Assistant VM creation process",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UNRAID docker.sock",
+      "host": "/var/run/docker.sock",
+      "container": "/var/run/docker.sock",
+      "mode": "rw",
+      "description": "UNRAID docker.sock. Used so container can use docker inspect to workout true locations of mapped locations to create the xml used to define the Home Assistant VM",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "HA_inabox WebUI Port",
+      "host": "8123",
+      "container": "8123",
+      "protocol": "tcp",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "VM Name",
+      "key": "VMNAME",
+      "value": "Home Assistant",
+      "description": "Enter a different name if you want the VM to have a name other than the OS name. If left blank, the container will use the default OS name installed.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Home Assistant URL",
+      "key": "CHECKURL",
+      "value": "https://www.home-assistant.io/installation/linux",
+      "description": "page to scrape for download link",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Keep Vm Running",
+      "key": "RESTART",
+      "value": "Yes",
+      "description": "If VM should stop container will restart it. Ensures Home Assistant will keep running should VM stop",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Check Time",
+      "key": "CHECK",
+      "value": "15",
+      "description": "Check if VM is running (default every 15 mins)",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "HA_inabox version",
+      "key": "WHATVERSION",
+      "value": "2",
+      "description": "template evrsion of container. used to check template is correct version for version of software",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "SpaceinvaderOne"
+}
