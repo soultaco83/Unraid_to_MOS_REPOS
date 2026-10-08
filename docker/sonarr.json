@@ -1,5 +1,5 @@
 {
-  "name": "sonarr",
+  "name": "sonarr (linuxserver)",
   "repo": "lscr.io/linuxserver/sonarr",
   "category": [
     "Misc"

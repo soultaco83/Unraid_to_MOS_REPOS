@@ -1,5 +1,5 @@
 {
-  "name": "firefox",
+  "name": "firefox (linuxserver)",
   "repo": "lscr.io/linuxserver/firefox",
   "category": [
     "Misc"

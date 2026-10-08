@@ -1,5 +1,5 @@
 {
-  "name": "Drone Runner",
+  "name": "Drone Runner (selfhosters)",
   "repo": "drone/drone-runner-docker",
   "category": [
     "Productivity",

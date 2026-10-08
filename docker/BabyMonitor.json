@@ -1,5 +1,5 @@
 {
-  "name": "BabyMonitor",
+  "name": "BabyMonitor (selfhosters)",
   "repo": "ghcr.io/aldendana/ha-baby-monitor:latest",
   "category": [
     "Home Automation"

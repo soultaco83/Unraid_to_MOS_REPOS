@@ -1,5 +1,5 @@
 {
-  "name": "ldap-auth",
+  "name": "ldap-auth (linuxserver)",
   "repo": "lscr.io/linuxserver/ldap-auth",
   "category": [
     "Misc"

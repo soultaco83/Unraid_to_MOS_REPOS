@@ -1,5 +1,5 @@
 {
-  "name": "ytdl-sub-gui",
+  "name": "ytdl-sub-gui (selfhosters)",
   "repo": "ghcr.io/jmbannon/ytdl-sub-gui:latest",
   "category": [
     "Downloader",

@@ -1,5 +1,5 @@
 {
-  "name": "adguardhome-sync",
+  "name": "adguardhome-sync (linuxserver)",
   "repo": "lscr.io/linuxserver/adguardhome-sync",
   "category": [
     "Misc"

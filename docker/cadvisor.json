@@ -1,5 +1,5 @@
 {
-  "name": "cadvisor",
+  "name": "cadvisor (selfhosters)",
   "repo": "ghcr.io/google/cadvisor",
   "category": [
     "Utilities"

@@ -1,5 +1,5 @@
 {
-  "name": "ListSync",
+  "name": "ListSync (selfhosters)",
   "repo": "ghcr.io/woahai321/list-sync:latest",
   "category": [
     "Downloader",

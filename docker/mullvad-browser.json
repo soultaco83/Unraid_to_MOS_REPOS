@@ -1,5 +1,5 @@
 {
-  "name": "mullvad-browser",
+  "name": "mullvad-browser (linuxserver)",
   "repo": "lscr.io/linuxserver/mullvad-browser",
   "category": [
     "Misc"

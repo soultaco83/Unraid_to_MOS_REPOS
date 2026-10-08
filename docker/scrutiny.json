@@ -1,5 +1,5 @@
 {
-  "name": "scrutiny",
+  "name": "scrutiny (selfhosters)",
   "repo": "ghcr.io/analogj/scrutiny:master-omnibus",
   "category": [
     "Home Automation",

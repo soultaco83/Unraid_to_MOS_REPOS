@@ -1,5 +1,5 @@
 {
-  "name": "hortusfox-web",
+  "name": "hortusfox-web (selfhosters)",
   "repo": "ghcr.io/danielbrendel/hortusfox-web:latest",
   "category": [
     "Productivity"

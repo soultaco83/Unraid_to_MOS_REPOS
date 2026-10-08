@@ -1,5 +1,5 @@
 {
-  "name": "ipfs-kubo",
+  "name": "ipfs-kubo (selfhosters)",
   "repo": "ipfs/kubo:latest",
   "category": [
     "Hosting",

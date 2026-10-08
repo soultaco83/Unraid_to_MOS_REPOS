@@ -1,5 +1,5 @@
 {
-  "name": "Kubek",
+  "name": "Kubek (selfhosters)",
   "repo": "ghcr.io/rxflex/kubek-minecraft-dashboard:latest",
   "category": [
     "Game Server"

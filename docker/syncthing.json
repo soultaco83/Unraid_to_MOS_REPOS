@@ -1,5 +1,5 @@
 {
-  "name": "syncthing",
+  "name": "syncthing (linuxserver)",
   "repo": "lscr.io/linuxserver/syncthing",
   "category": [
     "Misc"

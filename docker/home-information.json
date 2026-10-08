@@ -1,5 +1,5 @@
 {
-  "name": "Home Information",
+  "name": "Home Information (selfhosters)",
   "repo": "ghcr.io/cassandra/home-information:latest",
   "category": [
     "Home Automation"

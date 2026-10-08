@@ -1,5 +1,5 @@
 {
-  "name": "nextcloud-aio-mastercontainer",
+  "name": "nextcloud-aio-mastercontainer (SIO)",
   "repo": "nextcloud/all-in-one:latest",
   "category": [
     "Hosting"

@@ -1,5 +1,5 @@
 {
-  "name": "qui",
+  "name": "qui (selfhosters)",
   "repo": "ghcr.io/autobrr/qui:latest",
   "category": [
     "Downloader"

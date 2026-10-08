@@ -1,5 +1,5 @@
 {
-  "name": "mysql-workbench",
+  "name": "mysql-workbench (linuxserver)",
   "repo": "lscr.io/linuxserver/mysql-workbench",
   "category": [
     "Misc"

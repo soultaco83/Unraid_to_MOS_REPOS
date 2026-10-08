@@ -1,5 +1,5 @@
 {
-  "name": "seerr",
+  "name": "seerr (hotio)",
   "repo": "ghcr.io/hotio/seerr:latest",
   "category": [
     "Downloader",

@@ -1,5 +1,5 @@
 {
-  "name": "autobrr",
+  "name": "autobrr (selfhosters)",
   "repo": "ghcr.io/autobrr/autobrr:latest",
   "category": [
     "Utilities"

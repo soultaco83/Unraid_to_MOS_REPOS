@@ -1,5 +1,5 @@
 {
-  "name": "rancher",
+  "name": "rancher (selfhosters)",
   "repo": "rancher/rancher:latest",
   "category": [
     "Network",

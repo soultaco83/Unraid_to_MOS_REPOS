@@ -1,5 +1,5 @@
 {
-  "name": "ollama-intel-gpu",
+  "name": "ollama-intel-gpu (SIO)",
   "repo": "spaceinvaderone/ollama-intel-gpu",
   "category": [
     "AI",

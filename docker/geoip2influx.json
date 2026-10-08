@@ -1,5 +1,5 @@
 {
-  "name": "geoip2influx",
+  "name": "geoip2influx (selfhosters)",
   "repo": "ghcr.io/gilbn/geoip2influx",
   "category": [
     "Utilities"

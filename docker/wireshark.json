@@ -1,5 +1,5 @@
 {
-  "name": "wireshark",
+  "name": "wireshark (linuxserver)",
   "repo": "lscr.io/linuxserver/wireshark",
   "category": [
     "Misc"

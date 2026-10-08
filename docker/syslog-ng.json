@@ -1,5 +1,5 @@
 {
-  "name": "syslog-ng",
+  "name": "syslog-ng (linuxserver)",
   "repo": "lscr.io/linuxserver/syslog-ng",
   "category": [
     "Misc"

@@ -1,5 +1,5 @@
 {
-  "name": "IdPVault",
+  "name": "IdPVault (selfhosters)",
   "repo": "ghcr.io/keltech-services/idpvault:latest",
   "category": [
     "Backup",

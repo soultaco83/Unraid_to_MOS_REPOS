@@ -1,5 +1,5 @@
 {
-  "name": "Agate",
+  "name": "Agate (selfhosters)",
   "repo": "ghcr.io/mbrubeck/agate:latest",
   "category": [
     "Network",

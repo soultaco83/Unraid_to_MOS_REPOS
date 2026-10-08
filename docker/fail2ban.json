@@ -1,5 +1,5 @@
 {
-  "name": "fail2ban",
+  "name": "fail2ban (linuxserver)",
   "repo": "lscr.io/linuxserver/fail2ban",
   "category": [
     "Misc"

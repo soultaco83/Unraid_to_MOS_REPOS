@@ -1,5 +1,5 @@
 {
-  "name": "jackett",
+  "name": "jackett (linuxserver)",
   "repo": "lscr.io/linuxserver/jackett",
   "category": [
     "Misc"

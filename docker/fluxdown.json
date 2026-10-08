@@ -1,5 +1,5 @@
 {
-  "name": "FluxDown",
+  "name": "FluxDown (selfhosters)",
   "repo": "ghcr.io/zerx-lab/fluxdown-server:latest",
   "category": [
     "Downloader",

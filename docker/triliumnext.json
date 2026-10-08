@@ -1,5 +1,5 @@
 {
-  "name": "trilium",
+  "name": "trilium (selfhosters)",
   "repo": "ghcr.io/triliumnext/trilium:latest",
   "category": [
     "Productivity",

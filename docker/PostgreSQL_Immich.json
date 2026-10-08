@@ -1,5 +1,5 @@
 {
-  "name": "PostgreSQL_Immich",
+  "name": "PostgreSQL_Immich (SIO)",
   "repo": "tensorchord/pgvecto-rs:pg16-v0.3.0",
   "category": [
     "Network",

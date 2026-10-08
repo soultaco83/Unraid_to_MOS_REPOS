@@ -1,5 +1,5 @@
 {
-  "name": "GymApp",
+  "name": "GymApp (selfhosters)",
   "repo": "ghcr.io/thaihoang987/gym-app:latest",
   "category": [
     "Productivity",

@@ -1,5 +1,5 @@
 {
-  "name": "Dell iDRAC Fan Controller",
+  "name": "Dell iDRAC Fan Controller (selfhosters)",
   "repo": "tigerblue77/dell_idrac_fan_controller",
   "category": [
     "Misc"

@@ -1,5 +1,5 @@
 {
-  "name": "TrafegoDNS",
+  "name": "TrafegoDNS (selfhosters)",
   "repo": "ghcr.io/elmerfds/trafegodns:latest",
   "category": [
     "Utilities",

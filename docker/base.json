@@ -1,5 +1,5 @@
 {
-  "name": "base",
+  "name": "base (hotio)",
   "repo": "ghcr.io/hotio/base:alpinevpn",
   "category": [
     "Misc"

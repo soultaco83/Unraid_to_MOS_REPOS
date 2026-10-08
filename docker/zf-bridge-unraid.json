@@ -1,5 +1,5 @@
 {
-  "name": "zf-bridge-unraid",
+  "name": "zf-bridge-unraid (selfhosters)",
   "repo": "zonefoundry/bridge:latest",
   "category": [
     "Home Automation",

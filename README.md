@@ -7,8 +7,8 @@ template repositories: **378 templates** from 4 upstream authors.
 `maintainer.json` and `docker/<App>.json` sit at the repository root, which is
 the only layout the MOS Hub indexes. Author provenance is preserved in every
 template (`author`, `project`, `support`, `registry`, `donate`) and in the
-table below; templates whose file/display name would clash with another
-author's carry a source prefix.
+table below; every display name carries its owner (`jellyfin (hotio)`,
+`jellyfin (linuxserver)`, `... (SIO)` for SpaceinvaderOne).
 
 ## Add it to MOS Hub
 

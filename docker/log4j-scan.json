@@ -1,5 +1,5 @@
 {
-  "name": "log4jscan",
+  "name": "log4jscan (SIO)",
   "repo": "spaceinvaderone/log4j-scan:latest",
   "category": [
     "Security"

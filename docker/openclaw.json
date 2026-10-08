@@ -1,5 +1,5 @@
 {
-  "name": "OpenClaw",
+  "name": "OpenClaw (selfhosters)",
   "repo": "ghcr.io/openclaw/openclaw:latest",
   "category": [
     "Productivity",

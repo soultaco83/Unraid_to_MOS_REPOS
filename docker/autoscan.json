@@ -1,5 +1,5 @@
 {
-  "name": "autoscan",
+  "name": "autoscan (hotio)",
   "repo": "ghcr.io/hotio/autoscan:latest",
   "category": [
     "Misc"

@@ -14,9 +14,9 @@ The MOS Hub only indexes the *root* of a repository; its documented layout is
 It does not descend into sub-directories, so every converted template is written
 into a single top-level docker/ directory. The upstream author of a template
 stays identifiable through the README source table and through the per-template
-project / support / registry / donate fields. Only the templates whose file name
-(or display name) would clash with another author's are prefixed/suffixed with
-the source key.
+project / support / registry / donate fields. Every display name carries its
+owner (e.g. `jellyfin (hotio)`, `jellyfin (linuxserver)`); file names are only
+source-prefixed when two would otherwise clash.
 
 Usage:
     python3 convert_sources.py [WORK_DIR] [OUTPUT_DIR]
@@ -62,12 +62,13 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import unraid_to_mos as conv  # noqa: E402
 
 # Converted wholesale: the community collections (selfhosters, linuxserver)
-# plus a few dedicated author repositories.
+# plus a few dedicated author repositories. `label` is the short owner tag that
+# is appended to every display name (e.g. `jellyfin (hotio)`, `... (SIO)`).
 SOURCES = [
-    {"key": "selfhosters",     "maintainer": "selfhosters",     "repo": "selfhosters/unRAID-CA-templates"},
-    {"key": "linuxserver",     "maintainer": "linuxserver",     "repo": "linuxserver/templates"},
-    {"key": "hotio",           "maintainer": "hotio",           "repo": "hotio/unraid-templates"},
-    {"key": "spaceinvaderone", "maintainer": "SpaceinvaderOne", "repo": "SpaceinvaderOne/Docker-Templates-Unraid"},
+    {"key": "selfhosters",     "maintainer": "selfhosters",     "label": "selfhosters",     "repo": "selfhosters/unRAID-CA-templates"},
+    {"key": "linuxserver",     "maintainer": "linuxserver",     "label": "linuxserver",     "repo": "linuxserver/templates"},
+    {"key": "hotio",           "maintainer": "hotio",           "label": "hotio",           "repo": "hotio/unraid-templates"},
+    {"key": "spaceinvaderone", "maintainer": "SpaceinvaderOne", "label": "SIO",             "repo": "SpaceinvaderOne/Docker-Templates-Unraid"},
 ]
 
 # Repository level metadata written to maintainer.json. The MOS Hub labels EVERY
@@ -304,23 +305,6 @@ def unique_file(used, key, stem):
     return name
 
 
-def unique_name(used, key, base):
-    """Pick a display name that is unique across the merged repository.
-
-    The Hub lists templates by their "name", so two authors shipping the same
-    application (e.g. Ghost, FileBrowser) have to stay distinguishable.
-    """
-    name = base
-    if name not in used:
-        return name
-    name = "%s (%s)" % (base, key)
-    suffix = 2
-    while name in used:
-        name = "%s (%s-%d)" % (base, key, suffix)
-        suffix += 1
-    return name
-
-
 def merge(builds, out_root, mos_paths=False, mos_defaults=False,
           appdata_root=MOS_APPDATA_ROOT, array_root=MOS_ARRAY_ROOT):
     """Merge every per-source docker/ directory into OUT_ROOT/docker/.
@@ -332,10 +316,11 @@ def merge(builds, out_root, mos_paths=False, mos_defaults=False,
     shutil.rmtree(docker_dir, ignore_errors=True)
     os.makedirs(docker_dir, exist_ok=True)
 
-    used_files, used_names = {}, {}
+    used_files = {}
     report = []
     for entry in builds:
         placed = 0
+        label = entry.get("label") or entry["key"]
         pattern = os.path.join(entry["build"], "docker", "*.json")
         for path in sorted(glob.glob(pattern)):
             with open(path, encoding="utf-8") as fh:
@@ -349,10 +334,12 @@ def merge(builds, out_root, mos_paths=False, mos_defaults=False,
             # repository level maintainer for docker templates, but `author` is a
             # valid template field there and keeps the provenance in the data.
             obj.setdefault("author", entry["maintainer"])
-            obj["name"] = unique_name(used_names, entry["key"], obj.get("name") or stem)
+            # Every display name carries its owner, so the same application from
+            # two sources stays distinguishable in the Hub (jellyfin (hotio) vs
+            # jellyfin (linuxserver)).
+            obj["name"] = "%s (%s)" % (obj.get("name") or stem, label)
             fname = unique_file(used_files, entry["key"], stem)
             used_files[fname.lower()] = entry["key"]
-            used_names[obj["name"]] = entry["key"]
             with open(os.path.join(docker_dir, fname), "w", encoding="utf-8") as fh:
                 json.dump(obj, fh, indent=2, ensure_ascii=False)
                 fh.write("\n")
@@ -404,8 +391,8 @@ def write_readme(out_root, report, maintainer, mos_paths=False, mos_defaults=Fal
         "`maintainer.json` and `docker/<App>.json` sit at the repository root, which is",
         "the only layout the MOS Hub indexes. Author provenance is preserved in every",
         "template (`author`, `project`, `support`, `registry`, `donate`) and in the",
-        "table below; templates whose file/display name would clash with another",
-        "author's carry a source prefix.",
+        "table below; every display name carries its owner (`jellyfin (hotio)`,",
+        "`jellyfin (linuxserver)`, `... (SIO)` for SpaceinvaderOne).",
         "",
         "## Add it to MOS Hub",
         "",
@@ -552,6 +539,7 @@ def main(argv):
         builds.append({
             "key": src["key"],
             "maintainer": src["maintainer"],
+            "label": src.get("label", src["key"]),
             "repo": src["repo"],
             "build": build_dir,
             "license": find_license(clone_dir),

@@ -1,5 +1,5 @@
 {
-  "name": "healthchecks",
+  "name": "healthchecks (linuxserver)",
   "repo": "lscr.io/linuxserver/healthchecks",
   "category": [
     "Misc"

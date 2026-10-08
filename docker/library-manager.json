@@ -1,5 +1,5 @@
 {
-  "name": "library-manager",
+  "name": "library-manager (selfhosters)",
   "repo": "ghcr.io/deucebucket/library-manager:latest",
   "category": [
     "Media"

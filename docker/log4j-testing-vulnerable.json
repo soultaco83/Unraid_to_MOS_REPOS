@@ -1,5 +1,5 @@
 {
-  "name": "log4j-testing-vulnerable",
+  "name": "log4j-testing-vulnerable (SIO)",
   "repo": "spaceinvaderone/log4shell-testing-vulnerable",
   "category": [
     "Misc"

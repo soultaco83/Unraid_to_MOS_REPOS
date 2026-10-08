@@ -1,5 +1,5 @@
 {
-  "name": "doplarr",
+  "name": "doplarr (hotio)",
   "repo": "ghcr.io/hotio/doplarr:latest",
   "category": [
     "Downloader"

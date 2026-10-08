@@ -1,5 +1,5 @@
 {
-  "name": "slskd",
+  "name": "slskd (hotio)",
   "repo": "ghcr.io/hotio/slskd:latest",
   "category": [
     "Downloader"

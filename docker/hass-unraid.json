@@ -1,5 +1,5 @@
 {
-  "name": "hass-unraid",
+  "name": "hass-unraid (selfhosters)",
   "repo": "ghcr.io/idmedia/hass-unraid:latest",
   "category": [
     "Home Automation",

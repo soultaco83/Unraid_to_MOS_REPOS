@@ -1,5 +1,5 @@
 {
-  "name": "shoko-server",
+  "name": "shoko-server (selfhosters)",
   "repo": "ghcr.io/shokoanime/server:latest",
   "category": [
     "Media"

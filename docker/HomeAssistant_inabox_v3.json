@@ -1,5 +1,5 @@
 {
-  "name": "HomeAssistant_inabox_v3",
+  "name": "HomeAssistant_inabox_v3 (SIO)",
   "repo": "spaceinvaderone/ha_inabox:latest",
   "category": [
     "Home Automation"

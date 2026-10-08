@@ -1,5 +1,5 @@
 {
-  "name": "rflood",
+  "name": "rflood (hotio)",
   "repo": "ghcr.io/hotio/rflood:latest",
   "category": [
     "Downloader"

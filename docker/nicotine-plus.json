@@ -1,5 +1,5 @@
 {
-  "name": "nicotine-plus",
+  "name": "nicotine-plus (selfhosters)",
   "repo": "ghcr.io/fletchto99/nicotine-plus-docker:latest",
   "category": [
     "Downloader"

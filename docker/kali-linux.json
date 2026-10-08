@@ -1,5 +1,5 @@
 {
-  "name": "kali-linux",
+  "name": "kali-linux (linuxserver)",
   "repo": "lscr.io/linuxserver/kali-linux",
   "category": [
     "Misc"

@@ -1,5 +1,5 @@
 {
-  "name": "stash",
+  "name": "stash (hotio)",
   "repo": "ghcr.io/hotio/stash:latest",
   "category": [
     "Media",

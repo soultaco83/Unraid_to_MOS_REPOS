@@ -1,5 +1,5 @@
 {
-  "name": "tabby-web",
+  "name": "tabby-web (selfhosters)",
   "repo": "ghcr.io/eugeny/tabby-web:latest",
   "category": [
     "Productivity"

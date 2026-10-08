@@ -1,5 +1,5 @@
 {
-  "name": "PrivateBin",
+  "name": "PrivateBin (selfhosters)",
   "repo": "privatebin/nginx-fpm-alpine",
   "category": [
     "Misc"

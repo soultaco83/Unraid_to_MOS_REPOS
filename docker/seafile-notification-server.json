@@ -1,5 +1,5 @@
 {
-  "name": "seafile-notification-server",
+  "name": "seafile-notification-server (selfhosters)",
   "repo": "seafileltd/notification-server:12.0-latest",
   "category": [
     "Backup",

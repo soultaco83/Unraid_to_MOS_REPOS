@@ -1,5 +1,5 @@
 {
-  "name": "cloudflareddns",
+  "name": "cloudflareddns (hotio)",
   "repo": "ghcr.io/hotio/cloudflareddns:latest",
   "category": [
     "Network"

@@ -1,5 +1,5 @@
 {
-  "name": "Bitfocus-Companion",
+  "name": "Bitfocus-Companion (selfhosters)",
   "repo": "ghcr.io/bitfocus/companion/companion:latest",
   "category": [
     "Productivity"

@@ -1,5 +1,5 @@
 {
-  "name": "MediaRoulette",
+  "name": "MediaRoulette (selfhosters)",
   "repo": "ghcr.io/keltech-services/mediaroulette:latest",
   "category": [
     "Media",

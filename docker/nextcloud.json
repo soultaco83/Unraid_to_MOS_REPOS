@@ -1,5 +1,5 @@
 {
-  "name": "nextcloud",
+  "name": "nextcloud (linuxserver)",
   "repo": "lscr.io/linuxserver/nextcloud",
   "category": [
     "Misc"

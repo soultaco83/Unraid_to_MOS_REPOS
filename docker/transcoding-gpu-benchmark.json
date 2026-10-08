@@ -1,5 +1,5 @@
 {
-  "name": "Transcoding-GPU-Benchmark",
+  "name": "Transcoding-GPU-Benchmark (SIO)",
   "repo": "spaceinvaderone/transcoding-gpu-benchmark:latest",
   "category": [
     "Utilities"

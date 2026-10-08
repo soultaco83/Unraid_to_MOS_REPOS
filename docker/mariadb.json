@@ -1,5 +1,5 @@
 {
-  "name": "mariadb",
+  "name": "mariadb (linuxserver)",
   "repo": "lscr.io/linuxserver/mariadb",
   "category": [
     "Misc"

@@ -1,5 +1,5 @@
 {
-  "name": "huginn",
+  "name": "huginn (selfhosters)",
   "repo": "ghcr.io/huginn/huginn",
   "category": [
     "Home Automation"

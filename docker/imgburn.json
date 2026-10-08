@@ -1,5 +1,5 @@
 {
-  "name": "Imgburn",
+  "name": "Imgburn (selfhosters)",
   "repo": "ghcr.io/jwolvers/imgburn-wine-container:main-ubuntu22",
   "category": [
     "Backup",

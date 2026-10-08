@@ -1,5 +1,5 @@
 {
-  "name": "tdarr_node",
+  "name": "tdarr_node (selfhosters)",
   "repo": "ghcr.io/haveagitgat/tdarr_node",
   "category": [
     "Productivity",
