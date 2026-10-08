@@ -66,7 +66,6 @@ import unraid_to_mos as conv  # noqa: E402
 SOURCES = [
     {"key": "selfhosters",     "maintainer": "selfhosters",     "repo": "selfhosters/unRAID-CA-templates"},
     {"key": "linuxserver",     "maintainer": "linuxserver",     "repo": "linuxserver/templates"},
-    {"key": "ibracorp",        "maintainer": "IBRACORP",        "repo": "ibracorp/unraid-templates"},
     {"key": "hotio",           "maintainer": "hotio",           "repo": "hotio/unraid-templates"},
     {"key": "spaceinvaderone", "maintainer": "SpaceinvaderOne", "repo": "SpaceinvaderOne/Docker-Templates-Unraid"},
 ]
