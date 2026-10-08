@@ -1,0 +1,73 @@
+{
+  "name": "Komga",
+  "repo": "gotson/komga",
+  "category": [
+    "Network",
+    "Media",
+    "Utilities"
+  ],
+  "registry": "https://hub.docker.com/r/gotson/komga/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:25600]",
+  "icon": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/komga.png",
+  "project": "https://github.com/gotson/komga/",
+  "support": "https://forums.unraid.net/topic/87798-support-selfhostersnets-template-repository/",
+  "description": "A Media server for comics/mangas/BDs with API and OPDS support.\r\nCheck logs for auto-generated username/password.",
+  "paths": [
+    {
+      "name": "Config",
+      "host": "/mnt/cache/appdata/komga/",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Container Path: /config",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Books",
+      "host": "/mnt/Array/Media/books",
+      "container": "/books",
+      "mode": "rw",
+      "description": "Container Path: /books",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "25600",
+      "container": "25600",
+      "protocol": "tcp",
+      "description": "Container Port: 25600",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Exclusions",
+      "key": "KOMGA_LIBRARIES_SCAN_DIRECTORY_EXCLUSIONS",
+      "value": "#recycle,@eaDir",
+      "description": "Container Variable: KOMGA_LIBRARIES_SCAN_DIRECTORY_EXCLUSIONS",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "selfhosters"
+}

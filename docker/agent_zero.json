@@ -1,0 +1,93 @@
+{
+  "name": "agent-zero",
+  "repo": "agent0ai/agent-zero:latest",
+  "category": [
+    "AI",
+    "Productivity"
+  ],
+  "registry": "https://hub.docker.com/r/agent0ai/agent-zero",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": "--runtime=nvidia",
+  "post_parameters": "--BRANCH=main",
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:80]",
+  "icon": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/agent-zero.png",
+  "project": "https://agent-zero.ai/",
+  "support": "https://github.com/agent0ai/agent-zero/issues",
+  "description": "[b]Agent-Zero[/b] is the easiest way to create and deploy autonomous AI agents.\n[b]Configuration note:[/b] The \"--BRANCH=main\" post argument will break installation if you are not using Tailscale- create it as a standard variable in that case, and remove the post-arg.\nIt's a powerful platform designed to simplify the development and management of AI agents by providing a user-friendly interface and robust backend capabilities.\n[br][br]\nSimply provide your API key from a supported Large Language Model (LLM) provider (like OpenAI, Anthropic, or Cohere), describe the agent you want to build, and Agent-Zero will generate, test, and deploy it for you.\n[br][br]\n[b]FIRST RUN SETUP:[/b] After deploying this container, access the web interface and configure your LLM provider during the initial setup. You must provide your own API key or Ollama instance URL for at least one LLM provider for the application to be useful. All configuration is done through the web interface on first run.\n[br][br]\n[b]GPU Support:[/b] This template will pass all available Nvidia GPUs to the container.\nThis requires the [b]Nvidia-Plugin[/b] to be installed from Community Applications.\n[br][b]BRANCH[/b] parameter is in post-arguments, because it needs to be passed after the tailscale package completes, or the container will fail to start.[/br]\n[b]Future-Proofing Note:[/b] The GPU passthrough setting is included to future-proof the container for when the developer begins releasing CUDA-enabled images directly to Docker Hub. If you do not require GPU functionality, feel free to remove the '--runtime=nvidia' parameter from the 'Extra Parameters' field.",
+  "donate": "https://github.com/sponsors/frdel",
+  "requires": "https://forums.unraid.net/topic/98978-plugin-nvidia-driver/",
+  "paths": [
+    {
+      "name": "Appdata Path",
+      "host": "/mnt/cache/appdata/agent-zero",
+      "container": "/a0",
+      "mode": "rw",
+      "description": "Container path for storing application data, agent configurations, and logs.",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "50080",
+      "container": "80",
+      "protocol": "tcp",
+      "description": "The port to access the Agent-Zero web interface. The container listens on port 80, which is mapped to the host port you specify here.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "NVIDIA Visible Devices",
+      "key": "NVIDIA_VISIBLE_DEVICES",
+      "value": "all",
+      "description": "The UUID of the NVIDIA GPU to pass to the container. 'all' will pass all available GPUs.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Ollama Base URL",
+      "key": "OLLAMA_BASE_URL",
+      "value": "http://localhost:11434",
+      "description": "The base URL of an Ollama instance that can be used as a fallback if no other LLM providers are configured.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "LM Studio Base URL",
+      "key": "LM_STUDIO_BASE_URL",
+      "value": "http://localhost:1234/v1",
+      "description": "The base URL of an LM Studio instance that can be used as a fallback if no other LLM providers are configured.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [
+    {
+      "driver": "nvidia",
+      "count": "all",
+      "capabilities": [
+        "gpu"
+      ],
+      "description": "NVIDIA GPU pass-through. Requires the NVIDIA driver / container toolkit on the host (Unraid: install the Nvidia-Driver plugin)."
+    }
+  ],
+  "author": "selfhosters"
+}

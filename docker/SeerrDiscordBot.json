@@ -1,0 +1,252 @@
+{
+  "name": "SeerrDiscordBot",
+  "repo": "pejkaa/seerr-discord-bot",
+  "category": [
+    "Media",
+    "Misc",
+    "Utilities"
+  ],
+  "registry": "https://hub.docker.com/r/pejkaa/seerr-discord-bot",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/discord.png",
+  "project": "https://github.com/pejkaa/seerr-discord-bot",
+  "support": "https://forums.unraid.net/topic/199112-seerr-discord-bot/",
+  "description": "A Discord bot that lets users request movies and TV shows via slash commands, routed through your Overseerr or Jellyseerr instance. Users can link their Discord account to their Seerr profile. Supports multiple configurable libraries (Movies, Kids Movies, TV Shows, Kids TV Shows, etc) and availability notifications.",
+  "requires": "A Discord Bot Token (from https://discord.com/developers/applications) and a running Overseerr or Jellyseerr instance. After starting, register slash commands by running: docker exec SeerrDiscordBot node src/register.js",
+  "paths": [
+    {
+      "name": "Data Directory",
+      "host": "/mnt/cache/appdata/SeerrDiscordBot/data",
+      "container": "/app/data",
+      "mode": "rw",
+      "description": "Path to store persistent data (user links and request history). This data survives container restarts and updates.",
+      "required": true,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "ports": [],
+  "variables": [
+    {
+      "name": "Discord - Bot Token",
+      "key": "DISCORD_TOKEN",
+      "value": null,
+      "description": "Your Discord bot token. Get it from https://discord.com/developers/applications → Your App → Bot → Reset Token.",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Discord - Client ID",
+      "key": "DISCORD_CLIENT_ID",
+      "value": null,
+      "description": "Your Discord application Client ID (Application ID). Found at https://discord.com/developers/applications → Your App → General Information.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Discord - Server ID",
+      "key": "DISCORD_GUILD_ID",
+      "value": null,
+      "description": "Your Discord server ID. Enable Developer Mode in Discord (Settings → Advanced), then right-click your server and select Copy Server ID.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Discord - Requests Channel ID",
+      "key": "REQUESTS_CHANNEL_ID",
+      "value": null,
+      "description": "Discord channel ID where new requests are posted. Right-click the channel and select Copy Channel ID.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Discord - Notify Channel ID",
+      "key": "NOTIFY_CHANNEL_ID",
+      "value": null,
+      "description": "Discord channel ID where availability notifications are sent when media is ready. Can be the same as Requests Channel.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Seerr - URL",
+      "key": "SEER_URL",
+      "value": null,
+      "description": "URL of your Overseerr or Jellyseerr instance including port. Example: http://192.168.1.100:5055",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Seerr - API Key",
+      "key": "SEER_API_KEY",
+      "value": null,
+      "description": "Your Overseerr or Jellyseerr API key. Found in Jellyseerr/Overseerr → Settings → General → API Key.",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Movies Library - Name",
+      "key": "LIBRARY_1_NAME",
+      "value": "Movies",
+      "description": "Name of your first library. This becomes the slash command /request-movies. Use letters, numbers and spaces only.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Movies Library - Type",
+      "key": "LIBRARY_1_TYPE",
+      "value": "movie",
+      "description": "Media type for Library 1. Use 'movie' for movies or 'tv' for TV shows.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Movies Library - Server ID",
+      "key": "LIBRARY_1_SERVER_ID",
+      "value": null,
+      "description": "Jellyseerr server ID for Library 1. In Jellyseerr Settings → Radarr/Sonarr, the first server is ID 0, second is ID 1, etc.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "TV Shows Library - Name",
+      "key": "LIBRARY_2_NAME",
+      "value": "TV Shows",
+      "description": "Name of your second library. This becomes the slash command /request-tv-shows.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "TV Shows Library - Type",
+      "key": "LIBRARY_2_TYPE",
+      "value": "tv",
+      "description": "Media type for Library 2. Use 'movie' for movies or 'tv' for TV shows.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "TV Shows Library - Server ID",
+      "key": "LIBRARY_2_SERVER_ID",
+      "value": null,
+      "description": "Jellyseerr server ID for Library 2.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Library 3 - Name",
+      "key": "LIBRARY_3_NAME",
+      "value": null,
+      "description": "Optional. Name of a third library. Example: Kids Movies. Leave blank if not needed.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Library 3 - Type",
+      "key": "LIBRARY_3_TYPE",
+      "value": null,
+      "description": "Optional. Media type for Library 3. Use 'movie' or 'tv'.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Library 3 - Server ID",
+      "key": "LIBRARY_3_SERVER_ID",
+      "value": null,
+      "description": "Optional. Jellyseerr server ID for Library 3.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Library 4 - Name",
+      "key": "LIBRARY_4_NAME",
+      "value": null,
+      "description": "Optional. Name of a fourth library. Example: Kids TV Shows. Leave blank if not needed.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Library 4 - Type",
+      "key": "LIBRARY_4_TYPE",
+      "value": null,
+      "description": "Optional. Media type for Library 4. Use 'movie' or 'tv'.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Library 4 - Server ID",
+      "key": "LIBRARY_4_SERVER_ID",
+      "value": null,
+      "description": "Optional. Jellyseerr server ID for Library 4.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Discord - Allowed Role ID",
+      "key": "ALLOWED_ROLE_ID",
+      "value": null,
+      "description": "Optional. If set, only Discord users with this role can use /request commands. Leave blank to allow everyone.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Discord - Admin Role ID",
+      "key": "ADMIN_ROLE_ID",
+      "value": null,
+      "description": "Optional. If set, only Discord users with this role can use /linklist. Leave blank to allow everyone.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "selfhosters"
+}

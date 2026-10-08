@@ -1,0 +1,91 @@
+{
+  "name": "vaultwarden",
+  "repo": "vaultwarden/server",
+  "category": [
+    "Utilities"
+  ],
+  "registry": "https://hub.docker.com/r/vaultwarden/server/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:80]/admin",
+  "icon": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/vaultwarden.png",
+  "project": "https://github.com/dani-garcia/vaultwarden/",
+  "support": "https://forums.unraid.net/topic/88086-support-vaultwarden-formerly-bitwarden_rs/",
+  "description": "Vaultwarden (formerly bitwarden_rs) is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal.\r\n    \r\n    Basically full implementation of Bitwarden API is provided including: \r\n    \r\n    -Basic single user functionality\r\n    \r\n    -Organizations support\r\n    \r\n    -Attachments\r\n    \r\n    -Vault API support\r\n    \r\n    -Serving the static files for Vault interface\r\n    #xD;\n    -Website icons API\r\n    \r\n    -Authenticator and U2F support\r\n    \r\n    -YubiKey OTP\r\n    \r\n    For more configuration see the wiki https://github.com/dani-garcia/vaultwarden/wiki",
+  "paths": [
+    {
+      "name": "Storage",
+      "host": "/mnt/cache/appdata/vaultwarden",
+      "container": "/data",
+      "mode": "rw",
+      "description": "Container Path: /data",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI HTTP Port",
+      "host": "4743",
+      "container": "80",
+      "protocol": "tcp",
+      "description": "Container Port: 80",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "SIGNUPS_ALLOWED",
+      "key": "SIGNUPS_ALLOWED",
+      "value": "true|false",
+      "description": "Container Variable: Signups",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "INVITATIONS_ALLOWED",
+      "key": "INVITATIONS_ALLOWED",
+      "value": "true|false",
+      "description": "Container Variable: Invitations",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "WEBSOCKET_ENABLED",
+      "key": "WEBSOCKET_ENABLED",
+      "value": "false",
+      "description": "Container Variable: Websockets Enabled",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "ADMIN_TOKEN",
+      "key": "ADMIN_TOKEN",
+      "value": null,
+      "description": "Container Variable: ADMIN_TOKEN",
+      "required": true,
+      "mask": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "selfhosters"
+}

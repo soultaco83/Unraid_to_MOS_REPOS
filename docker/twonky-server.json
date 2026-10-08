@@ -1,0 +1,61 @@
+{
+  "name": "twonky-server",
+  "repo": "dtjs48jkt/twonkyserver",
+  "category": [
+    "Media",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/dtjs48jkt/twonkyserver/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:9000]/",
+  "icon": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/twonky-server.png",
+  "project": "https://github.com/H2CK/twonkyserver",
+  "support": "https://forums.unraid.net/topic/87798-support-selfhostersnets-template-repository/",
+  "description": "TwonkyMedia server (TMS) is DLNA-compliant UPnP AV server software from PacketVideo. TwonkyMedia server can be used to share and stream media to most UPnP AV or DLNA-compliant clients, in addition to non-UPnP devices through the HTML, RSS, and JSON supported front ends.",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": null,
+      "container": "/config",
+      "mode": "rw",
+      "description": "Container Path: /config",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Media",
+      "host": null,
+      "container": "/data",
+      "mode": "rw",
+      "description": "Container Path: /data",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "9000",
+      "container": "9000",
+      "protocol": "tcp",
+      "description": "Container Port: 9000",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "selfhosters"
+}

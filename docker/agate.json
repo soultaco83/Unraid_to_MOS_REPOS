@@ -1,0 +1,63 @@
+{
+  "name": "Agate",
+  "repo": "ghcr.io/mbrubeck/agate:latest",
+  "category": [
+    "Network",
+    "Misc"
+  ],
+  "registry": "https://github.com/mbrubeck/agate/pkgs/container/agate",
+  "network": null,
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": "--hostname changeme.example.org",
+  "cpu_set": null,
+  "web_ui_url": null,
+  "readme_url": "https://github.com/mbrubeck/agate/blob/master/README.md#configuration",
+  "icon": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/agate.png",
+  "project": "https://github.com/mbrubeck/agate",
+  "support": "https://forums.unraid.net/topic/181208-support-agate-gemini-server/",
+  "description": "Agate is a server for the Gemini network protocol, built with the Rust programming language. Agate has very few features, and can only serve static files. It uses async I/O, and should be quite efficient even when running on low-end hardware and serving many concurrent requests.",
+  "requires": "To get your server going you should:\r\n- Mount your gemini content under /gmi (make a directory for each hostname if you specify more than one later)\r\n- Mount your certificates directory under /certs (if this is empty then new ones will be generated)\r\n- Change the Post Arguments to include your hostname(s) eg: `--hostname example.org`\r\n  - Note: If you specify more than one hostname then your contents directory must have one directory for each\r\n\r\nThere is more configuration information in the Github README: https://github.com/mbrubeck/agate . Add any additional config to the \"Post Arguments\" below.",
+  "paths": [
+    {
+      "name": "Data directory",
+      "host": "/mnt/cache/appdata/agate/content",
+      "container": "/gmi",
+      "mode": "ro",
+      "description": "Your gemini content. This directory should contain your .gmi files, but must contain one directory for each hostname if you specify more than one hostname.",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Certificates",
+      "host": "/mnt/cache/appdata/agate/certs",
+      "container": "/certs",
+      "mode": "rw",
+      "description": "The certificates for your gemini capsules. A `/cert.der` and `/key.der` for each hostname. These will be generated automatically if not present.",
+      "required": true,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Gemini",
+      "host": "1965",
+      "container": "1965",
+      "protocol": "tcp",
+      "description": "The port to serve on. Gemini clients expect this to be 1965 when unspecified.",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "selfhosters"
+}

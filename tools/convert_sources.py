@@ -61,23 +61,15 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import unraid_to_mos as conv  # noqa: E402
 
-# ich777 is deliberately absent: ich777 is a MOS founder and maintains an own
-# MOS Hub repository (https://github.com/ich777/mos-templates), so their
-# templates would show up twice in the Hub.
+# The selfhosters/unRAID-CA-templates repository is the community maintained
+# unRAID Community Applications template collection; it is converted wholesale
+# together with a few dedicated author repositories.
 SOURCES = [
-    {"key": "unraid",          "maintainer": "Lime Technology", "repo": "unraid/docker-templates"},
+    {"key": "selfhosters",     "maintainer": "selfhosters",     "repo": "selfhosters/unRAID-CA-templates"},
     {"key": "binhex",          "maintainer": "binhex",          "repo": "binhex/docker-templates"},
-    {"key": "nwithan8",        "maintainer": "nwithan8",        "repo": "nwithan8/unraid_templates"},
-    {"key": "xushier",         "maintainer": "xushier",         "repo": "xushier/Unraid-Docker-Templates"},
     {"key": "ibracorp",        "maintainer": "IBRACORP",        "repo": "ibracorp/unraid-templates"},
-    {"key": "devzwf",          "maintainer": "devzwf",          "repo": "devzwf/unraid-docker-templates"},
     {"key": "hotio",           "maintainer": "hotio",           "repo": "hotio/unraid-templates"},
-    {"key": "digiblur",        "maintainer": "digiblur",        "repo": "digiblur/unraid-docker-templates"},
     {"key": "spaceinvaderone", "maintainer": "SpaceinvaderOne", "repo": "SpaceinvaderOne/Docker-Templates-Unraid"},
-    {"key": "eurotimmy",       "maintainer": "Eurotimmy",       "repo": "Eurotimmy/unraid-templates"},
-    {"key": "nasutils",        "maintainer": "NasUtils",        "repo": "NasUtils/unraid-docker-templates"},
-    {"key": "randomninjaatk",  "maintainer": "RandomNinjaAtk",  "repo": "RandomNinjaAtk/unraid-templates"},
-    {"key": "p3terx",          "maintainer": "P3TERX",          "repo": "P3TERX/unraid-docker-templates"},
 ]
 
 # Repository level metadata written to maintainer.json. The MOS Hub labels EVERY
@@ -518,13 +510,6 @@ def write_readme(out_root, report, maintainer, mos_paths=False, mos_defaults=Fal
         lic = "[kept](./licenses/%s.txt)" % row["key"] if row.get("license") else "not published"
         lines.append("| `%s` | %s | %d | [%s](https://github.com/%s) | %s |"
                      % (row["key"], row["maintainer"], row["count"], row["repo"], row["repo"], lic))
-    lines += [
-        "",
-        "`ich777` is not part of this collection: ich777 is a MOS founder and",
-        "publishes an own MOS Hub repository",
-        "([ich777/mos-templates](https://github.com/ich777/mos-templates)), so listing",
-        "those templates here as well would duplicate every app in the Hub.",
-    ]
     switches = " ".join(name for name, enabled in
                         (("--mos-paths", mos_paths), ("--mos-defaults", mos_defaults))
                         if enabled)

@@ -1,0 +1,122 @@
+{
+  "name": "ytdl-sub-gui",
+  "repo": "ghcr.io/jmbannon/ytdl-sub-gui:latest",
+  "category": [
+    "Downloader",
+    "Media"
+  ],
+  "registry": "ghcr.io/jmbannon/ytdl-sub-gui:latest",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/ytdl-sub.png",
+  "project": "https://github.com/jmbannon/ytdl-sub",
+  "support": "https://discord.gg/235bWeyffD",
+  "description": "Automate downloads and metadata generation with YoutubeDL. The GUI image runs code-server with ytdl-sub preinstalled and can be accessed at https://localhost:8443",
+  "paths": [
+    {
+      "name": "config",
+      "host": "/mnt/cache/appdata/ytdl-sub-gui",
+      "container": "/config",
+      "mode": "rw",
+      "description": "",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TV Shows",
+      "host": "/mnt/Array/tv_shows",
+      "container": "/tv_shows",
+      "mode": "rw",
+      "description": "Path to store TV shows",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Music",
+      "host": "/mnt/Array/music",
+      "container": "/music",
+      "mode": "rw",
+      "description": "Path to store music",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Music Videos",
+      "host": "/mnt/Array/music_videos",
+      "container": "/music_videos",
+      "mode": "rw",
+      "description": "Path to store music videos",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Movies",
+      "host": "/mnt/Array/movies",
+      "container": "/movies",
+      "mode": "rw",
+      "description": "Path to store movies",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "8443",
+      "container": "8443",
+      "protocol": "tcp",
+      "description": "Container Port: 8443",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "002",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "selfhosters"
+}

@@ -1,0 +1,71 @@
+{
+  "name": "speedtest-tracker",
+  "repo": "henrywhitaker3/speedtest-tracker",
+  "category": [
+    "Utilities"
+  ],
+  "registry": "https://hub.docker.com/r/henrywhitaker3/speedtest-tracker/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": "--restart unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:80]/",
+  "icon": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/speedtest-tracker.png",
+  "project": "https://hub.docker.com/r/henrywhitaker3/speedtest-tracker",
+  "support": "https://forums.unraid.net/topic/87798-support-selfhostersnets-template-repository/",
+  "description": "This program runs a speedtest check every hour and graphs the results. The back-end is written in Laravel and the front-end uses React. It uses the speedtest-cli package to get the data and uses Chart.js to plot the results.",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": null,
+      "container": "/config",
+      "mode": "rw",
+      "description": "Container Path: /config",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "80",
+      "container": "80",
+      "protocol": "tcp",
+      "description": "Container Port: 80",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Slack/Discord Webhook",
+      "key": "SLACK_WEBHOOK",
+      "value": null,
+      "description": "Container Variable: SLACK_WEBHOOK",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "OOKLA Accept EULA and GDPR",
+      "key": "OOKLA_EULA_GDPR",
+      "value": "false|true",
+      "description": "Container Variable: OOKLA_EULA_GDPR",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "selfhosters"
+}

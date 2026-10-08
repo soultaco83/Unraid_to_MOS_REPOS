@@ -1,0 +1,68 @@
+{
+  "name": "Namecheap DDNS Updater",
+  "repo": "tranceer/namecheap-ddns-updater:latest",
+  "category": [
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/tranceer/namecheap-ddns-updater",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/hernandito/unRAID-Docker-Folder-Animated-Icons---Alternate-Colors/582492d824429e9a67796c8a4b090425d5f9922c/Pale-Collection/pale-network2.svg",
+  "project": "https://github.com/tranceer/nraid-namecheap-ddns-updater",
+  "support": "https://github.com/tranceer/nraid-namecheap-ddns-updater/issues",
+  "description": "This container automatically updates your Namecheap Dynamic DNS records for multiple hosts at a specified interval.\n    At startup, the container generates a script located at /app/entrypoint.sh.\n    You can manually edit this script inside the container for advanced customization.\n    Before using this container:\n    - Make sure you have an A record for @.yourdomain.com\n    - Add CNAME records for each subdomain (e.g., admin.yourdomain.com)\n    - Enable Dynamic DNS in your Namecheap dashboard and copy the API key\n    Based on this tutorial: https://www.youtube.com/watch?v=9Wd2a_69QlW\n    Original script by Daniel Boctor: https://github.com/daniel-boctor",
+  "paths": [],
+  "ports": [],
+  "variables": [
+    {
+      "name": "Domain",
+      "key": "DOMAIN",
+      "value": "yourdomain.com",
+      "description": "The domain name you want to update",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "API Key",
+      "key": "API_KEY",
+      "value": null,
+      "description": "Your Namecheap Dynamic DNS password (API Key)",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Hosts",
+      "key": "HOSTS",
+      "value": "@",
+      "description": "A comma-separated list of hosts to update",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Interval",
+      "key": "INTERVAL",
+      "value": "600",
+      "description": "How often, in seconds, to update your hosts",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "selfhosters"
+}

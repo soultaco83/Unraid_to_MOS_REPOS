@@ -1,0 +1,80 @@
+{
+  "name": "zwavejs2mqtt",
+  "repo": "zwavejs/zwavejs2mqtt",
+  "category": [
+    "Home Automation"
+  ],
+  "registry": "https://hub.docker.com/r/zwavejs/zwavejs2mqtt",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8091]/",
+  "icon": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/zwavejs2mqtt.png",
+  "project": "https://github.com/zwave-js/zwavejs2mqtt",
+  "support": "https://forums.unraid.net/topic/87798-support-selfhostersnets-template-repository/",
+  "description": "Fully configurable Zwave to MQTT Gateway and Control Panel",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": null,
+      "container": "/usr/src/app/store",
+      "mode": "rw",
+      "description": "Container Path: /usr/src/app/store",
+      "required": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Zwavejs Log",
+      "host": null,
+      "container": "/usr/src/app/bin",
+      "mode": "rw",
+      "description": "Container Path: /usr/src/app/bin",
+      "required": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "8091",
+      "container": "8091",
+      "protocol": "tcp",
+      "description": "Container Port: 8091",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Websocket Server",
+      "host": "3000",
+      "container": "3000",
+      "protocol": "tcp",
+      "description": "Container Port: 3000",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [],
+  "devices": [
+    {
+      "name": "Serial device",
+      "host": "/dev/ttyACM0",
+      "container": "/dev/ttyACM0",
+      "description": "Container Device: /dev/ttyACM0",
+      "required": false,
+      "display": "always"
+    }
+  ],
+  "labels": [],
+  "gpus": [],
+  "author": "selfhosters"
+}

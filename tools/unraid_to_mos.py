@@ -393,6 +393,7 @@ def main(argv):
     xml_files = [
         p for p in glob.glob(os.path.join(src, "**", "*.xml"), recursive=True)
         if os.sep + ".git" + os.sep not in p
+        and os.sep + "deprecated" + os.sep not in p
     ]
     for path in sorted(xml_files):
         try:

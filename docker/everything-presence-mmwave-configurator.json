@@ -1,0 +1,72 @@
+{
+  "name": "everything-presence-mmwave-configurator",
+  "repo": "everythingsmarthome/everything-presence-mmwave-configurator",
+  "category": [
+    "Home Automation",
+    "Utilities"
+  ],
+  "registry": "https://hub.docker.com/r/everythingsmarthome/everything-presence-mmwave-configurator/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:42069]/",
+  "icon": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/everything-presence-mmwave-configurator.png",
+  "project": "https://github.com/EverythingSmartHome/everything-presence-addons",
+  "support": "https://github.com/EverythingSmartHome/everything-presence-addons/issues",
+  "description": "A visual configurator tool for creating zones with the Everything Presence Lite mmWave sensor.",
+  "paths": [
+    {
+      "name": "Config path",
+      "host": "/mnt/cache/appdata/everything-presence-zone-configurator",
+      "container": "/config/everything-presence-zone-configurator",
+      "mode": "rw",
+      "description": "",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI port",
+      "host": "42069",
+      "container": "42069",
+      "protocol": "tcp",
+      "description": "",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Home Assistant URL",
+      "key": "HA_BASE_URL",
+      "value": "http://ha-ip:8123",
+      "description": "",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Home Assistant Token",
+      "key": "HA_LONG_LIVED_TOKEN",
+      "value": "LONG_LIVED_TOKEN",
+      "description": "Generate Long-lived token at Profile &gt; Security",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "selfhosters"
+}

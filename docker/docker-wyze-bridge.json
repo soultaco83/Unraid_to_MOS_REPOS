@@ -1,0 +1,317 @@
+{
+  "name": "docker-wyze-bridge",
+  "repo": "mrlt8/wyze-bridge",
+  "category": [
+    "Home Automation"
+  ],
+  "registry": "https://hub.docker.com/r/mrlt8/wyze-bridge",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:5000]",
+  "icon": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/wyze.png",
+  "project": "https://github.com/mrlt8/docker-wyze-bridge",
+  "support": "https://github.com/mrlt8/docker-wyze-bridge",
+  "description": "WebRTC/RTSP/RTMP/LL-HLS bridge for Wyze cams in a docker container.\n    As of April 2024, you will need to supply your own API Key and ID:\n    https://support.wyze.com/hc/en-us/articles/16129834216731-Creating-an-API-Key",
+  "donate": "https://ko-fi.com/mrlt8",
+  "requires": "A unique API_KEY and API_ID which can be generated on the Wyze Developer Portal:\n    https://developer-api-console.wyze.com/#/apikey/view",
+  "paths": [],
+  "ports": [
+    {
+      "name": "RTSP Port",
+      "host": "8554",
+      "container": "8554",
+      "protocol": "tcp",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "RTMP Port",
+      "host": "1935",
+      "container": "1935",
+      "protocol": "tcp",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "HLS Port",
+      "host": "8888",
+      "container": "8888",
+      "protocol": "tcp",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "WebRTC Port",
+      "host": "8889",
+      "container": "8889",
+      "protocol": "tcp",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "WebRTC/ICE Port",
+      "host": "8189",
+      "container": "8189",
+      "protocol": "udp",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "WebUI Port",
+      "host": "5000",
+      "container": "5000",
+      "protocol": "tcp",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "WYZE_EMAIL",
+      "key": "WYZE_EMAIL",
+      "value": null,
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "WYZE_PASSWORD",
+      "key": "WYZE_PASSWORD",
+      "value": null,
+      "description": "",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "API_ID",
+      "key": "API_ID",
+      "value": null,
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "API_KEY",
+      "key": "API_KEY",
+      "value": null,
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "WB_AUTH",
+      "key": "WB_AUTH",
+      "value": "True",
+      "description": "Enable authentication for Wyze Bridge.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "WB_USERNAME",
+      "key": "WB_USERNAME",
+      "value": null,
+      "description": "Username to access Wyze Bridge.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "WB_PASSWORD",
+      "key": "WB_PASSWORD",
+      "value": null,
+      "description": "Password to access Wyze Bridge.",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Net_Mode",
+      "key": "NET_MODE",
+      "value": "ANY",
+      "description": "https://github.com/mrlt8/docker-wyze-bridge#LAN-Mode",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "MQTT_HOST",
+      "key": "MQTT_HOST",
+      "value": null,
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "MQTT_AUTH",
+      "key": "MQTT_AUTH",
+      "value": null,
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "MQTT_DTOPIC",
+      "key": "MQTT_DTOPIC",
+      "value": null,
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Ignore Offline",
+      "key": "IGNORE_OFFLINE",
+      "value": null,
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Fresh Data",
+      "key": "FRESH_DATA",
+      "value": "False",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "TOTP Key for 2FA",
+      "key": "TOTP_KEY",
+      "value": null,
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Bridge IP for WebRTC",
+      "key": "WB_IP",
+      "value": null,
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Enable Audio",
+      "key": "ENABLE_AUDIO",
+      "value": "True",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Enable Substreams",
+      "key": "SUBSTREAM",
+      "value": "False",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Rotate Doorbell",
+      "key": "ROTATE_DOOR",
+      "value": "False",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Custom RTSP URL",
+      "key": "WB_RTSP_URL",
+      "value": null,
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Custom RTMP URL",
+      "key": "WB_RTMP_URL",
+      "value": null,
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Custom HLS URL",
+      "key": "WB_HLS_URL",
+      "value": null,
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Custom WEBRTC URL",
+      "key": "WB_WEBRTC_URL",
+      "value": null,
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "selfhosters"
+}

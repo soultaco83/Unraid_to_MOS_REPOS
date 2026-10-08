@@ -1,144 +1,51 @@
 {
-  "name": "binhex-jenkins",
-  "repo": "ghcr.io/binhex/arch-jenkins",
+  "name": "Jenkins",
+  "repo": "jenkins/jenkins",
   "category": [
     "Productivity",
     "Utilities"
   ],
-  "registry": "https://github.com/binhex/arch-jenkins/pkgs/container/arch-jenkins",
+  "registry": "https://hub.docker.com/r/jenkins/jenkins/",
   "network": "bridge",
   "custom_ip": null,
-  "default_shell": "bash",
-  "privileged": true,
-  "extra_parameters": "--restart=always",
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": "-u 99:100",
   "post_parameters": null,
   "cpu_set": null,
-  "web_ui_url": "http://[IP]:[PORT:8090]",
-  "readme_url": "https://github.com/binhex/documentation",
-  "icon": "https://raw.githubusercontent.com/binhex/docker-templates/master/binhex/images/jenkins-icon.png",
-  "project": "https://jenkins-ci.org/",
-  "support": "https://forums.unraid.net/topic/44136-support-binhex-jenkins/",
-  "description": "Jenkins is an open source continuous integration tool written in Java. The project was forked from Hudson after a dispute with Oracle. Jenkins provides continuous integration services for software development. It is a server-based system running in a servlet container such as Apache Tomcat.",
-  "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM5E27UX6AUU4",
+  "web_ui_url": "http://[IP]:[PORT:8080]/",
+  "icon": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/jenkins.png",
+  "project": "https://www.jenkins.io/",
+  "support": "https://github.com/jenkinsci/docker/issues",
+  "description": "The leading open source automation server, Jenkins provides hundreds of plugins to support building, deploying and automating any project.",
   "paths": [
     {
-      "name": "/config",
-      "host": "/mnt/cache/appdata/jenkins",
-      "container": "/config",
+      "name": "jenkins_home",
+      "host": "/mnt/cache/appdata/Jenkins",
+      "container": "/var/jenkins_home",
       "mode": "rw",
-      "description": "This is the container path to your configuration files, e.g. databases, configuration files, logs etc.",
+      "description": "Container Path: /var/jenkins_home",
       "required": true,
-      "display": "always",
+      "display": "advanced",
       "default": null
     }
   ],
   "ports": [
     {
-      "name": "Web Interface",
-      "host": "8090",
-      "container": "8090",
+      "name": "WebUI",
+      "host": "8080",
+      "container": "8080",
       "protocol": "tcp",
-      "description": "This is the Web UI port for the application.",
+      "description": "Container Port: 8080",
       "required": true,
       "mask": false,
       "display": "always",
       "default": null
     }
   ],
-  "variables": [
-    {
-      "name": "JAVA_ARGS",
-      "key": "JAVA_ARGS",
-      "value": "-Xmx512m",
-      "description": "Specify the Java arguments for Jenkins.",
-      "required": false,
-      "mask": false,
-      "display": "always",
-      "default": null
-    },
-    {
-      "name": "JAVA_OPTS",
-      "key": "JAVA_OPTS",
-      "value": "-Dhudson.footerURL=http://mycompany.com",
-      "description": "Specify the Java options for Jenkins.",
-      "required": false,
-      "mask": false,
-      "display": "always",
-      "default": null
-    },
-    {
-      "name": "ENABLE_HEALTHCHECK",
-      "key": "ENABLE_HEALTHCHECK",
-      "value": "yes|no",
-      "description": "Enable or disable healthchecks.",
-      "required": false,
-      "mask": false,
-      "display": "advanced",
-      "default": null
-    },
-    {
-      "name": "HEALTHCHECK_COMMAND",
-      "key": "HEALTHCHECK_COMMAND",
-      "value": null,
-      "description": "The command or script to execute, if not specified then the script healthcheck.sh will be used (process, dns and https checking).",
-      "required": false,
-      "mask": false,
-      "display": "advanced",
-      "default": null
-    },
-    {
-      "name": "HEALTHCHECK_ACTION",
-      "key": "HEALTHCHECK_ACTION",
-      "value": null,
-      "description": "The action to execute if the healthcheck command returns a non zero exit code, if not specified the action will be 'exit 1', if you want the container to exit on failure then set the action to 'kill 1'.",
-      "required": false,
-      "mask": false,
-      "display": "advanced",
-      "default": null
-    },
-    {
-      "name": "HEALTHCHECK_HOSTNAME",
-      "key": "HEALTHCHECK_HOSTNAME",
-      "value": "google.com",
-      "description": "The hostname used when performing HTTPS and DNS healthchecking.",
-      "required": false,
-      "mask": false,
-      "display": "advanced",
-      "default": null
-    },
-    {
-      "name": "PUID",
-      "key": "PUID",
-      "value": "500",
-      "description": "User ID for the running container",
-      "required": true,
-      "mask": false,
-      "display": "advanced",
-      "default": null
-    },
-    {
-      "name": "PGID",
-      "key": "PGID",
-      "value": "500",
-      "description": "Group ID for the running container",
-      "required": true,
-      "mask": false,
-      "display": "advanced",
-      "default": null
-    },
-    {
-      "name": "UMASK",
-      "key": "UMASK",
-      "value": "000",
-      "description": "UMASK for the running container",
-      "required": true,
-      "mask": false,
-      "display": "advanced",
-      "default": null
-    }
-  ],
+  "variables": [],
   "devices": [],
   "labels": [],
   "gpus": [],
-  "author": "binhex"
+  "author": "selfhosters"
 }

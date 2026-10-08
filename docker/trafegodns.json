@@ -1,0 +1,250 @@
+{
+  "name": "TrafegoDNS",
+  "repo": "ghcr.io/elmerfds/trafegodns:latest",
+  "category": [
+    "Utilities",
+    "Network"
+  ],
+  "registry": "https://github.com/elmerfds/TrafegoDNS",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/elmerfds/TrafegoDNS/main/logo/logo.png",
+  "project": "https://github.com/elmerfds/TrafegoDNS",
+  "support": "https://github.com/elmerfds/TrafegoDNS/issues",
+  "description": "TrafegoDNS automatically manages DNS records based on container configuration. It supports both Traefik integration and direct Docker container label mode, making it compatible with any web server or reverse proxy solution.\n    Key Features:\n    - Supports multiple DNS providers (Cloudflare, DigitalOcean, Route53)\n    - Two operation modes: Traefik API integration or direct Docker labels\n    - Optional cleanup of orphaned DNS records\n    - Real-time monitoring of Docker container events\n    - Please refer to the readme before deploying this container: https://github.com/elmerfds/TrafegoDNS",
+  "paths": [
+    {
+      "name": "Config Path",
+      "host": "/mnt/cache/appdata/trafegodns",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Configuration storage path",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Docker Socket",
+      "host": "/var/run/docker.sock",
+      "container": "/var/run/docker.sock",
+      "mode": "ro",
+      "description": "Docker socket for container monitoring",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [],
+  "variables": [
+    {
+      "name": "Operation Mode",
+      "key": "OPERATION_MODE",
+      "value": "traefik|direct",
+      "description": "Choose how to detect hostnames: Traefik API or direct container labels",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "DNS Provider",
+      "key": "DNS_PROVIDER",
+      "value": "cloudflare|digitalocean|route53",
+      "description": "Select DNS provider to use",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Cloudflare Token",
+      "key": "CLOUDFLARE_TOKEN",
+      "value": null,
+      "description": "Cloudflare API token (requires DNS edit permissions) - Required when using Cloudflare provider",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Cloudflare Zone",
+      "key": "CLOUDFLARE_ZONE",
+      "value": null,
+      "description": "Your domain name managed in Cloudflare (e.g., example.com) - Required when using Cloudflare provider",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "DigitalOcean Token",
+      "key": "DO_TOKEN",
+      "value": null,
+      "description": "DigitalOcean API token (requires write access) - Required when using DigitalOcean provider",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "DigitalOcean Domain",
+      "key": "DO_DOMAIN",
+      "value": null,
+      "description": "Your domain name managed in DigitalOcean (e.g., example.com) - Required when using DigitalOcean provider",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Route53 Access Key",
+      "key": "ROUTE53_ACCESS_KEY",
+      "value": null,
+      "description": "AWS IAM access key with Route53 permissions - Required when using Route53 provider",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Route53 Secret Key",
+      "key": "ROUTE53_SECRET_KEY",
+      "value": null,
+      "description": "AWS IAM secret key - Required when using Route53 provider",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Route53 Zone",
+      "key": "ROUTE53_ZONE",
+      "value": null,
+      "description": "Your domain name managed in Route53 (e.g., example.com) - Required when using Route53 provider",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Traefik API URL",
+      "key": "TRAEFIK_API_URL",
+      "value": "http://traefik:8080/api",
+      "description": "URL to Traefik API (including protocol and port) - Only used when Operation Mode is 'traefik'",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Cleanup Orphaned",
+      "key": "CLEANUP_ORPHANED",
+      "value": "false",
+      "description": "Whether to automatically remove orphaned DNS records",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "User ID to run as",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "Group ID to run as",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Log Level",
+      "key": "LOG_LEVEL",
+      "value": "INFO",
+      "description": "Logging level",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Preserved Hostnames",
+      "key": "PRESERVED_HOSTNAMES",
+      "value": null,
+      "description": "Comma-separated list of hostnames to preserve from cleanup (supports wildcards)",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Managed Hostnames",
+      "key": "MANAGED_HOSTNAMES",
+      "value": null,
+      "description": "Comma-separated list of hostnames to create and maintain (format: hostname:type:content:ttl:proxied)",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Traefik API Username",
+      "key": "TRAEFIK_API_USERNAME",
+      "value": null,
+      "description": "Optional basic auth username for Traefik API - Only used when Operation Mode is 'traefik'",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Traefik API Password",
+      "key": "TRAEFIK_API_PASSWORD",
+      "value": null,
+      "description": "Optional basic auth password for Traefik API - Only used when Operation Mode is 'traefik'",
+      "required": false,
+      "mask": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Route53 Zone ID",
+      "key": "ROUTE53_ZONE_ID",
+      "value": null,
+      "description": "Alternative to ROUTE53_ZONE: Your Route53 hosted zone ID - Only used when DNS Provider is 'route53'",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Route53 Region",
+      "key": "ROUTE53_REGION",
+      "value": "eu-west-2",
+      "description": "AWS region for Route53 API calls - Only used when DNS Provider is 'route53'",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "selfhosters"
+}

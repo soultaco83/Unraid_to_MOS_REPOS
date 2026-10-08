@@ -1,8 +1,8 @@
 # Unraid to MOS - template repository
 
 A single flat [MOS Hub](https://github.com/mos-nas/mos-docs/blob/main/docs/MOS-Hub/Creating-Your-Own-MOS-Hub-Repository.md) repository
-holding docker templates converted from **13** unRAID Community Applications
-template repositories: **880 templates** from 13 upstream authors.
+holding docker templates converted from **5** unRAID Community Applications
+template repositories: **300 templates** from 5 upstream authors.
 
 `maintainer.json` and `docker/<App>.json` sit at the repository root, which is
 the only layout the MOS Hub indexes. Author provenance is preserved in every
@@ -43,7 +43,7 @@ from that repository's `maintainer.json` (Hub source `src/services/
 hub.service.js`, `_processDockerTemplate()`; unlike plugin templates, docker
 templates have no per-template `author` fallback). Because the Hub only reads
 the repository root, one flat repository cannot show per-author labels: all
-880 templates below carry the hosting account as maintainer.
+300 templates below carry the hosting account as maintainer.
 Showing the original author as the label would need one repository per author,
 added to the Hub as several repository URLs.
 
@@ -55,7 +55,7 @@ through `project`, `support` and `donate`, in the template JSON through
 
 ```
 maintainer.json      repository metadata (maintainer: Soultaco83)
-docker/<App>.json    one template per container (880 total)
+docker/<App>.json    one template per container (300 total)
 licenses/            upstream licence text, where the author published one
 tools/               conversion + publish scripts (not part of the Hub payload)
 ```
@@ -94,23 +94,10 @@ follow the pool names of the host that generated this repository
 | Source | Maintainer | Templates | Upstream | Licence |
 |---|---|---:|---|---|
 | `binhex` | binhex | 65 | [binhex/docker-templates](https://github.com/binhex/docker-templates) | [kept](./licenses/binhex.txt) |
-| `devzwf` | devzwf | 47 | [devzwf/unraid-docker-templates](https://github.com/devzwf/unraid-docker-templates) | [kept](./licenses/devzwf.txt) |
-| `digiblur` | digiblur | 25 | [digiblur/unraid-docker-templates](https://github.com/digiblur/unraid-docker-templates) | not published |
-| `eurotimmy` | Eurotimmy | 8 | [Eurotimmy/unraid-templates](https://github.com/Eurotimmy/unraid-templates) | not published |
 | `hotio` | hotio | 27 | [hotio/unraid-templates](https://github.com/hotio/unraid-templates) | [kept](./licenses/hotio.txt) |
 | `ibracorp` | IBRACORP | 55 | [ibracorp/unraid-templates](https://github.com/ibracorp/unraid-templates) | [kept](./licenses/ibracorp.txt) |
-| `nasutils` | NasUtils | 8 | [NasUtils/unraid-docker-templates](https://github.com/NasUtils/unraid-docker-templates) | [kept](./licenses/nasutils.txt) |
-| `nwithan8` | nwithan8 | 544 | [nwithan8/unraid_templates](https://github.com/nwithan8/unraid_templates) | not published |
-| `p3terx` | P3TERX | 2 | [P3TERX/unraid-docker-templates](https://github.com/P3TERX/unraid-docker-templates) | [kept](./licenses/p3terx.txt) |
-| `randomninjaatk` | RandomNinjaAtk | 3 | [RandomNinjaAtk/unraid-templates](https://github.com/RandomNinjaAtk/unraid-templates) | [kept](./licenses/randomninjaatk.txt) |
+| `selfhosters` | selfhosters | 128 | [selfhosters/unRAID-CA-templates](https://github.com/selfhosters/unRAID-CA-templates) | [kept](./licenses/selfhosters.txt) |
 | `spaceinvaderone` | SpaceinvaderOne | 25 | [SpaceinvaderOne/Docker-Templates-Unraid](https://github.com/SpaceinvaderOne/Docker-Templates-Unraid) | not published |
-| `unraid` | Lime Technology | 1 | [unraid/docker-templates](https://github.com/unraid/docker-templates) | [kept](./licenses/unraid.txt) |
-| `xushier` | xushier | 70 | [xushier/Unraid-Docker-Templates](https://github.com/xushier/Unraid-Docker-Templates) | not published |
-
-`ich777` is not part of this collection: ich777 is a MOS founder and
-publishes an own MOS Hub repository
-([ich777/mos-templates](https://github.com/ich777/mos-templates)), so listing
-those templates here as well would duplicate every app in the Hub.
 
 Generated with `tools/convert_sources.py --mos-paths --mos-defaults`, validated with
 `tools/validate_repos.py`, committed with `tools/publish_repo.fish` and pushed
