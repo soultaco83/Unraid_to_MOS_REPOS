@@ -12,13 +12,16 @@ permissions:
 
 jobs:
   update:
-    runs-on: ubuntu-latest
+    # Pin an explicit Ubuntu image instead of the moving `ubuntu-latest` label,
+    # which GitHub is migrating from Ubuntu 24.04 to Ubuntu 26.04 during
+    # October-November 2026. See actions/runner-images#14748.
+    runs-on: ubuntu-24.04
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
