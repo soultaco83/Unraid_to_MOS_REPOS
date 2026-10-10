@@ -2,8 +2,9 @@ name: Update MOS templates
 
 on:
   schedule:
-    # Daily at 03:15 UTC - fetch every upstream repository, convert any new or
-    # changed templates into the flat MOS Hub layout and commit the result.
+    # Daily at 03:15 UTC - fetch every upstream repository plus the curated
+    # Community Applications apps, convert any new or changed templates into the
+    # flat MOS Hub layout and commit the result.
     - cron: "15 3 * * *"
   workflow_dispatch:
 
@@ -26,9 +27,13 @@ jobs:
           python-version: "3.12"
 
       - name: Convert upstream templates to MOS
-        # The converter shallow-clones every SOURCES entry from scratch, so it
-        # always sees the latest upstream state; when nothing changed upstream
-        # the generated tree is byte-identical and the commit step below skips.
+        # The converter shallow-clones every SOURCES entry from scratch and
+        # downloads the Community Applications feed (applicationFeed-raw.json),
+        # so it always sees the latest upstream state. Only the apps in FEED_APPS
+        # are taken from that feed, and those whose container image is already
+        # published by one of the git collections are dropped, so the run stays
+        # idempotent; when nothing changed upstream the generated tree is
+        # byte-identical and the commit step below skips.
         run: python3 tools/convert_sources.py /tmp/unraid-sources . --mos-paths --mos-defaults
 
       - name: Validate the converted repository

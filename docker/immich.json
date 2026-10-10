@@ -1,0 +1,245 @@
+{
+  "name": "immich (imagegenius)",
+  "repo": "ghcr.io/imagegenius/immich",
+  "category": [
+    "Backup",
+    "Hosting",
+    "Media"
+  ],
+  "registry": "https://github.com/orgs/imagegenius/packages/container/package/immich",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]",
+  "readme_url": "https://github.com/imagegenius/docker-immich#readme",
+  "icon": "https://raw.githubusercontent.com/imagegenius/templates/main/unraid/img/immich.png",
+  "project": "https://immich.app/",
+  "support": "https://github.com/imagegenius/docker-immich/issues/new/choose",
+  "description": "Immich is a high performance self-hosted photo and video backup solution.",
+  "requires": "PostgreSQL 14/15/16/17 with (https://github.com/tensorchord/VectorChord), Redis\nThis container requires an external application to be run separately.\nYou can also use a docker mods to start redis within the container,\nSet `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": null,
+      "container": "/config",
+      "mode": "rw",
+      "description": "Contains machine learning models (~1.5GB with default models)",
+      "required": true,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "/photos",
+      "host": null,
+      "container": "/photos",
+      "mode": "rw",
+      "description": "Contains all the photos uploaded to Immich",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "/libraries",
+      "host": null,
+      "container": "/libraries",
+      "mode": "rw",
+      "description": "External libraries to track assets stored outside of Immich",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "8080",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "WebUI Port",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "DB_HOSTNAME",
+      "key": "DB_HOSTNAME",
+      "value": "192.168.1.x",
+      "description": "PostgreSQL Host",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "DB_USERNAME",
+      "key": "DB_USERNAME",
+      "value": "postgres",
+      "description": "PostgreSQL Username",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "DB_PASSWORD",
+      "key": "DB_PASSWORD",
+      "value": "postgres",
+      "description": "PostgreSQL Password",
+      "required": true,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "DB_DATABASE_NAME",
+      "key": "DB_DATABASE_NAME",
+      "value": "immich",
+      "description": "PostgreSQL Database Name",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "REDIS_HOSTNAME",
+      "key": "REDIS_HOSTNAME",
+      "value": "192.168.1.x",
+      "description": "Valkey/Redis Hostname",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "DB_PORT",
+      "key": "DB_PORT",
+      "value": "5432",
+      "description": "PostgreSQL Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "REDIS_PORT",
+      "key": "REDIS_PORT",
+      "value": "6379",
+      "description": "Valkey/Redis Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "REDIS_PASSWORD",
+      "key": "REDIS_PASSWORD",
+      "value": null,
+      "description": "Valkey/Redis password",
+      "required": false,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "SERVER_HOST",
+      "key": "SERVER_HOST",
+      "value": "0.0.0.0",
+      "description": "Immich server host",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "SERVER_PORT",
+      "key": "SERVER_PORT",
+      "value": "8080",
+      "description": "Immich server port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "MACHINE_LEARNING_HOST",
+      "key": "MACHINE_LEARNING_HOST",
+      "value": "0.0.0.0",
+      "description": "Immich machine-learning host",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "MACHINE_LEARNING_PORT",
+      "key": "MACHINE_LEARNING_PORT",
+      "value": "3003",
+      "description": "Immich machine-learning port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "MACHINE_LEARNING_WORKERS",
+      "key": "MACHINE_LEARNING_WORKERS",
+      "value": "1",
+      "description": "Machine learning workers",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "MACHINE_LEARNING_WORKER_TIMEOUT",
+      "key": "MACHINE_LEARNING_WORKER_TIMEOUT",
+      "value": "120",
+      "description": "Machine learning worker timeout",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "UID for permissions. Do not change unless you know what you're doing.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "GID for permissions. Do not change unless you know what you're doing.",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "022",
+      "description": "UMASK for newly created files. Do not change unless you know what you're doing.",
+      "required": false,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "imagegenius"
+}

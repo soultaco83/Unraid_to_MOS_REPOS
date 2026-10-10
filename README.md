@@ -1,14 +1,21 @@
 # Unraid to MOS - template repository
 
 A single flat [MOS Hub](https://github.com/mos-nas/mos-docs/blob/main/docs/MOS-Hub/Creating-Your-Own-MOS-Hub-Repository.md) repository
-holding docker templates converted from **4** unRAID Community Applications
-template repositories: **378 templates** from 4 upstream authors.
+holding **390 templates**: **378** from 4 dedicated author repositories
+plus **12** apps taken from the
+[Community Applications feed](https://github.com/Squidly271/AppFeed).
+That feed is the catalogue of the whole unRAID community, so the
+repository only carries the apps listed in `FEED_APPS`
+(`tools/convert_sources.py`). Every feed template keeps the owner tag
+of its CA repository (`obico (imagegenius)`) and is only published when
+the git repositories do not cover its image already.
 
 `maintainer.json` and `docker/<App>.json` sit at the repository root, which is
 the only layout the MOS Hub indexes. Author provenance is preserved in every
 template (`author`, `project`, `support`, `registry`, `donate`) and in the
-table below; every display name carries its owner (`jellyfin (hotio)`,
-`jellyfin (linuxserver)`, `... (SIO)` for SpaceinvaderOne).
+table below; every display name carries its owner:
+`jellyfin (hotio)`, `jellyfin (linuxserver)`, `... (SIO)` for
+SpaceinvaderOne, `obico (imagegenius)` for the feed.
 
 ## Add it to MOS Hub
 
@@ -51,10 +58,16 @@ follow the pool names of the host that generated this repository
 
 | Source | Maintainer | Templates | Upstream | Licence |
 |---|---|---:|---|---|
+| `appfeed` | Community Applications | 12 | [Squidly271/AppFeed](https://github.com/Squidly271/AppFeed) | not published |
 | `hotio` | hotio | 27 | [hotio/unraid-templates](https://github.com/hotio/unraid-templates) | [kept](./licenses/hotio.txt) |
 | `linuxserver` | linuxserver | 198 | [linuxserver/templates](https://github.com/linuxserver/templates) | [kept](./licenses/linuxserver.txt) |
 | `selfhosters` | selfhosters | 128 | [selfhosters/unRAID-CA-templates](https://github.com/selfhosters/unRAID-CA-templates) | [kept](./licenses/selfhosters.txt) |
 | `spaceinvaderone` | SpaceinvaderOne | 25 | [SpaceinvaderOne/Docker-Templates-Unraid](https://github.com/SpaceinvaderOne/Docker-Templates-Unraid) | not published |
+
+The `appfeed` source is curated: `FEED_APPS` in `tools/convert_sources.py`
+holds the apps (`<name>@<repository>`) converted from the feed,
+`--feed-app NAME[@REPO]` replaces that list for one run and `--feed-all`
+converts the whole catalogue.
 
 Generated with `tools/convert_sources.py --mos-paths --mos-defaults`, validated with
 `tools/validate_repos.py`, committed with `tools/publish_repo.fish` and pushed

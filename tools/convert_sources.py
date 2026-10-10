@@ -23,10 +23,30 @@ Usage:
                                [--mos-paths] [--mos-defaults]
                                [--appdata-root PATH] [--array-root PATH]
                                [--maintainer NAME] [--donation URL]
+                               [--no-appfeed] [--feed PATH] [--feed-dir DIR]
+                               [--refresh-feed] [--feed-app APP]... [--feed-all]
 
 Defaults:
     WORK_DIR   = /tmp/unraid-sources                    (shallow clones cached here)
     OUTPUT_DIR = /mnt/github/github/Unraid_to_MOS_REPOS
+
+Sources:
+    The four git repositories in SOURCES are converted first, then a curated
+    selection of the aggregated Community Applications feed (Squidly271/AppFeed,
+    see unraid_feed_to_mos.py). That feed is a superset of those repositories and
+    covers thousands of community templates, so FEED_APPS lists the apps that are
+    wanted here - one `<name>[@<repository>]` spec per CA app, the name CA
+    displays plus the repository it is listed under (which tells apart the CA
+    listings that share a name). An entry is only published when its container
+    image is not covered by the git sources yet, and when CA does not flag it
+    (blacklisted, deprecated, hidden, plugin). Every feed template keeps its own
+    upstream owner in the display name (`obico (imagegenius)`), its `author`
+    field and the README source table.
+    `--no-appfeed` skips the feed, `--feed-app NAME[@REPO]` replaces FEED_APPS for
+    one run, `--feed-all` converts the whole catalogue instead, `--feed PATH`
+    converts a locally downloaded applicationFeed-raw.json, `--feed-dir DIR` is
+    the download cache (default WORK_DIR/appfeed) and `--refresh-feed` ignores
+    that cache.
 
 The published repository targets MOS, not unRAID, so two switches rewrite the
 converted templates onto the MOS conventions:
@@ -60,6 +80,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import unraid_to_mos as conv  # noqa: E402
+import unraid_feed_to_mos as feed  # noqa: E402
 
 # Converted wholesale: the community collections (selfhosters, linuxserver)
 # plus a few dedicated author repositories. `label` is the short owner tag that
@@ -70,6 +91,38 @@ SOURCES = [
     {"key": "hotio",           "maintainer": "hotio",           "label": "hotio",           "repo": "hotio/unraid-templates"},
     {"key": "spaceinvaderone", "maintainer": "SpaceinvaderOne", "label": "SIO",             "repo": "SpaceinvaderOne/Docker-Templates-Unraid"},
 ]
+
+# The fifth source is not a git repository but the aggregated Community
+# Applications feed of the CA maintainer. It is one catalogue for the whole
+# community, so it has no single author: `maintainer` is what the README table
+# and the feed report show, while every single template keeps its own upstream
+# owner in its display name and in `author` (see unraid_feed_to_mos.py).
+FEED_KEY = "appfeed"
+FEED_MAINTAINER = "Community Applications"
+FEED_REPO = feed.FEED_REPO
+
+# The apps this repository takes from the feed, as `<name>[@<repository>]`: the
+# name CA displays plus the CA repository the listing lives in. Both halves are
+# matched case- and punctuation-insensitively, and the repository half is needed
+# because CA lists one app name in several repositories (slskd is published by
+# `hotio` and by `manrw`). The comment behind every spec is the CA page
+# (https://ca.unraid.net + path) that resolves to it, so a spec can be checked
+# against the app it is meant to be. `--feed-app` replaces this list for one run,
+# `--feed-all` publishes the whole catalogue instead.
+FEED_APPS = (
+    "obico@imagegenius",            # /apps/obico-1c8zwwz0e76y73
+    "unmanic@josh5",                # /apps/unmanic-0lr5irb0sixx2b
+    "traefik@ibracorp",             # /apps/traefik-0m8ovhn0mtgme7
+    "soulsync@framdr0p",            # /apps/soulsync-00qpelu1i2z986
+    "slskd@manrw",                  # /apps/slskd-0cpk61h0h53gd5
+    "meilisearch@collectathon",     # /apps/meilisearch-0wv0tu31nlxwvb
+    "wizarr@official wizarr",       # /apps/wizarr-1oa5olh14peg7l
+    "forgejo@masterwishx",          # /apps/forgejo-0kdv2as1n7q0f4
+    "forgejorunner@maybegrim",      # /apps/forgejorunner-18gnblz1ql5her
+    "gitea-runner@d3vyce",          # /apps/gitea-runner-1puljwv0h2glgr
+    "dockerregistry3@jj9987",       # /apps/dockerregistry3-02iszh405vg0os
+    "immich@imagegenius",           # /apps/immich-0qen9gq1lmx4dq
+)
 
 # Repository level metadata written to maintainer.json. The MOS Hub labels EVERY
 # docker template of a repository with `maintainer` from this file: see
@@ -155,6 +208,60 @@ def find_license(src):
             if os.path.isfile(candidate):
                 return candidate
     return None
+
+
+def published_images(builds):
+    """Collect the normalised container images of the builds converted so far.
+
+    The Community Applications feed is a superset of the git collections, so the
+    images that are already published tell the feed converter what to skip:
+    `jellyfin (linuxserver)` must not be published a second time just because CA
+    lists the very same template too.
+    """
+    images = set()
+    for entry in builds:
+        for path in glob.glob(os.path.join(entry["build"], "docker", "*.json")):
+            with open(path, encoding="utf-8") as fh:
+                images.add(feed.image_key(json.load(fh).get("repo")))
+    images.discard("")
+    return images
+
+
+def build_appfeed(work, builds, feed_path=None, feed_dir=None, refresh=False,
+                  apps=None):
+    """Convert the Community Applications feed into a per-source build directory.
+
+    Returns the build entry for merge(), so the feed takes part in the same MOS
+    rewrite, name/label handling and README reporting as the git sources. APPS is
+    the `<name>[@<repository>]` selection (FEED_APPS unless overridden); without
+    a selection the whole catalogue is converted.
+    """
+    if feed_path:
+        feed_path = os.path.abspath(feed_path)
+        meta_path = os.path.join(os.path.dirname(feed_path), "applicationFeed.json")
+    else:
+        feed_dir = feed_dir or os.path.join(work, "appfeed")
+        feed_path, meta_path = feed.download(feed_dir, refresh=refresh)
+
+    build_dir = os.path.join(work, "build", FEED_KEY)
+    shutil.rmtree(build_dir, ignore_errors=True)
+    os.makedirs(build_dir, exist_ok=True)
+    print("== %s (%s)" % (FEED_KEY, FEED_REPO))
+    stats = feed.convert(feed_path, meta_path, build_dir,
+                         skip_images=published_images(builds),
+                         apps=apps)
+    feed.report(stats)
+    return {
+        "key": FEED_KEY,
+        "maintainer": FEED_MAINTAINER,
+        "label": None,                     # every feed template labels itself
+        "per_template_label": True,
+        "repo": FEED_REPO,
+        "build": build_dir,
+        "license": None,                   # community catalogue, no single licence
+        "stats": stats,
+        "apps": list(apps) if apps else None,   # selection, None = whole catalogue
+    }
 
 
 def mos_host_path(host, appdata_root=MOS_APPDATA_ROOT, array_root=MOS_ARRAY_ROOT):
@@ -305,6 +412,25 @@ def unique_file(used, key, stem):
     return name
 
 
+def unique_name(used, name):
+    """Pick a display name that is unique across the merged repository.
+
+    The Hub indexes templates by `name` and validate_repos.py rejects duplicates,
+    so a name that is already taken gets a numeric suffix. Only the later source
+    is renamed, which keeps the git conversions byte-identical.
+    """
+    if name.lower() not in used:
+        used[name.lower()] = name
+        return name
+    suffix = 2
+    candidate = "%s-%d" % (name, suffix)
+    while candidate.lower() in used:
+        suffix += 1
+        candidate = "%s-%d" % (name, suffix)
+    used[candidate.lower()] = candidate
+    return candidate
+
+
 def merge(builds, out_root, mos_paths=False, mos_defaults=False,
           appdata_root=MOS_APPDATA_ROOT, array_root=MOS_ARRAY_ROOT):
     """Merge every per-source docker/ directory into OUT_ROOT/docker/.
@@ -316,11 +442,15 @@ def merge(builds, out_root, mos_paths=False, mos_defaults=False,
     shutil.rmtree(docker_dir, ignore_errors=True)
     os.makedirs(docker_dir, exist_ok=True)
 
-    used_files = {}
+    used_files, used_names = {}, {}
     report = []
     for entry in builds:
         placed = 0
         label = entry.get("label") or entry["key"]
+        # The feed is a catalogue of thousands of authors: every entry carries its
+        # own owner tag, so it is published under its own display name (name
+        # uniqueness is guaranteed within the feed, see unraid_feed_to_mos.py).
+        per_template = entry.get("per_template_label", False)
         pattern = os.path.join(entry["build"], "docker", "*.json")
         for path in sorted(glob.glob(pattern)):
             with open(path, encoding="utf-8") as fh:
@@ -334,10 +464,14 @@ def merge(builds, out_root, mos_paths=False, mos_defaults=False,
             # repository level maintainer for docker templates, but `author` is a
             # valid template field there and keeps the provenance in the data.
             obj.setdefault("author", entry["maintainer"])
-            # Every display name carries its owner, so the same application from
-            # two sources stays distinguishable in the Hub (jellyfin (hotio) vs
-            # jellyfin (linuxserver)).
-            obj["name"] = "%s (%s)" % (obj.get("name") or stem, label)
+            if per_template:
+                obj["name"] = obj.get("name") or stem
+            else:
+                # Every display name carries its owner, so the same application
+                # from two sources stays distinguishable in the Hub
+                # (jellyfin (hotio) vs jellyfin (linuxserver)).
+                obj["name"] = "%s (%s)" % (obj.get("name") or stem, label)
+            obj["name"] = unique_name(used_names, obj["name"])
             fname = unique_file(used_files, entry["key"], stem)
             used_files[fname.lower()] = entry["key"]
             with open(os.path.join(docker_dir, fname), "w", encoding="utf-8") as fh:
@@ -379,20 +513,35 @@ def write_readme(out_root, report, maintainer, mos_paths=False, mos_defaults=Fal
                  appdata_root=MOS_APPDATA_ROOT, array_root=MOS_ARRAY_ROOT):
     """Write the repository README (layout, MOS Hub instructions, sources)."""
     total = sum(row["count"] for row in report)
+    feed_row = next((row for row in report if row["key"] == FEED_KEY), None)
+    git_rows = [row for row in report if row["key"] != FEED_KEY]
     hub_docs = ("https://github.com/mos-nas/mos-docs/blob/main/"
                 "docs/MOS-Hub/Creating-Your-Own-MOS-Hub-Repository.md")
+    intro = ("holding **%d templates**: **%d** from %d dedicated author repositories"
+             % (total, sum(row["count"] for row in git_rows), len(git_rows)))
+    if feed_row:
+        intro += ("\nplus **%d** apps taken from the\n"
+                  "[Community Applications feed](https://github.com/%s).\n"
+                  "That feed is the catalogue of the whole unRAID community, so the\n"
+                  "repository only carries the apps listed in `FEED_APPS`\n"
+                  "(`tools/convert_sources.py`). Every feed template keeps the owner tag\n"
+                  "of its CA repository (`obico (imagegenius)`) and is only published when\n"
+                  "the git repositories do not cover its image already."
+                  % (feed_row["count"], FEED_REPO))
+    else:
+        intro += "."
     lines = [
         "# Unraid to MOS - template repository",
         "",
         "A single flat [MOS Hub](%s) repository" % hub_docs,
-        "holding docker templates converted from **%d** unRAID Community Applications" % len(report),
-        "template repositories: **%d templates** from %d upstream authors." % (total, len(report)),
+        intro,
         "",
         "`maintainer.json` and `docker/<App>.json` sit at the repository root, which is",
         "the only layout the MOS Hub indexes. Author provenance is preserved in every",
         "template (`author`, `project`, `support`, `registry`, `donate`) and in the",
-        "table below; every display name carries its owner (`jellyfin (hotio)`,",
-        "`jellyfin (linuxserver)`, `... (SIO)` for SpaceinvaderOne).",
+        "table below; every display name carries its owner:",
+        "`jellyfin (hotio)`, `jellyfin (linuxserver)`, `... (SIO)` for",
+        "SpaceinvaderOne%s." % (", `obico (imagegenius)` for the feed" if feed_row else ""),
         "",
         "## Add it to MOS Hub",
         "",
@@ -453,8 +602,17 @@ def write_readme(out_root, report, maintainer, mos_paths=False, mos_defaults=Fal
         lic = "[kept](./licenses/%s.txt)" % row["key"] if row.get("license") else "not published"
         lines.append("| `%s` | %s | %d | [%s](https://github.com/%s) | %s |"
                      % (row["key"], row["maintainer"], row["count"], row["repo"], row["repo"], lic))
+    if feed_row:
+        lines += [
+            "",
+            "The `appfeed` source is curated: `FEED_APPS` in `tools/convert_sources.py`",
+            "holds the apps (`<name>@<repository>`) converted from the feed,",
+            "`--feed-app NAME[@REPO]` replaces that list for one run and `--feed-all`",
+            "converts the whole catalogue.",
+        ]
     switches = " ".join(name for name, enabled in
-                        (("--mos-paths", mos_paths), ("--mos-defaults", mos_defaults))
+                        (("--mos-paths", mos_paths), ("--mos-defaults", mos_defaults),
+                         ("--no-appfeed", not feed_row))
                         if enabled)
     lines += [
         "",
@@ -519,6 +677,25 @@ def main(argv):
                         help="value written to maintainer.json (default: %(default)s)")
     parser.add_argument("--donation", default=ROOT_DONATION,
                         help="donation URL written to maintainer.json")
+    parser.add_argument("--no-appfeed", action="store_true",
+                        help="convert only the git repositories, not the "
+                             "Community Applications feed")
+    parser.add_argument("--feed", metavar="JSON", default=None,
+                        help="convert this applicationFeed-raw.json instead of "
+                             "downloading the feed (applicationFeed.json is read "
+                             "from the same directory)")
+    parser.add_argument("--feed-dir", metavar="DIR", default=None,
+                        help="download cache for the feed (default: WORK_DIR/appfeed)")
+    parser.add_argument("--feed-app", action="append", default=[], metavar="APP",
+                        help="replace the curated Community Applications "
+                             "selection (FEED_APPS) with this app, spelled "
+                             "'<name>' or '<name>@<repository>' (repeatable)")
+    parser.add_argument("--feed-all", action="store_true",
+                        help="convert the whole Community Applications "
+                             "catalogue, not just the curated selection")
+    parser.add_argument("--refresh-feed", action="store_true",
+                        help="download the feed again even when the cached copy "
+                             "is younger than %d hours" % (feed.FEED_MAX_AGE // 3600))
     args = parser.parse_args(argv[1:])
 
     work, out_root = args.work, args.out
@@ -545,6 +722,16 @@ def main(argv):
             "license": find_license(clone_dir),
         })
 
+    if not args.no_appfeed:
+        # The feed is a catalogue of everything: the repository carries the
+        # curated FEED_APPS selection, --feed-app replaces it and --feed-all
+        # publishes the whole catalogue (None = no selection).
+        feed_apps = None if args.feed_all else list(args.feed_app or FEED_APPS)
+        builds.append(build_appfeed(work, builds, feed_path=args.feed,
+                                    feed_dir=args.feed_dir,
+                                    refresh=args.refresh_feed,
+                                    apps=feed_apps))
+
     report = merge(builds, out_root, mos_paths=args.mos_paths,
                    mos_defaults=args.mos_defaults,
                    appdata_root=args.appdata_root, array_root=args.array_root)
@@ -553,12 +740,26 @@ def main(argv):
     write_readme(out_root, report, args.maintainer, mos_paths=args.mos_paths,
                  mos_defaults=args.mos_defaults,
                  appdata_root=args.appdata_root, array_root=args.array_root)
+    # Only the git collections ever had a per-source folder in the repository
+    # root; the feed is built below WORK_DIR, so its key is not pruned here (a
+    # --feed-dir inside the repository must not be deleted).
     removed = prune_old_layout(out_root, [s["key"] for s in SOURCES])
     normalize_modes(out_root)
 
     print()
     for row in report:
         print("%-16s %5d templates  %s" % (row["key"], row["count"], row["repo"]))
+        stats = row.get("stats")
+        if stats:
+            print("%-16s       from %d Community Applications entries (%d skipped)"
+                  % ("", stats["entries"], sum(stats["skipped"].values())))
+        apps = row.get("apps")
+        if apps:
+            print("%-16s       curated selection (%d apps):" % ("", len(apps)))
+            for spec in apps:
+                print("%-16s         - %s" % ("", spec))
+        elif stats:
+            print("%-16s       selection: the whole catalogue (--feed-all)" % "")
     print("-" * 64)
     print("%-16s %5d templates  (%d sources, %d licences kept)"
           % ("TOTAL", sum(r["count"] for r in report), len(report), kept))

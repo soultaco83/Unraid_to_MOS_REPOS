@@ -1,0 +1,153 @@
+{
+  "name": "unmanic (Josh.5)",
+  "repo": "josh5/unmanic:latest",
+  "category": [
+    "Productivity",
+    "Media",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/josh5/unmanic/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8888]/",
+  "icon": "https://raw.githubusercontent.com/Unmanic/unmanic/master/icon.png",
+  "project": "https://github.com/Unmanic/unmanic",
+  "support": "https://streamingtech.co.nz/discord",
+  "description": "Unmanic is a simple tool for optimising your file library with a highly customisable plugin system.\nRemove the complexity of automatically converting your file library.\nSimply point Unmanic at your library and let it manage it for you.\n\n---\n## Features:\n- Manage multiple independent libraries of any media file type with a large range of plugins.\n- Simple to configure - don't waste your time with hours of setup. Just get the job done with Unmanic.\n- Support for VAAPI/QSV/NVIDIA NVENC for hardware accelerated encoding.\n- Schedule file scans at set intervals.\n- Configure inotify file monitors for your libraries.\n- Link with other installations to share in distributed processing of tasks. These other installations may be on:\n    - This same Unraid server\n    - A LAN connected PC (including across subnets)\n    - A Internet connected PC behind a basic auth proxy\n    - Linux, MacOS, Windows\n    - x86, Armv7, Arm64\n\n---\n## Advanced Configuration:\n\n### LIMIT CPU USE:\n1) Toggle this Docker Container template editor to \"Advanced View\".\n2) In the \"Extra Parameters\" field, add \"--cpus='1'\".\nThis value depends on the number of cores available to the container. To limit to 50%, set this value to 0.5 * n cores. If you have 2 cores available to this container, \"--cpus='.5'\" will equal 25% of that available CPU resources. To limit the CPU cores available to the continer, use \"CPU Pinning\"\n\n### LIMIT RAM ALLOCATION:\n1) Toggle this Docker Container template editor to \"Advanced View\".\n2) In the \"Extra Parameters\" field, add \"--memory='1g'\".\nUnmanic can use on average around 100Mib - 500 Mib of RAM for various Disk IO tasks.\nEven though limiting RAM is unnecessary as Unmanic should not ever need more that 1GB RAM it is good practice to do so.\n**Note:** If you set your *Cache Directory* path to a tmpfs or RAM, limiting your memory allocation will affect the available RAM for the cache volume.\n\n### NVIDIA GPU USE (NVDEC/NVENC):\n1) Install the **Nvidia-Driver** plugin.\n2) Toggle this Docker Container template editor to \"Advanced View\".\n3) In the \"Extra Parameters\" field, add \"--runtime=nvidia\".\n4) Expand the template \"Show more settings...\" section.\n5) In the \"NVIDIA_VISIBLE_DEVICES\" variable, copy your GPU UUID (can be found in the Unraid Nvidia Plugin)\n\n### INTEL GPU USE (QSV/VAAPI):\n1) Install the **Intel-GPU-TOP** plugin.\n2) Toggle this Docker Container template editor to \"Advanced View\".\n3) In the \"Extra Parameters\" field, add \"--device=/dev/dri\".\n\n### AMD GPU USE (VAAPI):\n1) Install the **Radeon-TOP** plugin.\n2) Toggle this Docker Container template editor to \"Advanced View\".\n3) In the \"Extra Parameters\" field, add \"--device=/dev/dri\".",
+  "requires": "**Nvidia-Driver plugin** (optional - required for nVidia Support)\n**Intel-GPU-TOP plugin** (optional - required for Intel Support)\n**Radeon-TOP plugin** (optional - required for AMD Support)",
+  "paths": [
+    {
+      "name": "Appdata",
+      "host": "/mnt/cache/appdata/unmanic",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Location where all container configuration is stored.",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Cache Directory",
+      "host": null,
+      "container": "/tmp/unmanic",
+      "mode": "rw",
+      "description": "Location where task files are temporarily stored while workers are carrying out jobs on them.",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Library Movies",
+      "host": null,
+      "container": "/library/movies",
+      "mode": "rw",
+      "description": "",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Library TV",
+      "host": null,
+      "container": "/library/tv",
+      "mode": "rw",
+      "description": "",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Library Music",
+      "host": null,
+      "container": "/library/music",
+      "mode": "rw",
+      "description": "",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Library Pictures",
+      "host": null,
+      "container": "/library/pictures",
+      "mode": "rw",
+      "description": "",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "8888",
+      "container": "8888",
+      "protocol": "tcp",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Nvidia GPU UUID",
+      "key": "NVIDIA_VISIBLE_DEVICES",
+      "value": "all",
+      "description": "The UUID of the NVIDIA GPU that you wish to use within this container. Set to 'all' to use all available NVIDIA GPUs.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Nvidia GPU Patch Version",
+      "key": "NVIDIA_PATCH_VERSION",
+      "value": null,
+      "description": "For description, join the conversation at https://streamingtech.co.nz/discord",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [
+    {
+      "driver": "nvidia",
+      "count": "all",
+      "capabilities": [
+        "gpu"
+      ],
+      "description": "NVIDIA GPU pass-through. Requires the NVIDIA driver / container toolkit on the host (Unraid: install the Nvidia-Driver plugin)."
+    }
+  ],
+  "author": "Josh.5"
+}

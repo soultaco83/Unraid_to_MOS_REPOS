@@ -1,0 +1,129 @@
+{
+  "name": "traefik (IBRACORP)",
+  "repo": "traefik:latest",
+  "category": [
+    "Productivity",
+    "Security",
+    "Utilities",
+    "Network"
+  ],
+  "registry": "https://hub.docker.com/_/traefik",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]/",
+  "icon": "https://raw.githubusercontent.com/ibracorp/unraid-templates/master/traefik/traefik.png",
+  "project": "https://traefik.io/",
+  "support": "https://discord.gg/VWAG7rZ",
+  "description": "The world’s most popular cloud-native application proxy that helps developers and operations teams build, deploy and run modern microservices applications quickly and easily.\r\n\r\nFor a guide on how to install this reverse proxy, head over to our documentation website.\r\n\r\nhttps://docs.ibracorp.io\r\n\r\nCome join in on the community fun and get support by joining our discord!\r\n\r\nhttps://discord.gg/VWAG7rZ",
+  "paths": [
+    {
+      "name": "Config Folder",
+      "host": "/mnt/cache/appdata/traefik",
+      "container": "/etc/traefik",
+      "mode": "rw",
+      "description": "Appdata Location",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Docker Socket",
+      "host": "/var/run/docker.sock",
+      "container": "/var/run/docker.sock",
+      "mode": "rw",
+      "description": "The default is /var/run/docker.sock",
+      "required": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "https Port",
+      "host": "44301",
+      "container": "443",
+      "protocol": "tcp",
+      "description": "HTTPS Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "http Port",
+      "host": "8001",
+      "container": "80",
+      "protocol": "tcp",
+      "description": "HTTP Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Web UI Port",
+      "host": "8183",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "Dashboard WebUI Port",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Cloudflare API Token",
+      "key": "CF_DNS_API_TOKEN",
+      "value": "YOUR_SUPER_SECURE_CLOUDFLARE_API_TOKEN",
+      "description": "Cloudflare DNS API Token",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [
+    {
+      "name": "Traefik Dashboard Subdomain",
+      "key": "traefik.http.routers.api.rule",
+      "value": "Host(`traefik.DOMAIN.COM`)",
+      "description": "Traefik dashboard URL",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Traefik Entrypoint",
+      "key": "traefik.http.routers.api.entryPoints",
+      "value": "https",
+      "description": "Traefik Dashboard Entrypoint",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Traefik API",
+      "key": "traefik.http.routers.api.service",
+      "value": "api@internal",
+      "description": "Routing Traefik to its API Dashboard",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Enable Traefik (Dashboard)",
+      "key": "traefik.enable",
+      "value": "true",
+      "description": "Enable/Disable Traefik Dashboard",
+      "required": false,
+      "mask": false
+    }
+  ],
+  "gpus": [],
+  "author": "IBRACORP"
+}
