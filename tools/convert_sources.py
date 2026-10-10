@@ -122,6 +122,8 @@ FEED_APPS = (
     "gitea-runner@d3vyce",          # /apps/gitea-runner-1puljwv0h2glgr
     "dockerregistry3@jj9987",       # /apps/dockerregistry3-02iszh405vg0os
     "immich@imagegenius",           # /apps/immich-0qen9gq1lmx4dq
+    "crowdsec@ibracorp",            # /apps/crowdsec-1fxlnq502ihoc1
+    "crowdsec-traefik-bouncer@ibracorp",  # /apps/crowdsec-traefik-bouncer-0o99y5t0nhe4v9
 )
 
 # Repository level metadata written to maintainer.json. The MOS Hub labels EVERY

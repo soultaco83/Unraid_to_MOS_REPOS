@@ -1,8 +1,8 @@
 # Unraid to MOS - template repository
 
 A single flat [MOS Hub](https://github.com/mos-nas/mos-docs/blob/main/docs/MOS-Hub/Creating-Your-Own-MOS-Hub-Repository.md) repository
-holding **390 templates**: **378** from 4 dedicated author repositories
-plus **12** apps taken from the
+holding **392 templates**: **378** from 4 dedicated author repositories
+plus **14** apps taken from the
 [Community Applications feed](https://github.com/Squidly271/AppFeed).
 That feed is the catalogue of the whole unRAID community, so the
 repository only carries the apps listed in `FEED_APPS`
@@ -58,7 +58,7 @@ follow the pool names of the host that generated this repository
 
 | Source | Maintainer | Templates | Upstream | Licence |
 |---|---|---:|---|---|
-| `appfeed` | Community Applications | 12 | [Squidly271/AppFeed](https://github.com/Squidly271/AppFeed) | not published |
+| `appfeed` | Community Applications | 14 | [Squidly271/AppFeed](https://github.com/Squidly271/AppFeed) | not published |
 | `hotio` | hotio | 27 | [hotio/unraid-templates](https://github.com/hotio/unraid-templates) | [kept](./licenses/hotio.txt) |
 | `linuxserver` | linuxserver | 198 | [linuxserver/templates](https://github.com/linuxserver/templates) | [kept](./licenses/linuxserver.txt) |
 | `selfhosters` | selfhosters | 128 | [selfhosters/unRAID-CA-templates](https://github.com/selfhosters/unRAID-CA-templates) | [kept](./licenses/selfhosters.txt) |
