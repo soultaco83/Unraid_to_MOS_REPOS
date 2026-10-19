@@ -17,7 +17,7 @@
   "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver-ls-logo.png",
   "project": "https://getartcraft.com/",
   "support": "https://github.com/linuxserver/docker-craft-apps/issues/new/choose",
-  "description": "ArtCraft(https://getartcraft.com/) is a suite of open source creative applications written in Rust. This image bundles PhotoCraft (image editor), VectorCraft (vector illustration), FilmCraft (video editor), LightCraft (photo library and raw developer), PdfCraft (PDF workbench), EffectCraft (motion graphics and VFX compositor) and DesignCraft (page layout and publishing) in a single desktop.",
+  "description": "ArtCraft(https://getartcraft.com/) is a suite of open source creative applications written in Rust. This image bundles PhotoCraft (image editor), VectorCraft (vector illustration), FilmCraft (video editor), LightCraft (photo library and raw developer), PdfCraft (PDF workbench), EffectCraft (motion graphics and VFX compositor), DesignCraft (page layout and publishing) and FigCraft (interface design and prototyping) in a single desktop.",
   "donate": "https://www.linuxserver.io/donate",
   "requires": "This image is unprotected by default __**do not**__ expose it to the internet.\n        Please read https://github.com/linuxserver/docker-craft-apps#security for more information.",
   "paths": [
