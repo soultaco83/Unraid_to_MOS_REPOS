@@ -1,8 +1,8 @@
 # Unraid to MOS - template repository
 
 A single flat [MOS Hub](https://github.com/mos-nas/mos-docs/blob/main/docs/MOS-Hub/Creating-Your-Own-MOS-Hub-Repository.md) repository
-holding **394 templates**: **380** from 4 dedicated author repositories
-plus **14** apps taken from the
+holding **404 templates**: **381** from 5 dedicated author repositories
+plus **23** apps taken from the
 [Community Applications feed](https://github.com/Squidly271/AppFeed).
 That feed is the catalogue of the whole unRAID community, so the
 repository only carries the apps listed in `FEED_APPS`
@@ -58,9 +58,10 @@ follow the pool names of the host that generated this repository
 
 | Source | Maintainer | Templates | Upstream | Licence |
 |---|---|---:|---|---|
-| `appfeed` | Community Applications | 14 | [Squidly271/AppFeed](https://github.com/Squidly271/AppFeed) | not published |
+| `appfeed` | Community Applications | 23 | [Squidly271/AppFeed](https://github.com/Squidly271/AppFeed) | not published |
 | `hotio` | hotio | 27 | [hotio/unraid-templates](https://github.com/hotio/unraid-templates) | [kept](./licenses/hotio.txt) |
 | `linuxserver` | linuxserver | 200 | [linuxserver/templates](https://github.com/linuxserver/templates) | [kept](./licenses/linuxserver.txt) |
+| `local` | Soultaco83 | 1 | [WonderAliceUwU/OmniArr](https://github.com/WonderAliceUwU/OmniArr) | not published |
 | `selfhosters` | selfhosters | 127 | [selfhosters/unRAID-CA-templates](https://github.com/selfhosters/unRAID-CA-templates) | [kept](./licenses/selfhosters.txt) |
 | `spaceinvaderone` | SpaceinvaderOne | 26 | [SpaceinvaderOne/Docker-Templates-Unraid](https://github.com/SpaceinvaderOne/Docker-Templates-Unraid) | not published |
 

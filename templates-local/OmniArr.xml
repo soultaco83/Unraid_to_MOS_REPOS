@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>OmniArr</Name>
+  <Repository>wonderalice/omniarr:1.2.4</Repository>
+  <Registry>https://hub.docker.com/r/wonderalice/omniarr</Registry>
+  <Network>bridge</Network>
+  <Support>https://github.com/WonderAliceUwU/OmniArr</Support>
+  <Project>https://github.com/WonderAliceUwU/OmniArr</Project>
+  <Overview>Every Arr unified: browse your Jellyfin library, discover movies and series, request downloads and monitor storage from one dashboard.</Overview>
+  <Category>Media:Utilities</Category>
+  <WebUI>http://[IP]:[PORT:8787]</WebUI>
+  <Config Name="Data" Target="/app/data" Default="" Mode="rw" Description="Container Path: /app/data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/omniarr</Config>
+  <Config Name="WebUI" Target="8787" Default="" Mode="tcp" Description="Container Port: 8787" Type="Port" Display="always" Required="true" Mask="false">8787</Config>
+  <Config Name="Port" Target="PORT" Default="" Mode="" Description="Container Variable: PORT" Type="Variable" Display="advanced" Required="false" Mask="false">8787</Config>
+  <Config Name="Data Dir" Target="OMNIARR_DATA_DIR" Default="" Mode="" Description="Container Variable: OMNIARR_DATA_DIR" Type="Variable" Display="advanced" Required="false" Mask="false">/app/data</Config>
+</Container>

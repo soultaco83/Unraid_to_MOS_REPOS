@@ -4,7 +4,6 @@ on:
   schedule:
     # Daily at 03:15 UTC - fetch every upstream repository plus the curated
     # Community Applications apps, convert any new or changed templates into the
-    # flat MOS Hub layout and commit the result.
     - cron: "15 3 * * *"
   workflow_dispatch:
 
@@ -13,10 +12,7 @@ permissions:
 
 jobs:
   update:
-    # Pin an explicit Ubuntu image instead of the moving `ubuntu-latest` label,
-    # which GitHub is migrating from Ubuntu 24.04 to Ubuntu 26.04 during
-    # October-November 2026. See actions/runner-images#14748.
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -34,7 +30,7 @@ jobs:
         # published by one of the git collections are dropped, so the run stays
         # idempotent; when nothing changed upstream the generated tree is
         # byte-identical and the commit step below skips.
-        run: python3 tools/convert_sources.py /tmp/unraid-sources . --mos-paths --mos-defaults
+        run: python3 tools/convert_sources.py /tmp/unraid-sources . --mos-paths --mos-defaults --trending 10
 
       - name: Validate the converted repository
         # Fails the run on any problem (missing fields, duplicate names, unknown

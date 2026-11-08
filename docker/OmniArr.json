@@ -1,0 +1,72 @@
+{
+  "name": "OmniArr (Soultaco83)",
+  "repo": "wonderalice/omniarr:1.2.4",
+  "category": [
+    "Media",
+    "Utilities"
+  ],
+  "registry": "https://hub.docker.com/r/wonderalice/omniarr",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": null,
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8787]",
+  "icon": null,
+  "project": "https://github.com/WonderAliceUwU/OmniArr",
+  "support": "https://github.com/WonderAliceUwU/OmniArr",
+  "description": "Every Arr unified: browse your Jellyfin library, discover movies and series, request downloads and monitor storage from one dashboard.",
+  "paths": [
+    {
+      "name": "Data",
+      "host": "/mnt/cache/appdata/omniarr",
+      "container": "/app/data",
+      "mode": "rw",
+      "description": "Container Path: /app/data",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "8787",
+      "container": "8787",
+      "protocol": "tcp",
+      "description": "Container Port: 8787",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Port",
+      "key": "PORT",
+      "value": "8787",
+      "description": "Container Variable: PORT",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Data Dir",
+      "key": "OMNIARR_DATA_DIR",
+      "value": "/app/data",
+      "description": "Container Variable: OMNIARR_DATA_DIR",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "Soultaco83"
+}

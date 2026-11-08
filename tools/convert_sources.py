@@ -25,13 +25,15 @@ Usage:
                                [--maintainer NAME] [--donation URL]
                                [--no-appfeed] [--feed PATH] [--feed-dir DIR]
                                [--refresh-feed] [--feed-app APP]... [--feed-all]
+                               [--trending N]
 
 Defaults:
     WORK_DIR   = /tmp/unraid-sources                    (shallow clones cached here)
     OUTPUT_DIR = /mnt/github/github/Unraid_to_MOS_REPOS
 
 Sources:
-    The four git repositories in SOURCES are converted first, then a curated
+    The git repositories in SOURCES are converted first (plus any hand-authored
+    templates kept under a local `templates-local/` directory), then a curated
     selection of the aggregated Community Applications feed (Squidly271/AppFeed,
     see unraid_feed_to_mos.py). That feed is a superset of those repositories and
     covers thousands of community templates, so FEED_APPS lists the apps that are
@@ -47,6 +49,12 @@ Sources:
     converts a locally downloaded applicationFeed-raw.json, `--feed-dir DIR` is
     the download cache (default WORK_DIR/appfeed) and `--refresh-feed` ignores
     that cache.
+
+    `--trending N` additionally accumulates the top N trending Docker apps from
+    https://ca.unraid.net/apps?category=all&sortBy=trending into the feed
+    selection. The selection is append-only (see trending_apps.py): an app that
+    stops trending is kept, so it is never removed from the repository because it
+    fell out of the top N.
 
 The published repository targets MOS, not unRAID, so two switches rewrite the
 converted templates onto the MOS conventions:
@@ -81,6 +89,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import unraid_to_mos as conv  # noqa: E402
 import unraid_feed_to_mos as feed  # noqa: E402
+import trending_apps  # noqa: E402
 
 # Converted wholesale: the community collections (selfhosters, linuxserver)
 # plus a few dedicated author repositories. `label` is the short owner tag that
@@ -90,6 +99,7 @@ SOURCES = [
     {"key": "linuxserver",     "maintainer": "linuxserver",     "label": "linuxserver",     "repo": "linuxserver/templates"},
     {"key": "hotio",           "maintainer": "hotio",           "label": "hotio",           "repo": "hotio/unraid-templates"},
     {"key": "spaceinvaderone", "maintainer": "SpaceinvaderOne", "label": "SIO",             "repo": "SpaceinvaderOne/Docker-Templates-Unraid"},
+    {"key": "local",           "maintainer": "Soultaco83",      "label": "Soultaco83",      "repo": "WonderAliceUwU/OmniArr", "dir": "templates-local"},
 ]
 
 # The fifth source is not a git repository but the aggregated Community
@@ -124,6 +134,8 @@ FEED_APPS = (
     "immich@imagegenius",           # /apps/immich-0qen9gq1lmx4dq
     "crowdsec@ibracorp",            # /apps/crowdsec-1fxlnq502ihoc1
     "crowdsec-traefik-bouncer@ibracorp",  # /apps/crowdsec-traefik-bouncer-0o99y5t0nhe4v9
+    "romm@arcanesada",              # RomM - rommapp/romm
+    "romarr@unraiduser-7237142946", # ROMarr - ghcr.io/blizzhacker/romarr
 )
 
 # Repository level metadata written to maintainer.json. The MOS Hub labels EVERY
@@ -698,6 +710,10 @@ def main(argv):
     parser.add_argument("--refresh-feed", action="store_true",
                         help="download the feed again even when the cached copy "
                              "is younger than %d hours" % (feed.FEED_MAX_AGE // 3600))
+    parser.add_argument("--trending", type=int, default=0, metavar="N",
+                        help="accumulate the top N trending Docker apps from "
+                             "ca.unraid.net into the feed selection "
+                             "(append-only, never removes; default: %(default)s = off)")
     args = parser.parse_args(argv[1:])
 
     work, out_root = args.work, args.out
@@ -708,20 +724,31 @@ def main(argv):
     for src in SOURCES:
         clone_dir = os.path.join(work, src["key"])
         build_dir = os.path.join(work, "build", src["key"])
-        clone(src["repo"], clone_dir)
+        local_dir = src.get("dir")
+        if local_dir:
+            # A source that is not a git repository but a directory of unRAID
+            # templates kept inside this repository (hand-authored apps that
+            # have no upstream template, e.g. OmniArr).
+            source_dir = os.path.join(
+                os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                local_dir)
+            os.makedirs(source_dir, exist_ok=True)
+        else:
+            clone(src["repo"], clone_dir)
+            source_dir = clone_dir
         shutil.rmtree(build_dir, ignore_errors=True)
         os.makedirs(build_dir, exist_ok=True)
         conv.MAINTAINER = src["maintainer"]
         conv.DONATION = ""
         print("== %s (%s)" % (src["key"], src["repo"]))
-        conv.main(["unraid_to_mos", clone_dir, build_dir])
+        conv.main(["unraid_to_mos", source_dir, build_dir])
         builds.append({
             "key": src["key"],
             "maintainer": src["maintainer"],
             "label": src.get("label", src["key"]),
             "repo": src["repo"],
             "build": build_dir,
-            "license": find_license(clone_dir),
+            "license": find_license(source_dir),
         })
 
     if not args.no_appfeed:
@@ -729,6 +756,19 @@ def main(argv):
         # curated FEED_APPS selection, --feed-app replaces it and --feed-all
         # publishes the whole catalogue (None = no selection).
         feed_apps = None if args.feed_all else list(args.feed_app or FEED_APPS)
+        if args.trending and feed_apps is not None:
+            # Accumulate the top trending CA apps into the selection. The list
+            # only grows (append-only): an app that stops trending is kept, so
+            # it is never removed from the repository just because it fell out
+            # of the top N.
+            state_path = os.path.join(out_root, "tools", "trending_apps.json")
+            try:
+                specs = trending_apps.fetch_trending(args.trending)
+            except Exception as exc:  # noqa: BLE001
+                print("trending : fetch failed (%s) - keeping the accumulated list" % exc)
+                specs = []
+            accumulated = trending_apps.accumulate(state_path, specs)
+            feed_apps = trending_apps.union(feed_apps, accumulated)
         builds.append(build_appfeed(work, builds, feed_path=args.feed,
                                     feed_dir=args.feed_dir,
                                     refresh=args.refresh_feed,

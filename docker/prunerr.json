@@ -1,0 +1,92 @@
+{
+  "name": "Prunerr (helliott20)",
+  "repo": "helliott20/prunerr:latest",
+  "category": [
+    "Media",
+    "Misc"
+  ],
+  "registry": "https://hub.docker.com/r/helliott20/prunerr",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:3000]/",
+  "icon": "https://raw.githubusercontent.com/helliott20/prunerr/main/assets/icon.png",
+  "project": "https://github.com/helliott20/prunerr",
+  "support": "https://forums.unraid.net/topic/196929-support-prunerr-media-library-cleanup-tool/",
+  "description": "Prunerr is a media library cleanup and management tool designed to work with Plex, Jellyfin or Emby, plus Sonarr and Radarr. Automatically reclaim disk space by identifying and removing unwanted media based on customizable rules.\r\n\r\nFeatures:\r\n- Smart rules engine: Create flexible rules based on watch status, age, file size, resolution, and more\r\n- Automatic cleanup: Schedule scans to automatically flag and remove unwatched media\r\n- Plex, Jellyfin and Emby: Pulls library data and watch history directly from whichever you use\r\n- Tautulli and Tracearr integration: Advanced watch history analysis for accurate play tracking (Plex only)\r\n- Sonarr and Radarr integration: Intelligently removes media through your *arr stack\r\n- Seerr integration: Tracks who requested content and optionally resets requests\r\n- Grace periods: Configurable retention periods before items are deleted\r\n- Deletion queue: Review and approve flagged items before removal\r\n- Discord notifications: Get notified about cleanup actions\r\n- Storage trends: Track your library size and space reclaimed over time\r\n- Modern dashboard: Real-time overview of your library with stats and recommendations\r\n\r\nAll service connections are configured through the web UI — no config files needed.",
+  "paths": [
+    {
+      "name": "Data Path",
+      "host": "/mnt/cache/appdata/prunerr",
+      "container": "/app/data",
+      "mode": "rw",
+      "description": "Path to store Prunerr database and configuration",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Web UI Port",
+      "host": "3000",
+      "container": "3000",
+      "protocol": "tcp",
+      "description": "Port for the Prunerr web interface",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "User ID for file permissions",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "Group ID for file permissions",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Allow self-signed certificates",
+      "key": "NODE_TLS_REJECT_UNAUTHORIZED",
+      "value": null,
+      "description": "Set to 0 if Prunerr can't connect to Unraid (or another service) because of a self-signed certificate. This turns off certificate checks for every connection Prunerr makes, so prefer the http:// address where you can. Leave empty to keep checks on.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Anonymous install count",
+      "key": "TELEMETRY_ENABLED",
+      "value": "true",
+      "description": "Once a day Prunerr sends a random ID and its version number, so there is some idea of how many installs are running. Nothing else is sent: no library data, no settings, no credentials, no hostname, and no IP address is stored. Set to false to disable it completely.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "helliott20"
+}

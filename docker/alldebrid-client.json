@@ -1,0 +1,159 @@
+{
+  "name": "AllDebrid-Client (sarcasm)",
+  "repo": "kroeberd/alldebrid-client:latest",
+  "category": [
+    "Downloader"
+  ],
+  "registry": "https://hub.docker.com/r/kroeberd/alldebrid-client",
+  "network": "host",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:8080/",
+  "icon": "https://raw.githubusercontent.com/kroeberd/alldebrid-client/main/docs/logo.png",
+  "project": "https://github.com/kroeberd/alldebrid-client",
+  "support": "https://discord.gg/8Vb9cj4ksv",
+  "description": "[b]AllDebrid-Client v1.9.9[/b] — Self-hosted torrent automation via AllDebrid.\n\nAdd magnet links or .torrent files through the Web UI, Jackett/Prowlarr search, a watch folder, Sonarr/Radarr (native qBittorrent API), or the REST API. AllDebrid-Client handles the full lifecycle: upload → poll → parallel unlock → aria2 download → notify.\n\n[b]Features:[/b]\n• Full lifecycle: upload → poll → unlock (parallel) → aria2 → done → Discord\n• Built-in aria2 — default, no extra setup required (or use your own external aria2)\n• Sonarr / Radarr native integration via qBittorrent v4.3.2 API emulation at /api/v2/\n• Prowlarr support — modern Jackett alternative with native *arr integration\n• Jackett multi-indexer search with chip picker and bulk Add / Add Selected / Add All\n• Server-Sent Events (SSE) — instant live updates, no 15-second polling\n• HTTP Basic Auth — optional access control (Settings → Access Control)\n• Disk space guard — abort download before start if free space below threshold\n• Post-processing script — shell command after each completed download\n• Symlink / .url downloader — for rclone AllDebrid mount setups\n• File selection — preview and block individual files before download\n• Watch folder — drop .torrent or .magnet files for auto-import\n• Auto-extraction — zip, rar, 7z, tar.* after download\n• Discord rich embeds per event type (add / complete / error / no-peers / stats)\n• Statistics: period selector 1h / 24h / 7d / 30d / 1y / all-time\n• FlexGet v3 integration (schedule + manual trigger from the UI)\n• Prometheus metrics at /api/metrics (Grafana-ready)\n• SQLite (default, zero-config) or external PostgreSQL\n• Automatic event log TTL, database backups, JSON export\n• Token-bucket rate limiter for AllDebrid API\n• Interactive API docs at /docs (Swagger UI)\n• Built-in Help — Quick Start, Sonarr/Radarr setup, Troubleshooting\n\n[b]Quick Setup:[/b]\n1. Set paths for Config, Data, Watch, Processed, and Downloads\n2. Open http://[IP]:8080 → Settings → General → enter AllDebrid API key → Save\n3. Built-in aria2 starts automatically — no further setup required\n4. (Optional) Add as qBittorrent download client in Sonarr/Radarr: Host=[IP], Port=8080\n5. Add magnets via UI, search, or drop files in the Watch folder\n\n[b]Sonarr / Radarr:[/b]\nSettings → Download Clients → + → qBittorrent → Host: [IP], Port: 8080\nNo username/password needed unless you enable HTTP Basic Auth.\n\n[b]Network:[/b] Uses host network mode to avoid conflicts with Unraid shares (shfs).",
+  "paths": [
+    {
+      "name": "Config Folder",
+      "host": "/mnt/cache/appdata/alldebrid-client/config",
+      "container": "/app/config",
+      "mode": "rw",
+      "description": "[REQUIRED] Stores config.json. Must be persistent across restarts.",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Data Folder",
+      "host": "/mnt/cache/appdata/alldebrid-client/data",
+      "container": "/app/data",
+      "mode": "rw",
+      "description": "[REQUIRED] Stores the SQLite database and automatic backups.",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Watch Folder",
+      "host": "/mnt/Array/data/torrents/watch",
+      "container": "/app/data/watch",
+      "mode": "rw",
+      "description": "Drop .torrent or .magnet files here for automatic import. Leave empty if unused.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Processed Folder",
+      "host": "/mnt/Array/data/torrents/processed",
+      "container": "/app/data/processed",
+      "mode": "rw",
+      "description": "Torrent/magnet files are moved here after processing. Leave empty if unused.",
+      "required": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Download Folder",
+      "host": "/mnt/Array/downloads/alldebrid",
+      "container": "/download",
+      "mode": "rw",
+      "description": "[REQUIRED] Downloaded files land here. If using external aria2, this path must match aria2's download directory.",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [],
+  "variables": [
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "description": "User ID for downloaded files. Must match the UID of the user running Sonarr, Radarr, Plex, etc. Run 'id' in a terminal on the host to find the right value.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "description": "Group ID for downloaded files. Must match the GID used by your other media containers. Run 'id' in a terminal on the host.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "002",
+      "description": "File permission mask. 002 = group-writable (recommended when sharing files with other containers). 022 = group-readable only.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Timezone",
+      "key": "TZ",
+      "value": "Europe/Berlin",
+      "description": "Container timezone for logs and Discord timestamps. Examples: Europe/Berlin, UTC, America/New_York.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Log Level",
+      "key": "LOG_LEVEL",
+      "value": "INFO",
+      "description": "Logging verbosity: INFO for normal operation, DEBUG for troubleshooting.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Database Type",
+      "key": "DB_TYPE",
+      "value": null,
+      "description": "Leave empty for SQLite (default, no setup required). Set to 'postgres' for an external PostgreSQL database — configure the connection in Settings → Database.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Config Path",
+      "key": "CONFIG_PATH",
+      "value": "/app/config/config.json",
+      "description": "Internal config file path. Do not change unless you have a specific reason.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "DB Path",
+      "key": "DB_PATH",
+      "value": "/app/data/alldebrid.db",
+      "description": "Internal SQLite database path. Do not change unless you have a specific reason.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": [],
+  "author": "sarcasm"
+}
