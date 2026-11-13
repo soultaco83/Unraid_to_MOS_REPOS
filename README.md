@@ -1,8 +1,8 @@
 # Unraid to MOS - template repository
 
 A single flat [MOS Hub](https://github.com/mos-nas/mos-docs/blob/main/docs/MOS-Hub/Creating-Your-Own-MOS-Hub-Repository.md) repository
-holding **404 templates**: **380** from 5 dedicated author repositories
-plus **24** apps taken from the
+holding **406 templates**: **380** from 5 dedicated author repositories
+plus **26** apps taken from the
 [Community Applications feed](https://github.com/Squidly271/AppFeed).
 That feed is the catalogue of the whole unRAID community, so the
 repository only carries the apps listed in `FEED_APPS`
@@ -58,7 +58,7 @@ follow the pool names of the host that generated this repository
 
 | Source | Maintainer | Templates | Upstream | Licence |
 |---|---|---:|---|---|
-| `appfeed` | Community Applications | 24 | [Squidly271/AppFeed](https://github.com/Squidly271/AppFeed) | not published |
+| `appfeed` | Community Applications | 26 | [Squidly271/AppFeed](https://github.com/Squidly271/AppFeed) | not published |
 | `hotio` | hotio | 27 | [hotio/unraid-templates](https://github.com/hotio/unraid-templates) | [kept](./licenses/hotio.txt) |
 | `linuxserver` | linuxserver | 200 | [linuxserver/templates](https://github.com/linuxserver/templates) | [kept](./licenses/linuxserver.txt) |
 | `local` | Soultaco83 | 1 | [WonderAliceUwU/OmniArr](https://github.com/WonderAliceUwU/OmniArr) | not published |
